@@ -1,0 +1,290 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_manage_vol_management.html 
+summary: Erfahren Sie, wie Sie ein Volume erstellen und das Volume einem bestimmten Konto zuordnen können. 
+keywords: netapp, hci, cluster, element, volume 
+---
+= Erstellen und managen Sie Volumes mit NetApp Hybrid Cloud Control
+:allow-uri-read: 
+
+
+[role="lead"]
+Sie können ein Volume erstellen und das Volume einem bestimmten Konto zuordnen. Durch die Verknüpfung eines Volumes mit einem Konto erhält das Konto über die iSCSI-Initiatoren und CHAP-Anmeldeinformationen Zugriff auf das Volume.
+
+Sie können die QoS-Einstellungen für ein Volume während der Erstellung festlegen.
+
+Folgende Möglichkeiten zum Managen von Volumes in NetApp Hybrid Cloud Control:
+
+*  a volume
+*  a QoS policy to a volume
+*  a volume
+*  volumes
+*  volumes to a volume access group
+*  a volume
+*  a deleted volume
+*  a deleted volume
+
+
+
+
+== Erstellen eines Volumes
+
+Mit NetApp Hybrid Cloud Control können Sie ein Storage-Volume erstellen.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie die Registerkarte *Bände* > *Übersicht*.
++
+image::hcc_volumes_overview_active.png[HCC-Volumes-Seite > Registerkarte Übersicht]
+
+. Wählen Sie *Lautstärke Erstellen*.
+. Geben Sie einen Namen für das neue Volume ein.
+. Geben Sie die Gesamtgröße des Volumes ein.
++
+
+NOTE: Die standardmäßige Auswahl der Volume-Größe ist in GB. Sie können Volumes mit Größen erstellen, die in GB oder gib gemessen wurden: 1 GB = 1 000 000 000 Byte 1 gib = 1 073 741 824 Byte
+
+. Wählen Sie eine Blockgröße für das Volume aus.
+. Wählen Sie aus der Liste *Konto* das Konto aus, das Zugriff auf das Volume haben soll.
++
+Wenn kein Konto vorhanden ist, klicken Sie auf *Neues Konto erstellen*, geben Sie einen neuen Kontonamen ein und klicken Sie auf *Konto erstellen*. Das Konto wird erstellt und mit dem neuen Volumen in der *Konto* Liste verknüpft.
+
++
+
+NOTE: Wenn mehr als 50 Konten vorhanden sind, wird die Liste nicht angezeigt. Beginnen Sie mit der Eingabe, und die automatische Vervollständigung zeigt Werte an, die Sie auswählen können.
+
+. Um die Servicequalität für das Volume zu konfigurieren, führen Sie einen der folgenden Schritte aus:
++
+** Legen Sie unter *Quality of Service Settings* benutzerdefinierte Mindest-, Maximum- und Burst-Werte für IOPS fest oder verwenden Sie die Standard-QoS-Werte.
+** Wählen Sie eine vorhandene QoS-Richtlinie aus, indem Sie die Option *Quality of Service Policy* zuweisen aktivieren und eine vorhandene QoS-Richtlinie aus der Ergebnisliste auswählen.
+** Erstellen und Zuweisen einer neuen QoS-Richtlinie durch Aktivieren der Option *Quality of Service Policy* zuweisen und Klicken auf *Neue QoS-Richtlinie erstellen*. Geben Sie im daraufhin angezeigten Fenster einen Namen für die QoS-Richtlinie ein, und geben Sie anschließend QoS-Werte ein. Klicken Sie anschließend auf *Quality of Service Policy*.
+
+
++
+Volumes mit einem IOPS-Wert von max oder Burst über 20,000 IOPS erfordern möglicherweise eine hohe Warteschlangentiefe oder mehrere Sitzungen, um diesen IOPS-Level auf einem einzelnen Volume zu erreichen.
+
+. Klicken Sie Auf *Volume Erstellen*.
+
+
+
+
+== Wenden Sie eine QoS-Richtlinie auf ein Volume an
+
+Mithilfe von NetApp Hybrid Cloud Control können Sie eine QoS-Richtlinie auf vorhandene Storage-Volumes anwenden. Wenn Sie stattdessen benutzerdefinierte QoS-Werte für ein Volume festlegen müssen, ist dies möglich  a volume. Informationen zum Erstellen einer neuen QoS-Richtlinie finden Sie unter link:task_hcc_qos_policies.html["Erstellung und Management von QoS-Richtlinien für Volumes"^].
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie *Bände* > *Übersicht*.
+. Wählen Sie ein oder mehrere Volumes aus, die einer QoS-Richtlinie zugeordnet werden sollen.
+. Klicken Sie oben in der Tabelle Volumes auf die Dropdown-Liste *Aktionen* und wählen Sie *QoS-Richtlinie anwenden*.
+. Wählen Sie im resultierenden Fenster eine QoS-Richtlinie aus der Liste aus und klicken Sie auf *QoS-Richtlinie anwenden*.
++
+
+NOTE: Wenn Sie QoS-Richtlinien für ein Volume verwenden, können Sie durch benutzerdefinierte QoS festlegen, dass die QoS-Richtlinie, die mit dem Volume verbunden ist, entfernt wird. Benutzerdefinierte QoS-Werte überschreiben QoS-Richtlinienwerte für Volume-QoS-Einstellungen.
+
+
+
+
+
+== Bearbeiten Sie ein Volume
+
+Mit NetApp Hybrid Cloud Control lassen sich Volume-Attribute wie QoS-Werte, Volume-Größe und die Maßeinheit bearbeiten, mit der Byte-Werte berechnet werden. Außerdem haben Sie die Möglichkeit, den Kontozugriff für die Replizierungsnutzung zu ändern oder den Zugriff auf das Volume zu beschränken.
+
+Sie können die Größe eines Volume ändern, wenn unter den folgenden Bedingungen genügend Speicherplatz auf dem Cluster vorhanden ist:
+
+* Normale Betriebsbedingungen.
+* Volume-Fehler oder -Ausfälle werden gemeldet.
+* Das Volume ist zu klonen.
+* Das Volume wird neu synchronisiert.
+
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie *Bände* > *Übersicht*.
+. Erweitern Sie in der Spalte *Aktionen* in der Tabelle Volumes das Menü für die Lautstärke und wählen Sie *Bearbeiten*.
+. Nehmen Sie die Änderungen nach Bedarf vor:
++
+.. Ändern Sie die Gesamtgröße des Volumes.
++
+
+NOTE: Sie können die Volume-Größe vergrößern, aber nicht verkleinern. Sie können die Größe eines Volumes nur in einem einzigen Größenänderungs-Vorgang anpassen. Speicherbereinigung und Software-Upgrades unterbrechen die Größenänderung nicht.
+
++
+
+NOTE: Wenn Sie die Volume-Größe für die Replikation anpassen, erhöhen Sie zuerst die Größe des Volumes, das als Replikationsziel zugewiesen wurde. Anschließend können Sie die Größe des Quellvolumens anpassen. Das Zielvolume kann größer oder gleich groß sein wie das Quellvolume, kann aber nicht kleiner sein.
+
++
+
+NOTE: Die standardmäßige Auswahl der Volume-Größe ist in GB. Sie können Volumes mit Größen erstellen, die in GB oder gib gemessen wurden: 1 GB = 1 000 000 000 Byte 1 gib = 1 073 741 824 Byte
+
+.. Wählen Sie eine andere Zugriffsebene für Konten aus:
++
+*** Schreibgeschützt
+*** Lese-/Schreibzugriff
+*** Gesperrt
+*** Replizierungsziel
+
+
+.. Wählen Sie das Konto aus, das Zugriff auf das Volume haben soll.
++
+Beginnen Sie mit der Eingabe, und die automatische Vervollständigung zeigt mögliche Werte an, die Sie auswählen können.
+
++
+Wenn kein Konto vorhanden ist, klicken Sie auf *Neues Konto erstellen*, geben Sie einen neuen Kontonamen ein und klicken Sie auf *Erstellen*. Der Account wird erstellt und dem vorhandenen Volume zugeordnet.
+
+.. Ändern Sie die Servicequalität mit einer der folgenden Aktionen:
++
+... Wählen Sie eine vorhandene Richtlinie aus.
+... Legen Sie unter „Benutzerdefinierte Einstellungen“ die Mindest-, Höchst- und Burst-Werte für IOPS fest oder verwenden Sie die Standardwerte.
++
+
+NOTE: Wenn Sie QoS-Richtlinien für ein Volume verwenden, können Sie durch benutzerdefinierte QoS festlegen, dass die QoS-Richtlinie, die mit dem Volume verbunden ist, entfernt wird. Durch benutzerdefinierte QoS werden die QoS-Richtlinienwerte für Volume-QoS-Einstellungen außer Kraft gesetzt.
+
++
+
+TIP: Wenn Sie IOPS-Werte ändern, sollten Sie sich Dutzende oder Hunderte erhöhen. Eingabewerte erfordern gültige ganze Zahlen. Konfigurieren Sie Volumes mit einem extrem hohen Burst-Wert. So kann das System gelegentlich umfangreiche sequenzielle Workloads von großen Blöcken schneller verarbeiten und zugleich die anhaltenden IOPS für ein Volume einschränken.
+
+
+
+
+
+. Wählen Sie *Speichern*.
+
+
+
+
+== Volumes klonen
+
+Sie können einen Klon eines einzelnen Storage Volumes erstellen oder eine Gruppe von Volumes klonen, um eine zeitpunktgenaue Kopie der Daten zu erstellen. Wenn Sie ein Volume klonen, erstellt das System einen Snapshot des Volume und erstellt dann eine Kopie der Daten, auf die der Snapshot verweist.
+
+.Bevor Sie beginnen
+* Mindestens ein Cluster muss hinzugefügt und ausgeführt werden.
+* Mindestens ein Volume wurde erstellt.
+* Ein Benutzerkonto wurde erstellt.
+* Der verfügbare nicht bereitgestellte Speicherplatz muss der Volume-Größe entsprechen oder größer sein.
+
+
+Das Cluster unterstützt bis zu zwei aktuell laufende Klonanforderungen pro Volume und bis zu 8 aktive Volume-Klonvorgänge gleichzeitig. Anforderungen, die über diese Grenzen hinausgehen, werden zur späteren Verarbeitung in die Warteschlange gestellt.
+
+Das Klonen von Volumes ist ein asynchroner Prozess. Die erforderliche Zeit hängt von der Größe des Klonens des Volumes und der aktuellen Cluster-Last ab.
+
+
+NOTE: Geklonte Volumes übernehmen keine Zugriffsgruppenmitgliedschaft für Volumes vom Quell-Volume.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie die Registerkarte *Volumes* > *Übersicht* aus.
+. Wählen Sie jedes Volume aus, das Sie klonen möchten.
+. Klicken Sie oben in der Tabelle Volumes auf die Dropdown-Liste *Aktionen* und wählen Sie *Klonen*.
+. Gehen Sie im daraufhin angezeigten Fenster wie folgt vor:
++
+.. Geben Sie ein Präfix für den Volume-Namen ein (optional).
+.. Wählen Sie den Zugriffstyp aus der Liste *Zugriff* aus.
+.. Wählen Sie ein Konto aus, das dem neuen Volume-Klon zugeordnet werden soll (standardmäßig ist *aus Volume kopieren* ausgewählt, das dasselbe Konto verwendet, das das ursprüngliche Volume verwendet).
+.. Wenn kein Konto vorhanden ist, klicken Sie auf *Neues Konto erstellen*, geben Sie einen neuen Kontonamen ein und klicken Sie auf *Konto erstellen*. Der Account wird erstellt und dem Volume zugeordnet.
++
+
+TIP: Verwenden Sie beschreibende Best Practices für die Benennung. Dies ist besonders wichtig, wenn in Ihrer Umgebung mehrere Cluster oder vCenter Server verwendet werden.
+
++
+
+NOTE: Wenn Sie die Volume-Größe eines Klons erhöhen, führt dies zu einem neuen Volume mit zusätzlichem freien Speicherplatz am Ende des Volumes. Je nachdem, wie Sie das Volume verwenden, müssen Sie möglicherweise Partitionen erweitern oder neue Partitionen im freien Speicherplatz erstellen, um es zu nutzen.
+
+.. Klicken Sie Auf *Volumes Klonen*.
++
+
+NOTE: Der Zeitaufwand zum Abschluss eines Klonvorgangs wird von der Volume-Größe und der aktuellen Cluster-Last beeinflusst. Aktualisieren Sie die Seite, wenn das geklonte Volume nicht in der Liste der Volumes angezeigt wird.
+
+
+
+
+
+
+
+== Hinzufügen von Volumes zu einer Volume-Zugriffsgruppe
+
+Sie können einer Volume-Zugriffsgruppe ein einzelnes Volume oder eine Gruppe von Volumes hinzufügen.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie *Bände* > *Übersicht*.
+. Wählen Sie ein oder mehrere Volumes aus, die einer Volume-Zugriffsgruppe zugeordnet werden sollen.
+. Klicken Sie oben in der Tabelle Volumes auf die Dropdown-Liste *Aktionen* und wählen Sie *zur Zugriffsgruppe hinzufügen*.
+. Wählen Sie im resultierenden Fenster eine Zugriffsgruppe für Volumes aus der Liste *Volume Access Group* aus.
+. Klicken Sie Auf *Volumen Hinzufügen*.
+
+
+
+
+== Löschen Sie ein Volume
+
+Ein oder mehrere Volumes können aus einem Element Storage-Cluster gelöscht werden.
+
+Gelöschte Volumes werden nicht sofort vom System gelöscht, sie bleiben etwa acht Stunden lang verfügbar. Nach acht Stunden werden sie gereinigt und sind nicht mehr verfügbar. Wenn Sie ein Volume wiederherstellen, bevor das System es bereinigt, wird das Volume wieder online geschaltet und die iSCSI-Verbindungen werden wiederhergestellt.
+
+Wenn ein Volume, das zum Erstellen eines Snapshots verwendet wird, gelöscht wird, werden die zugehörigen Snapshots inaktiv. Wenn die gelöschten Quell-Volumes gelöscht werden, werden auch die zugehörigen inaktiven Snapshots aus dem System entfernt.
+
+
+IMPORTANT: Persistente Volumes, die mit Managementservices verbunden sind, werden bei der Installation oder bei einem Upgrade einem neuen Konto erstellt und zugewiesen. Wenn Sie persistente Volumes verwenden, ändern oder löschen Sie die Volumes oder ihr zugehörigem Konto nicht. Wenn Sie diese Volumes löschen, kann der Management-Node nicht mehr verwendet werden.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie *Bände* > *Übersicht*.
+. Wählen Sie ein oder mehrere zu löschende Volumes aus.
+. Klicken Sie oben in der Tabelle Volumes auf die Dropdown-Liste *Aktionen* und wählen Sie *Löschen*.
+. Bestätigen Sie im daraufhin angezeigten Fenster die Aktion, indem Sie auf *Ja* klicken.
+
+
+
+
+== Wiederherstellen eines gelöschten Volumes
+
+Nach dem Löschen eines Storage Volume können Sie ihn weiterhin wiederherstellen, falls dies vor acht Stunden nach dem Löschen erfolgt.
+
+Gelöschte Volumes werden nicht sofort vom System gelöscht, sie bleiben etwa acht Stunden lang verfügbar. Nach acht Stunden werden sie gereinigt und sind nicht mehr verfügbar. Wenn Sie ein Volume wiederherstellen, bevor das System es bereinigt, wird das Volume wieder online geschaltet und die iSCSI-Verbindungen werden wiederhergestellt.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie *Bände* > *Übersicht*.
+. Wählen Sie *Gelöscht*.
+. Erweitern Sie in der Spalte *Aktionen* der Tabelle Volumes das Menü für die Lautstärke und wählen Sie *Wiederherstellen*.
+. Bestätigen Sie den Vorgang, indem Sie *Ja* wählen.
+
+
+
+
+== Löschen Sie ein gelöschtes Volume
+
+Nach dem Löschen von Storage Volumes bleiben diese für ungefähr acht Stunden verfügbar. Nach acht Stunden werden sie automatisch gereinigt und sind nicht mehr verfügbar. Wenn Sie die acht Stunden nicht warten möchten, können Sie sie löschen
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie *Bände* > *Übersicht*.
+. Wählen Sie *Gelöscht*.
+. Wählen Sie ein oder mehrere Volumes aus, die gelöscht werden sollen.
+. Führen Sie einen der folgenden Schritte aus:
++
+** Wenn Sie mehrere Volumen ausgewählt haben, klicken Sie oben in der Tabelle auf den Schnellfilter *Löschen*.
+** Wenn Sie ein einzelnes Volume ausgewählt haben, erweitern Sie in der Spalte *Aktionen* der Volumetabelle das Menü für die Lautstärke und wählen Sie *Löschen*.
+
+
+. Erweitern Sie in der Spalte *Aktionen* der Tabelle Volumes das Menü für die Lautstärke und wählen Sie *Löschen*.
+. Bestätigen Sie den Vorgang, indem Sie *Ja* wählen.
+
+
+[discrete]
+== Weitere Informationen
+
+* link:concept_hci_volumes.html["Informationen zu Volumes"]
+* https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

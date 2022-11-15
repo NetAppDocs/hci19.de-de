@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_remove_deployment.html 
+summary: Erfahren Sie, wie Sie eine Rancher-Installation bei der NetApp HCI-Implementierung entfernen, damit Sie diese Neuimplementierung durchführen können. 
+keywords: netapp, hci, api, REST, remove, Rancher, redeploy 
+---
+= Entfernen Sie eine Rancher-Installation auf NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie versehentlich Rancher auf NetApp HCI mit falschen Informationen bereitstellen (z. B. einen falschen Rancher-Server-FQDN), müssen Sie die Installation entfernen und dann neu erstellen. Befolgen Sie diese Schritte, um die Rancher-Installation auf NetApp HCI-Instanz zu entfernen.
+
+Durch diese Aktion werden die Benutzer-Cluster nicht gelöscht.
+
+
+TIP: Sie möchten die Benutzer-Cluster möglicherweise beibehalten. Wenn Sie sie beibehalten, können Sie sie später zu einer anderen Rancher-Implementierung migrieren. Wenn Sie die Benutzer-Cluster löschen möchten, sollten Sie dies zuerst tun, bevor Sie den Rancher-Server löschen; andernfalls ist das Löschen der Benutzer-Cluster nach dem Rancher-Server gelöscht wird schwieriger.
+
+.Optionen
+*  Rancher on NetApp HCI using NetApp Hybrid Cloud Control (Empfohlen)
+*  Rancher on NetApp HCI using the REST API
+
+
+
+
+== Entfernen Sie Rancher auf NetApp HCI mit NetApp Hybrid Cloud Control
+
+Die Web-UI von NetApp Hybrid Cloud Control entfernt die drei während der Implementierung für das Hosting des Rancher Servers festgelegten Virtual Machines.
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators bereitstellen.
+. Klicken Sie im Dashboard oben rechts auf das Menü.
+. Wählen Sie *Konfigurieren*.
++
+image::hcc_configure.png[Seite „Rancher Configuration“]
+
+. Klicken Sie im Fensterbereich *Rancher Server Clusters* auf *Rancher Server Cluster konfigurieren*.
+. Wählen Sie das Menü *Aktionen* für die Rancher-Installation, die Sie entfernen müssen.
++
+
+CAUTION: Durch Klicken auf *Löschen* wird das Rancher auf dem NetApp HCI Management Cluster sofort entfernt.
+
+. Wählen Sie *Löschen*.
+
+
+
+
+== Entfernen Sie Rancher auf NetApp HCI mit DER REST-API
+
+Mithilfe der NetApp Hybrid Cloud Control REST-API sind die drei Virtual Machines entfernt, die während der Implementierung zum Hosten des Rancher Servers eingerichtet wurden.
+
+.Schritte
+. Geben Sie die Management-Node-IP-Adresse gefolgt von ein `/k8sdeployer/api/`:
++
+[listing]
+----
+https://[IP address]/k8sdeployer/api/
+----
+. Klicken Sie auf *autorisieren* oder auf ein Schlosssymbol und geben Sie Cluster Admin-Anmeldeinformationen ein, um APIs zu verwenden.
++
+.. Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+.. Wählen Sie *Text anfordern* aus der Dropdown-Liste Typ aus, wenn der Wert nicht bereits ausgewählt ist.
+.. Geben Sie die Client-ID als ein `mnode-client` Wenn der Wert nicht bereits ausgefüllt ist.
+.. Geben Sie keinen Wert für das Clientgeheimnis ein.
+.. Klicken Sie auf *autorisieren*, um eine Sitzung zu starten.
+.. Schließen Sie das Fenster.
+
+
+. Schließen Sie das Dialogfeld * Verfügbare Berechtigungen*.
+. Klicken Sie auf *POST/Destroy*.
+. Klicken Sie auf *Probieren Sie es aus*.
+. Geben Sie im Textfeld „Text anfordern“ den FQDN des Rancher-Servers als ein `serverURL` Wert:
+. Klicken Sie Auf *Ausführen*.
++
+Nach einigen Minuten sollten die virtuellen Maschinen des Rancher-Servers nicht mehr in der Liste „Hosts and Clusters“ im vSphere-Client sichtbar sein. Nach der Entfernung können Sie mit NetApp Hybrid Cloud Control eine erneute Rangliste auf NetApp HCI einrichten.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Fehlerbehebung bei der Rancher-Implementierung"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

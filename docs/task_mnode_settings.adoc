@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_settings.html 
+summary: Sie können die Einstellungen für das Management-Node-Netzwerk, das Cluster und das System ändern und testen. 
+keywords: netapp, management node ui, mnode ui, network settings, test network, cluster settings 
+---
+= Ändern und Testen der Netzwerk-, Cluster- und Systemeinstellungen des Management-Node
+:allow-uri-read: 
+
+
+[role="lead"]
+Sie können die Einstellungen für das Management-Node-Netzwerk, das Cluster und das System ändern und testen.
+
+*  management node network settings
+*  management node cluster settings
+*  the management node settings
+
+
+
+
+== Aktualisieren der Netzwerkeinstellungen für den Management-Node
+
+Auf der Registerkarte „Netzwerkeinstellungen“ der Benutzeroberfläche für Management-Node pro Node können Sie die Felder für die Netzwerkschnittstelle des Managementknoten ändern.
+
+. Öffnen Sie die Management-Node-UI pro Node.
+. Klicken Sie auf die Registerkarte *Netzwerkeinstellungen*.
+. Die folgenden Informationen anzeigen oder eingeben:
++
+.. *Methode*: Wählen Sie eine der folgenden Methoden, um die Schnittstelle zu konfigurieren:
++
+*** `loopback`: Verwenden Sie, um die IPv4-Loopback-Schnittstelle zu definieren.
+*** `manual`: Verwenden Sie, um Schnittstellen zu definieren, für die keine Konfiguration erfolgt standardmäßig.
+*** `dhop`: Nutzung, um eine IP-Adresse über DHCP zu erhalten.
+*** `static`: Zur Definition von Ethernet-Schnittstellen mit statisch zugewiesenen IPv4-Adressen.
+
+
+.. *Verbindungsgeschwindigkeit*: Die Geschwindigkeit, die von der virtuellen NIC ausgehandelt wird.
+.. *IPv4-Adresse*: Die IPv4-Adresse für das eth0-Netzwerk.
+.. *IPv4-Subnetzmaske*: Adressenunterteilungen des IPv4-Netzwerks.
+.. *IPv4 Gateway-Adresse*: Router-Netzwerkadresse zum Senden von Paketen aus dem lokalen Netzwerk.
+.. *IPv6-Adresse*: Die IPv6-Adresse für das eth0-Netzwerk.
+.. *IPv6 Gateway-Adresse*: Router-Netzwerkadresse zum Senden von Paketen aus dem lokalen Netzwerk.
++
+
+IMPORTANT: Die IPv6-Optionen werden für Version 11.3 oder höher des Management-Node nicht unterstützt.
+
+.. *MTU*: Größte Paketgröße, die ein Netzwerkprotokoll übertragen kann. Muss größer als oder gleich 1500 sein. Wenn Sie eine zweite Speicher-NIC hinzufügen, sollte der Wert 9000 sein.
+.. *DNS Server*: Netzwerkschnittstelle für die Clusterkommunikation.
+.. *Domänen suchen*: Suche nach zusätzlichen MAC-Adressen, die dem System zur Verfügung stehen.
+.. *Status*: Mögliche Werte:
++
+*** `UpAndRunning`
+*** `Down`
+*** `Up`
+
+
+.. *Routen*: Statische Routen zu bestimmten Hosts oder Netzwerken über die zugehörige Schnittstelle werden die Routen konfiguriert.
+
+
+
+
+
+
+== Aktualisiert die Cluster-Einstellungen des Management-Node
+
+Auf der Registerkarte Cluster-Einstellungen der Benutzeroberfläche pro Node für den Managementknoten können Sie die Felder für die Cluster-Schnittstelle ändern, wenn sich der Status eines Node im Status „verfügbar“, „Ausstehend“, „Pendingaktiv“ und „aktiv“ befindet.
+
+. Öffnen Sie die Management-Node-UI pro Node.
+. Klicken Sie auf die Registerkarte *Cluster-Einstellungen*.
+. Die folgenden Informationen anzeigen oder eingeben:
++
+** *Rolle*: Rolle, die der Management-Knoten im Cluster hat. Möglicher Wert: `Management`.
+** *Version*: Element Software Version läuft auf dem Cluster.
+** *Standardschnittstelle*: Standard-Netzwerkschnittstelle für die Kommunikation mit dem Cluster, auf dem die Element-Software ausgeführt wird.
+
+
+
+
+
+
+== Testen Sie die Einstellungen für den Management-Node
+
+Nachdem Sie die Einstellungen für das Änderungsmanagement und das Netzwerk für den Management-Node geändert und die Änderungen übernommen haben, können Sie Tests durchführen, um die durchgeführten Änderungen zu validieren.
+
+. Öffnen Sie die Management-Node-UI pro Node.
+. Klicken Sie in der Management-Knoten-UI auf *Systemtests*.
+. Führen Sie eine der folgenden Aktionen durch:
++
+.. Um zu überprüfen, ob die von Ihnen konfigurierten Netzwerkeinstellungen für das System gültig sind, klicken Sie auf *Netzwerk-Konfiguration testen*.
+.. Um die Netzwerkverbindung zu allen Knoten im Cluster sowohl auf 1G- als auch 10G-Schnittstellen mit ICMP-Paketen zu testen, klicken Sie auf *Ping testen*.
+
+
+. Folgendes anzeigen oder eingeben:
++
+** *Hosts*: Geben Sie eine kommagetrennte Liste von Adressen oder Host-Namen von Geräten an, die ping werden sollen.
+** *Versuche*: Geben Sie an, wie oft das System den Ping-Test wiederholen soll. Standard: 5.
+** *Paketgröße*: Geben Sie die Anzahl der Bytes an, die in das ICMP-Paket gesendet werden sollen, das an jede IP gesendet wird. Die Anzahl der Bytes muss kleiner sein als die in der Netzwerkkonfiguration angegebene maximale MTU.
+** *Timeout ms*: Geben Sie die Anzahl der Millisekunden an, die auf jede einzelne Ping-Antwort warten soll. Standard: 500 ms.
+** *Total Timeout sec*: Geben Sie die Zeit in Sekunden an, die der Ping auf eine Systemantwort warten soll, bevor Sie den nächsten Ping-Versuch starten oder den Prozess beenden. Standard: 5.
+** *Fragmentierung verbieten*: Aktivieren Sie das DF-Flag (nicht fragmentieren) für die ICMP-Pakete.
+
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

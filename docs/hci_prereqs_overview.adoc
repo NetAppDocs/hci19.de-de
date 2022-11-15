@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_overview.html 
+summary: Informieren Sie sich über die Implementierungsanforderungen von NetApp HCI. 
+keywords: netapp, hci, deployment, requirements 
+---
+= Anforderungen für die NetApp HCI-Implementierung – Überblick
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, environment, requirements
+
+
+[role="lead"]
+NetApp HCI verfügt über spezifische physische und Netzwerkanforderungen für den ordnungsgemäßen Betrieb im Datacenter. Stellen Sie sicher, dass Sie die folgenden Anforderungen und Empfehlungen implementieren, bevor Sie mit der Implementierung beginnen.
+
+Bevor Sie die NetApp HCI Hardware erhalten, sollten Sie sicherstellen, dass Sie die Checklisten im Arbeitsbuch zur Vorabimplementierung von NetApp Professional Services ausfüllen. Dieses Dokument enthält eine Liste mit Aufgaben, die Sie bewältigen müssen, um Ihr Netzwerk und Ihre Umgebung auf eine erfolgreiche NetApp HCI-Bereitstellung vorzubereiten.
+
+Im Folgenden finden Sie die Links zu den Anforderungen und Aufgaben vor der Implementierung:
+
+* link:hci_prereqs_required_network_ports.html["Anforderungen an Netzwerk-Ports"]
+* link:hci_prereqs_network_switch.html["Netzwerk- und Switch-Anforderungen"]
+* link:hci_prereqs_network_cables.html["Anforderungen an die Netzwerkkabel"]
+* link:hci_prereqs_ip_address.html["Anforderungen an die IP-Adresse"]
+* link:hci_prereqs_network_configuration.html["Netzwerkkonfiguration"]
+* link:hci_prereqs_timekeeping.html["DNS- und Zeitdaueranforderungen"]
+* link:hci_prereqs_environmental.html["Umweltanforderungen"]
+* link:hci_prereqs_protection_domains.html["Sicherungsdomänen"]
+* link:hci_prereqs_witness_nodes.html["Ressourcenanforderungen von Witness Node für Storage Cluster mit zwei Nodes"]
+
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

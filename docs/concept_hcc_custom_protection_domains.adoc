@@ -1,0 +1,39 @@
+---
+permalink: docs/concept_hcc_custom_protection_domains.html 
+sidebar: sidebar 
+keywords: protection domain layout,user-defined,custom layout 
+summary: Sie können ein benutzerdefiniertes Schutz-Domain-Layout definieren, in dem jeder Knoten einer und nur einer benutzerdefinierten Schutzdomäne zugeordnet ist. Standardmäßig wird jeder Knoten derselben benutzerdefinierten Standard-Schutzdomäne zugewiesen. 
+---
+= Benutzerdefinierte Sicherungsdomänen
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können ein benutzerdefiniertes Schutz-Domain-Layout definieren, in dem jeder Knoten einer und nur einer benutzerdefinierten Schutzdomäne zugeordnet ist. Standardmäßig wird jeder Knoten derselben benutzerdefinierten Standard-Schutzdomäne zugewiesen.
+
+Wenn keine benutzerdefinierten Schutzdomänen zugewiesen sind:
+
+* Der Cluster-Vorgang wird nicht beeinträchtigt.
+* Die benutzerdefinierte Ebene ist weder tolerant noch widerstandsfähig.
+
+
+Wenn mehr als eine benutzerdefinierte Schutzdomäne zugewiesen wird, weist jedes Subsystem separate benutzerdefinierte Schutzdomänen Duplikate zu. Ist dies nicht möglich, so wird das Zuweisen von Duplikaten zu separaten Nodes rückgängig gemacht. Jedes Subsystem (z. B. Behälter, Schichten, Protokollendpunktanbieter und Ensemble) erledigt dies unabhängig voneinander.
+
+
+NOTE: Bei der Verwendung von benutzerdefinierten Schutzdomänen wird vorausgesetzt, dass sich keine Nodes ein Chassis teilen.
+
+Die folgenden Element API-Methoden setzen die folgenden neuen Sicherheits-Domänen aus:
+
+* GetProtectionDomainLayout - zeigt an, in welchem Gehäuse und in welcher benutzerdefinierten Schutzdomäne sich jeder Knoten befindet.
+* SetProtectionDomainLayout - ermöglicht die Zuweisung einer benutzerdefinierten Schutzdomäne zu jedem Knoten.
+
+
+Wenden Sie sich an den NetApp Support, um weitere Informationen zur Verwendung benutzerdefinierter Sicherungsdomänen zu erhalten.
+
+
+
+== Weitere Informationen
+
+link:api/index.html["Storage-Management mit der Element API"]

@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_createcluster.html 
+summary: Nach der Rancher-Implementierung können Sie mit der Rancher UI Kubernetes-Benutzer-Cluster erstellen. 
+keywords: netapp, hci, rancher, kubernetes clusters, create cluster 
+---
+= Erstellen von Benutzer-Clustern
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach der Rancher-Implementierung können Sie mit der Rancher UI Kubernetes-Benutzer-Cluster erstellen. Sie können entweder Cluster erstellen, die von verschiedenen Kubernetes-Providern gehostet werden (z. B. Google Kubernetes Engine), oder die Rancher Kubernetes Engine (RKE), die als Kubernetes Installer von Rancher gilt.
+
+
+TIP: Weitere Informationen über Anforderungen zum Erstellen von Clustern finden Sie im https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["Rancher-Dokumentation"^].
+
+.Was Sie und#8217;ll benötigen
+* Sie haben Rancher auf NetApp HCI installiert.
+* Sie verfügen über die erforderlichen statischen IP-Adressen. Jedes Benutzer-Cluster benötigt drei statische IP-Adressen.
+* Sie haben sich mit den im aufgeführten Anforderungen vertraut gemacht https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["Rancher-Dokumentation"^].
+
+
+.Schritte
+. Wählen Sie bei NetApp Hybrid Cloud Control die URL aus, die Sie am Ende der Rancher-Implementierung erhalten.
+. Erstellen Sie in der Rancher-UI den Benutzer-Cluster.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

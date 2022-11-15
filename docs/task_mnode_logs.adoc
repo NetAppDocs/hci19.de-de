@@ -1,0 +1,80 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_logs.html 
+summary: Sie können Protokolle von den Services abrufen, die auf der Management-ndoe laufen, mithilfe der REST API. 
+keywords: netapp, element, management node, management services, mnode, logs 
+---
+= Abrufen von Protokollen von Managementservices
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können mithilfe der REST API Protokolle von den Services abrufen, die auf dem Management-Node ausgeführt werden. Sie können Protokolle aus allen öffentlichen Diensten abrufen oder bestimmte Dienste angeben und Abfrageparameter verwenden, um die Rückgabeergebnisse besser zu definieren.
+
+.Was Sie und#8217;ll benötigen
+* In Ihrer Cluster-Version wird die NetApp Element Software 11.3 oder höher ausgeführt.
+* Sie haben einen Management-Node mit Version 11.3 oder höher implementiert.
+
+
+.Schritte
+. Öffnen Sie die REST-API-UI auf dem Managementknoten.
++
+** Ab Management Services 2.21.61:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/4/
+----
+** Für Managementservices ab Version 2.20.69:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode
+----
+
+
+. Wählen Sie *autorisieren* oder ein Schloss-Symbol aus, und füllen Sie Folgendes aus:
++
+.. Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+.. Geben Sie die Client-ID als mNode-Client ein, wenn der Wert nicht bereits gefüllt ist.
+.. Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+.. Schließen Sie das Fenster.
+
+
+. Wählen Sie *GET /logs*.
+. Wählen Sie *Probieren Sie es aus*.
+. Geben Sie die folgenden Parameter an:
++
+** `Lines`: Geben Sie die Anzahl der Zeilen ein, die das Protokoll zurückgeben soll. Bei diesem Parameter handelt es sich um eine Ganzzahl, die standardmäßig auf 1000 gesetzt ist.
++
+
+TIP: Vermeiden Sie es, den gesamten Verlauf des Protokollinhalts anzufragen, indem Sie Zeilen auf 0 setzen.
+
+** `since`: Fügt einen ISO-8601-Zeitstempel für den Startpunkt der Service-Protokolle hinzu.
++
+
+TIP: Machen Sie einen vernünftigen Rahmen `since` Parameter beim Sammeln von Protokollen mit größeren Zeitpfannen.
+
+** `service-name`: Geben Sie einen Dienstnamen ein.
++
+
+TIP: Verwenden Sie die `GET /services` Befehl zum Auflisten von Services auf dem Management-Node.
+
+** `stopped`: Auf eingestellt `true` Um Protokolle von angehalten Diensten abzurufen.
+
+
+. Wählen Sie *Ausführen*.
+. Wählen Sie im Antwortkörper *Download* aus, um die Protokollausgabe zu speichern.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

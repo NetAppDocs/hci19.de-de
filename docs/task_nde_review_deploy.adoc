@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_review_deploy.html 
+summary: Erfahren Sie, wie Sie Ihre endgültige Konfiguration prüfen und NetApp HCI mit diesen Einstellungen implementieren. 
+keywords: netapp, hci, deployment, review, deploy 
+---
+= Konfiguration prüfen und implementieren
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die von Ihnen bereitgestellten Informationen vor Beginn der Implementierung überprüfen. Sie können auch fehlerhafte oder unvollständige Informationen korrigieren, bevor Sie fortfahren.
+
+
+NOTE: Während der Implementierung erstellt der Installationsprozess für Management-Nodes Volumes mit den Namen, die mit beginnen `NetApp-HCI-` Im Element Storage-Cluster und einem SolidFire-Konto, der mit dem Namen beginnt `tenant_`. Löschen Sie diese Volumes oder Konten nicht; dies führt zu einem Verlust der Verwaltungsfunktionalität.
+
+.Schritte
+. Optional: Wählen Sie das Symbol *Download*, um Installationsinformationen im CSV-Format herunterzuladen. Sie können diese Datei speichern und später auf sie verweisen, um Informationen zur Konfiguration zu erhalten.
++
+
+NOTE: Sie können die CSV-Datei als Installationsprofil bei Bedarf während einer späteren Installation auf der Seite *Installationsprofil* der NetApp Deployment Engine (nde) importieren.
+
+. Erweitern Sie die einzelnen Abschnitte und prüfen Sie die Informationen. Um alle Abschnitte gleichzeitig zu erweitern, wählen Sie *Alle erweitern*.
+. Optional: So nehmen Sie Änderungen an den Informationen in einem beliebigen angezeigten Abschnitt vor:
++
+.. Wählen Sie im entsprechenden Abschnitt die Option *Bearbeiten* aus.
+.. Nehmen Sie die erforderlichen Änderungen vor.
+.. Wählen Sie *Weiter*, bis Sie die Seite *Bewertung* erreichen. Ihre vorherigen Einstellungen werden auf jeder Seite gespeichert.
+.. Wiederholen Sie die Schritte 2 und 3, um alle weiteren erforderlichen Änderungen vorzunehmen.
+
+
+. Wenn Sie keine Cluster-Statistiken und Support-Informationen an von NetApp gehostete SolidFire Active IQ Server senden möchten, deaktivieren Sie das endgültige Kontrollkästchen.
++
+Hierdurch wird der Zustand und die Diagnoseüberwachung in Echtzeit für NetApp HCI deaktiviert. Wenn diese Funktion deaktiviert wird, ist es für NetApp nicht mehr möglich, NetApp HCI proaktiv zu unterstützen und zu überwachen, um Probleme zu erkennen und zu beheben, bevor die Produktion beeinträchtigt wird.
+
+. Wenn alle Informationen korrekt sind, wählen Sie *Bereitstellung starten*.
++
+Ein Dialogfeld wird angezeigt. Bei Problemen mit der Netzwerkverbindung oder bei einem Stromausfall während des letzten Einrichtungsvorgangs oder bei Verlust der Browsersitzung können Sie die im Dialogfeld angezeigte URL kopieren und verwenden, um zur letzten Seite zum Setup-Fortschritt zu wechseln.
+
+. Überprüfen Sie die Informationen im Dialogfeld und wählen Sie *in Zwischenablage kopieren* aus, um die URL in die Zwischenablage zu kopieren.
+. Speichern Sie die URL in einer Textdatei auf Ihrem Computer.
+. Wenn Sie bereit sind, mit der Bereitstellung fortzufahren, wählen Sie *OK*.
++
+Die Bereitstellung beginnt und eine Fortschrittsseite wird angezeigt. Schließen Sie das Browser-Fenster nicht oder navigieren Sie von der Fortschrittsseite weg, bis die Bereitstellung abgeschlossen ist. Wenn Ihre Browser-Sitzung aus irgendeinem Grund verloren gegangen ist, können Sie die zuvor kopierte URL aufrufen (und alle angezeigten Sicherheitswarnungen akzeptieren), um wieder Zugriff auf die Seite mit dem endgültigen Setup-Fortschritt zu erhalten.
+
++
+
+NOTE: Wenn die Bereitstellung fehlschlägt, speichern Sie Fehlermeldungen, und wenden Sie sich an den NetApp Support.
+
++
+Nach Abschluss der Implementierung werden die Computing-Nodes möglicherweise mehr als ein Mal neu gestartet, bevor sie bereit für den Service sind.
+
+
+
+Starten Sie die Verwendung von NetApp HCI, indem Sie *vSphere starten* wählen.
+
+[NOTE]
+====
+* Bei NetApp HCI-Installationen mit vSphere 6.7 startet dieser Link die HTML5 vSphere Webschnittstelle. Bei Installationen mit vSphere 6.5 wird über diesen Link die Adobe Flash vSphere Webschnittstelle gestartet.
+* In Konfigurationen mit zwei oder drei Storage-Nodes konfiguriert die nde die Witness-Nodes so, dass der lokale Datastore auf den Computing-Nodes verwendet wird. Daher zeigt Ihr vSphere Client zwei Warnungen zur Datastore-Nutzung auf Disk* an. Um fortzufahren, wählen Sie in jeder Warnung den Link *auf Grün zurücksetzen* aus.
+
+
+====
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
+

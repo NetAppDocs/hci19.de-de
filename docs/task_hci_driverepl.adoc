@@ -1,0 +1,175 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_driverepl.html 
+summary: Wenn ein Laufwerk ausfällt oder der Verschleiß des Laufwerks unter einem Schwellenwert fällt, müssen Sie dieses austauschen. Sie können ein ausgefallenes Laufwerk im laufenden Betrieb austauschen. 
+keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S 
+---
+= Austausch von Laufwerken für Storage-Nodes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn ein Laufwerk defekt ist oder der Verschleiß des Laufwerks unter einen Schwellenwert fällt, sollten Sie dieses austauschen. Alarme in der Element Software UI und VMware vSphere Web Client benachrichtigen Sie, wenn ein Laufwerk ausgefallen ist oder ausfällt. Sie können ein ausgefallenes Laufwerk im laufenden Betrieb austauschen.
+
+Dieses Verfahren dient zum Austausch von Laufwerken in H410S und H610S Storage-Nodes. Durch das Entfernen eines Laufwerks kann das Laufwerk offline geschaltet werden. Alle Daten auf dem Laufwerk werden entfernt und auf andere Laufwerke im Cluster migriert. Die Datenmigration auf andere aktive Laufwerke im System kann abhängig von Kapazitätsauslastung und aktiver I/O im Cluster einige Minuten bis eine Stunde dauern.
+
+
+
+== Best Practices zur Handhabung von Laufwerken
+
+Für den Umgang mit Laufwerken sollten Sie folgende Best Practices beachten:
+
+* Halten Sie das Laufwerk in der ESD-Tasche, bis Sie bereit sind, es zu installieren.
+* Öffnen Sie die ESD-Tasche von Hand oder schneiden Sie die Oberseite mit einer Schere ab.
+* Tragen Sie stets ein ESD-Handgelenkband, das an einer unbemalten Oberfläche auf Ihrem Chassis geerdet ist.
+* Beim Entfernen, Installieren oder Tragen eines Laufwerks immer beide Hände verwenden.
+* Niemals ein Laufwerk in das Chassis zwingen.
+* Verwenden Sie beim Transport von Laufwerken stets die genehmigte Verpackung.
+* Legen Sie keine Laufwerke aufeinander ab.
+
+
+
+
+== Best Practices zum Hinzufügen und Entfernen von Laufwerken
+
+Beachten Sie folgende Best Practices, um Laufwerke zum Cluster hinzuzufügen und Laufwerke aus dem Cluster zu entfernen:
+
+* Fügen Sie alle Blocklaufwerke hinzu, und stellen Sie sicher, dass die Blocksynchronisierung abgeschlossen ist, bevor Sie die Slice-Laufwerke hinzufügen.
+* Fügen Sie für Element Software ab 10.x alle Blocklaufwerke gleichzeitig ein. Stellen Sie sicher, dass Sie dies nicht für mehr als drei Knoten gleichzeitig tun.
+* Fügen Sie bei der Element Software 9.x und früher drei Laufwerke gleichzeitig hinzu, um sie vollständig zu synchronisieren, bevor Sie die nächste Gruppe von drei hinzufügen.
+* Entfernen Sie das Slice-Laufwerk, und stellen Sie sicher, dass die Schichtsynchronisierung abgeschlossen ist, bevor Sie die Blocklaufwerke entfernen.
+* Entfernen Sie alle Blocklaufwerke gleichzeitig aus einem einzelnen Node. Vergewissern Sie sich, dass die Blocksynchronisierung abgeschlossen ist, bevor Sie zum nächsten Node fahren.
+
+
+.Schritte
+. Entfernen Sie das Laufwerk aus dem Cluster, indem Sie entweder die NetApp Element Software UI oder den NetApp Element Management Extension Point in Element Plug-in für vCenter Server verwenden.
++
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Verwenden der Element-UI  a| 
+.. Wählen Sie in der Element UI die Option *Cluster > Laufwerke* aus.
+.. Klicken Sie auf *fehlgeschlagen*, um die Liste der fehlgeschlagenen Laufwerke anzuzeigen.
+.. Notieren Sie sich die Steckplatznummer des ausgefallenen Laufwerks. Sie benötigen diese Informationen, um das ausgefallene Laufwerk im Chassis zu finden.
+.. Klicken Sie auf *Aktionen* für das Laufwerk, das Sie entfernen möchten.
+.. Klicken Sie Auf *Entfernen*.
+
+
+Sie können das Laufwerk nun physisch aus dem Gehäuse entfernen.
+
+
+
+| Verwenden des Element Plug-ins für die vCenter Server-UI  a| 
+.. Wählen Sie im Erweiterungspunkt NetApp Element Management des vSphere Web Clients die Option *NetApp Element-Verwaltung > Cluster* aus.
+.. Wenn zwei oder mehr Cluster hinzugefügt werden, stellen Sie sicher, dass der Cluster, den Sie für die Aufgabe verwenden möchten, in der Navigationsleiste ausgewählt ist.
+.. Wählen Sie in der Dropdown-Liste * All* aus, um die komplette Liste der Laufwerke anzuzeigen.
+.. Aktivieren Sie das Kontrollkästchen für jedes Laufwerk, das Sie entfernen möchten.
+.. Wählen Sie *Laufwerke Entfernen*.
+.. Bestätigen Sie die Aktion.
++
+
+NOTE: Falls nicht genügend Kapazität zum Entfernen aktiver Laufwerke vor dem Entfernen eines Node vorhanden ist, wird beim Bestätigen des Entfernens des Laufwerks eine Fehlermeldung angezeigt. Nachdem Sie den Fehler behoben haben, können Sie das Laufwerk nun physisch aus dem Gehäuse entfernen.
+
+
+
+|===
+. Setzen Sie das Laufwerk aus dem Gehäuse wieder ein:
++
+.. Packen Sie das Ersatzlaufwerk aus und legen Sie es auf eine flache, statische Oberfläche in der Nähe des Racks. Speichern Sie das Verpackungsmaterial für, wenn Sie das ausgefallene Laufwerk an NetApp zurücksenden. Hier ist die Vorderansicht der H610S und H410S Storage-Nodes mit den Laufwerken:
++
+image::h610s_h410s.png[Zeigt die Vorderansicht der H610S und H410S Storage-Nodes.]
+
+.. Führen Sie die Schritte auf Grundlage des Node-Modells durch:
++
+[cols="2*"]
+|===
+| Node-Modell | Schritte 
+
+
+| H410S  a| 
+... Identifizieren Sie den Knoten, indem Sie die Seriennummer (Service-Tag) mit der Nummer, die Sie in der Element-UI angegeben haben, übereinstimmen. Die Seriennummer befindet sich auf einem Aufkleber auf der Rückseite jedes Node. Nachdem Sie den Node identifiziert haben, können Sie die Steckplatzinformationen verwenden, um den Steckplatz zu identifizieren, in dem sich das ausgefallene Laufwerk befindet. Laufwerke sind alphabetisch von A bis D und von 0 bis 5 angeordnet.
+... Entfernen Sie die Blende.
+... Drücken Sie die Entriegelungstaste am ausgefallenen Laufwerk:
++
+image::h410s_drive.png[Zeigt die Release-Schaltfläche auf dem Laufwerk für H410S Storage-Nodes.]
+
++
+Wenn Sie die Entriegelungstaste drücken, öffnen sich der Nockengriff an den Antriebsfedern teilweise und der Antrieb löst sich von der Mittelplatine aus.
+
+... Öffnen Sie den Nockengriff, und schieben Sie das Laufwerk vorsichtig mit beiden Händen heraus.
+... Platzieren Sie das Laufwerk auf einer antistatischen, Ebenen Fläche.
+... Setzen Sie das Ersatzlaufwerk mit beiden Händen vollständig in den Steckplatz ein.
+... Drücken Sie den Nockengriff nach unten, bis er einrastet.
+... Bringen Sie die Blende wieder an.
+... Benachrichtigen Sie den NetApp Support über den Austausch von Laufwerken. Der NetApp Support enthält Anweisungen zum Zurücksenden des ausgefallenen Laufwerks.
+
+
+
+
+| H610S  a| 
+... Ordnen Sie die Steckplatznummer des ausgefallenen Laufwerks von der Element-UI mit der Nummer auf dem Chassis an. Die LED am ausgefallenen Laufwerk leuchtet gelb.
+... Entfernen Sie die Blende.
+... Drücken Sie die Entriegelungstaste, und entfernen Sie das ausgefallene Laufwerk wie in der folgenden Abbildung gezeigt:
++
+image::h610s_driveremove.png[Zeigt das Laufwerk, das vom H610S Node entfernt wird.]
+
++
+
+NOTE: Stellen Sie sicher, dass der Griff des Fachs vollständig geöffnet ist, bevor Sie versuchen, das Laufwerk aus dem Gehäuse zu schieben.
+
+... Schieben Sie das Laufwerk heraus, und legen Sie es auf eine statisch freie, Ebene Fläche.
+... Drücken Sie die Entriegelungstaste am Ersatzlaufwerk, bevor Sie es in den Laufwerkschacht einsetzen. Die Feder des Griffs der Laufwerksfachleiste ist geöffnet.
++
+image::H600S_driveinstall.png[Zeigt das Laufwerk, das im H610S-Node installiert ist.]
+
+... Setzen Sie das Ersatzlaufwerk ohne übermäßige Kraft ein. Wenn das Laufwerk vollständig eingesetzt ist, hören Sie einen Klick.
+... Schließen Sie den Griff des Laufwerksfachs vorsichtig.
+... Bringen Sie die Blende wieder an.
+... Benachrichtigen Sie den NetApp Support über den Austausch von Laufwerken. Der NetApp Support enthält Anweisungen zum Zurücksenden des ausgefallenen Laufwerks.
+
+
+|===
+
+
+. Sie können das Laufwerk entweder über die Element UI oder über den NetApp Element Management Extension Point im Element Plug-in für vCenter Server wieder zum Cluster hinzufügen.
++
+
+NOTE: Wenn Sie ein neues Laufwerk in einem bestehenden Knoten installieren, registriert sich das Laufwerk automatisch als *verfügbar* in der Element UI. Sie sollten das Laufwerk zum Cluster hinzufügen, bevor es am Cluster teilnehmen kann.
+
++
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Verwenden der Element-UI  a| 
+.. Wählen Sie in der Element UI die Option *Cluster > Laufwerke*.
+.. Wählen Sie *verfügbar*, um die Liste der verfügbaren Laufwerke anzuzeigen.
+.. Wählen Sie das Aktionen-Symbol für das Laufwerk aus, das Sie hinzufügen möchten, und wählen Sie *Hinzufügen*.
+
+
+
+
+| Verwenden des Element Plug-ins für die vCenter Server-UI  a| 
+.. Wählen Sie im Erweiterungspunkt NetApp Element Management des vSphere Web Clients die Option *NetApp Element-Verwaltung > Cluster > Laufwerke* aus.
+.. Wählen Sie aus der Dropdown-Liste verfügbar das Laufwerk aus, und wählen Sie *Hinzufügen*.
+.. Bestätigen Sie die Aktion.
+
+
+|===
+
+
+
+
+== Weitere Informationen
+
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

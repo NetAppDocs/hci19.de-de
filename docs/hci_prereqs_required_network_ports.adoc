@@ -1,0 +1,246 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_required_network_ports.html 
+summary: Von NetApp HCI verwendete TCP- und UDP-Ports. 
+keywords: netapp, hci, ports, tcp, udp 
+---
+= Anforderungen an Netzwerk-Ports
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, ports, tcp, udp
+
+
+[role="lead"]
+Unter Umständen müssen Sie die folgenden Ports über die Edge-Firewall Ihres Datacenters zulassen, damit Sie das System Remote managen, Clients außerhalb Ihres Datacenters eine Verbindung zu Ressourcen herstellen und sicherstellen können, dass interne Services ordnungsgemäß funktionieren. Einige dieser Ports, URLs oder IP-Adressen sind je nach Nutzung des Systems möglicherweise nicht erforderlich. Wenn nicht anders angegeben, sind alle Ports TCP.
+
+[NOTE]
+====
+Die Web-UI und die API von NetApp Hybrid Cloud Control laden Softwarepakete aus dem Online-Software-Repository von NetApp herunter. Aus diesem Grund können einige URLs oder IP-Adressen auf der Grundlage des Inhaltszustellungsnetzwerks auf andere URLs oder IP-Adressen auflösen. Wenn möglich, sollten Sie mit einem Netzwerktechniker zusammenarbeiten, um diese URLs oder IP-Adressen den Firewall-Regeln hinzuzufügen. Gehen Sie dazu wie folgt vor:
+
+.Schritte
+. Verwenden Sie die Wget- oder Curl-Dienstprogramme, um auf eine URL zuzugreifen (z. B. support-sg-nawest.netapp.com).
+. Überprüfen Sie die Konnektivität, wie im folgenden Beispiel gezeigt:
++
+image::network_ports.PNG[Überprüfen Sie die Anschlusskonnektivität]
+
+. Empfangen Sie einen fehlgeschlagene Zugriffe auf die URL (anders als support-sg-nawest.netapp.com).
+. Bearbeiten Sie die Firewall-Regeln, um die neue URL zuzulassen.
+. Wiederholen Sie die obigen Schritte, bis der Zugriffsversuch erfolgreich war.
+
+
+====
+Die folgenden Abkürzungen werden in der Tabelle verwendet:
+
+* MIP: Management-IP-Adresse, eine Adresse pro Node
+* SIP: Speicher-IP-Adresse, eine Adresse pro Knoten
+* MVIP: Management der virtuellen IP-Adresse
+* SVIP: Virtuelle Speicher-IP-Adresse
+
+
+Alle Ports in der Tabelle sind TCP, wenn nicht anders angegeben.
+
+|===
+| Quelle | Ziel | Port | Beschreibung 
+
+
+| BMC/IPMI für Computing-Node | Management-Node | 111 TCP/UDP | Die Kommunikation der NetApp Hybrid Cloud Control API ermöglicht 
+
+
+| BMC/IPMI für Computing-Node | Management-Node | 137-138 UDP | Die Kommunikation der NetApp Hybrid Cloud Control API ermöglicht 
+
+
+| BMC/IPMI für Computing-Node | Management-Node | 445 | Die Kommunikation der NetApp Hybrid Cloud Control API ermöglicht 
+
+
+| BMC/IPMI für Computing-Node | Management-Node | 623 UDP | RMCP-Anschluss (Remote Management Control Protocol) Erforderlich für Upgrades der NetApp Hybrid Cloud Control Computing-Firmware 
+
+
+| BMC/IPMI für Computing-Node | Management-Node | 2049 TCP/UDP | Die Kommunikation der NetApp Hybrid Cloud Control API ermöglicht 
+
+
+| ISCSI-Clients | Storage Cluster MVIP | 443 | (Optional) UI- und API-Zugriff 
+
+
+| ISCSI-Clients | Storage Cluster SVIP | 3260 | ISCSI-Kommunikation des Clients 
+
+
+| ISCSI-Clients | Speicherknoten SIP | 3260 | ISCSI-Kommunikation des Clients 
+
+
+| Management-Node | `sfsupport.solidfire.com` | 22 | Reverse-SSH-Tunnel für den Support-Zugriff 
+
+
+| Management-Node | MIP-Speicher-Node | 22 | SSH-Zugriff für die Unterstützung 
+
+
+| Management-Node | DNS-Server | 53 TCP/UDP | DNS-Suche 
+
+
+| Management-Node | BMC/IPMI für Computing-Node | 139 | Die Kommunikation der NetApp Hybrid Cloud Control API ermöglicht 
+
+
+| Management-Node | MIP-Speicher-Node | 442 | UI- und API-Zugriff auf Upgrades von Storage-Node und Element Software 
+
+
+| Management-Node | Storage-Node MVIP | 442 | UI- und API-Zugriff auf Upgrades von Storage-Node und Element Software 
+
+
+| Management-Node | `23.32.54.122`, `216.240.21.15` | 443 | Upgrades für Element Software 
+
+
+| Management-Node | Baseboard Management Controller (BMC) | 443 | Hardware-Überwachung und Bestandsverbindung (Redfish- und IPMI-Befehle) 
+
+
+| Management-Node | BMC/IPMI für Computing-Node | 443 | HTTPS-Kommunikation mit NetApp Hybrid Cloud Control 
+
+
+| Management-Node | `monitoring.solidfire.com` | 443 | Berichterstellung für den Storage-Cluster an Active IQ 
+
+
+| Management-Node  a| 
+Benachrichtigung über neue Version:
+
+* `https://support.netapp.com/aods/`
+
+
+Software-Download:
+
+* `https://support-sg-emea.netapp.com`
+* `https://support-sg-naeast.netapp.com`
+* `https://support-sg-nawest.netapp.com`
+
+| 443 | Service-Upgrades für Management-Nodes 
+
+
+| Management-Node | Storage Cluster MVIP | 443 | UI- und API-Zugriff auf Upgrades von Storage-Node und Element Software 
+
+
+| Management-Node | VMware vCenter | 443 | HTTPS-Kommunikation mit NetApp Hybrid Cloud Control 
+
+
+| Management-Node | BMC/IPMI für Computing-Node | 623 UDP | RMCP-Anschluss (Remote Management Control Protocol) Erforderlich für Upgrades der NetApp Hybrid Cloud Control Computing-Firmware 
+
+
+| Management-Node | VMware vCenter | 5988-5989 | HTTPS-Kommunikation mit NetApp Hybrid Cloud Control 
+
+
+| Management-Node | Witness Node | 9442 | Konfigurations-API-Service pro Node 
+
+
+| Management-Node | VCenter Server | 9443 | VCenter Plug-in-Registrierung: Der Port kann nach Abschluss der Registrierung geschlossen werden. 
+
+
+| SNMP-Server | Storage Cluster MVIP | 161 UDP | SNMP-Abfrage 
+
+
+| SNMP-Server | MIP-Speicher-Node | 161 UDP | SNMP-Abfrage 
+
+
+| MIP-Speicher-Node | DNS-Server | 53 TCP/UDP | DNS-Suche 
+
+
+| MIP-Speicher-Node | Management-Node | 80 | Upgrades für Element Software 
+
+
+| MIP-Speicher-Node | S3/Swift-Endpunkt | 80 | (Optional) HTTP-Kommunikation mit S3/Swift-Endpunkt für Backup und Recovery 
+
+
+| MIP-Speicher-Node | NTP-Server | 123 UDP | NTP 
+
+
+| MIP-Speicher-Node | Management-Node | 162 UDP | (Optional) SNMP-Traps 
+
+
+| MIP-Speicher-Node | SNMP-Server | 162 UDP | (Optional) SNMP-Traps 
+
+
+| MIP-Speicher-Node | LDAP-Server | 389 TCP/UDP | (Optional) LDAP-Suche 
+
+
+| MIP-Speicher-Node | Management-Node | 443 | Upgrades für Element Software 
+
+
+| MIP-Speicher-Node | Remote Storage Cluster MVIP | 443 | Kommunikation über die Verbindung des Remote-Replikationsclusters 
+
+
+| MIP-Speicher-Node | MIP für Remote-Storage-Node | 443 | Kommunikation über die Verbindung des Remote-Replikationsclusters 
+
+
+| MIP-Speicher-Node | S3/Swift-Endpunkt | 443 | (Optional) HTTPS-Kommunikation an S3/Swift-Endpunkt für Backup und Recovery 
+
+
+| MIP-Speicher-Node | LDAPS Server | 636 TCP/UDP | LDAPS-Suche 
+
+
+| MIP-Speicher-Node | Management-Node | 10514 TCP/UDP, 514 TCP/UDP | Syslog-Weiterleitung 
+
+
+| MIP-Speicher-Node | Syslog-Server | 10514 TCP/UDP, 514 TCP/UDP | Syslog-Weiterleitung 
+
+
+| MIP-Speicher-Node | MIP für Remote-Storage-Node | 2181 | Cluster-übergreifende Kommunikation für Remote-Replizierung 
+
+
+| Speicherknoten SIP | S3/Swift-Endpunkt | 80 | (Optional) HTTP-Kommunikation mit S3/Swift-Endpunkt für Backup und Recovery 
+
+
+| Speicherknoten SIP | Compute-Knoten SIP | 442 | API für Computing-Nodes, Konfiguration und Validierung sowie Zugriff auf Softwareinventar 
+
+
+| Speicherknoten SIP | S3/Swift-Endpunkt | 443 | (Optional) HTTPS-Kommunikation an S3/Swift-Endpunkt für Backup und Recovery 
+
+
+| Speicherknoten SIP | Remote-Speicherknoten SIP | 2181 | Cluster-übergreifende Kommunikation für Remote-Replizierung 
+
+
+| Speicherknoten SIP | Speicherknoten SIP | 3260 | ISCSI miteinander verbinden 
+
+
+| Speicherknoten SIP | Remote-Speicherknoten SIP | 4000 bis 4020 | Remote-Replizierung: Node-to-Node-Datentransfer 
+
+
+| System Administrator-PC | MIP-Speicher-Node | 80 | (Nur NetApp HCI) Landing Page der NetApp Deployment Engine 
+
+
+| System Administrator-PC | Management-Node | 442 | HTTPS-UI-Zugriff auf den Management-Node 
+
+
+| System Administrator-PC | MIP-Speicher-Node | 442 | HTTPS-UI- und API-Zugriff auf Storage-Node, (nur NetApp HCI) Konfigurations- und Implementierungsüberwachung in der NetApp Deployment Engine 
+
+
+| System Administrator-PC | Management-Node | 443 | HTTPS-UI- und API-Zugriff auf den Management-Node 
+
+
+| System Administrator-PC | Storage Cluster MVIP | 443 | HTTPS-UI- und API-Zugriff auf das Storage-Cluster 
+
+
+| System Administrator-PC | MIP-Speicher-Node | 443 | Erstellung von HTTPS-Storage-Clustern, UI-Zugriff nach der Implementierung auf das Storage-Cluster 
+
+
+| System Administrator-PC | Witness Node | 8080 | Witness Node pro Node Web-UI 
+
+
+| VCenter Server | Storage Cluster MVIP | 443 | VCenter-Plug-in-API-Zugriff 
+
+
+| VCenter Server | Remote-Plug-in | 8333 | Remote vCenter Plug-in Service 
+
+
+| VCenter Server | Management-Node | 8443 | (Optional) vCenter Plug-in QoSSIOC-Service. 
+
+
+| VCenter Server | Storage Cluster MVIP | 8444 | Zugriff auf vCenter VASA Provider (nur VVols) 
+
+
+| VCenter Server | Management-Node | 9443 | VCenter Plug-in-Registrierung: Der Port kann nach Abschluss der Registrierung geschlossen werden. 
+|===
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

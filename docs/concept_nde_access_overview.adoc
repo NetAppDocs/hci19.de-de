@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_access_overview.html 
+summary: Greifen Sie je nach Umgebung auf die NetApp Deployment Engine zu, bevor Sie NetApp HCI mit einer der verschiedenen Methoden implementieren. 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+---
+= Übersicht über die Zugriffsoptionen der NetApp Deployment Engine
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+Um NetApp HCI bereitzustellen, müssen Sie über die IPv4-Adresse, die der Bond1G-Schnittstelle zugewiesen ist, auf die NetApp Deployment Engine auf einem der Storage-Nodes der NetApp H-Series zugreifen. Dies ist die logische Schnittstelle, die Ports A und B für Storage-Nodes kombiniert. Dieser Storage-Node wird zum controlling-Storage-Node für den Implementierungsprozess. Sie müssen je nach Umgebung entweder die IPv4-Adresse konfigurieren oder sie von einem der Storage-Nodes abrufen.
+
+
+NOTE: Sie können nur über die Bond1G-Schnittstelle eines Storage-Node auf die NetApp Deployment Engine zugreifen. Die logische Schnittstelle, die Ports C und D für Storage-Nodes kombiniert, wird unter Verwendung der Bond10G-Schnittstelle nicht unterstützt.
+
+Nutzen Sie eine der folgenden Methoden, die Ihrer Netzwerkumgebung am besten für den Zugriff auf die NetApp Deployment Engine beschreibt:
+
+|===
+| Szenario | Methode 
+
+
+| Sie verfügen in Ihrer Umgebung nicht über DHCP | link:task_nde_access_no_dhcp.html["Zugriff auf die NetApp Deployment Engine in Umgebungen ohne DHCP"] 
+
+
+| In Ihrer Umgebung ist DHCP vorhanden | link:task_nde_access_dhcp.html["Greifen Sie in Umgebungen mit DHCP auf die NetApp Deployment Engine zu"] 
+
+
+| Sie möchten alle IP-Adressen manuell zuweisen | link:task_nde_access_manual_ip.html["Weisen Sie IP-Adressen manuell dem Zugriff auf die NetApp Deployment Engine zu"] 
+|===
+[discrete]
+== Weitere Informationen
+
+* link:task_nde_access_ui_fqdn.html["Konfigurieren Sie vollständig qualifizierten Domänennamen Web UI-Zugriff"^]
+

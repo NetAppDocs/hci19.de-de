@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_deploy_user_clusters.html 
+summary: Nach der Bereitstellung von Rancher auf NetApp HCI können Sie Benutzer-Cluster einrichten und diesen Clustern Applikationen hinzufügen. 
+keywords: netapp, hci, rancher, deploy, cluster, kubernetes, control plane,  user cluster, workload 
+---
+= Implementieren von Benutzer-Clustern und Applikationen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach der Bereitstellung von Rancher auf NetApp HCI können Sie Benutzer-Cluster einrichten und diesen Clustern Applikationen hinzufügen.
+
+
+
+== Implementieren Sie Benutzer-Cluster
+
+Nach der Implementierung können die Dev- und Ops-Teams ihre Kubernetes-Benutzer-Cluster, ähnlich wie bei allen Rancher-Implementierungen, implementieren, auf denen sie Applikationen implementieren können.
+
+. Greifen Sie über die am Ende der Rancher-Implementierung bereitgestellte URL auf die Rancher-UI zu.
+. Erstellen von Benutzer-Clustern. Siehe Rancher-Dokumentation über https://rancher.com/docs/rancher/v2.x/en/quick-start-guide/workload/["Implementierung von Workloads"^].
+. Bereitstellung von Benutzer-Clustern in der Rangliste auf NetApp HCI Siehe Rancher-Dokumentation über https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["Einrichtung von Kubernetes Clustern in Rancher"^].
+
+
+
+
+== Implementieren von Applikationen auf Benutzer-Clustern
+
+Wie bei jeder Rancher-Implementierung fügen Sie auch Applikationen auf Kubernetes-Clustern hinzu.
+
+Siehe Rancher-Dokumentation über https://rancher.com/docs/rancher/v2.x/en/deploy-across-clusters/["Cluster-übergreifende Implementierung von Applikationen"^].
+
+[discrete]
+== Weitere Informationen
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

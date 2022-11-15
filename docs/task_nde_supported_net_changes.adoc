@@ -1,0 +1,140 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_supported_net_changes.html 
+summary: Erfahren Sie mehr über Aufgaben nach der Implementierung, die Sie nach der Bereitstellung von NetApp HCI ausführen sollten. 
+keywords: netapp, hci, deployment, review, deploy 
+---
+= Unterstützte Netzwerkänderungen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nachdem Sie NetApp HCI implementiert haben, können Sie eingeschränkte Änderungen an der Standard-Netzwerkkonfiguration vornehmen. Bestimmte Einstellungen sind jedoch für einen reibungslosen Betrieb und eine ordnungsgemäße Netzwerkerkennung erforderlich. Eine Änderung dieser Einstellungen führt zu unerwartetem Verhalten und kann eine Erweiterung von Computing- und Storage-Ressourcen verhindern.
+
+Nach der Implementierung des Systems können Sie je nach Ihren Netzwerkanforderungen die folgenden Änderungen an der Standardkonfiguration von VMware vSphere vornehmen:
+
+* VSwitch-Namen ändern
+* Ändern Sie die Namen der Portgruppen
+* Fügen Sie weitere Portgruppen hinzu und entfernen Sie sie
+* Ändern Sie die Failover-Reihenfolge der vmnic-Schnittstelle für alle zusätzlichen Portgruppen, die Sie hinzugefügt haben
+
+
+
+
+== Die Compute-Nodes H300E, H500E, H700E und H410C
+
+NetApp HCI erwartet die folgende Netzwerkkonfiguration für die Nodes H300E, H500E, H700E und H410C.
+
+Im Folgenden finden Sie eine Konfiguration mit sechs Schnittstellen mit VMware vSphere Distributed Switching (VDS). Diese Konfiguration wird nur unterstützt, wenn sie mit VMware vSphere Distributed Switches verwendet wird. Sie erfordert eine Lizenzierung von VMware vSphere Enterprise Plus.
+
+|===
+| Netzwerkfunktion | vmkernel | Vmnic (physische Schnittstelle) 
+
+
+| Vereinfachtes | Vmk0 | Vmnic2 (Port A), vmnic3 (Port B) 
+
+
+| ISCSI-A | Vmk1 | Vmnic5 (Port E) 
+
+
+| ISCSI-B | Vmk2 | Vmnic1 (Port D) 
+
+
+| VMotion | Vmk3 | Vmnic4 (Port C), vmnic0 (Port F) 
+|===
+Im Folgenden finden Sie eine Konfiguration mit sechs Schnittstellen und VMware vSphere Standard Switching (VSS). Bei dieser Konfiguration kommen VMware vSphere Standard Switches (VSS) zum Einsatz.
+
+|===
+| Netzwerkfunktion | vmkernel | Vmnic (physische Schnittstelle) 
+
+
+| Vereinfachtes | Vmk0 | Vmnic2 (Port A), vmnic3 (Port B) 
+
+
+| ISCSI-A | Vmk2 | Vmnic1 (Port E) 
+
+
+| ISCSI-B | Vmk3 | Vmnic5 (Port D) 
+
+
+| VMotion | Vmk1 | Vmnic4 (Port C), vmnic0 (Port F) 
+|===
+Die folgende Konfiguration umfasst zwei Schnittstellen. Diese Konfiguration wird nur unterstützt, wenn sie mit VMware vSphere Distributed Switches (VDS) verwendet wird, und erfordert eine Lizenzierung von VMware vSphere Enterprise Plus.
+
+|===
+| Netzwerkfunktion | vmkernel | Vmnic (physische Schnittstelle) 
+
+
+| Vereinfachtes | Vmk0 | Vmnic1 (Port D), vmnic5 (Port E) 
+
+
+| ISCSI-A | Vmk1 | Vmnic1 (Port E) 
+
+
+| ISCSI-B | Vmk2 | Vmnic5 (Port D) 
+
+
+| VMotion | Vmk3 | Vmnic1 (Port C), vmnic5 (Port F) 
+|===
+
+
+== H610C Compute-Nodes
+
+NetApp HCI erwartet die folgende Netzwerkkonfiguration für H610C Nodes.
+
+Diese Konfiguration wird nur unterstützt, wenn sie mit VMware vSphere Distributed Switches (VDS) verwendet wird, und erfordert eine Lizenzierung von VMware vSphere Enterprise Plus.
+
+
+NOTE: Die Ports A und B werden auf dem H610C nicht verwendet.
+
+|===
+| Netzwerkfunktion | vmkernel | Vmnic (physische Schnittstelle) 
+
+
+| Vereinfachtes | Vmk0 | Vmnic2 (Port C), vmnic3 (Port D) 
+
+
+| ISCSI-A | Vmk1 | Vmnic3 (Port D) 
+
+
+| ISCSI-B | Vmk2 | Vmnic2 (Port C) 
+
+
+| VMotion | Vmk3 | Vmnic2 (Port C), vmnic3 (Port D) 
+|===
+
+
+== H615C Computing-Nodes
+
+NetApp HCI erwartet die folgende Netzwerkkonfiguration für H615C Nodes.
+
+Diese Konfiguration wird nur unterstützt, wenn sie mit VMware vSphere Distributed Switches (VDS) verwendet wird, und erfordert eine Lizenzierung von VMware vSphere Enterprise Plus.
+
+|===
+| Netzwerkfunktion | vmkernel | Vmnic (physische Schnittstelle) 
+
+
+| Vereinfachtes | Vmk0 | Vmnic0 (Port A), vmnic1 (Port B) 
+
+
+| ISCSI-A | Vmk1 | Vmnic0 (Port B) 
+
+
+| ISCSI-B | Vmk2 | Vmnic1 (Port A) 
+
+
+| VMotion | Vmk3 | Vmnic0 (Port A), vmnic1 (Port B) 
+|===
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
+

@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_enable_alerts.html 
+summary: Sie können die Einstellungen konfigurieren, um Meldungen auf Ihrem NetApp HCI System zu überwachen. 
+keywords: netapp, element, management node, mnode, ui, alerts, alert monitoring 
+---
+= Konfigurieren Sie die Meldungsüberwachung auf NetApp HCI
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Einstellungen konfigurieren, um Meldungen auf Ihrem NetApp HCI System zu überwachen.
+
+Die NetApp HCI-Alarmüberwachung leitet Warnungen des NetApp HCI Storage-Cluster-Systems an vCenter Server weiter, sodass Sie alle Warnmeldungen für NetApp HCI über die Schnittstelle des vSphere Web-Clients anzeigen können.
+
+. Öffnen Sie die Management-Node-UI pro Node (`https://[IP address]:442`).
+. Klicken Sie auf die Registerkarte * Warnmonitor*.
+. Konfigurieren der Optionen für die Überwachung von Warnmeldungen.
+
+
+
+
+== Optionen für die Überwachung von Warnmeldungen
+
+[cols="2*"]
+|===
+| Optionen | Beschreibung 
+
+
+| Führen Sie Alarmüberwachungstests Aus  a| 
+Führt die Systemtests des Monitorsystems aus, um Folgendes zu überprüfen:
+
+* NetApp HCI und VMware vCenter Konnektivität
+* Paarung von NetApp HCI und VMware vCenter über vom QoSSIOC-Service bereitgestellte Datenspeicherinformationen
+* Aktuelle NetApp HCI Alarm- und vCenter-Alarmlisten
+
+
+
+
+| Sammeln Von Warnungen | Aktiviert oder deaktiviert die Weiterleitung von NetApp HCI Storage-Warnmeldungen an vCenter. Sie können das Ziel-Storage-Cluster aus der Dropdown-Liste auswählen. Die Standardeinstellung für diese Option ist `Enabled`. 
+
+
+| Sammeln Von Best Practice-Warnungen | Aktiviert oder deaktiviert die Weiterleitung von Best Practice-Warnmeldungen zu NetApp HCI Storage an vCenter. Warnmeldungen zu Best Practices sind Fehler, die durch eine suboptimale Systemkonfiguration ausgelöst werden. Die Standardeinstellung für diese Option ist `Disabled`. Bei deaktivierter NetApp HCI Storage Best Practice werden in vCenter keine Warnungen angezeigt. 
+
+
+| Support-Daten an AIQ senden  a| 
+Steuert den Datenfluss von VMware vCenter zu NetApp SolidFire Active IQ.
+
+Folgende Optionen stehen zur Verfügung:
+
+* Aktiviert: Alle vCenter Alarme, NetApp HCI Storage-Alarme und Support-Daten werden an NetApp SolidFire Active IQ gesendet. So kann NetApp die NetApp HCI Installation proaktiv unterstützen und überwachen, damit mögliche Probleme erkannt und gelöst werden können, bevor das System beeinträchtigt wird.
+* Deaktiviert: An NetApp SolidFire Active IQ werden keine vCenter Warnmeldungen, NetApp HCI Storage-Alarme oder Support-Daten gesendet.
+
+
+
+NOTE: Wenn Sie die *Send Data to AIQ* Option mithilfe der NetApp Deployment Engine deaktiviert haben, sollten Sie dies tun link:task_mnode_enable_activeIQ.html["Telemetrie aktivieren"] Verwenden Sie die REST API des Management-Node erneut, um den Service von dieser Seite aus zu konfigurieren.
+
+
+
+| Compute-Node-Daten an AIQ senden  a| 
+Steuert den Datenfluss von den Computing-Nodes zu NetApp SolidFire Active IQ.
+
+Folgende Optionen stehen zur Verfügung:
+
+* Aktiviert: Support- und Überwachungsdaten über die Computing-Nodes werden an NetApp SolidFire Active IQ übertragen, um eine proaktive Unterstützung der Computing-Node-Hardware zu ermöglichen.
+* Deaktiviert: Support und Monitoring von Daten über die Computing-Nodes werden nicht an NetApp SolidFire Active IQ übertragen.
+
+
+
+NOTE: Wenn Sie die *Send Data to AIQ* Option mithilfe der NetApp Deployment Engine deaktiviert haben, sollten Sie dies tun link:task_mnode_enable_activeIQ.html["Telemetrie aktivieren"] Verwenden Sie die REST API des Management-Node erneut, um den Service von dieser Seite aus zu konfigurieren.
+
+|===
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

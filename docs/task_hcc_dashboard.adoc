@@ -1,0 +1,190 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_dashboard.html 
+summary: Sie können sich Storage- und Computing-Ressourcen über das NetApp Hybrid Cloud Control Dashboard anzeigen lassen. Darüber hinaus können Sie die Storage-Kapazität, Storage-Performance und die Computing-Auslastung überwachen. 
+keywords: netapp, hci, on premise, hcc, hybrid cloud control, storage, compute, storage performance, utilization, capacity 
+---
+= Monitoring von Storage- und Computing-Ressourcen über das Hybrid Cloud Control Dashboard
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Die NetApp Hybrid Cloud Control Konsole bietet einen Überblick über alle Storage- und Computing-Ressourcen. Darüber hinaus können Sie die Storage-Kapazität, Storage-Performance und die Computing-Auslastung überwachen.
+
+
+NOTE: Wenn Sie zum ersten Mal eine neue NetApp Hybrid Cloud Control Session starten, kann es möglicherweise zu Verzögerungen beim Laden der NetApp Hybrid Cloud Control Dashboard-Ansicht kommen, wenn der Management-Node viele Cluster verwaltet. Die Ladezeit hängt von der Anzahl der Cluster ab, die aktiv vom Management-Node gemanagt werden. Bei späteren Starts erleben Sie schnellere Ladezeiten.
+
+Im Hybrid Cloud Control Dashboard werden nur Compute-Nodes angezeigt, die gemanagt werden und Cluster mit mindestens einem gemanagten Node in H-Series Hardware.
+
+*  the NetApp HCC Dashboard
+*  storage resources
+*  compute resources
+*  storage capacity
+*  storage performance
+*  compute utilization
+
+
+
+
+== Zugriff auf das NetApp HCC Dashboard
+
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser. Beispiel:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
+. Zeigen Sie das Hybrid Cloud Control Dashboard an.
++
+image::hcc_dashboard_all.png[HCC-Dashboard]
+
+
+
+
+TIP: Je nach Ihrer Installation werden möglicherweise einige oder alle diese Teilfenster angezeigt. Beispielsweise werden bei nur für Storage-Installationen im Hybrid Cloud Control Dashboard nur das Teilfenster Storage, das Teilfenster Storage-Kapazität und das Teilfenster Storage-Performance angezeigt.
+
+
+
+== Monitoring von Storage-Ressourcen
+
+Nutzen Sie den Fensterbereich *Storage*, um Ihre gesamte Speicherumgebung anzuzeigen. Sie können die Anzahl der Storage-Cluster, Storage-Nodes und Volumes insgesamt überwachen.
+
+Um Details anzuzeigen, wählen Sie im Bereich Speicher die Option *Details anzeigen*.
+
+image::hcc_dashboard_storage_node_number.PNG[Übersicht Storage]
+
+
+NOTE: Die Gesamtzahl der Storage-Nodes enthält keine Witness-Nodes aus Storage-Clustern mit zwei Nodes. Die Witness-Nodes sind in die Nummer Nodes im Detailbereich für diesen Cluster enthalten.
+
+
+TIP: Um die letzten Speichercluster-Daten anzuzeigen, verwenden Sie die Seite Speichercluster, auf der Abfragen häufiger durchgeführt werden als auf dem Dashboard.
+
+
+
+== Monitoring von Computing-Ressourcen
+
+Nutzen Sie die Fensterfläche *Computing*, um Ihre gesamte NetApp H-Series Computing-Umgebung anzuzeigen. Es lässt sich die Anzahl der Computing-Cluster und Computing-Nodes insgesamt überwachen.
+
+Um Details anzuzeigen, wählen Sie in den Rechenfeldern *Details anzeigen* aus.
+
+
+NOTE: Ihre vCenter Instanzen werden nur im Computing-Bereich angezeigt, wenn mindestens ein NetApp HCI Computing-Node dieser Instanz zugeordnet ist. Um die in NetApp Hybrid Cloud Control verlinkten vCenter Instanzen aufzulisten, können Sie die verwenden link:task_mnode_edit_vcenter_assets.html["APIs"].
+
+
+NOTE: Zum Management eines Computing-Node in NetApp Hybrid Cloud Control sind einige Voraussetzungen erforderlich https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/How_to_set_up_compute_node_management_in_NetApp_Hybrid_Cloud_Control["Fügen Sie den Computing-Node zu einem vCenter-Host-Cluster hinzu"^].
+
+
+
+== Monitoring der Storage-Kapazität
+
+Das Monitoring der Storage-Kapazität Ihrer Umgebung ist von entscheidender Bedeutung. Mit dem Teilfenster Storage-Kapazität können Sie die Effizienz Ihrer Storage-Kapazität bestimmen, wobei oder ohne aktivierte Komprimierung, Deduplizierung und Thin Provisioning-Funktionen die Effizienz erhöht wird.
+
+Auf der Registerkarte *RAW* sehen Sie den gesamten verfügbaren physischen Speicherplatz in Ihrem Cluster sowie Informationen zum bereitgestellten Speicher auf der Registerkarte *EFFEKTIV*.
+
+image::hcc_dashboard_storage_capacity_effective.png[HCC-Dashboard > Bereich Speicherkapazität]
+
+
+TIP: Werfen Sie auch einen Blick auf das SolidFire Active IQ Dashboard, um den Cluster-Zustand anzuzeigen. Siehe link:task_hcc_activeiq.html["Überwachung von Performance, Kapazität und Cluster-Zustand in NetApp SolidFire Active IQ"].
+
+.Schritte
+. Wählen Sie die Registerkarte * RAW* aus, um den gesamten physischen Speicherplatz anzuzeigen, der in Ihrem Cluster verwendet und verfügbar ist.
++
+Sehen Sie sich die vertikalen Linien an, um zu bestimmen, ob die genutzte Kapazität unter dem Wert „Warnung“, „Fehler“ oder „kritische Schwellenwerte“ liegt. Bewegen Sie den Mauszeiger über die Linien, um Details anzuzeigen.
+
++
+
+NOTE: Sie können den Schwellenwert für Warnung festlegen, der standardmäßig 3% unter dem Fehlerschwellenwert liegt. Die Fehler- und kritischen Schwellenwerte sind voreingestellt und können nicht anhand des Designs konfiguriert werden. Der Fehlerschwellenwert gibt an, dass weniger als ein Knoten der Kapazität im Cluster verbleibt. Schritte zum Einstellen des Schwellenwerts finden Sie unter https://docs.netapp.com/us-en/element-software/storage/task_system_manage_cluster_set_the_cluster_full_threshold.html["Cluster-Schwellenwert wird eingestellt"^].
+
++
+
+TIP: Informationen zur entsprechenden Cluster-Schwellenwertelement-API finden Sie unter https://docs.netapp.com/us-en/element-software/api/reference_element_api_getclusterfullthreshold.html["„GetClusterFullThreshold“"^] In der Dokumentation _Element Software API_. Weitere Informationen zur Block- und Metadatenkapazität finden Sie unter https://docs.netapp.com/us-en/element-software/storage/concept_monitor_understand_cluster_fullness_levels.html["Allgemeines zu Cluster-Auslastungsebenen"^] In der Dokumentation _Element Software_.
+
+. Wählen Sie die Registerkarte * EFFECTIVE* aus, um Informationen über den insgesamt bereitgestellten Storage für verbundene Hosts anzuzeigen und Effizienzbewertungen anzuzeigen.
++
+.. Optional können Sie sich *mit Thin Provisioning* um Thin Provisioning-Effizienzraten im Balkendiagramm für die effektive Kapazität anzuzeigen.
+.. *Balkendiagramm für effektive Kapazität*: Prüfen Sie die vertikalen Linien, um festzustellen, ob Ihre verwendete Kapazität unter der Gesamtsumme oder weniger als Warnung, Fehler oder kritische Schwellenwerte liegt. Ähnlich wie die Registerkarte „Raw“ können Sie den Mauszeiger über die vertikalen Linien bewegen, um Details anzuzeigen.
+.. *Effizienz*: Prüfen Sie diese Bewertungen, um festzustellen, welche Vorteile die Effizienz Ihrer Storage-Kapazität durch aktivierte Komprimierung, Deduplizierung und Thin Provisioning-Funktionen erzielt wird. Wenn die Komprimierung beispielsweise „1,3x“ anzeigt, bedeutet dies, dass die Storage-Effizienz bei aktivierter Komprimierung 1.3-mal effizienter ist als ohne sie.
++
+
+NOTE: Die Gesamteffizienz entspricht (maxUsedSpace * Efficiency Factor) / 2, wobei Efficiency Factor = (thinProvisioningFactor * deDuplicationFactor * comressionFactor). Wenn Thin Provisioning nicht aktiviert ist, wird dies nicht in der Gesamteffizienz berücksichtigt.
+
+.. Wenn die effektive Storage-Kapazität einen Fehler oder einen kritischen Schwellenwert überschreitet, sollten Sie die Daten auf dem System löschen. Alternativ können Sie auch Ihr System erweitern.
++
+Siehe link:concept_hcc_expandoverview.html["Übersicht über die Erweiterung"].
+
+
+
+. Für weitere Analysen und historischen Kontext, schauen Sie sich https://activeiq.solidfire.com/["Details zum NetApp SolidFire Active IQ"^].
+
+
+
+
+== Monitoring der Storage-Performance
+
+Sie können sich ansehen, wie viel IOPS oder Durchsatz Sie aus einem Cluster erhalten können, ohne die nützliche Performance dieser Ressource durch Verwendung des Teilfensters „Storage Performance“ zu überschreiten. Die Storage-Performance ist der Punkt, an dem die maximale Auslastung erreicht wird, bevor die Latenz zum Problem wird.
+
+Im Bereich Storage Performance können Sie feststellen, ob die Performance an einem Punkt erreicht wird, an dem die Performance abnimmt, wenn sich die Workloads erhöhen.
+
+Die Informationen in diesem Teilfenster werden alle 10 Sekunden aktualisiert und zeigen einen Durchschnitt aller Punkte im Diagramm an.
+
+Details zur zugehörigen Element-API-Methode finden Sie im https://docs.netapp.com/us-en/element-software/api/reference_element_api_getclusterstats.html["GetClusterStats"^] Methode in der API-Dokumentation _Element Software_.
+
+.Schritte
+. Zeigen Sie das Teilfenster Speicher-Performance an. Zeigen Sie für Details den Mauszeiger auf Punkte im Diagramm.
++
+.. *IOPS* Registerkarte: Siehe die aktuellen Operationen pro Sekunde. Suchen Sie nach Trends in Daten oder Spitzen. Wenn Sie beispielsweise sehen, dass die maximale IOPS 160.000 beträgt und 100.000 freie oder verfügbare IOPS sind, ziehen Sie möglicherweise nach dem Hinzufügen weiterer Workloads zu diesem Cluster in Betracht. Wenn andererseits zu sehen ist, dass nur 140K verfügbar ist, können Sie unter Umständen Workloads auslagern oder Ihr System erweitern.
++
+image::hcc_dashboard_storage_perform_iops.png[„Storage Performance“ > „IOPS“]
+
+.. *Throughput* Tab: Monitoring-Muster oder Durchsatzspitzen. Überwachen Sie darüber hinaus kontinuierlich hohe Durchsatzwerte. Dies kann darauf hindeuten, dass sich die maximale Performance der Ressource nähert.
++
+image::hcc_dashboard_storage_perform_throughput.png[„Storage Performance“ > „Throughput“]
+
+.. *Auslastung* Registerkarte: Überwachen Sie die Auslastung von IOPS in Bezug auf die insgesamt verfügbaren IOPS, die auf der Clusterebene zusammengefasst sind.
++
+image::hcc_dashboard_storage_perform_utlization.png[„Storage Performance“ > Registerkarte „Auslastung“]
+
+
+
+. Werfen Sie weitere Analysen mit dem NetApp Element Plug-in für vCenter Server an die Storage-Performance.
++
+https://docs.netapp.com/us-en/vcp/vcp_task_reports_volume_performance.html["Performance, die im NetApp Element Plug-in für vCenter Server dargestellt ist"^].
+
+
+
+
+
+== Monitoring der Computing-Auslastung
+
+Neben dem Monitoring der IOPS und des Durchsatzes Ihrer Storage-Ressourcen sollten auch die CPU- und Arbeitsspeicherauslastung der Computing-Ressourcen angezeigt werden. Die gesamten IOPS, die ein Node bereitstellen kann, basieren auf den physischen Merkmalen des Nodes, wie beispielsweise die Anzahl der CPUs, die CPU-Geschwindigkeit und die RAM-Größe.
+
+.Schritte
+. Öffnen Sie den Bereich *Computing Utiency*. Wenn Sie sowohl die Registerkarte „CPU“ als auch „Speicher“ verwenden, suchen Sie nach Mustern oder Spitzen in der Auslastung. Achten Sie auch darauf, dass die Auslastung kontinuierlich hoch ist, was darauf hindeutet, dass sich die maximale Auslastung der Computing-Cluster nähert.
++
+
+NOTE: In diesem Teilfenster werden Daten nur für die von dieser Installation gemanagten Computing-Cluster angezeigt.
+
++
+image::hcc_dashboard_compute_util_cpu.png[Teilfenster zur Computing-Auslastung]
+
++
+.. *CPU* Registerkarte: Siehe den aktuellen Durchschnitt der CPU-Auslastung auf dem Rechner-Cluster.
+.. *Speicher* Registerkarte: Siehe die aktuelle durchschnittliche Speichernutzung auf dem Rechner-Cluster.
+
+
+. Weitere Analysen zu Computing-Informationen finden Sie unter https://activeiq.solidfire.com["NetApp SolidFire Active IQ für Archivdaten"^].
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+* https://docs.netapp.com/us-en/solidfire-active-iq/index.html["NetApp SolidFire Active IQ-Dokumentation"^]
+

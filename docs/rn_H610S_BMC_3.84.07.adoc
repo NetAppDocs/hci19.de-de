@@ -1,0 +1,137 @@
+---
+sidebar: sidebar 
+permalink: docs/rn_H610S_BMC_3.84.07.html 
+summary: Hier finden Sie Links zu Versionshinweisen für die Firmware-Pakete, die Sie herunterladen und für NetApp HCI-Nodes anwenden können. 
+keywords: netapp, hci, compute firmware 
+---
+= H610S BMC 3.84.07 – Versionshinweise
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+Das herunterladbare BMC Update enthält BMC-Funktionserweiterungen und Fehlerbehebungen für NetApp H610S Nodes.
+
+
+
+== Was ist neu
+
+H610S BMC 3.84.07 enthält verschiedene Fehlerbehebungen und neue Funktionen. Diese Version bringt eine vor Ort aktualisierte BMC Firmware vor nachfolgenden Bundle-Versionen für Element Software und Storage Firmware, die ebenfalls die aktualisierte BMC Firmware für H610S Nodes enthalten wird.
+
+Dieses Firmware-Paket wird auf Element Versionen 11.8, 12.0 und 12.2 unterstützt. Sie können die H610S BMC-Firmware direkt Out-of-Band aktualisieren, und Upgrade-Anweisungen finden Sie in  BMC firmware on H610S nodes.
+
+
+
+== Neue Funktionen
+
+Diese Version enthält folgende neue Funktionen und Änderungen:
+
+* INITRD Support aktiviert
+* Aktualisierte SSL-Hilfemeldung zu X.509-Zertifikaten
+* Unterstützung von TLS 1.0 und 1.1 deaktiviert
+* Unterstützung von Redfish Remote-Medien hinzugefügt
+* H5Viewer RKVM wurde hinzugefügt
+* Remote-Syslog-Unterstützung hinzugefügt
+
+
+
+
+== Behobene Probleme
+
+In diesem Release wurden folgende Probleme behoben:
+
+|===
+| Problem | Beschreibung 
+
+
+| K. A. | Der Debug-Benutzer sysadmin kann sich mit SSH nach dem Zurücksetzen des BMC einloggen. 
+
+
+| K. A. | Wenn Sie die Konsole verwenden, um die BMC-IP-Adresse zu pingen, reagiert der BMC nicht. 
+
+
+| K. A. | Während eines Netzstromzyklus-Belastungstests gehen die Zugriffsberechtigungen der SOLSSH-Konfigurationsdatei verloren. 
+
+
+| CSESF-116 | Während eines AC-Power-Cycle-Stresstests werden in den BMC-Protokollen die thermischen Warnungen „PROCHOT“ der CPU angezeigt. 
+
+
+| CSESF-121 | Die Konto-API zum Erstellen und Aktualisieren des Service dauert länger als erwartet. 
+
+
+| CSD-3321/CSESF-129 | Der H610S BMC kann hängen und unzugänglich werden mit dem Fehler „BMC Self Test failed“. 
+
+
+| CSESF-197 | Die BMC Web UI Inventory API gibt das falsche Format der Seriennummer des Speichers zurück. 
+|===
+
+
+== Bekannte Probleme
+
+In dieser Version sind keine Probleme bekannt.
+
+
+
+== Aktualisieren der BMC-Firmware auf H610S Nodes
+
+Führen Sie die folgenden Schritte durch, um die BMC-Firmware-Version auf Ihren H610S-Knoten zu aktualisieren. Der Vorgang kann etwa 30 Minuten dauern.
+
+.Was Sie und#8217;ll benötigen
+* Sie haben die Benachrichtigungen überprüft, indem Sie in der Weboberfläche der NetApp Element-Software auf *Berichterstellung* > *Warnungen* klicken, um sicherzustellen, dass keine Fehler auftreten.
+* Sie haben das BMC-Aktualisierungspaket heruntergeladen. Laden Sie das BMC-Aktualisierungspaket herunter https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/H610S_BMC_3.84["Hier"^].
+
+
+
+NOTE: Dieses Aktualisierungspaket enthält das `rom.ima_enc` Datei und alle Dateien, die für die Firmware-Aktualisierung benötigt werden.
+
+* Sie haben sichergestellt, dass sich der BMC und der Computer, den Sie für die Aktualisierung verwenden, im selben Netzwerk befinden.
+* Sie haben sich an den NetApp Support wenden, um Hilfe beim BMC-Upgrade zu erhalten.
+
+
+.Schritte
+. Melden Sie sich über Ihren Webbrowser bei der BMC-Konsole an: `https://<BMC_IP>/#login`, Wo `<BMC_IP>` Ist die IP-Adresse des BMC.
+. Klicken Sie Auf *Wartung*.
+. Klicken Sie Auf *Konfiguration Beibehalten*.
+. Gehen Sie wie folgt vor:
++
+.. Deaktivieren Sie das Kontrollkästchen * Alle aktivieren*.
+.. Aktivieren Sie das Kontrollkästchen *IPMI*.
+.. Aktivieren Sie das Kontrollkästchen *Netzwerk*.
+.. Aktivieren Sie das Kontrollkästchen *Authentifizierung*.
++
+*** Die *IPMI*-Einstellung wird verwendet, um bestehende Benutzerkonten zu erhalten.
+*** Die Einstellung *Netzwerk* wird verwendet, um die von DHCP zugewiesene BMC-IP-Adresse zu erhalten.
+*** Mit der Einstellung *Authentifizierung* werden benutzerdefinierte Konten aufbewahrt, die für BMC-Anmeldung konfiguriert sind.
+
+
+
+
+. Klicken Sie Auf *Speichern*.
+. Klicken Sie Auf *Firmware-Aktualisierung*.
+. Deaktivieren Sie das Kontrollkästchen * Alle Konfiguration erhalten*.
++
+
+NOTE: Stellen Sie sicher, dass Sie das Kontrollkästchen * Alle Konfiguration beibehalten* deaktiviert haben.
+
+. Extrahieren Sie auf dem Computer, den Sie zum Durchführen des Updates verwenden, den Inhalt des BMC-Aktualisierungspakets.
+. Klicken Sie in der BMC-Web-UI unter dem Abschnitt *Firmware-Image auswählen* auf der Seite *Firmware-Aktualisierung* auf *Datei auswählen*.
+. Wechseln Sie zum `rom.ima_enc` Datei innerhalb des extrahierten Paketinhalts, und wählen Sie es aus.
+. Klicken Sie auf *Firmware-Update starten* und klicken Sie auf *OK*, wenn Sie gefragt werden, ob Sie fortfahren möchten.
+. Klicken Sie auf *OK*, wenn eine Eingabeaufforderung angezeigt wird, die angibt, dass ein Firmware-Reset stattfindet.
+. Nach einigen Minuten, verwenden Sie eine neue Browser-Registerkarte, um sich bei der BMC Web-UI.
+. Gehen Sie auf dem BMC-Dashboard zu *Geräteinformationen* > *Weitere Informationen*.
+. Vergewissern Sie sich, dass die * Firmware-Version* *3.84.07* lautet.
+. Führen Sie dieses Verfahren für die übrigen H610S Storage-Nodes im Cluster durch.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

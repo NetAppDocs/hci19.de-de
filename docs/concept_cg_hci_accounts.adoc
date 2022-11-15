@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_cg_hci_accounts.html 
+summary: Jedes NetApp HCI System mit aktivierten Cloud-Services ist mit einem NetApp Cloud Central Konto verknüpft. 
+keywords: netapp, hci, on premise, administrator, user account, cloud services, cluster 
+---
+= Benutzerkonten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um auf Storage-Ressourcen in Ihrem System zuzugreifen, müssen Sie Benutzerkonten einrichten.
+
+
+
+== Benutzerkontenverwaltung
+
+Über Benutzerkonten werden der Zugriff auf die Storage-Ressourcen in einem softwarebasierten Netzwerk von NetApp Element gesteuert. Mindestens ein Benutzerkonto ist erforderlich, bevor ein Volume erstellt werden kann.
+
+Wenn Sie ein Volume erstellen, wird es einem Konto zugewiesen. Wenn Sie ein virtuelles Volume erstellt haben, ist das Konto der Speichercontainer.
+
+Folgende Aspekte sollten zusätzlich berücksichtigt werden:
+
+* Das Konto enthält die CHAP-Authentifizierung, die für den Zugriff auf die ihm zugewiesenen Volumes erforderlich ist.
+* Einem Konto können bis zu 2000 Volumes zugewiesen sein, aber ein Volume kann nur zu einem Konto gehören.
+* Benutzerkonten können über den Erweiterungspunkt für die NetApp Element-Verwaltung verwaltet werden.
+
+
+Mit NetApp Hybrid Cloud Control lassen sich folgende Account-Typen erstellen und verwalten:
+
+* Administratorkonten für das Storage-Cluster
+* Autoritäre Benutzerkonten
+* Volume-Konten, nur für den Storage Cluster spezifisch, auf dem sie erstellt wurden.
+
+
+
+
+== Konten für Storage-Cluster-Administratoren
+
+In einem Storage-Cluster mit NetApp Element Software können zwei Arten von Administratorkonten vorhanden sein:
+
+* *Primary Cluster Administrator Account*: Dieses Administratorkonto wird beim Erstellen des Clusters erstellt. Dieses Konto ist das primäre administrative Konto mit der höchsten Zugriffsebene auf das Cluster. Dieses Konto ist analog zu einem Root-Benutzer in einem Linux-System. Sie können das Kennwort für dieses Administratorkonto ändern.
+* *Cluster-Administratorkonto*: Sie können einem Cluster-Administratorkonto eine begrenzte Anzahl von Administratorzugriff zur Ausführung bestimmter Aufgaben innerhalb eines Clusters gewähren. Die jedem Cluster-Administratorkonto zugewiesenen Zugangsdaten werden zur Authentifizierung von API- und Element-UI-Anforderungen innerhalb des Storage-Systems verwendet.
+
+
+
+NOTE: Ein lokales (nicht-LDAP)-Cluster-Administratorkonto ist erforderlich, um über die UI pro Node auf aktive Knoten in einem Cluster zuzugreifen. Kontoanmeldeinformationen sind für den Zugriff auf einen Node, der noch nicht Teil eines Clusters ist, nicht erforderlich.
+
+Sie können Cluster-Administratorkonten verwalten, indem Sie Cluster-Administratorkonten erstellen, löschen und bearbeiten, das Kennwort für den Cluster-Administrator ändern und LDAP-Einstellungen konfigurieren, um den Systemzugriff für Benutzer zu verwalten.
+
+
+
+== Autoritäre Benutzerkonten
+
+Autorisierte Benutzerkonten können sich gegen alle Storage-Ressourcen authentifizieren, die mit der NetApp Hybrid Cloud Control Instanz der Nodes und Cluster verbunden sind. Mit diesem Konto können Sie Volumes, Konten, Zugriffsgruppen und mehr über alle Cluster hinweg verwalten.
+
+Maßgebliche Benutzerkonten werden über die obere rechte Menü-Option „Benutzermanagement“ in der NetApp Hybrid Cloud Control gemanagt.
+
+Der link:concept_hci_clusters.html#authoritative-storage-clusters["Autorisierende Storage-Cluster"] Ist der Storage-Cluster, den NetApp Hybrid Cloud Control zur Authentifizierung von Benutzern verwendet.
+
+Bei der NetApp Hybrid Cloud Control können sich alle Benutzer, die auf dem autorisierenden Storage-Cluster erstellt wurden, anmelden. Benutzer, die auf anderen Storage Clustern erstellt wurden, können sich bei Hybrid Cloud Control nicht anmelden.
+
+* Wenn der Management-Node nur über einen Storage-Cluster verfügt, dann ist er das autorisierende Cluster.
+* Wenn der Management-Node zwei oder mehr Storage-Cluster umfasst, wird einem dieser Cluster als autorisierende Cluster zugewiesen. Nur Benutzer dieses Clusters können sich bei NetApp Hybrid Cloud Control anmelden.
+
+
+Viele NetApp Hybrid Cloud Control Funktionen funktionieren zwar mit mehreren Storage-Clustern, jedoch bringen Authentifizierung und Autorisierung erforderliche Einschränkungen mit sich. Die Einschränkung der Authentifizierung und Autorisierung besteht darin, dass Benutzer aus dem autorisierenden Cluster Aktionen auf anderen Clustern ausführen können, die an NetApp Hybrid Cloud Control gebunden sind, auch wenn diese nicht in den anderen Storage-Clustern ausgeführt werden. Bevor Sie mit der Verwaltung mehrerer Storage-Cluster fortfahren, sollten Sie sicherstellen, dass die auf den Standards definierten Benutzer auf allen anderen Storage-Clustern mit denselben Berechtigungen definiert sind. Benutzer können über NetApp Hybrid Cloud Control gemanagt werden.
+
+
+
+== Volume-Konten
+
+Volume-spezifische Konten gelten nur für den Storage Cluster, auf dem sie erstellt wurden. Mit diesen Konten können Sie Berechtigungen für bestimmte Volumes im Netzwerk festlegen, haben aber keine Auswirkungen außerhalb dieser Volumes.
+
+Volume-Konten werden in der Tabelle „NetApp Hybrid Cloud Control Volumes“ gemanagt.
+
+[discrete]
+== Weitere Informationen
+
+* link:task_hcc_manage_accounts.html["Benutzerkonten verwalten"]
+* link:concept_hci_clusters.html["Informationen zu Clustern"]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

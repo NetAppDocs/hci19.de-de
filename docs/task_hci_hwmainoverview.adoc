@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_hwmainoverview.html 
+summary: Sie können Hardwarewartungsaufgaben durchführen, z. B. Ihre Nodes ersetzen, die Laufwerke in Storage-Nodes ersetzen, Netzteile usw. 
+keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance, rails, h-series, nodes 
+---
+= Hardware-Wartung der H-Serie – Übersicht
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie sollten Hardwarewartungsaufgaben wie den Austausch defekter Nodes, den Austausch defekter Laufwerke in den Storage-Nodes usw. durchführen, um sicherzustellen, dass das System optimal funktioniert.
+
+Hier sind die Links zu den Hardwarewartungsaufgaben:
+
+* link:task_hci_hserieschassisrepl.html["Ersetzen Sie das 2-HE-Gehäuse der H-Serie"]
+* link:task_hci_dcpsurepl.html["Austausch von Gleichstromnetzteilen in H615C und H610S Nodes"]
+* link:task_hci_dimmcomputerepl.html["DIMMs in Computing-Nodes ersetzen"]
+* link:task_hci_driverepl.html["Austausch von Laufwerken für Storage-Nodes"]
+* link:task_hci_h410crepl.html["Ersetzen Sie die H410C Nodes"]
+* link:task_hci_h410srepl.html["H410S Nodes austauschen"]
+* link:task_hci_h610ch615crepl.html["H610C und H615C Nodes ersetzen"]
+* link:task_hci_h610srepl.html["H610S Nodes ersetzen"]
+* link:task_hci_psurepl.html["Ersetzen Sie die Netzteile"]
+* link:task_hci_snswitches.html["Ersetzen Sie die Switches SN2010, SN2100 und SN2700"]
+* link:task_hci_2noderepl.html["Storage-Node wird in einem 2-Node-Cluster ersetzt"]
+
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/media/tr-4820.pdf["_TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke_"^]
+* https://mysupport.netapp.com/site/tools["NetApp Configuration Advisor"^] 5.8.1 oder höher zur Netzwerkvalidierung
+

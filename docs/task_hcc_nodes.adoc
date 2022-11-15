@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_nodes.html 
+summary: Sie können die Storage- und Computing-Ressourcen in Ihrem System über die Seite Hybrid Cloud Control Nodes anzeigen. 
+keywords: netapp, hci, on premise, cluster, inventory, nodes, storage, compute 
+---
+= Zeigen Sie Ihren Bestand auf der Seite Knoten an
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können Ihre Storage- und Computing-Ressourcen in Ihrem System anzeigen und ihre IP-Adressen, Namen und Softwareversionen festlegen.
+
+Sie können Storage-Informationen für mehrere Node-Systeme und alle NetApp HCI Witness-Nodes anzeigen, die mit zwei oder drei Nodes verbunden sind. Wenn link:concept_hcc_custom_protection_domains.html["Benutzerdefinierte Sicherungsdomänen"] Bei Zuordnung sehen Sie, welche Sicherungsdomänen spezifischen Nodes zugewiesen sind.
+
+Witness Nodes managen das Quorum innerhalb des Clusters. Sie werden nicht für den Storage verwendet. Witness Nodes sind nur für NetApp HCI und nicht für rein Flash-basierte Storage-Umgebungen geeignet.
+
+Weitere Informationen zu Witness Nodes finden Sie unter link:concept_hci_nodes.html["Knotendefinitionen"].
+
+Bei SolidFire-SDS-Knoten können Sie auf der Registerkarte Speicher den Bestand überwachen.
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser. Beispiel:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
+. Klicken Sie in der linken Navigation auf *Knoten*.
++
+image::hcc_nodes_storage_2nodes.png[Seitenbild: Hybrid Cloud Control Nodes]
+
++
+
+NOTE: Wenn Sie zum ersten Mal eine neue NetApp Hybrid Cloud Control Session starten, kann es möglicherweise zu einer Verzögerung beim Laden der Seite NetApp Hybrid Cloud Control Nodes kommen, wenn der Management-Node viele Cluster verwaltet. Die Ladezeit hängt von der Anzahl der Cluster ab, die aktiv vom Management-Node gemanagt werden. Bei späteren Starts erleben Sie schnellere Ladezeiten.
+
+. Überprüfen Sie auf der Seite Knoten auf der Registerkarte *Storage* die folgenden Informationen:
++
+.. Zwei-Knoten-Cluster: Auf der Registerkarte Speicher wird eine Bezeichnung „zwei-Knoten“ angezeigt und die zugehörigen Witness Nodes werden aufgelistet.
+.. Drei-Node-Cluster: Die Storage-Nodes und die zugehörigen Witness-Nodes werden aufgeführt. Bei Clustern mit drei Nodes wird ein Witness Node im Standby bereitgestellt, um im Falle eines Node-Ausfalls die Hochverfügbarkeit aufrechtzuerhalten.
+.. Cluster mit mindestens vier Nodes: Es werden Informationen für Cluster mit vier oder mehr Nodes angezeigt. Witness Nodes gelten nicht. Wenn Sie mit zwei oder drei Storage-Nodes begonnen und weitere Nodes hinzugefügt haben, werden die Witness-Nodes weiterhin angezeigt. Andernfalls wird die Tabelle Witness Nodes nicht angezeigt.
+.. Die Firmware-Bundle-Version: Ab Management Services Version 2.14 wird für diese Cluster die Firmware-Bundle-Version angezeigt, wenn auf Clustern mit Element 12.0 oder höher ausgeführt wird. Wenn die Knoten in einem Cluster unterschiedliche Firmware-Versionen enthalten, sehen Sie in der Spalte *Firmware Bundle Version* *multiple*.
+.. Benutzerdefinierte Schutz-Domänen: Wenn benutzerdefinierte Schutz-Domänen im Cluster verwendet werden, werden für jeden Node im Cluster benutzerdefinierte Schutz-Domain-Zuweisungen angezeigt. Wenn benutzerdefinierte Schutzdomänen nicht aktiviert sind, wird diese Spalte nicht angezeigt.
+
+
+. Klicken Sie zum Anzeigen von Rechnungsinformationen der Bestandsliste auf *Berechnen*.
+. Sie haben verschiedene Möglichkeiten, die Informationen auf diesen Seiten zu bearbeiten:
++
+.. Um die Liste der Elemente in den Ergebnissen zu filtern, klicken Sie auf das Symbol *Filter* und wählen Sie die Filter aus. Sie können auch Text für den Filter eingeben.
+.. Um Spalten ein- oder auszublenden, klicken Sie auf das Symbol *Spalten ein-/ausblenden*.
+.. Um die Tabelle herunterzuladen, klicken Sie auf das Symbol *Download*.
+.. Um die gespeicherten BMC-Anmeldeinformationen für einen Rechner-Knoten mit BMC-Verbindungsfehlern hinzuzufügen oder zu bearbeiten, klicken Sie in der Fehlermeldung in der Spalte *BMC-Verbindungsstatus* auf *Verbindungseinstellungen bearbeiten*. Nur wenn der Verbindungsversuch für einen Compute-Node fehlschlägt, wird in dieser Spalte für diesen Node eine Fehlermeldung angezeigt.
+
+
+
+
+
+TIP: Informationen zur Anzahl der Storage- und Computing-Ressourcen finden Sie im NetApp Hybrid Cloud Control (HCC) Dashboard. Siehe link:task_hcc_dashboard.html["Überwachen Sie Speicher- und Computing-Ressourcen mit dem HCC Dashboard"].
+
+
+NOTE: Zum Management eines Computing-Node in NetApp Hybrid Cloud Control sind einige Voraussetzungen erforderlich https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/How_to_set_up_compute_node_management_in_NetApp_Hybrid_Cloud_Control["Fügen Sie den Computing-Node zu einem vCenter-Host-Cluster hinzu"^].
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

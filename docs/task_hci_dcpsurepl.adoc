@@ -1,0 +1,94 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_dcpsurepl.html 
+summary: H615C und H610S Nodes unterstützen zwei–48 V bis –60 V DC-Netzteile. Diese Einheiten sind bei der Bestellung von H615C oder H610S Nodes als optionale Add-ons erhältlich. Sie können die gleichen Anweisungen verwenden, um die Netzteileinheiten im Gehäuse zu entfernen und durch Gleichstromnetzteile zu ersetzen oder ein defektes Gleichstromnetzteil durch ein neues Gleichstromnetzteil zu ersetzen. 
+keywords: netapp, hci, psu, replace power supply, H610S, H615C, DC 
+---
+= Austausch von Gleichstromnetzteilen in H615C und H610S Nodes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+H615C und H610S Nodes unterstützen zwei–48 V bis –60 V DC-Netzteile. Diese Einheiten sind bei der Bestellung von H615C oder H610S Nodes als optionale Add-ons erhältlich. Sie können diese Anleitung verwenden, um die Netzteileinheiten im Gehäuse zu entfernen und durch Gleichstromnetzteile zu ersetzen oder ein defektes Gleichstromnetzteil durch ein neues Gleichstromnetzteil zu ersetzen.
+
+.Was Sie und#8217;ll benötigen
+* Wenn Sie ein defektes DC-Netzteil ersetzen, haben Sie ein Ersatznetzteil in Anspruch genommen.
+* Wenn Sie die Wechselstromnetzteile in Ihrem Gehäuse gegen Gleichstromeinheiten austauschen, haben Sie die Ausfallzeiten für das Verfahren berücksichtigt.
+* Sie haben ein elektrostatisches Entladungsband (ESD) oder andere antistatische Vorsichtsmaßnahmen getroffen.
+* Sie haben sichergestellt, dass die Anforderungen an die Stromversorgung erfüllt sind:
++
+** Versorgungsspannung: – (48-60) V DC
+** Stromaufnahme: 37A (Maximum)
+** Leistungsschalter Anforderungen: 40A Trennschalter
+
+
+* Sie haben dafür gesorgt, dass die Materialien in Ihrer Umgebung den RoHS-Spezifikationen entsprechen.
+* Sie haben sichergestellt, dass die Kabelanforderungen erfüllt sind:
++
+** Ein UL 10 AWG, maximal 2 m (gestrandet) schwarzes Kabel [– (48-60) V DC]
+** Ein UL 10 AWG, maximal 2 m (gestrandet) rotes Kabel [V DC-Rückleitung]
+** Ein UL 10 AWG, maximal 2 m grünes/gelbes Kabel, grün mit gelbem Streifen, Litzen (Sicherheitsmasse)
+
+
+
+
+Das Verfahren gilt für die folgenden Node-Modelle:
+
+* 1-HE-H615C Computing-Chassis
+* 1-HE-H610S Storage-Chassis
++
+
+NOTE: Bei H615C und H610S werden die Begriffe „Node“ und „Chassis“ austauschbar verwendet, da Node und Chassis keine separaten Komponenten sind, anders als bei einem 2-HE-Chassis mit vier Nodes.
+
+
+
+
+CAUTION: Sie können in Ihrer Installation keine Wechselstromnetzteile und Gleichstromnetzteile mischen.
+
+.Schritte
+. Schalten Sie die Netzteile aus und ziehen Sie die Netzkabel ab. Wenn Sie ein defektes DC-Netzteil ersetzen, schalten Sie die Stromquelle aus und entfernen Sie alle Kabel, die in den blauen Stecker gesteckt sind.
+. Heben Sie den Nockengriff an, und drücken Sie die blaue Verriegelung, um das Netzteil herauszuschieben.
++
+image::psu-remove.gif[Zeigt den Heben des Nockengriffs und das Netzteil aus dem Gehäuse.]
+
++
+
+NOTE: Die Abbildung ist ein Beispiel. Die Position des Netzteils im Gehäuse und die Farbe der Entriegelungstaste variieren je nach Gehäusetyp.
+
++
+
+IMPORTANT: Stellen Sie sicher, dass Sie beide Hände verwenden, um das Gewicht des Netzteils zu unterstützen.
+
+. Richten Sie die Kanten des Netzteils mit beiden Händen an der Öffnung im Gehäuse aus. Schieben Sie das Gerät vorsichtig mit dem Nockengriff in das Gehäuse, bis es einrastet, und bringen Sie den Nockengriff in die aufrechte Position zurück.
++
+image::psu-install.gif[Zeigt das Netzteil, das im Chassis installiert wird.]
+
+. Verkabeln Sie die Gleichstromnetzteile. Stellen Sie sicher, dass die Stromquelle ausgeschaltet ist, während Sie das Gleichstromnetzteil und die Stromquelle verkabeln.
++
+.. Stecken Sie die schwarzen, roten und grünen/gelben Kabel in die blauen Anschlüsse.
+.. Stecken Sie den blauen Stecker in die Gleichstromnetzteile und die Stromquelle.
++
+image::dc-psu.png[Zeigt die Verkabelung des Gleichstromnetzteils.]
+
+
+
+. Schalten Sie die Gleichstromnetzteile ein.
++
+
+TIP: Die Netzteil-LEDs leuchten, wenn das Gleichstromnetzteil online geschaltet wird. Grüne LED-Anzeigen zeigen an, dass die Netzteile ordnungsgemäß funktionieren.
+
+. Senden Sie das fehlerhafte Gerät an NetApp zurück. Befolgen Sie die Anweisungen im Lieferumfang, die Sie erhalten haben.
+
+
+
+
+== Weitere Informationen
+
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

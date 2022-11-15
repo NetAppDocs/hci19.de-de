@@ -1,0 +1,18 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_management_node.html 
+summary: Hier finden Sie Best Practices rund um den NetApp HCI Management-Node. 
+keywords: netapp, hci, management node, mnode, best practice 
+---
+= Anforderungen an Management-Nodes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, management node, mnode, best practice
+
+
+[role="lead"]
+Als Best Practice wird nur ein Management Node mit einer VMware vCenter Instanz verknüpft, sodass nicht dieselben Storage- und Computing-Ressourcen oder vCenter Instanzen in mehreren Management Nodes definiert werden müssen. Das Definieren derselben Ressourcen in mehreren Management-Nodes kann zu Problemen führen, z. B. zu einer falschen Ressourcenberichterstellung in NetApp ActiveIQ.

@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_expand_storage.html 
+summary: Nachdem die NetApp HCI Implementierung abgeschlossen ist, können Sie mithilfe von NetApp Hybrid Cloud Control NetApp HCI Storage-Ressourcen erweitern und konfigurieren. 
+keywords: netapp, hci, on premise, expand, storage, cluster 
+---
+= Erweitern Sie NetApp HCI Storage-Ressourcen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nachdem die NetApp HCI Implementierung abgeschlossen ist, können Sie mithilfe von NetApp Hybrid Cloud Control NetApp HCI Storage-Ressourcen erweitern und konfigurieren.
+
+.Bevor Sie beginnen
+* Stellen Sie sicher, dass Sie über freie und nicht genutzte IPv4-Adressen im gleichen Netzwerksegment wie vorhandene Knoten verfügen (jeder neue Node muss im gleichen Netzwerk wie die vorhandenen Knoten seines Typs installiert sein).
+* Stellen Sie sicher, dass Sie über einen der folgenden Typen von SolidFire Storage-Cluster-Konten verfügen:
++
+** Das native Administratorkonto, das während der ersten Implementierung erstellt wurde
+** Ein benutzerdefiniertes Benutzerkonto mit Berechtigungen für Cluster Admin, Laufwerke, Volumes und Nodes
+
+
+* Stellen Sie sicher, dass Sie mit jedem neuen Knoten die folgenden Aktionen durchgeführt haben:
++
+** Der neue Node im NetApp HCI Chassis wurde installiert, indem Sie den folgen link:task_hci_installhw.html["Installationsanweisungen"].
+** Verkabelung und Strom zum neuen Node
+
+
+* Stellen Sie sicher, dass Sie über die Management-IPv4-Adresse eines bereits installierten Storage-Node verfügen. Die IP-Adresse finden Sie auf der Registerkarte *NetApp Element Management* > *Cluster* > *Knoten* des NetApp Element Plug-ins für vCenter Server.
+* Stellen Sie sicher, dass jeder neue Node dieselbe Netzwerktopologie und -Verkabelung wie die vorhandenen Storage- oder Computing-Cluster verwendet.
+
+
+
+TIP: Wenn Sie die Storage-Ressourcen erweitern, sollte die Storage-Kapazität gleichmäßig auf das gesamte Chassis verteilt werden, um die bestmögliche Zuverlässigkeit zu erzielen.
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser. Beispiel:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
+. Klicken Sie auf *Expand* in der oberen rechten Ecke der Schnittstelle.
++
+Der Browser öffnet die NetApp Deployment Engine.
+
+. Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des NetApp HCI Storage-Cluster-Administrators bereitstellen.
+. Klicken Sie auf der Seite *Willkommen* auf *Nein* und klicken Sie auf *Weiter*.
+. Wählen Sie auf der Seite *Available Inventory* die Speicherknoten aus, die Sie hinzufügen möchten, und klicken Sie auf *Continue*.
+. Auf der Seite *Netzwerkeinstellungen* wurden einige Netzwerkinformationen von der ersten Bereitstellung erkannt. Jeder neue Storage Node wird nach Seriennummer aufgeführt und Sie müssen ihm die neuen Netzwerkinformationen zuweisen. Führen Sie für jeden neuen Storage-Node die folgenden Schritte aus:
++
+.. *Hostname*: Wenn NetApp HCI ein Benennungspräfix erkannt hat, kopieren Sie es aus dem Feld Erkennungspräfix und fügen Sie es als Präfix für den neuen eindeutigen Hostnamen ein, den Sie in das Feld Hostname einfügen.
+.. *Managementadresse*: Geben Sie eine Management-IP-Adresse für den neuen Speicherknoten ein, der sich im Subnetz des Managementnetzwerks befindet.
+.. *Speicher (iSCSI) IP-Adresse*: Geben Sie eine iSCSI-IP-Adresse für den neuen Speicherknoten ein, der sich im iSCSI-Netzwerk-Subnetz befindet.
+.. Klicken Sie Auf *Weiter*.
++
+
+NOTE: NetApp HCI nimmt möglicherweise eine Zeit in Anspruch, um die von Ihnen eingegebenen IP-Adressen zu validieren. Die Schaltfläche Weiter ist verfügbar, wenn die IP-Adressvalidierung abgeschlossen ist.
+
+
+
+. Auf der Seite *Review* im Abschnitt Netzwerkeinstellungen werden neue Knoten im Fettdruck angezeigt. Gehen Sie wie folgt vor, um Änderungen in einem beliebigen Abschnitt vorzunehmen:
++
+.. Klicken Sie für diesen Abschnitt auf *Bearbeiten*.
+.. Klicken Sie nach dem Abschluss auf einer der nachfolgenden Seiten auf *Weiter*, um zur Seite „Review“ zurückzukehren.
+
+
+. *Optional*: Wenn Sie keine Cluster-Statistiken und Support-Informationen an NetApp Hosted Active IQ Server senden möchten, deaktivieren Sie das endgültige Kontrollkästchen.
++
+Hierdurch wird der Zustand und die Diagnoseüberwachung in Echtzeit für NetApp HCI deaktiviert. Wenn diese Funktion deaktiviert wird, ist es NetApp nicht mehr möglich, NetApp HCI proaktiv zu unterstützen und zu überwachen, um Probleme zu erkennen und zu beheben, bevor die Produktion beeinträchtigt wird.
+
+. Klicken Sie Auf *Knoten Hinzufügen*.
++
+Sie können den Fortschritt überwachen, während NetApp HCI die Ressourcen hinzufügt und konfiguriert.
+
+. *Optional*: Überprüfen Sie, ob neue Speicherknoten im Element Plug-in für vCenter Server sichtbar sind.
++
+
+NOTE: Wenn Sie ein Storage-Cluster mit zwei Nodes auf vier oder mehr erweitert haben, sind die Witness-Nodes, die zuvor vom Storage-Cluster verwendet wurden, noch als Standby Virtual Machines in vSphere sichtbar. Sie werden vom neu erweiterten Storage-Cluster nicht genutzt; wenn Sie VM-Ressourcen zurückgewinnen möchten, können Sie dies gerne tun link:task_hci_removewn.html["Manuell entfernen"] Die virtuellen Witness Node-Maschinen.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

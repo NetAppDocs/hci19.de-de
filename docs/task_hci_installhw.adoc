@@ -1,0 +1,428 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_installhw.html 
+summary: Bevor NetApp HCI zum Einsatz kommt, sollten die Storage- und Computing-Nodes ordnungsgemäß installiert werden. 
+keywords: netapp, hci, on premise, activeiq, active iq, cluster, performance, rails, h-series, nodes 
+---
+= Hardware der H-Serie installieren
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bevor NetApp HCI zum Einsatz kommt, sollten die Storage- und Computing-Nodes ordnungsgemäß installiert werden.
+
+
+TIP: Siehe link:../media/hseries-isi.pdf["Poster"^] Für eine visuelle Darstellung der Anweisungen.
+
+*  diagrams
+*  for installation
+*  the rails
+*  the node/chassis
+*  the switches
+*  the nodes
+*  on the nodes
+*  NetApp HCI
+*  post-configuration tasks
+
+
+
+
+== Workflow-Diagramme
+
+Die Workflow-Diagramme hier bieten einen allgemeinen Überblick über die Installationsschritte. Die Schritte variieren je nach Modell der H-Serie leicht.
+
+*  and H410S
+*  and H615C
+* 
+
+
+
+
+=== H410C und H410S
+
+image::workflow_h410c.PNG[Installations-Workflow für H410C und H410S]
+
+
+
+=== H610C und H615C
+
+
+NOTE: Die Begriffe „Node“ und „Chassis“ werden bei H610C und H615C gemeinsam verwendet, da Node und Chassis keine separaten Komponenten sind wie bei einem 2-HE-Chassis mit vier Nodes.
+
+image::workflow_h610c.png[H610C und H615C Installations-Workflow]
+
+
+
+=== H610S
+
+
+NOTE: Die Begriffe „Node“ und „Chassis“ werden bei H610C und H615C gemeinsam verwendet, da Node und Chassis keine separaten Komponenten sind wie bei einem 2-HE-Chassis mit vier Nodes.
+
+image::workflow_h610s.png[H610S Installations-Workflow]
+
+
+
+== Installation vorbereiten
+
+Überprüfen Sie vor der Installation die gelieferten Hardware und wenden Sie sich an den NetApp Support, wenn Teile fehlen.
+
+Stellen Sie sicher, dass Sie an Ihrem Installationsstandort die folgenden Elemente installiert haben:
+
+* Rack-Platz für das System.
+
+
+[cols="2*"]
+|===
+| Node-Typ | Rack-Fläche 
+
+
+| H410C und H410S Nodes | Zwei Höheneinheiten (2 HE) 
+
+
+| H610C Node | 2 HE 
+
+
+| H615C und H610S Nodes | Eine Höheneinheit (1 HE) 
+|===
+* SFP28/SFP+ Direct-Attach-Kabel oder Transceiver
+* CAT5e oder höhere Kabel mit RJ45-Stecker
+* Ein Schalter für Tastatur, Video, Maus (KVM), um das System zu konfigurieren
+* USB-Stick (optional)
+
+
+
+TIP: Die Hardware, die an Sie geliefert wird, hängt davon ab, was Sie bestellen. Eine neue 2-HE-Bestellung mit vier Nodes umfasst das Chassis, die Blende, den Schienen-Kit, Laufwerke für Storage-Nodes, Storage- und Computing-Nodes und Netzkabel (zwei pro Chassis). Wenn Sie H610S Storage-Nodes bestellen, werden die Laufwerke im Chassis installiert.
+
+
+CAUTION: Achten Sie beim Einbau der Hardware darauf, dass Sie das gesamte Verpackungsmaterial und die Verpackung aus dem Gerät entfernen. Dadurch wird verhindert, dass die Knoten überhitzt und heruntergefahren werden.
+
+
+
+== Installieren Sie die Schienen
+
+Die Hardwarebestellung, die Ihnen zugestellt wurde, enthält eine Reihe von Gleitschienen. Sie benötigen einen Schraubendreher, um die Schieneninstallation abzuschließen. Die Installationsschritte variieren für jedes Node-Modell entsprechend.
+
+
+TIP: Installieren Sie die Hardware von der Unterseite des Racks bis zur Oberseite, um zu verhindern, dass das Gerät umkippeln kann. Wenn Ihr Rack Stabilisatoren beinhaltet, müssen Sie diese vor der Installation der Hardware installieren.
+
+*  and H410S
+* 
+*  and H615C
+
+
+
+
+=== H410C und H410S
+
+H410C und H410S Nodes sind in einem 2-HE-Chassis mit vier Nodes installiert. Das Chassis wird mit zwei Adaptersätzen ausgeliefert. Wenn Sie das Gehäuse in einem Rack mit runden Löchern einsetzen möchten, verwenden Sie die Adapter für ein Rack mit runden Löchern. Die Schienen für H410C und H410S Nodes passen ein Rack zwischen 29 Zoll und 33.5 Zoll Tiefe. Wenn die Schiene vollständig zusammengeschraubt ist, ist sie 28 Zoll lang, und die vorderen und hinteren Abschnitte der Schiene werden zusammen mit nur einer Schraube gehalten.
+
+
+CAUTION: Wenn Sie das Gehäuse auf einer vollständig versetzten Schiene installieren, können die vorderen und hinteren Abschnitte der Schiene voneinander getrennt sein.
+
+.Schritte
+. Richten Sie die Vorderseite der Schiene an den Löchern an der vorderen Stange des Racks aus.
+. Schieben Sie die Haken an der Vorderseite der Schiene in die Löcher an der vorderen Stange des Racks und dann nach unten, bis die federbelasteten Stangen in die Rack-Löcher einrasten.
+. Befestigen Sie die Schiene mit Schrauben am Rack. Hier sehen Sie eine Abbildung der linken Schiene, die an der Vorderseite des Racks befestigt ist:
++
+image::h410c_rail.gif[Schienenmontage für 2 HE]
+
+. Ziehen Sie den hinteren Teil der Schiene auf die hintere Stange des Racks.
+. Richten Sie die Haken an der Rückseite der Schiene an den entsprechenden Löchern am hinteren Pfosten aus, um sicherzustellen, dass sich Vorder- und Rückseite der Schiene auf der gleichen Ebene befinden.
+. Montieren Sie die Rückseite der Schiene am Rack und befestigen Sie die Schiene mit Schrauben.
+. Führen Sie alle oben genannten Schritte für die andere Seite des Racks aus.
+
+
+
+
+=== H610C
+
+Folgende Abbildung zeigt die Installation von Schienen für einen H61OC Computing-Node:
+
+image::h610c_rail.png[Rail-Installation für H610C Computing-Node.]
+
+
+
+=== H610S und H615C
+
+Folgende Abbildung zeigt die Installation von Rails für einen H610S Storage-Node oder einen H615C Computing-Node:
+
+image::h610s_rail.gif[Rail-Installation für H610S Storage-Node und H615C Computing-Node]
+
+
+TIP: Auf dem H610S und H615C gibt es linke und rechte Schienen. Positionieren Sie die Schraubenbohrung nach unten, so dass die H610S/H615C Rändelschraube das Gehäuse an der Schiene befestigen kann.
+
+
+
+== Installieren Sie den Node/das Chassis
+
+Sie installieren den H410C Computing-Node und H410S Storage-Node in einem 2-HE-Chassis mit vier Nodes. Installieren Sie für H610C, H615C und H610S das Chassis/Node direkt auf den Schienen im Rack.
+
+
+TIP: Ab NetApp HCI 1.8 können Sie ein Storage-Cluster mit zwei oder drei Storage-Nodes einrichten.
+
+
+CAUTION: Entfernen Sie das gesamte Verpackungsmaterial und die Verpackung vom Gerät. So wird verhindert, dass die Nodes überhitzt und heruntergefahren werden.
+
+*  and H410S nodes
+*  node/chassis
+*  and H615C node/chassis
+
+
+
+
+=== H410C und H410S Nodes
+
+.Schritte
+. Installieren Sie die H410C und H410S Nodes im Chassis. Dies ist ein Beispiel aus der Rückansicht eines Chassis mit vier installierten Nodes:
++
+image::hseries_2U_rear.gif[Rückansicht von 2 HE]
+
+. Installieren Sie Laufwerke für H410S Storage-Nodes.
++
+image::h410s_drives.png[Vorderansicht des H410S Storage-Node mit installierten Laufwerken]
+
+
+
+
+
+=== H610C Node/Chassis
+
+Beim H610C werden die Begriffe „Node“ und „Chassis“ austauschbar verwendet, da Node und Chassis keine separaten Komponenten sind, anders als beim 2-HE-Chassis mit vier Nodes.
+
+Hier sehen Sie eine Abbildung zur Installation des Node/Chassis im Rack:
+
+image::h610c_chassis.png[Zeigt den H610C Node/Chassis, der im Rack installiert ist.]
+
+
+
+=== H610S und H615C Node/Chassis
+
+Bei H615C und H610S werden die Begriffe „Node“ und „Chassis“ austauschbar verwendet, da Node und Chassis keine separaten Komponenten sind, anders als bei einem 2-HE-Chassis mit vier Nodes.
+
+Hier sehen Sie eine Abbildung zur Installation des Node/Chassis im Rack:
+
+image::h610s_chassis.gif[Zeigt den H615C oder H610S Node/Chassis, der im Rack installiert ist]
+
+
+
+== Installieren Sie die Schalter
+
+Wenn Sie Mellanox SN2010-, SN2100- und SN2700-Switches in Ihrer NetApp HCI-Installation verwenden möchten, befolgen Sie die hier angegebenen Anweisungen, um die Switches zu installieren und zu verkabeln:
+
+* link:https://docs.mellanox.com/pages/viewpage.action?pageId=6884619["Mellanox-Hardware-Benutzerhandbuch"^]
+* link:https://fieldportal.netapp.com/content/1075535?assetComponentId=1077676["TR-4836: NetApp HCI mit Mellanox SN2100 und SN2700 Switch-Verkabelungshandbuch (Anmeldung erforderlich)"^]
+
+
+
+
+== Die Nodes verkabeln
+
+Wenn Sie einer vorhandenen NetApp HCI Installation Nodes hinzufügen, stellen Sie sicher, dass die Verkabelung und Netzwerkkonfiguration der fügen Nodes mit der vorhandenen Installation identisch sind.
+
+
+CAUTION: Stellen Sie sicher, dass die Luftzirkulation an der Rückseite des Gehäuses nicht durch Kabel oder Etiketten blockiert ist. Dies kann zu vorzeitigen Komponentenausfällen aufgrund von Überhitzung führen.
+
+*  compute node and H410S storage node
+*  compute node
+*  compute node
+*  storage node
+
+
+
+
+=== H410C Computing-Node und H410S Storage-Node
+
+Sie haben zwei Optionen zur Verkabelung des Node H410C: Verwenden Sie zwei Kabel oder sechs Kabel.
+
+Hier ist die Konfiguration mit zwei Kabeln:
+
+image::HCI_ISI_compute_2cable.png[Zeigt die Konfiguration mit zwei Kabeln für den H410C Node.]
+
+image:blue circle.png["Blauer Punkt"] Verbinden Sie für die Ports D und E zwei SFP28/SFP+-Kabel oder Transceiver für gemeinsam genutztes Management, virtuelle Maschinen und Speicherkonnektivität.
+
+image:purple circle.png["Violetter Punkt"] (Optional, empfohlen) Verbinden Sie ein CAT5e-Kabel mit dem IPMI-Port für Out-of-Band-Management-Konnektivität.
+
+Die sechs Kabel-Konfiguration ist hier:
+
+image::HCI_ISI_compute_6cable.png[Zeigt die Konfiguration mit sechs Kabeln des Node H410C.]
+
+image:green circle.png["Grüner Punkt"] Verbinden Sie für die Anschlüsse A und B zwei CAT5e- oder höhere Kabel für die Management-Konnektivität mit den Ports A und B.
+
+image:orange circle.png["Orangefarbener Punkt"] Verbinden Sie für die Ports C und F zwei SFP28/SFP+-Kabel oder Transceiver für die Verbindung mit virtuellen Maschinen.
+
+image:blue circle.png["Blauer Punkt"] Verbinden Sie für die Anschlüsse D und E zwei SFP28/SFP+-Kabel oder Transceiver für die Speicherkonnektivität.
+
+image:purple circle.png["Violetter Punkt"] (Optional, empfohlen) Verbinden Sie ein CAT5e-Kabel mit dem IPMI-Port für Out-of-Band-Management-Konnektivität.
+
+Hier ist die Verkabelung für den H410S-Node:
+
+image::HCI_ISI_storage_cabling.png[Zeigt die Verkabelung des H410S-Node.]
+
+image:green circle.png["Grüner Punkt"] Verbinden Sie für die Anschlüsse A und B zwei CAT5e- oder höhere Kabel für die Management-Konnektivität mit den Ports A und B.
+
+image:blue circle.png["Blauer Punkt"] Verbinden Sie für die Ports C und D zwei SFP28/SFP+-Kabel oder Transceiver für die Speicherkonnektivität.
+
+image:purple circle.png["Violetter Punkt"] (Optional, empfohlen) Verbinden Sie ein CAT5e-Kabel mit dem IPMI-Port für Out-of-Band-Management-Konnektivität.
+
+Schließen Sie nach dem Kabel der Nodes die Netzkabel an die beiden Netzteile pro Chassis an und stecken Sie sie in eine 240-V-PDU oder eine Steckdose.
+
+
+
+=== H610C Computing-Node
+
+Hier ist die Verkabelung für den H610C-Knoten:
+
+
+NOTE: H610C Nodes sind nur in der Konfiguration mit zwei Kabeln implementiert. Stellen Sie sicher, dass alle VLANs an den Ports C und D. vorhanden sind
+
+image::H610C_node-cabling.png[Zeigt die Verkabelung für den H610C Node.]
+
+image:dark green.png["Dunkelgrüner Punkt"] Verbinden Sie den Node für die Ports C und D mit einem 10/25-GbE-Netzwerk über zwei SFP28/SFP+-Kabel.
+
+image:purple circle.png["Violetter Punkt"] (Optional, empfohlen) Verbinden Sie den Node mithilfe eines RJ45-Connectors im IPMI-Port mit einem 1-GbE-Netzwerk.
+
+image:light blue circle.png["Hellblauer Punkt"] Schließen Sie beide Stromkabel an den Node an, und stecken Sie die Stromkabel an eine Steckdose mit 200‐240 V.
+
+
+
+=== H615C Computing-Node
+
+Hier ist die Verkabelung für den H615C Node:
+
+
+NOTE: H615C Nodes werden nur in der Konfiguration mit zwei Kabeln implementiert. Stellen Sie sicher, dass alle VLANs sich auf den Ports A und B befinden
+
+image::H615C_node_cabling.png[Zeigt die Verkabelung für den H615C Node]
+
+image:dark green.png["Dunkelgrüner Punkt"] Verbinden Sie den Node bei den Ports A und B mithilfe von zwei SFP28/SFP+-Kabeln mit einem 10/25-GbE-Netzwerk.
+
+image:purple circle.png["Violetter Punkt"] (Optional, empfohlen) Verbinden Sie den Node mithilfe eines RJ45-Connectors im IPMI-Port mit einem 1-GbE-Netzwerk.
+
+image:light blue circle.png["Hellblauer Punkt"] Schließen Sie beide Stromkabel an den Node an, und schließen Sie die Netzkabel an eine 110-140V-Steckdose an.
+
+
+
+=== H610S Storage-Node
+
+Hier ist die Verkabelung für den H610S-Node:
+
+image::H600S_ISI_noderear.png[Zeigt die Verkabelung des H610S-Node.]
+
+image:purple circle.png["Violetter Punkt"] Verbinden Sie den Node über zwei RJ45-Anschlüsse im IPMI-Port mit einem 1-GbE-Netzwerk.
+
+image:dark green.png["Dunkelgrüner Punkt"] Verbinden Sie den Node mit einem 10/25-GbE-Netzwerk mit zwei SFP28- oder SFP+-Kabeln.
+
+image:orange circle.png["Orangefarbener Punkt"] Verbinden Sie den Node über einen RJ45-Anschluss im IPMI-Port mit einem 1-GbE-Netzwerk.
+
+image:light blue circle.png["Hellblauer Punkt"] Verbinden Sie die beiden Stromkabel mit dem Node.
+
+
+
+== Schalten Sie die Nodes ein
+
+Das Booten der Nodes dauert etwa sechs Minuten.
+
+Die folgende Abbildung zeigt den ein/aus-Schalter am NetApp HCI 2U-Gehäuse:
+
+image::H410c_poweron_ISG.png[Zeigt den Netzschalter der H-Serie 2U]
+
+Folgende Abbildung zeigt den ein/aus-Schalter am H610C Node:
+
+image::H610C_power-on.png[Zeigt den ein/aus-Schalter am H610C Node/Chassis.]
+
+Folgende Abbildung zeigt den ein/aus-Schalter auf den H615C und H610S Nodes:
+
+image::H600S_ISI_nodefront.png[Zeigt den ein/aus-Schalter am H610S/H615C Node/Chassis.]
+
+
+
+== Konfigurieren Sie NetApp HCI
+
+Wählen Sie eine der folgenden Optionen:
+
+*  NetApp HCI installation
+*  an existing NetApp HCI installation
+
+
+
+
+=== Neue NetApp HCI Installation
+
+.Schritte
+. Konfigurieren Sie eine IPv4-Adresse im Managementnetzwerk (Bond1G) auf einem NetApp HCI Storage Node.
++
+
+NOTE: Wenn Sie im Managementnetzwerk DHCP verwenden, können Sie eine Verbindung mit der DHCP-übernommenen IPv4-Adresse des Storage-Systems herstellen.
+
++
+.. Schließen Sie eine Tastatur, ein Video, eine Maus (KVM) an die Rückseite eines Speicherknoten an.
+.. Konfigurieren Sie die IP-Adresse, die Subnetzmaske und die Gateway-Adresse für Bond1G in der Benutzeroberfläche. Sie können auch eine VLAN-ID für das Bond1G-Netzwerk konfigurieren.
+
+
+. Navigieren Sie über einen unterstützten Webbrowser (Mozilla Firefox, Google Chrome oder Microsoft Edge) zu der NetApp Deployment Engine, indem Sie eine Verbindung zu der IPv4-Adresse herstellen, die Sie in Schritt 1 konfiguriert haben.
+. Verwenden Sie die Benutzeroberfläche der NetApp Deployment Engine (UI), um NetApp HCI zu konfigurieren.
++
+
+NOTE: Alle anderen NetApp HCI-Nodes werden automatisch erkannt.
+
+
+
+
+
+=== Erweiterung einer vorhandenen NetApp HCI Installation
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser.
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
+. Befolgen Sie die Schritte im Assistenten, um Ihre NetApp HCI-Installation um Storage- und/oder Computing-Nodes hinzuzufügen.
++
+
+TIP: Um die Compute-Nodes H410C hinzuzufügen, muss die vorhandene Installation NetApp HCI 1.4 oder höher ausführen. Um H615C Computing-Nodes hinzuzufügen, muss die vorhandene Installation NetApp HCI 1.7 oder höher ausführen.
+
++
+
+NOTE: Die neu installierten NetApp HCI Nodes im selben Netzwerk werden automatisch erkannt.
+
+
+
+
+
+== Ausführung von Aufgaben nach der Konfiguration
+
+Abhängig vom Typ Ihres Node müssen Sie möglicherweise nach der Installation der Hardware und der Konfiguration von NetApp HCI weitere Schritte durchführen.
+
+*  node
+*  and H610S nodes
+
+
+
+
+=== H610C Node
+
+Installieren Sie die GPU-Treiber in ESXi für jeden installierten H610C Node und validieren Sie deren Funktionalität.
+
+
+
+=== H615C und H610S Nodes
+
+.Schritte
+. Verwenden Sie einen Webbrowser, und navigieren Sie zur standardmäßigen BMC-IP-Adresse: `192.168.0.120`
+. Melden Sie sich mit dem Benutzernamen an `root` Und Passwort `calvin`.
+. Navigieren Sie im Bildschirm Knotenverwaltung zu *Einstellungen > Netzwerkeinstellungen* und konfigurieren Sie die Netzwerkparameter für den Out-of-Band-Management-Port.
+
+
+Wenn Ihr H615C Node GPUs in ihm hat, installieren Sie GPU-Treiber in ESXi für jeden installierten H615C Node und validieren Sie seine Funktionalität.
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/media/tr-4820.pdf["_TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke_"^]
+* https://mysupport.netapp.com/site/tools["NetApp Configuration Advisor"^] 5.8.1 oder höher zur Netzwerkvalidierung
+

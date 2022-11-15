@@ -1,0 +1,178 @@
+---
+sidebar: sidebar 
+permalink: docs/rn_compute_firmware_2.27.html 
+summary: Hier finden Sie Links zu Versionshinweisen für die Firmware-Pakete, die Sie herunterladen und für NetApp HCI-Nodes anwenden können. 
+keywords: netapp, hci, compute firmware 
+---
+= Versionshinweise Zum Computing-Firmware-Bundle 2.27
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+Das herunterladbare Rechner-Firmware-Bundle enthält die neuesten BIOS- und BMC-Funktionserweiterungen, Bugfixes und Hardware-Support für alle unterstützten NetApp HCI-Compute-Nodes.
+
+
+
+== Was ist neu
+
+Version 2.27 enthält allgemeine Bugfixes.
+
+
+
+=== Aktualisierte Firmware-Komponenten
+
+Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekomponenten. Aktualisierte Versionen in Bold:
+
+|===
+| Komponente | H300E, H500E, H700E | H410C | H610C | H615C 
+
+
+| BIOS | NA2.1 | NA3.7 | *3B03* | *3B08.CO* 
+
+
+| BMC | 6.84.00 | *6.71.18* | *4.00.07* | *4.68.07* 
+
+
+| NIC/Mellanox | *14.25.1020* | *14.25.1020* | *14.25.1020* | *14.24.1000* 
+|===
+
+
+=== Änderungen in den Firmware-Komponenten
+
+Im Folgenden finden Sie Details zu den Verbesserungen und Änderungen, die in jeder neuen Firmware-Komponente enthalten sind:
+
+|===
+| Node- und Firmware-Komponente | Verbesserungen und Änderungen 
+
+
+| H300E, H500E, H700E BMC 6.84.00 | Unterstützung von TLS 1.0 und 1.1 deaktiviert (diese BMC-Version wurde auch im Compute Firmware Bundle 12.2.109 bereitgestellt.) 
+
+
+| H610C BIOS 3B03  a| 
+* Verbesserte Handhabung von Speicherausfällen
+* Die neuesten Intel NVM-Firmware-Updates wurden hinzugefügt
+* RC-Version auf 602.D02 (IPU 2020.1) aktualisiert
+* Microcode-Version auf MCU x6906 aktualisiert
+* Aktualisierung der SPS ME-Version auf 04.01.04.381.0
+* Die BIOS-Setup-Optionen *Wiederherstellung bei Netzstrom* und *Aktueller Restore bei Netzausfall* wurden entfernt
+
+
+
+
+| H615C BIOS 3B08.CO  a| 
+* Verbesserte Handhabung von Speicherausfällen
+* Die neuesten Intel NVM-Firmware-Updates wurden hinzugefügt
+* Microcode-Version auf MCU x2F01 aktualisiert
+* RC-Version auf 602.D02 (IPU 2020.1) aktualisiert
+* Aktualisierung der SPS ME-Version auf 04.01.04.381.0
+* Die BIOS-Setup-Optionen *Wiederherstellung bei Netzstrom* und *Aktueller Restore bei Netzausfall* wurden entfernt
+* Die Option *Versuch Fast Cold Boot* Standardwert wurde auf geändert `disable`
+* Die Option *Correctables* Standardwert zulassen wurde geändert in `enable`
+
+
+
+
+| H410C BMC 6.71.18 | BMC-Reporting für ePPR-Speicher SEL-Ereignisse hinzufügen 
+
+
+| H610C BMC 4.00.07 | Fügen Sie Remote-Syslog-Unterstützung hinzu 
+
+
+| H615C BMC 4.68.07 | Fügen Sie Remote-Syslog-Unterstützung hinzu 
+|===
+
+
+=== Kompatibilität mit Mellanox NIC-Firmware-Treibern
+
+Die aktualisierten Mellanox-Firmware-Versionen 14.25.1020 und 14.24.1000 sind nur mit den folgenden Versionen des VMware ESXi-Treibers kompatibel:
+
+* *ESXi 7.0*: H300E/H500E/H700E/H410C: Version 4.19.16.1
+* *ESXi 7.0*: H610C/H615C: Version 4.17.15.16
+* *ESXi 6.7*: Version 4.17.15.16
+* *ESXi 6.5*: Version 4.16.13.5
+
+
+
+NOTE: Überprüfen Sie vor dem Upgrade auf Version 2.27 die aktuelle Version des ESXi-Treibers. Wenn der Treiber veraltet ist, aktualisieren Sie zuerst den Treiber. Dann aktualisieren Sie die Computing-Firmware für Ihre Computing-Nodes auf Version 2.27. Besuchen Sie link:task_hcc_upgrade_compute_node_drivers.html["Aktualisieren von Compute-Node-Treibern"] Anweisungen zum Aktualisieren der Treiber für die Rechnerknoten, einschließlich des ESXi-Treibers.
+
+Während NetApp Deployment Engine 1.8P1 keine ESXi Version 7.0 implementiert, wird ESXi 7.0 als Selbstinstallierungs- oder manuelle Upgrade-Option unterstützt. Wenn Sie Host Betriebssysteme manuell installieren oder aktualisieren, kann NetApp die Treiber und Firmware für diese Betriebssysteme nicht steuern.
+
+
+
+== Computing Firmware Bundle 2.27 Herunterladen
+
+Zum Herunterladen des Computing-Firmware-Pakets gehen Sie zu https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp HCI Computing Firmware-Bundle"^] Seite.
+
+Besuchen Sie link:task_hcc_upgrade_compute_node_firmware.html#use-the-baseboard-management-controller-bmc-user-interface-ui["Aktualisiert die Computing-Node-Firmware"] Anweisungen zum Aktualisieren der Computing-Node-Firmware.
+
+
+
+== Behobene Probleme
+
+Die folgenden Probleme wurden in diesem Release behoben.
+
+|===
+| Problem | Beschreibung 
+
+
+| CSD-3321/CSESF-129 | Der BMC kann aufhängen und mit dem Fehler unzugänglich werden `BMC Self Test Failed`. Dies wurde für H610C BMC 4.00.07 und H615C BMC 4.68.07 behoben. 
+
+
+| CSESF-234 | Die H610C BMC Web UI Inventory API gibt das falsche Format der Seriennummer des Speichers zurück. Dies ist in H610C BMC 4.00.07 behoben. 
+
+
+| PE-6708 | Das gebundene NIC-Paar führt kein Failover auf den sekundären aus, wenn der NIC ausfällt oder der Port deaktiviert ist. Dies wurde in der Mellanox-Firmware 14.24.1000 behoben. 
+|===
+
+
+== Bekannte Probleme
+
+Im Folgenden sind bekannte Probleme in dieser Version aufgeführt, die in einigen Umgebungen möglicherweise den täglichen Betrieb beeinträchtigen könnten.
+
+|===
+| Problem | Beschreibung | Behelfslösung 
+
+
+| CSESF-295 | Das Update der Compute-Node-Firmware schlägt mit einem BIOS-Update-Fehler fehl, wenn Sie die Firmware auf einem H410C Node unter Verwendung des herunterladbaren Firmware-Pakets aktualisieren.  a| 
+Aktualisieren Sie das BIOS manuell auf Version NA3.7 auf dem H410C-Knoten:
+
+. Wechseln Sie zum https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp HCI Download-Seite"^].
+. Eingabe `H410C_BIOS_3.7` In das Textfeld der Dropdown-Liste.
+. Klicken Sie Auf *Go*. Anweisungen zur Aktualisierung sind im PDF-Format auf der Download-Seite verfügbar.
+
+
+Nach der Aktualisierung von BIOS und BMC aktualisieren Sie die H410C Node-Firmware mit dem Paket für das Computing-Firmware-Paket 2.27.
+
+
+
+| CSESF-328 | Auf den Nodes H410C und H300E/H500E/H700E meldet ein NIC-Sensor für die Mellanox NIC im BMC den Status „NA“ und lautet „nicht vorhanden“. | Keine 
+
+
+| CSESF-309 | Die Knoten H410C und H300E/H500E/H700E können den Mellanox NIC-Port nicht nach dem manuellen Abschalten des Ports beim Ausführen von VMware EXSi 6.7u1 heraufholen. | Führen Sie den folgenden Befehl aus, um die Ports wiederherzustellen: `esxcli network nic set -n vmnic2 -a` 
+
+
+| CSESF-303 | Fehler in den Netzwerkstatistiken werden für die Mellanox NIC auf H410C Nodes angezeigt. | Keine 
+
+
+| CSESF-293/PE-10130 | Die Mellanox NIC-Firmware kann nach dem Upgrade auf das Compute Firmware Bundle Version 2.27 von Bootstrap OS heruntergestuft werden. | Installieren Sie die Compute-Firmware-Bundle-Version 2.27 erneut. 
+
+
+| PE-11033 | Bei hohen Lasten fehlt die erwartete vmnic0 Link Nachricht manchmal in den H615C Node Log-Dateien. | Keine 
+
+
+| PE-11032 | Bei hohen Lasten treten Übertragungsfehler bei der Mellanox NIC auf H610C Nodes auf. | Keine 
+
+
+| PE-10954 | H610C Nodes geben manchmal die falsche MTU-Einstellung wieder, nachdem Sie die MTU mithilfe der Element Software Terminal User Interface (TUI) eingestellt haben. | Keine 
+|===
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

@@ -1,0 +1,294 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_snswitches.html 
+summary: Führen Sie die Best Practices und Schritte von NetApp durch, um einen fehlerhaften SN2000-Switch unterbrechungsfrei zu ersetzen. 
+keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S 
+---
+= Ersetzen Sie die Switches SN2010, SN2100 und SN2700
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Führen Sie die Best Practices und Schritte von NetApp durch, um einen fehlerhaften SN2000-Switch unterbrechungsfrei zu ersetzen.
+
+.Was Sie und#8217;ll benötigen
+* Stellen Sie sicher, dass Putty auf dem Laptop installiert ist und dass Sie die Ausgabe erfassen. In diesem Video erfahren Sie, wie Sie Putty konfigurieren, um die Ausgabesitzung zu erfassen.
+
+
+video::2LZfWH8HffA[youtube]
+* Stellen Sie sicher, dass Sie NetApp Config Advisor vor und nach dem Austausch ausführen. Dies kann dabei helfen, andere Probleme zu erkennen, bevor die Wartung gestartet wird. Laden Sie Config Advisor herunter, und installieren Sie sie, und greifen Sie über auf die Schnellstartanleitung zu link:https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor/download["Hier (Anmeldung erforderlich)"^].
+* Beziehen Sie ein Netzkabel, die grundlegenden Handwerkzeuge und Etiketten.
+* Stellen Sie sicher, dass Sie ein Wartungsfenster von zwei bis vier Stunden geplant haben.
+* Machen Sie sich mit den folgenden Switch-Ports vertraut:
+
+
+[#img-sn2010]
+.SN2010-Schaltfaceplate und -Anschlüsse
+image::sn2010.png[SN2010,600,400]
+
+[#img-sn2100]
+.SN2100-Switch-Frontplatte und -Anschlüsse
+image::sn2100.png[SN2100,600,400]
+
+[#img-sn2010/2100]
+.Schalter SN2010 und SN2100 hinten
+image::sn2010_rear.png[SN2010 und SN2100 hinten,600,400]
+
+[#img-sn2700]
+.SN2700-Schalter vorn und hinten
+image::SN2700.png[SN2700 vorne und hinten,600,400]
+
+Führen Sie die Schritte in diesem Verfahren in der folgenden Reihenfolge aus. So wird sichergestellt, dass die Downtime minimal ist und der Ersatz-Switch vor dem Austausch des Switches vorkonfiguriert ist.
+
+
+NOTE: Wenden Sie sich an den NetApp Support, wenn Sie Hilfe benötigen.
+
+Hier eine Übersicht der Schritte im Verfahren: to replace the faulty switch
+ the configuration file
+ the faulty switch and install the replacement
+ the operating system version on the switch
+ the replacement switch
+ the replacement
+
+
+
+== Bereiten Sie den Austausch des fehlerhaften Schalters vor
+
+Führen Sie die folgenden Schritte aus, bevor Sie den defekten Schalter austauschen.
+
+.Schritte
+. Stellen Sie sicher, dass der Austauschschalter das gleiche Modell wie der fehlerhafte Schalter hat.
+. Kennzeichnen Sie alle Kabel, die mit dem defekten Schalter verbunden sind.
+. Identifizieren Sie den externen Dateiserver, auf dem die Switch-Konfigurationsdateien gespeichert werden.
+. Stellen Sie sicher, dass Sie die folgenden Informationen erhalten haben:
++
+.. Die für die Erstkonfiguration verwendete Schnittstelle: RJ-45-Port oder Serial Terminal Interface.
+.. Die für den Switch-Zugriff benötigten Anmeldeinformationen: IP-Adresse des Management-Ports des nicht fehlerhaften Switch und des fehlerhaften Switch.
+.. Die Passwörter für den Administratorzugriff.
+
+
+
+
+
+
+== Erstellen Sie die Konfigurationsdatei
+
+Sie können einen Switch mit den von Ihnen erstellten Konfigurationsdateien konfigurieren. Wählen Sie eine der folgenden Optionen, um die Konfigurationsdatei für den Switch zu erstellen.
+
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Erstellen Sie die Sicherungskonfigurationsdatei über den fehlerhaften Switch  a| 
+. Stellen Sie eine Remote-Verbindung mit Ihrem Switch über SSH her, wie im folgenden Beispiel gezeigt:
++
+[listing]
+----
+ssh admin@<switch_IP_address
+----
+. Geben Sie den Konfigurationsmodus ein, wie im folgenden Beispiel gezeigt:
++
+[listing]
+----
+switch > enable
+switch # configure terminal
+----
+. Suchen Sie die verfügbaren Konfigurationsdateien wie im folgenden Beispiel gezeigt:
++
+[listing]
+----
+switch (config) #
+switch (config) # show configuration files
+----
+. Speichern Sie die aktive BIN-Konfigurationsdatei auf einem externen Server:
++
+[listing]
+----
+switch (config) # configuration upload my-filename scp://myusername@my-server/path/to/my/<file>
+----
+
+
+
+
+| Erstellen Sie die Sicherungskonfigurationsdatei, indem Sie die Datei von einem anderen Switch aus ändern  a| 
+. Stellen Sie eine Remote-Verbindung mit Ihrem Switch über SSH her, wie im folgenden Beispiel gezeigt:
++
+[listing]
+----
+ssh admin@<switch_IP_address
+----
+. Geben Sie den Konfigurationsmodus ein, wie im folgenden Beispiel gezeigt:
++
+[listing]
+----
+switch > enable
+switch # configure terminal
+----
+. Laden Sie eine textbasierte Konfigurationsdatei vom Switch auf einen externen Server hoch, wie im folgenden Beispiel dargestellt:
++
+[listing]
+----
+switch (config) #
+switch (config) # configuration text file my-filename upload scp://root@my-server/root/tmp/my-filename
+----
+. Ändern Sie die folgenden Felder in der Textdatei auf den fehlerhaften Switch:
++
+[listing]
+----
+## Network interface configuration
+##
+no interface mgmt0 dhcp
+   interface mgmt0 ip address XX.XXX.XX.XXX /22
+
+##
+## Other IP configuration
+##
+   hostname oldhostname
+----
+
+
+|===
+
+
+== Entfernen Sie den defekten Schalter, und setzen Sie den Austausch ein
+
+Führen Sie die Schritte aus, um den fehlerhaften Schalter zu entfernen und den Austausch zu installieren.
+
+.Schritte
+. Suchen Sie die Stromkabel am defekten Schalter.
+. Nachdem der Switch neu gestartet wurde, kennzeichnen und trennen Sie die Netzkabel.
+. Kennzeichnen und ziehen Sie alle Kabel vom defekten Schalter ab, und sichern Sie sie, um Schäden beim Austausch des Switches zu vermeiden.
+. Entfernen Sie den Schalter aus dem Rack.
+. Setzen Sie den Ersatzschalter in das Rack ein.
+. Schließen Sie die Stromkabel und Management-Port-Kabel an.
++
+
+NOTE: Der Schalter schaltet sich automatisch ein, wenn die Wechselstromversorgung aktiviert wird. Es gibt keinen Netzschalter. Es kann bis zu fünf Minuten dauern, bis die Systemstatus-LED grün leuchtet.
+
+. Schließen Sie den Switch über den RJ-45-Managementport oder die serielle Terminal-Schnittstelle an.
+
+
+
+
+== Überprüfen Sie die Betriebssystemversion auf dem Switch
+
+Überprüfen Sie die Version der Betriebssystemsoftware auf dem Switch. Die Version auf dem fehlerhaften Schalter und der gesunde Schalter sollten übereinstimmen.
+
+.Schritte
+. Stellen Sie über SSH eine Remote-Verbindung zum Switch her.
+. Wechseln Sie in den Konfigurationsmodus.
+. Führen Sie die aus `show version` Befehl. Das folgende Beispiel zeigt:
++
+[listing]
+----
+SFPS-HCI-SW02-A (config) #show version
+Product name:      Onyx
+Product release:   3.7.1134
+Build ID:          #1-dev
+Build date:        2019-01-24 13:38:57
+Target arch:       x86_64
+Target hw:         x86_64
+Built by:          jenkins@e4f385ab3f49
+Version summary:   X86_64 3.7.1134 2019-01-24 13:38:57 x86_64
+
+Product model:     x86onie
+Host ID:           506B4B3238F8
+System serial num: MT1812X24570
+System UUID:       27fe4e7a-3277-11e8-8000-506b4b891c00
+
+Uptime:            307d 3h 6m 33.344s
+CPU load averages: 2.40 / 2.27 / 2.21
+Number of CPUs:    4
+System memory:     3525 MB used / 3840 MB free / 7365 MB total
+Swap:              0 MB used / 0 MB free / 0 MB total
+
+----
+. Wenn die Versionen nicht übereinstimmen, sollten Sie das Betriebssystem aktualisieren. Siehe link:https://community.mellanox.com/s/article/howto-upgrade-switch-os-software-on-mellanox-switch-systems["Mellanox Software-Upgrade-Leitfaden"^] Entsprechende Details.
+
+
+
+
+== Konfigurieren Sie den Ersatzschalter
+
+Führen Sie die Schritte zur Konfiguration des Ersatzschalters durch. Siehe link:https://docs.mellanox.com/display/MLNXOSv381000/Configuration+Management["Mellanox-Konfigurationsmanagement"^] Entsprechende Details.
+
+.Schritte
+. Wählen Sie eine der Optionen aus, die für Sie gilt:
+
+
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Aus DER BIN-Konfigurationsdatei  a| 
+. Holen Sie sich die BIN-Konfigurationsdatei, wie im folgenden Beispiel gezeigt:
++
+[listing]
+----
+switch (config) # configuration fetch scp://myusername@my-server/path/to/my/<file>
+----
+. Laden Sie die BIN-Konfigurationsdatei, die Sie im vorherigen Schritt abgerufen haben, wie im folgenden Beispiel gezeigt:
++
+[listing]
+----
+switch (config) # configuration switch-to my-filename
+----
+. Typ `yes` Um den Neustart zu bestätigen.
+
+
+
+
+| Aus der Textdatei  a| 
+. Zurücksetzen des Schalters auf die Werkseinstellungen:
++
+[listing]
+----
+switch (config) # reset factory keep-basic
+----
+. Anwenden der textbasierten Konfigurationsdatei:
++
+[listing]
+----
+switch (config) # configuration text file my-filename apply
+----
+. Laden Sie eine textbasierte Konfigurationsdatei vom Switch auf einen externen Server hoch, wie im folgenden Beispiel dargestellt:
++
+[listing]
+----
+switch (config) #
+switch (config) # configuration text file my-filename upload scp://root@my-server/root/tmp/my-filename
+----
++
+
+NOTE: Ein Neustart ist nicht erforderlich, wenn Sie die Textdatei anwenden.
+
+
+
+|===
+
+
+== Führen Sie den Austausch durch
+
+Führen Sie die Schritte durch, um den Ersatzvorgang abzuschließen.
+
+.Schritte
+. Führen Sie die Kabel mithilfe der Etiketten in die Kabelführung ein.
+. Mit NetApp Config Advisor. Öffnen Sie die Kurzanleitung über link:https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor/download["Hier (Anmeldung erforderlich)"^].
+. Überprüfen Sie Ihre Storage-Umgebung.
+. Stellen Sie den fehlerhaften Switch an NetApp zurück.
+
+
+
+
+== Weitere Informationen
+
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

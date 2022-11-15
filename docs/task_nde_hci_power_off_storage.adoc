@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_off_storage.html 
+summary: So schalten Sie die NetApp HCI Computing-Nodes aus. 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Schalten Sie die Storage-Ressourcen für ein NetApp HCI System aus
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+Wenn Sie Storage-Ressourcen für NetApp HCI ausschalten, müssen Sie den verwenden `Shutdown` Element API-Methode zum ordnungsgemäßen Anhalten der Storage-Nodes
+
+Nachdem Sie die Computing-Ressourcen heruntergefahren haben, verwenden Sie einen Webbrowser, um alle Nodes des NetApp HCI Storage-Clusters abzuschalten.
+
+. Melden Sie sich beim Storage-Cluster an und vergewissern Sie sich, dass Sie mit dem richtigen MVIP verbunden sind.
+. Vergewissern Sie sich, dass die Anzahl der iSCSI-Sitzungen null ist.
+. Navigieren Sie zu *Cluster > Nodes > aktiv*, und notieren Sie die Knoten-IDs für alle aktiven Knoten im Cluster.
+. Um den NetApp HCI Storage-Cluster auszuschalten, öffnen Sie einen Webbrowser und verwenden Sie folgende URL, um den Abschalungs- und Stopp-Vorgang von zu starten `{MVIP}` Ist die Management-IP-Adresse des NetApp HCI Storage-Systems und des `nodes=[]` Array enthält die Knoten-IDs, die Sie in Schritt 2 aufgezeichnet haben. Beispiel:
++
+[listing]
+----
+https://{MVIP}/json-rpc/1.0?method=Shutdown&nodes=[1,2,3,4]&option=halt
+----
+. Geben Sie den Benutzernamen und das Passwort des Cluster-Administrators ein.
+. Überprüfen Sie, ob der API-Anruf erfolgreich zurückgegeben wird, indem Sie überprüfen, ob alle Storage-Cluster-Nodes in enthalten sind `successful` Abschnitt des API-Ergebnisses.
++
+Sie haben alle NetApp HCI Storage-Nodes erfolgreich ausgeschaltet.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

@@ -1,0 +1,299 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_hserieschassisrepl.html 
+summary: Wenn Ihr Gehäuse einen Lüfterausfall hat oder ein Stromausfall auftritt, sollten Sie ihn so schnell wie möglich austauschen. Die Schritte im Chassis-Austauschverfahren hängen von der NetApp HCI-Konfiguration und der Cluster-Kapazität ab. Hierfür sind sorgfältige Überlegungen und eine sorgfältige Planung erforderlich. Wenden Sie sich an den NetApp Support, um Anweisungen zu erhalten und ein Ersatzgehäuse zu bestellen. 
+keywords: netapp, hci, chassis replacement,2U chassis replacement, h-series 
+---
+= Ersetzen Sie das 2-HE-Gehäuse der H-Serie
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Ihr Gehäuse einen Lüfterausfall hat oder ein Stromausfall auftritt, sollten Sie ihn so schnell wie möglich austauschen. Die Schritte im Chassis-Austauschverfahren hängen von der NetApp HCI-Konfiguration und der Cluster-Kapazität ab. Hierfür sind sorgfältige Überlegungen und eine sorgfältige Planung erforderlich. Wenden Sie sich an den NetApp Support, um Anweisungen zu erhalten und ein Ersatzgehäuse zu bestellen.
+
+Vor dem Austauschen des Gehäuses sollten Sie Folgendes berücksichtigen:
+
+* Verfügt Ihr Rack über zusätzlichen Platz für ein neues Chassis?
+* Verfügt ein Chassis Ihrer Implementierung über ungenutzte Node-Steckplätze?
+* Wenn Ihr Rack zusätzlichen Platz hat, können Sie jeden der Nodes nacheinander vom ausgefallenen Chassis zum neuen Gehäuse verschieben? Beachten Sie, dass dieser Vorgang möglicherweise Zeit in Anspruch nehmen kann.
+* Kann Ihr Storage-Cluster beim Entfernen der Nodes, die Teil des ausgefallenen Chassis sind, online bleiben?
+* Können Virtual Machines (VMs) und ESXi Cluster den Workload verarbeiten, wenn Sie die Computing-Nodes entfernen, die Teil des ausgefallenen Chassis sind?
+
+
+Wählen Sie eine der folgenden Optionen aus: the chassis when additional unused space is available in the rack
+ the chassis when additional unused space is not available in the rack
+
+
+
+== Ersetzen Sie das Chassis, wenn im Rack zusätzlicher ungenutzter Speicherplatz verfügbar ist
+
+Wenn Ihr Rack über zusätzlichen Platz verfügt, können Sie das neue Chassis installieren und Nodes nacheinander zum neuen Chassis verschieben. Wenn eines der installierten Chassis nicht genutzte Node-Steckplätze aufweist, können Sie die Nodes nacheinander vom ausgefallenen Chassis in die nicht verwendeten Steckplätze verschieben und das ausgefallene Chassis entfernen. Stellen Sie vor der Durchführung des Verfahrens sicher, dass die Kabellängen ausreichend sind und Switch-Ports verfügbar sind.
+
+
+NOTE: Die Schritte zum Verschieben von Computing-Nodes unterscheiden sich von den Schritten zum Verschieben von Storage-Nodes. Sie sollten sicherstellen, dass die Nodes ordnungsgemäß heruntergefahren werden, bevor Sie sie verschieben. Nachdem Sie alle Nodes aus dem ausgefallenen Chassis verschoben haben, sollten Sie das Chassis aus dem Rack entfernen und es an NetApp zurückgeben.
+
+
+
+=== Installieren Sie das neue Gehäuse
+
+Sie können das neue Chassis in den verfügbaren Rack-Platz installieren und die Nodes in es verschieben.
+
+.Was Sie und#8217;ll benötigen
+* Sie haben ein elektrostatisches Entladungsband (ESD) oder einen anderen antistatischen Schutz.
+* Sie haben das Ersatzgehäuse.
+* Sie haben einen Aufzug oder zwei oder mehr Personen, um die Schritte durchzuführen.
+* Sie haben einen #1 Kreuzschlitzschraubendreher.
+
+
+.Schritte
+. Setzen Sie den antistatischen Schutz auf.
+. Packen Sie das Ersatzgehäuse aus. Bewahren Sie die Verpackung auf, wenn Sie das fehlerhafte Chassis an NetApp zurücksenden.
+. Setzen Sie die Schienen ein, die Sie zusammen mit dem Gehäuse erhalten haben.
+. Schieben Sie das Ersatzgehäuse in das Rack.
++
+
+TIP: Beim Einbau des Chassis immer genügend Arbeitskraft oder einen Aufzug verwenden.
+
+. Befestigen Sie das Gehäuse mit den Flügelschrauben der vorderen Montage am Rack und ziehen Sie die Schrauben mit dem Schraubendreher fest.
+
+
+
+
+=== Verschieben eines Computing-Node
+
+Bevor Sie einen Computing-Node in das neue Gehäuse oder ein vorhandenes Gehäuse mit zusätzlichen nicht verwendeten Steckplätzen verschieben, sollten Sie die Virtual Machines (VMs) migrieren, den Node ordnungsgemäß herunterfahren und die im Node eingesetzten Kabel kennzeichnen.
+
+
+NOTE: Stellen Sie sicher, dass beim Verschieben des Knotens ein antistatischer Schutz vorhanden ist.
+
+.Schritte
+. Notieren Sie sich die Seriennummer des Node vom Aufkleber auf der Rückseite des Node.
+. Wählen Sie im VMware vSphere Web Client * Hosts und Cluster* aus, wählen Sie einen Knoten (Host) aus und wählen Sie dann *Monitor > Hardwarestatus > Sensoren* aus.
+. Suchen Sie im Abschnitt *Sensoren* die Seriennummer, die Sie auf dem Aufkleber auf der Rückseite des Knotens angegeben haben.
+. Nachdem Sie die passende Seriennummer gefunden haben, migrieren Sie die VMs zu einem anderen verfügbaren Host.
++
+
+NOTE: Die Migrationsschritte finden Sie in der VMware Dokumentation.
+
+. Klicken Sie mit der rechten Maustaste auf den Knoten, und wählen Sie *ein/aus > Herunterfahren* aus. Sie können den Node nun physisch aus dem Chassis entfernen.
+. Beschriften Sie den Knoten und alle Kabel auf der Rückseite des Node.
+. Entfernen Sie den Knoten aus dem Gehäuse, indem Sie den Nockengriff auf der rechten Seite jedes Knotens nach unten ziehen und den Knoten mit beiden Nockengriffen herausziehen.
+. Setzen Sie den Knoten wieder in das neue Gehäuse ein, indem Sie den Knoten in drücken, bis Sie einen Klick hören. Die Beschriftungen, die Sie dem Node angehängt hatten, bevor Sie ihn entfernt haben, helfen Ihnen. Der Node wird automatisch eingeschaltet, wenn Sie ihn ordnungsgemäß installieren.
++
+
+CAUTION: Stellen Sie sicher, dass Sie den Knoten von unter unterstützen, wenn Sie ihn installieren. Verwenden Sie keine übermäßige Kraft, während Sie den Node in das Chassis drücken.
+
++
+
+NOTE: Wenn Sie den Node im neuen Chassis installieren, stellen Sie sicher, dass Sie ihn in seinem ursprünglichen Steckplatz im Chassis installieren.
+
+. Schließen Sie die Kabel wieder an die gleichen Ports an der Rückseite des Node an. Die Etiketten auf den Kabeln, die Sie beim Abstecken hatten, helfen Ihnen dabei.
++
+
+CAUTION: Stellen Sie sicher, dass Sie die Kabel nicht in die Anschlüsse zwingen. Kabel, Ports oder beides können beschädigt werden.
+
+. Vergewissern Sie sich, dass der Compute-Node (Host) im ESXi-Cluster im VMware vSphere Web Client aufgeführt ist.
+. Führen Sie diese Schritte für alle Computing-Nodes im ausgefallenen Chassis aus.
+
+
+
+
+=== Verschieben eines Storage-Nodes
+
+Bevor Sie die Storage-Nodes in das neue Chassis verschieben, sollten Sie die Laufwerke entfernen, die Nodes ordnungsgemäß herunterfahren und alle Komponenten kennzeichnen.
+
+.Schritte
+. Geben Sie den Node an, den Sie entfernen möchten:
++
+.. Notieren Sie sich die Seriennummer des Node vom Aufkleber auf der Rückseite des Node.
+.. Wählen Sie im VMware vSphere Web-Client die Option *NetApp Element-Verwaltung* aus, und kopieren Sie die MVIP-IP-Adresse.
+.. Verwenden Sie die MVIP-IP-Adresse in einem Webbrowser, um sich bei der NetApp Element Software-UI mit dem Benutzernamen und Passwort anzumelden, die Sie in der NetApp Deployment Engine konfiguriert haben.
+.. Wählen Sie *Cluster > Knoten*.
+.. Ordnen Sie die Seriennummer, die Sie aufgeführt haben, mit der angegebenen Seriennummer (Service-Tag-Nummer) zusammen.
+.. Notieren Sie sich die Node-ID des Node.
+
+
+. Nachdem Sie den Knoten identifiziert haben, verschieben Sie iSCSI-Sitzungen vom Node weg, indem Sie den folgenden API-Aufruf verwenden:
+`wget --no-check-certificate -q --user=<USER> --password=<PASS> -O - --post-data '{ "method":"MovePrimariesAwayFromNode", "params":{"nodeID":<NODEID>} }' https://<MVIP>/json-rpc/8.0`MVIP ist die MVIP-IP-Adresse, NODEID ist die Node-ID, BENUTZER ist der Benutzername, den Sie bei der Einrichtung von NetApp HCI in der NetApp Deployment Engine konfiguriert haben. MIT DEM PASSWORT, das Sie BEIM Einrichten von NetApp HCI in der NetApp Deployment Engine konfiguriert haben, LAUTET „PASS“.
+. Wählen Sie *Cluster > Laufwerke* aus, um die dem Knoten zugeordneten Laufwerke zu entfernen.
++
+
+NOTE: Sie sollten auf die Laufwerke warten, die Sie entfernt haben, um sie als verfügbar anzuzeigen, bevor Sie den Node entfernen.
+
+. Wählen Sie *Cluster > Knoten > Aktionen > Entfernen*, um den Knoten zu entfernen.
+. Verwenden Sie den folgenden API-Aufruf, um den Node herunterzufahren:
+`wget --no-check-certificate -q --user=<USER> --password=<PASS> -O - --post-data '{ "method":"Shutdown", "params":{"option":"halt", "nodes":[ <NODEID>]} }' https://<MVIP>/json-rpc/8.0`MVIP ist die MVIP-IP-Adresse, NODEID ist die Node-ID, BENUTZER ist der Benutzername, den Sie bei der Einrichtung von NetApp HCI in der NetApp Deployment Engine konfiguriert haben. MIT DEM PASSWORT, das Sie BEIM Einrichten von NetApp HCI in der NetApp Deployment Engine konfiguriert haben, LAUTET „PASS“. Nachdem der Node heruntergefahren wurde, können Sie ihn physisch aus dem Chassis entfernen.
+. Entfernen Sie die Laufwerke wie folgt vom Node im Chassis:
++
+.. Entfernen Sie die Blende.
+.. Beschriften Sie die Laufwerke.
+.. Öffnen Sie den Nockengriff, und schieben Sie jedes Laufwerk vorsichtig mit beiden Händen heraus.
+.. Platzieren Sie die Antriebe auf einer antistatischen, Ebenen Fläche.
+
+
+. Entfernen Sie den Node wie folgt aus dem Chassis:
++
+.. Beschriften Sie den Node und die Kabel, die daran angeschlossen sind.
+.. Ziehen Sie den Nockengriff auf der rechten Seite jedes Knotens nach unten und ziehen Sie den Knoten mit beiden Nockengriffen heraus.
+
+
+. Setzen Sie den Knoten wieder in das Gehäuse ein, indem Sie den Knoten in drücken, bis Sie einen Klick hören. Die Beschriftungen, die Sie dem Node angehängt hatten, bevor Sie ihn entfernt haben, helfen Ihnen.
++
+
+CAUTION: Stellen Sie sicher, dass Sie den Knoten von unter unterstützen, wenn Sie ihn installieren. Verwenden Sie keine übermäßige Kraft, während Sie den Node in das Chassis drücken.
+
++
+
+NOTE: Wenn Sie den Node im neuen Chassis installieren, stellen Sie sicher, dass Sie ihn in seinem ursprünglichen Steckplatz im Chassis installieren.
+
+. Setzen Sie die Laufwerke in die entsprechenden Schlitze im Knoten ein, indem Sie den Nockengriff auf jedem Laufwerk nach unten drücken, bis er einrastet.
+. Schließen Sie die Kabel wieder an die gleichen Ports an der Rückseite des Node an. Die Etiketten, die Sie beim Trennen an den Kabeln befestigt haben, helfen Ihnen dabei.
++
+
+CAUTION: Stellen Sie sicher, dass Sie die Kabel nicht in die Anschlüsse zwingen. Kabel, Ports oder beides können beschädigt werden.
+
+. Nachdem der Node eingeschaltet ist, fügen Sie den Node zum Cluster hinzu.
++
+
+NOTE: Es kann bis zu 2 Minuten dauern, bis der Knoten hinzugefügt wurde und unter *Knoten > aktiv* angezeigt wird.
+
+. Fügen Sie die Laufwerke hinzu.
+. Führen Sie diese Schritte für alle Storage-Nodes im Chassis aus.
+
+
+
+
+== Ersetzen Sie das Chassis, wenn im Rack kein zusätzlicher ungenutzter Speicherplatz verfügbar ist
+
+Wenn Ihr Rack keinen zusätzlichen Platz bietet und kein Chassis in der Implementierung über keine ungenutzten Node-Steckplätze verfügt, sollten Sie herausfinden, was ggf. online bleiben kann, bevor Sie das Austauschverfahren durchführen.
+
+Vor dem Austausch des Gehäuses sollten Sie die folgenden Punkte berücksichtigen:
+
+* Kann Ihr Storage-Cluster ohne die Storage-Nodes im ausgefallenen Chassis online bleiben? Wenn die Antwort Nein lautet, sollten Sie alle Nodes (sowohl Computing als auch Storage) in Ihrer NetApp HCI Implementierung herunterfahren. Wenn die Antwort Ja ist, können Sie nur die Storage-Nodes im ausgefallenen Chassis herunterfahren.
+* Können Ihre VMs und ESXi Cluster ohne die Computing-Nodes im ausgefallenen Chassis online bleiben? Wenn die Antwort Nein lautet, müssen Sie die entsprechenden VMs herunterfahren oder migrieren, um die Computing-Nodes im ausgefallenen Chassis herunterfahren zu können. Wenn die Antwort Ja ist, können Sie nur die Computing-Nodes im ausgefallenen Chassis herunterfahren.
+
+
+
+
+=== Fahren Sie einen Computing-Node herunter
+
+Bevor Sie den Computing-Node zum neuen Chassis verschieben, sollten Sie die VMs migrieren, ihn korrekt herunterfahren und die Kabel, die im Node eingesetzt wurden, kennzeichnen.
+
+.Schritte
+. Notieren Sie sich die Seriennummer des Node vom Aufkleber auf der Rückseite des Node.
+. Wählen Sie im VMware vSphere Web Client * Hosts und Cluster* aus, wählen Sie einen Knoten (Host) aus und wählen Sie dann *Monitor > Hardwarestatus > Sensoren* aus.
+. Suchen Sie im Abschnitt *Sensoren* die Seriennummer, die Sie auf dem Aufkleber auf der Rückseite des Knotens angegeben haben.
+. Nachdem Sie die passende Seriennummer gefunden haben, migrieren Sie die VMs zu einem anderen verfügbaren Host.
++
+
+NOTE: Die Migrationsschritte finden Sie in der VMware Dokumentation.
+
+. Klicken Sie mit der rechten Maustaste auf den Knoten, und wählen Sie *ein/aus > Herunterfahren* aus. Sie können den Node nun physisch aus dem Chassis entfernen.
+
+
+
+
+=== Fahren Sie einen Storage-Node herunter
+
+Siehe Schritte  a storage node,Hier.
+
+
+
+=== Entfernen des Node
+
+Sie sollten sicherstellen, dass Sie den Knoten vorsichtig aus dem Gehäuse entfernen und alle Komponenten kennzeichnen. Die zum physischen Entfernen des Node erforderlichen Schritte sind sowohl für die Storage- als auch für die Computing-Nodes identisch. Entfernen Sie für einen Storage-Node das Laufwerk, bevor Sie den Node entfernen.
+
+.Schritte
+. Entfernen Sie bei einem Storage-Node die Laufwerke wie folgt vom Node im Chassis:
++
+.. Entfernen Sie die Blende.
+.. Beschriften Sie die Laufwerke.
+.. Öffnen Sie den Nockengriff, und schieben Sie jedes Laufwerk vorsichtig mit beiden Händen heraus.
+.. Platzieren Sie die Antriebe auf einer antistatischen, Ebenen Fläche.
+
+
+. Entfernen Sie den Node wie folgt aus dem Chassis:
++
+.. Beschriften Sie den Node und die Kabel, die daran angeschlossen sind.
+.. Ziehen Sie den Nockengriff auf der rechten Seite jedes Knotens nach unten und ziehen Sie den Knoten mit beiden Nockengriffen heraus.
+
+
+. Führen Sie diese Schritte für alle Knoten aus, die Sie entfernen möchten. Sie sind jetzt bereit, das ausgefallene Gehäuse zu entfernen.
+
+
+
+
+=== Ersetzen Sie das Gehäuse
+
+Wenn kein zusätzlicher Speicherplatz im Rack vorhanden ist, sollten Sie das ausgefallene Chassis deinstallieren und durch das neue Gehäuse ersetzen.
+
+.Schritte
+. Setzen Sie den antistatischen Schutz auf.
+. Packen Sie das Ersatzgehäuse aus, und halten Sie es auf einer Ebenen Fläche. Die Verpackung bleibt erhalten, wenn Sie die fehlerhafte Einheit an NetApp zurücksenden.
+. Entfernen Sie das fehlerhafte Chassis aus dem Rack und legen Sie es auf eine Ebene Fläche.
++
+
+NOTE: Verwenden Sie beim Bewegen eines Chassis ausreichend Personal oder einen Aufzug.
+
+. Entfernen Sie die Schienen.
+. Installieren Sie die neuen Schienen, die Ihnen zusammen mit dem Ersatzgehäuse geliefert wurden.
+. Schieben Sie das Ersatzgehäuse in das Rack.
+. Befestigen Sie das Gehäuse mit den Flügelschrauben der vorderen Montage am Rack und ziehen Sie die Schrauben mit dem Schraubendreher fest.
+. Installieren Sie die Nodes wie folgt in das neue Chassis:
++
+.. Setzen Sie den Knoten wieder in seinen ursprünglichen Steckplatz im Chassis ein, indem Sie den Knoten in drücken, bis Sie einen Klick hören. Die Beschriftungen, die Sie dem Node angehängt haben, bevor Sie ihn entfernt haben, helfen Ihnen.
++
+
+CAUTION: Stellen Sie sicher, dass Sie den Knoten von unter unterstützen, wenn Sie ihn installieren. Verwenden Sie keine übermäßige Kraft, während Sie den Node in das Chassis drücken.
+
+.. Bei Speicherknoten installieren Sie die Laufwerke in den entsprechenden Steckplätzen im Knoten, indem Sie den Nockengriff auf jedem Laufwerk nach unten drücken, bis er hörbar einrastet.
+.. Schließen Sie die Kabel wieder an die gleichen Ports an der Rückseite des Node an. Die Etiketten, die Sie beim Trennen an den Kabeln befestigt haben, führen Sie zu diesem Zeitpunkt.
++
+
+CAUTION: Stellen Sie sicher, dass Sie die Kabel nicht in die Anschlüsse zwingen. Kabel, Ports oder beides können beschädigt werden.
+
+
+
+. Stellen Sie sicher, dass die Nodes wie folgt online sind:
++
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Wenn Sie alle Nodes (Storage und Computing) in Ihrer NetApp HCI-Implementierung neu installieren  a| 
+.. Vergewissern Sie sich im VMware vSphere Web Client, dass die Computing-Nodes (Hosts) im ESXi-Cluster aufgeführt sind.
+.. Vergewissern Sie sich im Element Plug-in für vCenter Server, dass die Storage Nodes als aktiv aufgeführt sind.
+
+
+
+
+| Wenn Sie nur die Nodes im ausgefallenen Chassis neu installiert haben  a| 
+.. Vergewissern Sie sich im VMware vSphere Web Client, dass die Computing-Nodes (Hosts) im ESXi-Cluster aufgeführt sind.
+.. Wählen Sie im Element Plug-in für vCenter Server die Option *Cluster > Knoten > Ausstehend* aus.
+.. Wählen Sie den Knoten aus, und wählen Sie *Hinzufügen*.
++
+
+NOTE: Es kann bis zu 2 Minuten dauern, bis der Knoten hinzugefügt wurde und unter *Knoten > aktiv* angezeigt wird.
+
+.. Wählen Sie *Laufwerke*.
+.. Fügen Sie in der Liste verfügbar die Laufwerke hinzu.
+.. Führen Sie diese Schritte für alle Storage-Nodes durch, die Sie neu installiert haben.
+
+
+|===
+. Vergewissern Sie sich, dass die Volumes und Datastores verfügbar sind.
+
+
+
+
+== Weitere Informationen
+
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

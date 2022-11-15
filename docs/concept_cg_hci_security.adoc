@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_cg_hci_security.html 
+summary: Beim Einsatz von NetApp HCI werden Ihre Daten durch branchenübliche Sicherheitsprotokolle gesichert. 
+keywords: netapp, hci, security 
+---
+= NetApp HCI-Sicherheit
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Beim Einsatz von NetApp HCI werden Ihre Daten durch branchenübliche Sicherheitsprotokolle gesichert.
+
+
+
+== Verschlüsselung für Storage-Nodes im Ruhezustand
+
+NetApp HCI ermöglicht Ihnen die Verschlüsselung aller im Storage-Cluster gespeicherten Daten.
+
+Alle Laufwerke in Storage-Nodes, die zu Verschlüsselung fähig sind, verwenden die AES-256-Bit-Verschlüsselung auf Laufwerksebene. Jedes Laufwerk verfügt über einen eigenen Verschlüsselungsschlüssel, der beim ersten Initialized des Laufwerks erstellt wird. Wenn Sie die Verschlüsselungsfunktion aktivieren, wird ein Storage-Cluster-weites Passwort erstellt und Datenblöcke des Passworts werden dann auf alle Nodes im Cluster verteilt. Kein Single Node speichert das gesamte Passwort. Das Passwort wird dann verwendet, um den gesamten Zugriff auf die Laufwerke kennwortgeschützt zu machen. Sie benötigen das Passwort, um das Laufwerk zu entsperren. Da das Laufwerk alle Daten verschlüsselt, sind Ihre Daten jederzeit sicher.
+
+Wenn Sie die Verschlüsselung im Ruhezustand aktivieren, werden die Performance und die Effizienz des Storage-Clusters nicht beeinträchtigt. Wenn Sie ein verschlüsselungsfähiges Laufwerk oder Node mit der Element API oder der Element UI aus dem Storage-Cluster entfernen, werden die Laufwerke im Ruhezustand deaktiviert. Zudem werden die Laufwerke sicher gelöscht, sodass die zuvor auf diesen Laufwerken gespeicherten Daten geschützt sind. Nachdem Sie das Laufwerk entfernt haben, können Sie das Laufwerk sicher mit dem löschen `SecureEraseDrives` API-Methode. Wenn Sie ein Laufwerk oder einen Node aus dem Speicher-Cluster entfernen, bleiben die Daten durch das Cluster-weite Passwort und die individuellen Verschlüsselungsschlüssel des Laufwerks geschützt.
+
+Informationen zur Aktivierung und Deaktivierung von Verschlüsselung im Ruhezustand finden Sie unter http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-EE404D52-B621-4DE5-B141-2559768FB1D0.html["Aktivieren und Deaktivieren der Verschlüsselung für ein Cluster"^] Im SolidFire and Element Documentation Center.
+
+
+
+== Softwareverschlüsselung für Daten im Ruhezustand
+
+Mithilfe der Softwareverschlüsselung können alle auf die SSDs in einem Storage-Cluster geschriebenen Daten verschlüsselt werden. Dies bietet eine primäre Verschlüsselungsschicht in SolidFire SDS-Nodes ohne Self-Encrypting Drives (SEDs).
+
+
+
+== Externes Verschlüsselungskeymanagement
+
+Sie können Element Software für das Management der Storage-Cluster-Verschlüsselungen konfigurieren, indem Sie einen KMIP-konformen (Key Management Service) eines Drittanbieters verwenden. Wenn Sie diese Funktion aktivieren, wird der Schlüssel für den Zugriff auf das Passwort für den gesamten Laufwerkszugriff des Storage-Clusters von einem von Ihnen angegebenen KMS gemanagt. Element kann die folgenden wichtigen Managementservices nutzen:
+
+* Gemalto SafeNet KeySecure
+* SafeNet BEI KeySecure
+* HyTrust KeyControl
+* Vormetric Data Security Manager
+* IBM Security Key Lifecycle Manager
+
+
+Weitere Informationen zum Konfigurieren der externen Schlüsselverwaltung finden Sie unter http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-057D852C-9C1C-458A-9161-328EDA349B00.html["Erste Schritte mit External Key Management"^] Im SolidFire and Element Documentation Center.
+
+
+
+== Multi-Faktor-Authentifizierung
+
+Multi-Faktor-Authentifizierung (MFA) ermöglicht es Benutzern, bei der Anmeldung mehrere Arten von Beweisen zur Authentifizierung bei der NetApp Element Web-UI oder der Storage-Node-UI vorzulegen. Sie können Element so konfigurieren, dass nur Multi-Faktor-Authentifizierung für Anmeldungen akzeptiert wird, die sich in Ihr vorhandenes Benutzerverwaltungssystem und Ihren Identitäts-Provider integrieren lassen. Sie können das Element so konfigurieren, dass es sich in einen vorhandenen SAML 2.0-Identitätsanbieter integrieren lässt, der mehrere Authentisierungsschemata wie Passwort- und Textnachricht, Passwort- und E-Mail-Nachricht oder andere Methoden durchsetzen kann.
+
+Sie können Multi-Faktor-Authentifizierung mit gängigen SAML 2.0-kompatiblen Identitäts-Providern (IDPs) wie Microsoft Active Directory Federation Services (ADFS) und Shibboleth kombinieren.
+
+Informationen zur Konfiguration von MFA finden Sie unter http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-B1C8D8E2-CE95-41FD-9A3E-A0C424EC84F3.html["Aktivieren der Multi-Faktor-Authentifizierung"^] Im SolidFire and Element Documentation Center.
+
+
+
+== FIPS 140-2 für HTTPS und Verschlüsselung von Daten im Ruhezustand
+
+NetApp SolidFire Storage-Cluster und NetApp HCI Systeme unterstützen eine Verschlüsselung, die die Anforderungen des Federal Information Processing Standard (FIPS) 140-2 an kryptografische Module erfüllt. Sie können die Compliance mit FIPS 140-2 auf Ihrem NetApp HCI oder SolidFire Cluster sowohl für HTTPS-Kommunikation als auch für Laufwerkverschlüsselung aktivieren.
+
+Wenn Sie den FIPS 140-2 Betriebsmodus auf dem Cluster aktivieren, aktiviert das Cluster das NetApp Cryptographic Security Module (NCSM) und nutzt die zertifizierte Verschlüsselung nach FIPS 140-2 Level 1 für die gesamte Kommunikation über HTTPS mit der NetApp Element UI und den API. Sie verwenden das `EnableFeature` Element API mit dem `fips` Parameter zur Aktivierung der Verschlüsselung nach FIPS 140-2 HTTPS. Auf Storage-Clustern mit FIPS-kompatibler Hardware lässt sich mithilfe des auch FIPS-Laufwerksverschlüsselung für Daten im Ruhezustand aktivieren `EnableFeature` Element API mit dem `FipsDrives` Parameter.
+
+Weitere Informationen zur Vorbereitung eines neuen Storage-Clusters auf die Verschlüsselung nach FIPS 140-2 finden Sie unter http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-ug/GUID-4645FF0D-3FCD-4440-91A9-A47F7BCC5C50.html["Erstellung eines Clusters, das FIPS-Laufwerke unterstützt"^].
+
+Weitere Informationen über die Aktivierung von FIPS 140-2 auf einem vorhandenen, vorbereiteten Cluster finden Sie unter http://docs.netapp.com/sfe-122/topic/com.netapp.doc.sfe-api/GUID-F2726BCA-D59C-47EE-B86C-DC465C96563B.html["Die API für das EnableFeature-Element"^].

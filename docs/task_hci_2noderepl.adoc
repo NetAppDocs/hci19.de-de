@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_2noderepl.html 
+summary: 'Bevor Sie einen Node ersetzen, der Teil eines Clusters mit zwei Nodes ist, sollten Sie zunächst einen dritten Storage Node hinzufügen (wofür ein neuer Satz an IP-Adressen erforderlich ist), eine Synchronisierung durchführen und dann den fehlerhaften Node entfernen. Cluster mit vier Nodes: Sie benötigen zusätzliche MIP und SIP.' 
+keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement 
+---
+= Storage-Node wird in einem 2-Node-Cluster ersetzt
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bevor Sie einen Storage-Node ersetzen, der Teil eines Clusters mit zwei Nodes ist, sollten Sie zunächst einen dritten Storage-Node (der einen neuen Satz an IP-Adressen erfordert) hinzufügen, eine Synchronisierung durchführen und dann den fehlerhaften Node entfernen. Das Cluster bleibt im Status „beeinträchtigt“, bis ein Ersatz-Node dem Cluster hinzugefügt wird.
+
+.Was Sie und#8217;ll benötigen
+* Sie verfügen über neue Management-IP- und Storage-IP-Adressen.
+* Sie haben überprüft, dass auf dem Cluster der angezeigt wird `ClusterCannotSync` Eine Meldung wird ausgegeben, nachdem der Node offline geschaltet wurde. So wird sichergestellt, dass sich das Cluster vollständig neu synchronisiert, wenn der neue Node wieder zum Cluster hinzugefügt wird. Diese Meldung wird ungefähr sechs Minuten nach dem Offline-Modus des Storage-Node angezeigt.
+* Sie haben den NetApp Support kontaktiert. Wenn Sie einen Ersatz bestellen, sollten Sie beim NetApp Support einen Case eröffnen.
+* Sie haben den Ersatzknoten erhalten.
+* Sie haben ein elektrostatisches Entladungsband (ESD) oder einen anderen antistatischen Schutz.
+
+
+Alarme im VMware vSphere Web Client warnen Sie bei einem Host-Ausfall. Sie müssen die Seriennummer des ausgefallenen Hosts vom VMware vSphere Web Client mit der Seriennummer auf dem Aufkleber auf der Rückseite des Node übereinstimmen.
+
+.Schritte
+. Entfernen Sie den fehlerhaften Node physisch aus dem Rack. Die Schritte hängen vom Typ des verwendeten Storage-Node ab. Siehe link:task_hci_h410srepl.html["H410S Nodes austauschen"] Und link:task_hci_h610srepl.html["H610S Nodes ersetzen"].
++
+
+NOTE: Entfernen Sie jetzt nicht den Node aus dem Cluster.
+
+. Installieren Sie den Ersatzknoten in demselben Steckplatz.
+. Verkabeln Sie den Node.
+. Schalten Sie den Node ein.
+. Schließen Sie eine Tastatur und einen Monitor an den Knoten an.
+. Durchführen der Konfigurationsschritte:
++
+.. Konfigurieren Sie die IPMI/BMC-IP-Adresse.
+.. Konfigurieren Sie den neuen Node mit der neuen Management-IP- und Storage-IP-Adresse sowie dem Cluster-Namen.
+
+
+. Nachdem der Node zum Cluster hinzugefügt wurde, fügen Sie die Laufwerke hinzu.
+. Entfernen Sie nach Abschluss der Synchronisierung die ausgefallenen Laufwerke und den ausgefallenen Node aus dem Cluster.
+. Verwenden Sie NetApp Hybrid Cloud Control, um den neuen, hinzugefügten Storage-Node zu konfigurieren. Siehe link:task_hcc_expand_storage.html["Erweitern Sie NetApp HCI Storage-Ressourcen"].
+
+
+
+
+== Weitere Informationen
+
+* http://docs.netapp.com/hci/index.jsp["NetApp HCI Documentation Center"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

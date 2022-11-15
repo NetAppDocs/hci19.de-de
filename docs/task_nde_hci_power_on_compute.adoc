@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_on_compute.html 
+summary: So schalten Sie NetApp HCI Computing-Nodes ein. 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Schalten Sie Computing-Ressourcen für ein NetApp HCI System ein
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+Nach Abschluss des geplanten Ausfalls können Sie die Computing-Ressourcen für ein NetApp HCI System einschalten.
+
+.Schritte
+. Schalten Sie die Computing-Nodes in denselben Schritten ein, die Sie zum Einschalten der Storage-Nodes ausgeführt haben.
+. Wenn alle Computing-Nodes betriebsbereit sind, melden Sie sich beim ESXi-Host an, auf dem die vCSA ausgeführt wurde.
+. Melden Sie sich beim Computing-Host an und überprüfen Sie, ob alle NetApp HCI-Datenspeicher sichtbar sind. Bei einem typischen NetApp HCI-System sollten Sie alle lokalen ESXi-Datastores und mindestens die folgenden gemeinsamen Datastores sehen:
+
+
+[listing]
+----
+NetApp-HCI-Datastore-[01,02]
+----
+. Wenn der gesamte Storage zugänglich ist, schalten Sie die vCSA und alle anderen erforderlichen virtuellen Maschinen wie folgt ein:
++
+.. Wählen Sie die virtuellen Maschinen im Navigator aus, wählen Sie alle virtuellen Maschinen aus, die Sie einschalten möchten, und klicken Sie auf die Schaltfläche *Einschalten*.
+
+
+. Nachdem Sie die virtuellen Maschinen eingeschaltet haben, warten Sie ca. 5 Minuten, und navigieren Sie anschließend über einen Webbrowser zur IP-Adresse oder FQDN der vCSA-Applikation.
++
+Wenn Sie nicht lange genug warten, wird eine Meldung angezeigt, die besagt, dass der vSphere Client-Webserver initialisiert wird.
+
+. Melden Sie sich nach der Initialisierung des vSphere Clients an, und stellen Sie sicher, dass alle ESXi Hosts und Virtual Machines online sind.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

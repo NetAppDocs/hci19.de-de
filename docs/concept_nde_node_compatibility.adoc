@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_node_compatibility.html 
+summary: Informieren Sie sich über die NetApp HCI Node-Kompatibilitätsanforderungen für die Implementierung. 
+keywords: netapp, hci, deployment, compatibility, nodes 
+---
+= Bestandsauswahl und Knotenkompatibilität
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bei der Auswahl von Nodes für Ihre Implementierung gelten einige Einschränkungen für die Node-Konfigurationen, die in derselben Implementierung kombiniert werden können.
+
+
+
+== Kompatibilität von Storage-Nodes
+
+NetApp HCI unterstützt Storage-Nodes und -Laufwerke mit SED (Self-Encrypting Drive) und FIPS 140-2-2-Laufwerksverschlüsselung. Bei der Implementierung oder Erweiterung von NetApp HCI können Sie Nodes mit unterschiedlichen Verschlüsselungsstufen kombinieren. NetApp HCI unterstützt jedoch in dieser Situation nur die grundlegendste Form der Verschlüsselung. Wenn beispielsweise ein Storage-Node gemischt wird, der für FIPS-Verschlüsselung geeignet ist und Nodes nur die SED-Verschlüsselung unterstützen, wird bei dieser Konfiguration die SED-Verschlüsselung unterstützt, die FIPS-Laufwerksverschlüsselung ist jedoch nicht.
+
+
+NOTE: Das Hinzufügen von Storage-Nodes, die für eine FIPS-Laufwerksverschlüsselung zum Storage-Cluster sorgen, aktiviert die FIPS-Laufwerksverschlüsselungsfunktion nicht automatisch. Nach der Implementierung oder Erweiterung einer Installation mit FIPS-fähigen Nodes muss die FIPS-Laufwerksverschlüsselung manuell aktiviert werden. Siehe https://docs.netapp.com/us-en/element-software/index.html["Dokumentation der Element Software"^] Weitere Anweisungen.
+
+Auf allen Storage-Nodes muss dieselbe kleinere Version der Element Software ausgeführt werden, um in derselben Implementierung kompatibel zu sein. Beispielsweise können Sie keinen Storage-Node mit Element 11.3.1 und anderen Storage-Nodes mit Element 11.5 nicht kombinieren.
+
+
+NOTE: Je nach Hardware-Konfiguration des Node werden H410S Storage-Nodes möglicherweise in der Bestandsliste mit der Bezeichnung H300S, H500S oder H700S Storage-Nodes angezeigt.
+
+NetApp HCI unterstützt nur bestimmte Storage-Node-Modelle in Storage-Clustern mit zwei Nodes. Weitere Informationen finden Sie unter link:concept_hci_clusters.html#two-node-storage-clusters["Storage-Cluster mit zwei Nodes"] Oder den Release Notes für Ihre NetApp HCI-Version.
+
+
+NOTE: Bei Storage-Cluster mit zwei Nodes sind die Storage-Node-Typen auf Nodes mit 480-GB- und 960-GB-Laufwerken beschränkt.
+
+
+
+== Kompatibilität von Computing-Nodes
+
+Computing-Nodes müssen die folgenden Anforderungen erfüllen, um als Inventar ausgewählt werden zu können:
+
+* Die CPU-Generationen in allen Computing-Nodes müssen mit der richtigen VMware vMotion Funktion übereinstimmen. Nachdem Sie einen Computing-Node aus dem Inventar ausgewählt haben, können Sie keine Computing-Nodes mit unterschiedlichen CPU-Generationen auswählen.
+* Computing-Nodes können nicht mit GPU-fähigen Compute-Nodes im selben Compute-Cluster kombiniert werden. Wenn Sie einen GPU-fähigen Computing-Node auswählen, werden die aus CPU-Computing-Nodes nicht wählbar und umgekehrt.
+* Die auf dem Computing-Node ausgeführte Softwareversion muss mit der Haupt- und Unterversion der NetApp Deployment Engine, die die Implementierung hostet, übereinstimmen. Wenn dies nicht der Fall ist, müssen Sie mit dem RTFI-Prozess ein neues Image des Computing-Nodes erstellen. Anweisungen finden Sie in den NetApp Knowledgebase-Artikeln zu RTFI.
+* Für den Rechenknoten muss die auf der Seite Netzwerktopologie ausgewählte Verkabelungskonfiguration in der Liste *Compute Nodes* ausgewählt sein.
+* Die Netzwerkverkabelungskonfigurationen für Computing-Nodes desselben Modells müssen innerhalb eines einzelnen Computing-Clusters übereinstimmen.
+
+
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
+

@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_remove_assets.html 
+summary: Erfahren Sie, wie Sie Compute-Node-Ressourcen mithilfe der REST API von Ihrem System entfernen. 
+keywords: netapp, hci, api, REST, remove, compute, asset 
+---
+= Entfernen Sie ein Asset vom Management-Node
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn ein Computing-Node physisch ersetzt oder aus dem NetApp HCI-Cluster entfernt werden muss, müssen die Computing-Node-Ressource mithilfe der Management-Node-APIs entfernt werden.
+
+.Was Sie und#8217;ll benötigen
+* Im Storage Cluster wird die NetApp Element Software 11.3 oder höher ausgeführt.
+* Sie haben einen Management-Node mit Version 11.3 oder höher implementiert.
+
+
+.Schritte
+. Geben Sie die Management-Node-IP-Adresse gefolgt von ein `/mnode/1/`:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/1/
+----
+. Klicken Sie auf *autorisieren* oder auf ein Schlosssymbol und geben Sie Cluster Admin-Anmeldeinformationen ein, um APIs zu verwenden.
++
+.. Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+.. Wählen Sie *Text anfordern* aus der Dropdown-Liste Typ aus, wenn der Wert nicht bereits ausgewählt ist.
+.. Geben Sie die Client-ID als ein `mnode-client` Wenn der Wert nicht bereits ausgefüllt ist.
+.. Geben Sie keinen Wert für das Clientgeheimnis ein.
+.. Klicken Sie auf *autorisieren*, um eine Sitzung zu starten.
+.. Schließen Sie das Fenster.
+
+
+. Schließen Sie das Dialogfeld * Verfügbare Berechtigungen*.
+. Klicken Sie auf *GET/Assets*.
+. Klicken Sie auf *Probieren Sie es aus*.
+. Klicken Sie Auf *Ausführen*.
+. Scrollen Sie im Antwortkörper nach unten zum Abschnitt *Computing*, und kopieren Sie den `parent` Und `id` Werte für den fehlgeschlagenen Rechenknoten.
+. Klicken Sie auf *DELETE/Assets/{Asset_id}/Compute-Nodes/{Compute_id}*.
+. Klicken Sie auf *Probieren Sie es aus*.
+. Geben Sie das ein `parent` Und `id` Werte, die Sie in einem vorherigen Schritt kopiert haben.
+. Klicken Sie Auf *Ausführen*.
+

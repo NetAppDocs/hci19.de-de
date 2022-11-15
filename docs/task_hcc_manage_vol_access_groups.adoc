@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_manage_vol_access_groups.html 
+summary: Erfahren Sie, wie Sie neue Volume-Zugriffsgruppen hinzufügen, die für NetApp HCI Storage Volumes verwendet werden können, Volume-Zugriffsgruppen aus dem System entfernen, vorhandene Volume-Zugriffsgruppen bearbeiten und Details zu Volume-Zugriffsgruppen anzeigen. 
+keywords: netapp, hci, on premise, cluster, element 
+---
+= Erstellung und Management von Volume-Zugriffsgruppen
+:allow-uri-read: 
+
+
+[role="lead"]
+Sie können neue Volume-Zugriffsgruppen erstellen, den Namen, zugehörige Initiatoren oder zugehörige Volumes von Zugriffsgruppen ändern oder vorhandene Volume-Zugriffsgruppen mithilfe von NetApp Hybrid Cloud Control löschen.
+
+.Was Sie und#8217;ll benötigen
+* Sie haben Administratoranmeldedaten für dieses NetApp HCI-System.
+* Sie haben Ihre Managementservices auf mindestens Version 2.15.28 aktualisiert. Das NetApp Hybrid Cloud Control Storage-Management ist in früheren Service-Bundle-Versionen nicht verfügbar.
+* Stellen Sie sicher, dass Sie über ein logisches Benennungsschema für Volume-Zugriffsgruppen verfügen.
+
+
+
+
+== Fügen Sie eine Zugriffsgruppe für Volumes hinzu
+
+Mit NetApp Hybrid Cloud Control können Sie einem Storage-Cluster eine Volume-Zugriffsgruppe hinzufügen.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie *Bände*.
+. Wählen Sie die Registerkarte *Zugriffsgruppen* aus.
+. Klicken Sie auf die Schaltfläche *Zugriffsgruppe erstellen*.
+. Geben Sie im daraufhin angezeigten Dialogfeld einen Namen für die Zugriffsgruppe des neuen Volumes ein.
+. (Optional) Wählen Sie im Abschnitt *Initiatoren* einen oder mehrere Initiatoren aus, die der neuen Zugriffsgruppe zugeordnet werden sollen.
++
+Wenn Sie einen Initiator der Volume-Zugriffsgruppe zuordnen, kann dieser Initiator ohne Authentifizierung auf jedes Volume in der Gruppe zugreifen.
+
+. (Optional) Wählen Sie im Abschnitt *Volumes* ein oder mehrere Volumes aus, die in diese Zugriffsgruppe aufgenommen werden sollen.
+. Wählen Sie *Zugriffsgruppe Erstellen*.
+
+
+
+
+== Bearbeiten Sie eine Zugriffsgruppe für Volumes
+
+Sie können die Eigenschaften einer vorhandenen Volume-Zugriffsgruppe mit NetApp Hybrid Cloud Control bearbeiten. Sie können den Namen, zugeordnete Initiatoren oder zugehörige Volumes einer Zugriffsgruppe ändern.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie *Bände*.
+. Wählen Sie die Registerkarte *Zugriffsgruppen* aus.
+. Erweitern Sie in der Spalte *Aktionen* der Tabelle der Zugriffsgruppen das Optionsmenü für die Zugriffsgruppe, die Sie bearbeiten müssen.
+. Wählen Sie im Optionsmenü die Option *Bearbeiten*.
+. Nehmen Sie alle erforderlichen Änderungen am Namen, den zugehörigen Initiatoren oder den zugehörigen Volumes vor.
+. Bestätigen Sie Ihre Änderungen, indem Sie *Speichern* wählen.
+. Überprüfen Sie in der Tabelle *Access Groups*, ob die Zugriffsgruppe Ihre Änderungen widerspiegelt.
+
+
+
+
+== Löschen Sie eine Zugriffsgruppe für Volumes
+
+Sie können eine Volume-Zugriffsgruppe mithilfe von NetApp Hybrid Cloud Control entfernen und gleichzeitig die mit dieser Zugriffsgruppe verknüpften Initiatoren aus dem System entfernen.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard im linken Navigationsmenü den Namen Ihres Storage-Clusters.
+. Wählen Sie *Bände*.
+. Wählen Sie die Registerkarte *Zugriffsgruppen* aus.
+. Erweitern Sie in der Spalte *Aktionen* der Zugriffstabelle das Optionsmenü für die zu löschende Zugriffsgruppe.
+. Wählen Sie im Optionsmenü die Option *Löschen* aus.
+. Wenn Sie die Initiatoren, die der Zugriffsgruppe zugeordnet sind, nicht löschen möchten, deaktivieren Sie das Kontrollkästchen *Initiatoren löschen in dieser Zugriffsgruppe*.
+. Bestätigen Sie den Löschvorgang, indem Sie *Ja* auswählen.
+
+
+[discrete]
+== Weitere Informationen
+
+* link:concept_hci_volume_access_groups.html["Erfahren Sie mehr über Volume Access Groups"]
+* link:task_hcc_manage_initiators.html#add-initiators-to-a-volume-access-group["Hinzufügen eines Initiators zu einer Volume-Zugriffsgruppe"]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

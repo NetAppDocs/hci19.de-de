@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_api_get_authorizationtouse.html 
+summary: Sie müssen autorisieren, bevor Sie APIs für Managementservices in der REST API-UI verwenden können. 
+keywords: netapp, hci, management node, mnode, api, token 
+---
+= Autorisierung zur Verwendung VON REST-APIs
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie müssen autorisieren, bevor Sie APIs für Managementservices in der REST API-UI verwenden können. Dazu erhalten Sie ein Zugriffstoken.
+
+Um ein Token zu erhalten, geben Sie Cluster-Admin-Anmeldedaten und eine Client-ID an. Jedes Token dauert etwa zehn Minuten. Nachdem ein Token abgelaufen ist, können Sie erneut eine Genehmigung für ein neues Access Token erteilen.
+
+Während der Installation und Implementierung des Management-Node werden Autorisierungsfunktionen für Sie eingerichtet. Der Token-Service basiert auf dem Storage-Cluster, das Sie während des Setups definiert haben.
+
+.Bevor Sie beginnen
+* Auf Ihrer Cluster-Version sollte die NetApp Element Software 11.3 oder höher ausgeführt werden.
+* Sie sollten einen Management-Node mit Version 11.3 oder höher implementiert haben.
+
+
+.API-Befehl
+[listing]
+----
+TOKEN=`curl -k -X POST https://MVIP/auth/connect/token -F client_id=mnode-client -F grant_type=password -F username=CLUSTER_ADMIN -F password=CLUSTER_PASSWORD|awk -F':' '{print $2}'|awk -F',' '{print $1}'|sed s/\"//g`
+----
+.SCHRITTE DER REST API-UI
+. Greifen Sie auf die REST-API-UI für den Service zu, indem Sie beispielsweise die Management-Node-IP-Adresse gefolgt vom Dienstnamen eingeben `/mnode/`:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/
+----
+. Klicken Sie Auf *Autorisieren*.
++
+
+NOTE: Alternativ können Sie auf ein Sperrsymbol neben einer beliebigen Service-API klicken.
+
+. Gehen Sie wie folgt vor:
++
+.. Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+.. Geben Sie die Client-ID als ein `mnode-client`.
+.. Geben Sie keinen Wert für das Clientgeheimnis ein.
+.. Klicken Sie auf *autorisieren*, um eine Sitzung zu starten.
+
+
+. Schließen Sie das Dialogfeld * Verfügbare Berechtigungen*.
++
+
+NOTE: Wenn Sie versuchen, einen Befehl auszuführen, nachdem das Token abgelaufen ist, wird ein angezeigt `401 Error: UNAUTHORIZED` Meldung wird angezeigt. Wenn Sie dies sehen, autorisieren Sie erneut.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

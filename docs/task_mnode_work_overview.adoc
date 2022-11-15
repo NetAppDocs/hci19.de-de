@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_work_overview.html 
+summary: 'Sie können den Management-Node (mNode) verwenden, um Systemdienste zu verwenden, Cluster-Assets und -Einstellungen zu managen, Systemtests und Dienstprogramme auszuführen, Active IQ für das System-Monitoring zu konfigurieren und den NetApp Support-Zugriff zur Fehlerbehebung zu aktivieren.' 
+keywords: netapp, mnode, api, rest api, mnode ui, management node ui 
+---
+= Übersicht über Management-Nodes
+:allow-uri-read: 
+
+
+[role="lead"]
+Sie können den Management-Node (mNode) verwenden, um Systemdienste zu verwenden, Cluster-Assets und -Einstellungen zu managen, Systemtests und Dienstprogramme auszuführen, Active IQ für das System-Monitoring zu konfigurieren und den NetApp Support-Zugriff zur Fehlerbehebung zu aktivieren.
+
+
+NOTE: Als Best Practice wird nur ein Management Node mit einer VMware vCenter Instanz verknüpft, sodass nicht dieselben Storage- und Computing-Ressourcen oder vCenter Instanzen in mehreren Management Nodes definiert werden müssen.
+
+Für Cluster mit Element Softwareversion 11.3 oder höher können Sie mit dem Management-Node über eine von zwei Schnittstellen arbeiten:
+
+* Mit der Management-Node-UI (`https://[mNode IP]:442`) Können Sie Änderungen an Netzwerk- und Clustereinstellungen vornehmen, Systemtests ausführen oder Systemdienstprogramme verwenden.
+* Mit der integrierten REST API UI (`https://[mNode IP]/mnode`) Können Sie APIs ausführen oder verstehen, die mit den Management-Knoten-Services verbunden sind, einschließlich Proxy-Server-Konfiguration, Service-Level-Updates oder Asset-Management.
+
+
+Installation oder Wiederherstellung eines Management-Node:
+
+* link:task_mnode_install.html["Installieren Sie einen Management-Node"]
+* link:task_mnode_install_add_storage_NIC.html["Konfigurieren eines Speicher-Netzwerkschnittstellentoncontrollers (NIC)"]
+* link:task_mnode_recover.html["Wiederherstellung eines Management-Node"]
+
+
+Zugriff auf den Management-Node:
+
+* link:task_mnode_access_ui.html["Zugriff auf den Management-Node (UI oder REST-API)"]
+
+
+Führen Sie Aufgaben mit der Management-Node-UI durch:
+
+* link:task_mnode_work_overview_UI.html["Übersicht über die Management-Node-UI"]
+
+
+Aufgaben mit den MANAGEMENT-Node-REST-APIs:
+
+* link:task_mnode_work_overview_API.html["Übersicht über DIE REST-API-UI für den Management-Node"]
+
+
+Deaktivieren oder aktivieren Sie Remote-SSH-Funktionen oder starten Sie mit NetApp Support eine Remote-Support-Tunnelsitzung, um Unterstützung bei der Fehlerbehebung zu bieten:
+
+* link:task_mnode_enable_remote_support_connections.html["Aktivieren von Remote-Verbindungen mit NetApp Support"]
+* link:task_mnode_ssh_management.html["Verwalten der SSH-Funktionalität auf dem Management-Node"]
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

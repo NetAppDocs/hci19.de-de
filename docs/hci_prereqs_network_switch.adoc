@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_switch.html 
+summary: Informieren Sie sich über die Neuerungen dieser Version von NetApp HCI. 
+keywords: netapp, hci, network, switch, requirements 
+---
+= Netzwerk- und Switch-Anforderungen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, network, switch, requirements
+
+
+[role="lead"]
+Die für NetApp HCI verwendeten Switches erfordern eine spezifische Konfiguration, um eine erfolgreiche Implementierung sicherzustellen. In der Switch-Dokumentation finden Sie spezifische Anweisungen zur Implementierung der folgenden Anforderungen an Ihre Umgebung.
+
+Für eine NetApp HCI-Implementierung sind mindestens drei Netzwerksegmente erforderlich, eines für jeden der folgenden Verkehrstypen:
+
+* Vereinfachtes
+* VMware vMotion
+* Storage/Daten
+
+
+Je nach den Computing- und Storage-Node-Modellen der NetApp H-Series und der geplanten Verkabelungskonfiguration können diese Netzwerke physisch über separate Switches getrennt oder über VLANs voneinander getrennt werden. Bei den meisten Implementierungen müssen diese Netzwerke (und alle anderen zusätzlichen Virtual-Machine-Netzwerke) mit VLANs logisch voneinander getrennt werden.
+
+Computing- und Storage-Nodes müssen vor, während und nach der Implementierung kommunizieren können. Wenn Sie getrennte Managementnetzwerke für Storage- und Computing-Nodes implementieren, stellen Sie sicher, dass diese Managementnetzwerke Netzwerkrouten zwischen ihnen haben. Diese Netzwerke müssen über Gateways verfügen, und es muss eine Route zwischen den Gateways vorhanden sein. Stellen Sie sicher, dass jedem neuen Node ein Gateway zugewiesen ist, um die Kommunikation zwischen den Nodes und Managementnetzwerken zu erleichtern.
+
+NetApp HCI verfügt über folgende Switch-Anforderungen:
+
+* Alle mit NetApp HCI-Nodes verbundenen Switch-Ports müssen als Spanning Tree Edge Ports konfiguriert werden.
++
+** Bei Cisco Switches, je nach Switch-Modell, Softwareversion und Porttyp, können Sie dies mit einem der folgenden Befehle ausführen:
++
+*** `spanning-tree port type edge`
+*** `spanning-tree port type edge trunk`
+*** `spanning-tree portfast`
+*** `spanning-tree portfast trunk`
+
+
+** Auf Mellanox-Switches kann dies mit dem durchgeführt werden `spanning-tree port type edge` Befehl.
+
+
+* NetApp HCI-Nodes verfügen über redundante Ports für alle Netzwerkfunktionen, ausgenommen Out-of-Band-Management. Für eine optimale Ausfallsicherheit teilen Sie diese Ports auf zwei Switches mit redundanten Uplinks auf eine herkömmliche hierarchische Architektur oder eine Layer-2-Spine-and-Leaf-Architektur.
+* Die Switches für Storage, Virtual Machine und vMotion-Datenverkehr müssen Geschwindigkeiten von mindestens 10 GbE pro Port unterstützen (bis zu 25 GbE pro Port werden unterstützt).
+* Die Switches, die Managementdatenverkehr verarbeiten, müssen Geschwindigkeiten von mindestens 1 GbE pro Port unterstützen.
+* Sie müssen Jumbo Frames auf den Switch Ports konfigurieren, die Storage und vMotion Traffic verarbeiten. Für eine erfolgreiche Installation müssen Hosts 9000-Byte-Pakete lückenlos versenden können.
+* Sie müssen die Management-Netzwerk-Switch-Ports so konfigurieren, dass unabhängig von der Größe der MTU die Management-NIC-Ports auf jedem Host konfiguriert sind. Wenn die Host-Management-Netzwerk-Ports beispielsweise eine MTU-Größe von 1750 Byte verwenden, müssen die Management-Netzwerk-Switch-Ports so konfiguriert sein, dass mindestens eine MTU von 1750 Byte zugelassen wird (für das Managementnetzwerk ist keine MTU mit 9000 Byte erforderlich). Die MTU-Einstellungen sollten durchgängig erfolgen
+* Die Netzwerklatenz zwischen allen Storage- und Computing-Nodes sollte 2 ms nicht überschreiten.
+
+
+Alle NetApp HCI-Nodes bieten zusätzliche Out-of-Band-Managementfunktionen über einen dedizierten Management-Port. NETAPP H300S, H300E, H500S, H500E, H700S Die Nodes H700E und H410C ermöglichen darüber hinaus den IPMI-Zugriff über Port A. Als Best Practice wird empfohlen, das Remote-Management von NetApp HCI durch die Konfiguration von Out-of-Band-Management für alle Nodes in der Umgebung zu vereinfachen.
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

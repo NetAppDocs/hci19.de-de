@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_install_add_storage_NIC.html 
+summary: Wenn Sie eine zusätzliche Netzwerkkarte zum Speichern verwenden, sollten Sie eine nicht markierte oder getaggte Netzwerkschnittstelle einrichten. 
+keywords: netapp, element, management node, mnode, network, nic, storage nic 
+---
+= Konfigurieren eines Speicher-Netzwerkschnittstellentoncontrollers (NIC)
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie eine zusätzliche NIC für den Speicher verwenden, können Sie SSH in den Management-Knoten einlegen oder die vCenter-Konsole verwenden und einen Curl-Befehl ausführen, um eine getaggte oder nicht getaggte Netzwerkschnittstelle einzurichten.
+
+.Bevor Sie beginnen
+* Sie kennen Ihre eth0-IP-Adresse.
+* In Ihrer Cluster-Version wird die NetApp Element Software 11.3 oder höher ausgeführt.
+* Sie haben einen Management-Node 11.3 oder höher implementiert.
+
+
+Wählen Sie die für Ihre Umgebung relevante Option:
+
+*  a storage Network Interface Controller (NIC) for an untagged network interface
+*  a storage Network Interface Controller (NIC) for a tagged network interface
+
+
+
+
+== Konfigurieren Sie einen Speicher Network Interface Controller (NIC) für eine nicht getaggte Netzwerkschnittstelle
+
+.Schritte
+. Öffnen Sie eine SSH oder vCenter Konsole.
+. Ersetzen Sie die Werte in der folgenden Befehlsvorlage und führen Sie den Befehl aus:
++
+
+NOTE: Werte werden durch dargestellt `$` Für jeden der erforderlichen Parameter für die neue Storage-Netzwerk-Schnittstelle. Der `cluster` Das Objekt in der folgenden Vorlage ist erforderlich und kann für die Umbenennung des Management-Node-Host-Namens verwendet werden. `--insecure` Oder `-k` Optionen sollten nicht in Produktionsumgebungen verwendet werden.
+
++
+[listing]
+----
+curl -u $mnode_user_name:$mnode_password --insecure -X POST \
+https://$mnode_IP:442/json-rpc/10.0 \
+-H 'Content-Type: application/json' \
+-H 'cache-control: no-cache' \
+-d ' {
+     "params": {
+               "network": {
+                          "$eth1": {
+                                   "#default" : false,
+                                   "address" : "$storage_IP",
+                                   "auto" : true,
+                                   "family" : "inet",
+                                   "method" : "static",
+                                   "mtu" : "9000",
+                                   "netmask" : "$subnet_mask",
+                                   "status" : "Up"
+                                   }
+                          },
+               "cluster": {
+                         "name": "$mnode_host_name"
+                         }
+             },
+    "method": "SetConfig"
+}
+'
+----
+
+
+
+
+== Konfigurieren Sie einen Speicher Network Interface Controller (NIC) für eine getaggte Netzwerkschnittstelle
+
+.Schritte
+. Öffnen Sie eine SSH oder vCenter Konsole.
+. Ersetzen Sie die Werte in der folgenden Befehlsvorlage und führen Sie den Befehl aus:
++
+
+NOTE: Werte werden durch dargestellt `$` Für jeden der erforderlichen Parameter für die neue Storage-Netzwerk-Schnittstelle. Der `cluster` Das Objekt in der folgenden Vorlage ist erforderlich und kann für die Umbenennung des Management-Node-Host-Namens verwendet werden. `--insecure` Oder `-k` Optionen sollten nicht in Produktionsumgebungen verwendet werden.
+
++
+[listing]
+----
+curl -u $mnode_user_name:$mnode_password --insecure -X POST \
+https://$mnode_IP:442/json-rpc/10.0 \
+-H 'Content-Type: application/json' \
+-H 'cache-control: no-cache' \
+-d ' {
+     "params": {
+               "network": {
+                          "$eth1": {
+                                   "#default" : false,
+                                   "address" : "$storage_IP",
+                                   "auto" : true,
+                                   "family" : "inet",
+                                   "method" : "static",
+                                   "mtu" : "9000",
+                                   "netmask" : "$subnet_mask",
+                                   "status" : "Up",
+                                   "virtualNetworkTag" : "$vlan_id"
+                                   }
+                          },
+               "cluster": {
+                         "name": "$mnode_host_name",
+                         "cipi": "$eth1.$vlan_id",
+                         "sipi": "$eth1.$vlan_id"
+                         }
+             },
+    "method": "SetConfig"
+}
+'
+----
+
+
+[discrete]
+== Weitere Informationen
+
+* link:task_mnode_add_assets.html["Fügen Sie dem Management-Node Computing- und Controller-Ressourcen hinzu"]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

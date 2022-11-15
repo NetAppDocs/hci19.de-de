@@ -1,0 +1,292 @@
+---
+sidebar: sidebar 
+permalink: docs/task_upgrade_compute_prechecks.html 
+summary: Im Rahmen eines Upgrades des NetApp HCI Systems müssen zunächst die Zustandsprüfungen der Computing-Nodes ausgeführt werden, bevor eine firwamre Aktualisierung durchgeführt wird. 
+keywords: netapp, compute prechecks, compute node upgrade, netapp hci 
+---
+= Vor einem Upgrade der Computing-Firmware müssen Systemzustandsprüfungen für Computing-Nodes durchgeführt werden
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vor dem Upgrade der Computing-Firmware müssen Sie Zustandsprüfungen durchführen, um sicherzustellen, dass alle Computing-Nodes im Cluster aktualisiert werden können. Zustandsprüfungen der Computing-Nodes können nur auf Computing-Clustern von einem oder mehreren gemanagten NetApp HCI Computing-Nodes ausgeführt werden.
+
+.Was Sie und#8217;ll benötigen
+* *Management Services*: Sie haben das neueste Management Services Bundle (2.11 oder höher) aktualisiert.
+* *Management Node*: Sie führen Management Node 11.3 oder höher aus.
+* *Element Software*: Auf Ihrem Storage Cluster wird die NetApp Element Software 11.3 oder höher ausgeführt.
+* *Endbenutzer-Lizenzvereinbarung (EULA)*: Ab Management Services 2.20.69 müssen Sie die EULA akzeptieren und speichern, bevor Sie die NetApp Hybrid Cloud Control UI oder API verwenden, um Zustandsprüfungen für Computing-Nodes auszuführen:
++
+.. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+.. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators bereitstellen.
+.. Wählen Sie *Upgrade* oben rechts auf der Schnittstelle aus.
+.. Die EULA erscheint. Scrollen Sie nach unten, wählen Sie *Ich akzeptiere aktuelle und alle zukünftigen Updates* und wählen Sie *Speichern*.
++
+
+NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates aufgezeichnet und die automatische Download-Funktion ist aktiviert. Der Kunde erhält Aktualisierungen zu NetApp Software Updates und Upgrades, die nach eigenem Ermessen und nach eigenem Ermessen installiert werden können. Sie können die Funktion zum automatischen Download deaktivieren, indem Sie die Netzwerkverbindung zum NetApp Online-Software-Repository deaktivieren.
+
+
+
+
+
+Mit der Benutzeroberfläche von NetApp Hybrid Cloud Control oder der NetApp Hybrid Cloud Control API lassen sich Systemchecks durchführen:
+
+*  NetApp Hybrid Cloud Control to run compute node health checks prior to upgrading firmware (Bevorzugte Methode)
+*  API to run compute node health checks prior to upgrading firmware
+
+
+Weitere Informationen zu Zustandsprüfungen der Computing-Nodes, die vom Service ausgeführt werden:
+
+*  node health checks made by the service
+
+
+
+
+== Nutzen Sie NetApp Hybrid Cloud Control, um vor einem Firmware-Upgrade Zustandsprüfungen der Computing-Nodes auszuführen
+
+Mithilfe von NetApp Hybrid Cloud Control kann sichergestellt werden, dass ein Computing-Node für ein Firmware-Upgrade bereit ist.
+
+
+NOTE: Wenn Sie mehrere Storage-Cluster-Konfigurationen mit zwei Nodes haben, jedes in ihrem eigenen vCenter, wird der Zustand von Witness Nodes möglicherweise nicht akkurat gemeldet. Wenn Sie also zum Upgrade von ESXi Hosts bereit sind, müssen Sie nur den Witness Node auf dem ESXi Host herunterfahren, der aktualisiert wird. Sie müssen sicherstellen, dass in Ihrer NetApp HCI-Installation immer ein Witness Node ausgeführt wird, indem Sie die Witness Nodes auf andere Weise ausschalten.
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser:
++
+[listing]
+----
+https://<ManagementNodeIP>/hcc
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators bereitstellen.
+. Wählen Sie *Upgrade* oben rechts auf der Schnittstelle aus.
+. Wählen Sie auf der Seite *Upgrades* die Registerkarte *Compute Firmware* aus.
+. Wählen Sie die Integritätsprüfung aus image:hcc_healthcheck_icon.png["Symbol"] Für den Cluster möchten Sie die Upgrade-Bereitschaft überprüfen.
+. Wählen Sie auf der Seite *Integritätsprüfung berechnen* die Option *Integritätsprüfung ausführen*.
+. Wenn Probleme auftreten, wird auf der Seite ein Bericht angezeigt. Gehen Sie wie folgt vor:
++
+.. Gehen Sie zu dem für jedes Problem angegebenen KB-Artikel oder führen Sie das angegebene Heilmittel aus.
+.. Wenn ein KB angegeben wird, führen Sie den im entsprechenden KB-Artikel beschriebenen Prozess aus.
+.. Wählen Sie nach der Behebung von Cluster-Problemen die Option *Integritätsprüfung erneut ausführen* aus.
+
+
+
+
+Nachdem die Integritätsprüfung ohne Fehler abgeschlossen wurde, können die Computing-Nodes im Cluster aktualisiert werden. Siehe link:task_hcc_upgrade_compute_node_firmware.html["Aktualisiert die Computing-Node-Firmware"] Fortfahren.
+
+
+
+== Verwenden Sie API zum Ausführen von Zustandsprüfungen des Computing-Nodes vor einem Firmware-Upgrade
+
+Mithilfe DER REST-API können Sie überprüfen, ob die Computing-Nodes in einem Cluster aktualisiert werden können. Bei der Integritätsprüfung werden keine Hindernisse für das Upgrade beseitigt, z. B. Probleme mit ESXi Hosts oder andere Probleme mit vSphere. Daher müssen Sie für jedes Computing-Cluster in Ihrer Umgebung Zustandsprüfungen der Computing-Nodes durchführen.
+
+.Schritte
+. Suchen Sie die Controller-ID und die Cluster-ID:
++
+.. Öffnen Sie die REST API-UI für den Bestandsdienst auf dem Managementknoten:
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client` Wenn der Wert nicht bereits ausgefüllt ist.
+... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+
+
+.. Wählen Sie in DER REST API UI *GET ​/Installations* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Wählen Sie *Ausführen*.
+.. Kopieren Sie aus dem Text Code 200 Antwort den `"id"` Für die Installation, die Sie für Zustandsprüfungen verwenden möchten.
+.. Wählen Sie in DER REST-API-Benutzeroberfläche *GET ​/installations​/{id}* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie die Installations-ID ein.
+.. Wählen Sie *Ausführen*.
+.. Kopieren Sie aus dem Code 200-Antwortkörper die IDs für die folgenden Elemente:
++
+... Die Cluster-ID (`"clusterID"`)
+... Eine Controller-ID (`"controllerId"`)
++
+[listing]
+----
+{
+  "_links": {
+    "collection": "https://10.117.187.199/inventory/1/installations",
+    "self": "https://10.117.187.199/inventory/1/installations/xx94f6f0-12a6-412f-8b5e-4cf2z58329x0"
+  },
+  "compute": {
+    "errors": [],
+    "inventory": {
+      "clusters": [
+        {
+          "clusterId": "domain-1",
+          "controllerId": "abc12c3a-aa87-4e33-9f94-xx588c2cdcf6",
+          "datacenterName": "NetApp-HCI-Datacenter-01",
+          "installationId": "xx94f6f0-12a6-412f-8b5e-4cf2z58329x0",
+          "installationName": "test-nde-mnode",
+          "inventoryType": "managed",
+          "name": "NetApp-HCI-Cluster-01",
+          "summary": {
+            "nodeCount": 2,
+            "virtualMachineCount": 2
+          }
+        }
+      ],
+----
+
+
+
+
+. Führen Sie Zustandsprüfungen auf den Computing-Nodes im Cluster durch:
++
+.. Öffnen SIE DIE REST API-UI für den Computing-Service auf dem Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/vcenter/1/
+----
+.. Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client` Wenn der Wert nicht bereits ausgefüllt ist.
+... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+
+
+.. Wählen Sie *POST /compute​/{CONTROLLER_ID}​/Health-Checks* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie das ein `"controllerId"` Sie haben aus dem vorherigen Schritt im Parameterfeld *Controller_ID* kopiert.
+.. Geben Sie in der Nutzlast das ein `"clusterId"` Die Sie aus dem vorherigen Schritt als kopiert haben `"cluster"` Wert und entfernen Sie den `"nodes"` Parameter.
++
+[listing]
+----
+{
+  "cluster": "domain-1"
+}
+----
+.. Wählen Sie *Ausführen*, um eine Integritätsprüfung auf dem Cluster auszuführen.
++
+Die Antwort auf Code 200 gibt ein `"resourceLink"` URL mit angehängter Task-ID, die zur Bestätigung der Ergebnisse der Integritätsprüfung erforderlich ist.
+
++
+[listing]
+----
+{
+  "resourceLink": "https://10.117.150.84/vcenter/1/compute/tasks/[This is the task ID for health check task results]",
+  "serviceName": "vcenter-v2-svc",
+  "taskId": "ab12c345-06f7-42d7-b87c-7x64x56x321x",
+  "taskName": "VCenter service health checks"
+}
+----
+.. Kopieren Sie den Teil der Task-ID des `"resourceLink"` URL zur Überprüfung des Aufgabenergebnisses.
+
+
+. Überprüfen Sie die Ergebnisse der Zustandsprüfungen:
++
+.. Zurück zur REST-API-UI für den Computing-Service auf dem Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/vcenter/1/
+----
+.. Wählen Sie *GET /compute​/Tasks/{Task_id}* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie den Teil der Task-ID des ein `"resourceLink"` URL aus der Antwort *POST /compute​/{CONTROLLER_ID}​/Health-Checks* Code 200 im `task_id` Parameterfeld.
+.. Wählen Sie *Ausführen*.
+.. Wenn der `status` Dieser Wert gibt an, dass im Hinblick auf den Zustand von Computing-Node Probleme aufgetreten sind. Führen Sie folgende Schritte aus:
++
+... Gehen Sie zum jeweiligen KB-Artikel (`KbLink`) Für jedes Problem aufgelistet oder führen Sie die angegebene Abhilfe.
+... Wenn ein KB angegeben wird, führen Sie den im entsprechenden KB-Artikel beschriebenen Prozess aus.
+... Nachdem Sie Cluster-Probleme behoben haben, führen Sie erneut *POST /compute​/{CONTROLLER_ID}​/Health-Checks* aus (siehe Schritt 2).
+
+
+
+
+
+
+Wenn die Zustandsprüfung ohne Probleme abgeschlossen wurde, weist der Antwortcode 200 auf ein erfolgreiches Ergebnis hin.
+
+
+
+== Zustandsprüfungen des Computing-Node, die vom Service durchgeführt werden
+
+Überprüfungen des Rechenstzustands, ob sie durch NetApp Hybrid Cloud Control oder API-Methoden durchgeführt werden, führen folgende Prüfungen pro Node durch. Je nach Umgebung können einige dieser Prüfungen übersprungen werden. Sie sollten die Integritätsprüfungen erneut durchführen, nachdem Sie erkannte Probleme behoben haben.
+
+|===
+| Prüfen Sie die Beschreibung | Node/Cluster getestet | Aktion erforderlich, um zu lösen | Knowledgebase-Artikel mit Verfahren 
+
+
+| Ist DRS aktiviert und vollständig automatisiert? | Cluster | Aktivieren Sie DRS, und stellen Sie sicher, dass es vollständig automatisiert ist. | link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Virtual_Storage_Console_for_VMware_vSphere/How_to_enable_DRS_in_vSphere["Siehe diesen KB"^]. HINWEIS: Wenn Sie über eine Standardlizenz verfügen, versetzen Sie den ESXi Host in den Wartungsmodus und ignorieren Sie diese Fehlerwarnung bei der Integritätsprüfung. 
+
+
+| Ist DPM in vSphere deaktiviert? | Cluster | Distributed Power Management deaktivieren. | link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/How_to_disable_DPM_in_VMware_vCenter["Siehe diesen KB"^]. 
+
+
+| Ist die HA-Zugangskontrolle in vSphere deaktiviert? | Cluster | Schalten Sie die HA-Zugangskontrolle aus. | link:https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_control_enable_HA_admission_in_vSphere["Siehe diesen KB"^]. 
+
+
+| IST FT für eine VM auf einem Host im Cluster aktiviert? | Knoten | Unterbrechen Sie die Fehlertoleranz auf allen betroffenen virtuellen Maschinen. | link:https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_suspend_fault_tolerance_on_virtual_machines_in_a_vSphere_cluster["Siehe diesen KB"^]. 
+
+
+| Gibt es in vCenter kritische Alarme für den Cluster? | Cluster | Starten Sie vSphere, und beheben Sie alle Warnmeldungen, bevor Sie fortfahren. | Es ist kein KB zum Beheben des Problems erforderlich. 
+
+
+| Gibt es allgemeine/globale Informationsmeldungen in vCenter? | Cluster | Starten Sie vSphere, und beheben Sie alle Warnmeldungen, bevor Sie fortfahren. | Es ist kein KB zum Beheben des Problems erforderlich. 
+
+
+| Sind Management-Services auf dem neuesten Stand? | HCI-System | Sie müssen Managementservices aktualisieren, bevor Sie ein Upgrade durchführen oder vor dem Upgrade eine Integritätsprüfung durchführen. | Es ist kein KB zum Beheben des Problems erforderlich. Siehe link:task_hcc_update_management_services.html["Diesen Artikel"] Finden Sie weitere Informationen. 
+
+
+| Gibt es Fehler auf dem aktuellen ESXi Knoten in vSphere? | Knoten | Starten Sie vSphere, und beheben Sie alle Warnmeldungen, bevor Sie fortfahren. | Es ist kein KB zum Beheben des Problems erforderlich. 
+
+
+| Sind virtuelle Medien auf eine VM auf einem Host im Cluster eingebunden? | Knoten | Heben Sie die Bereitstellung aller virtuellen Datenträger (CD/DVD/Diskette) von den VMs ab. | Es ist kein KB zum Beheben des Problems erforderlich. 
+
+
+| Ist die BMC-Version die erforderliche Mindestversion, die Rotbarsch unterstützt? | Knoten | Aktualisieren Sie Ihre BMC-Firmware manuell. | Es ist kein KB zum Beheben des Problems erforderlich. 
+
+
+| Ist ESXi Host eingerichtet und läuft? | Knoten | Starten Sie Ihren ESXi-Host. | Es ist kein KB zum Beheben des Problems erforderlich. 
+
+
+| Befinden sich Virtual Machines im lokalen ESXi Storage? | Node/VM | Entfernen oder migrieren Sie lokalen Speicher, der an Virtual Machines angeschlossen ist. | Es ist kein KB zum Beheben des Problems erforderlich. 
+
+
+| Ist BMC betriebsbereit? | Knoten | Schalten Sie Ihren BMC ein, und stellen Sie sicher, dass er mit einem Netzwerk verbunden ist, das dieser Managementknoten erreichen kann. | Es ist kein KB zum Beheben des Problems erforderlich. 
+
+
+| Gibt es Partner-ESXi-Hosts? | Knoten | Stellen Sie einen oder mehrere ESXi-Hosts im Cluster zur Verfügung (nicht im Wartungsmodus), um virtuelle Maschinen zu migrieren. | Es ist kein KB zum Beheben des Problems erforderlich. 
+
+
+| Können Sie eine Verbindung mit BMC über das IPMI-Protokoll herstellen? | Knoten | Aktivieren Sie IPMI-Protokoll auf Baseboard Management Controller (BMC). | Es ist kein KB zum Beheben des Problems erforderlich. 
+
+
+| Ist der ESXi Host korrekt dem Hardware-Host (BMC) zugeordnet? | Knoten | Der ESXi-Host ist dem Baseboard Management Controller (BMC) nicht korrekt zugeordnet. Korrigieren Sie die Zuordnung zwischen ESXi Host und Hardware-Host. | Es ist kein KB zum Beheben des Problems erforderlich. Siehe link:task_hcc_edit_bmc_info.html["Diesen Artikel"] Finden Sie weitere Informationen. 
+
+
+| Wie lautet der Status der Witness Nodes im Cluster? Keine der erkannten Zeugen-Nodes ist in Betrieb. | Knoten | Ein Witness-Node wird nicht auf einem anderen ESXi-Host ausgeführt. Schalten Sie den Witness Node auf einem alternativen ESXi-Host ein, und führen Sie die Integritätsprüfung erneut aus. *Ein Witness Node muss jederzeit in der HCI-Installation laufen*. | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["Siehe diesen KB"^] 
+
+
+| Wie lautet der Status der Witness Nodes im Cluster? Der Witness Node ist auf diesem ESXi Host betriebsbereit und der alternative Witness Node ist nicht aktiviert. | Knoten | Ein Witness-Node wird nicht auf einem anderen ESXi-Host ausgeführt. Schalten Sie den Witness Node auf einem anderen ESXi Host ein. Wenn Sie bereit sind, ein Upgrade für diesen ESXi-Host durchzuführen, fahren Sie den Witness-Node herunter, der auf diesem ESXi-Host ausgeführt wird, und führen Sie die Integritätsprüfung erneut aus. *Ein Witness Node muss jederzeit in der HCI-Installation laufen*. | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["Siehe diesen KB"^] 
+
+
+| Wie lautet der Status der Witness Nodes im Cluster? Der Witness Node ist auf diesem ESXi Host ausgeführt und der alternative Node ist aktiviert, läuft aber auf demselben ESXi Host. | Knoten | Beide Witness Nodes laufen auf diesem ESXi-Host. Verschieben Sie einen Witness Node auf einen alternativen ESXi Host. Wenn Sie bereit sind, ein Upgrade für diesen ESXi-Host durchzuführen, fahren Sie den Witness-Node herunter, der auf diesem ESXi-Host verbleibt, und führen Sie die Integritätsprüfung erneut aus. *Ein Witness Node muss jederzeit in der HCI-Installation laufen*. | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["Siehe diesen KB"^] 
+
+
+| Wie lautet der Status der Witness Nodes im Cluster? Der Witness Node ist auf diesem ESXi Host betriebsbereit, und der alternative Witness Node wird auf einem anderen ESXi Host ausgeführt. | Knoten | Ein Witness-Node wird lokal auf diesem ESXi-Host ausgeführt. Wenn Sie bereit sind, ein Upgrade für diesen ESXi-Host durchzuführen, fahren Sie den Witness-Node nur auf diesem ESXi-Host herunter, und führen Sie die Integritätsprüfung erneut aus. *Ein Witness Node muss jederzeit in der HCI-Installation laufen*. | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["Siehe diesen KB"^] 
+|===
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

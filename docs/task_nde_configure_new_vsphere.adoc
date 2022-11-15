@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_configure_new_vsphere.html 
+summary: Erfahren Sie, wie Sie VMware vSphere während der NetApp HCI Implementierung konfigurieren. 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Konfigurieren einer neuen VMware vSphere Umgebung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+Sie können im Rahmen des NetApp HCI-Installationsprozesses eine neue vSphere Umgebung implementieren, indem Sie einige der Netzwerkinformationen bereitstellen, die vSphere verwenden sollte. Wenn Sie vSphere mit einer IP-Adresse konfigurieren, kann die Adresse nach der Installation nicht mehr geändert werden.
+
+Sie haben die Netzwerkinformationen für die geplante vSphere Umgebung erhalten.
+
+.Schritte
+. Klicken Sie auf *Neue vSphere-Implementierung konfigurieren*.
+. Wählen Sie die Version von vSphere aus, die während der Bereitstellung installiert werden soll.
+. Konfiguration der neuen vSphere Umgebung mit einer der folgenden Optionen:
++
+|===
+| Option | Schritte 
+
+
+| Verwenden Sie einen Domain-Namen (empfohlen).  a| 
+.. Klicken Sie auf *Konfigurieren mit einem vollständig qualifizierten Domänennamen*.
+.. Geben Sie den vCenter Server-Domänennamen in das Feld *vCenter Server Fully Qualified Domain Name* ein.
+.. Geben Sie die IP-Adresse des DNS-Servers in das Feld * DNS-Server-IP-Adresse* ein.
+.. Klicken Sie Auf *Weiter*.
+
+
+
+
+| Verwenden Sie eine IP-Adresse.  a| 
+.. Klicken Sie auf *Konfigurieren mit einer IP-Adresse*.
+.. Klicken Sie Auf *Weiter*.
+
+
+|===
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

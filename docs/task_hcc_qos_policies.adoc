@@ -1,0 +1,167 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_qos_policies.html 
+summary: Sie können QoS-Richtlinien einrichten und ändern, um sie auf Volumes im Storage-Cluster anzuwenden. 
+keywords: netapp, qos policy, quality of service, qos policies, volumes, element 
+---
+= Erstellung und Management von QoS-Richtlinien für Volumes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit einer QoS-Richtlinie (Quality of Service) können Sie eine standardisierte Quality-of-Service-Einstellung erstellen und speichern, die auf viele Volumes angewendet werden kann. Der ausgewählte Cluster muss zur Verwendung von QoS-Richtlinien Element 10.0 oder höher sein. Anderenfalls sind QoS-Richtlinienfunktionen nicht verfügbar.
+
+
+NOTE: Weitere Informationen zur Verwendung finden Sie unter NetApp HCI Concepts link:concept_hci_performance.html#qos-policies["QoS-Richtlinien (QoS"] Anstelle einzelner Volumes link:concept_hci_performance.html["QoS"].
+
+Mithilfe von NetApp Hybrid Cloud Control lassen sich QoS-Richtlinien erstellen und managen, indem folgende Aufgaben ausgeführt werden:
+
+*  a QoS policy
+*  a QoS policy to a volume
+*  the QoS policy assignment of a volume
+*  a QoS policy
+*  a QoS policy
+
+
+
+
+== Erstellen einer QoS-Richtlinie
+
+Sie können QoS-Richtlinien erstellen und auf Volumes anwenden, die eine vergleichbare Performance aufweisen sollten.
+
+
+NOTE: Wenn Sie QoS-Richtlinien verwenden, verwenden Sie keine benutzerdefinierte QoS für ein Volume. Durch benutzerdefinierte QoS werden die QoS-Richtlinienwerte für Volume-QoS-Einstellungen überschrieben und angepasst.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard das Menü für Ihr Speichercluster.
+. Wählen Sie *Storage > Volumes*.
+. Klicken Sie auf die Registerkarte *QoS Policies*.
+. Klicken Sie Auf *Create Policy*.
+. Geben Sie den *Policy Name* ein.
++
+
+TIP: Verwenden Sie beschreibende Best Practices für die Benennung. Dies ist besonders wichtig, wenn in Ihrer Umgebung mehrere Cluster oder vCenter Server verwendet werden.
+
+. Geben Sie die Werte für IOPS-Minimum, IOPS-Maximum und IOPS-Burst ein.
+. Klicken Sie auf *QoS-Richtlinie erstellen*.
++
+Für die Richtlinie wird eine System-ID generiert, und die Richtlinie wird auf der Seite QoS Policies mit ihren zugewiesenen QoS-Werten angezeigt.
+
+
+
+
+
+== Wenden Sie eine QoS-Richtlinie auf ein Volume an
+
+Mithilfe von NetApp Hybrid Cloud Control kann einer vorhandenen QoS-Richtlinie ein Volume zugewiesen werden.
+
+Die QoS-Richtlinie, die Sie zuweisen möchten, war  a QoS policy,Erstellt.
+
+Dieser Task beschreibt, wie eine QoS-Richtlinie einem einzelnen Volume durch Ändern der entsprechenden Einstellungen zugewiesen wird. Die neueste Version von NetApp Hybrid Cloud Control bietet keine Massenzuordnungsoption für mehr als ein Volume. Bis die Funktion für die Massen-Zuweisung in einer zukünftigen Version verfügbar ist, können Sie QoS-Richtlinien über die Element Web-UI oder das vCenter Plug-in in Bulk zuweisen.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard das Menü für Ihr Speichercluster.
+. Wählen Sie *Storage > Volumes*.
+. Klicken Sie auf das Menü *Aktionen* neben dem Volumen, den Sie ändern möchten.
+. Wählen Sie im Menü Ergebnis die Option *Bearbeiten*.
+. Aktivieren Sie im Dialogfeld *QoS-Richtlinie zuweisen* und wählen Sie die QoS-Richtlinie aus der Dropdown-Liste aus, die auf das ausgewählte Volume angewendet werden soll.
++
+
+NOTE: Durch die Zuweisung von QoS werden alle zuvor angewandten QoS-Werte für Volumes außer Kraft gesetzt.
+
+. Klicken Sie Auf *Speichern*.
++
+Das aktualisierte Volume mit der zugewiesenen QoS-Richtlinie wird auf der Übersichtsseite angezeigt.
+
+
+
+
+
+== Ändern der QoS-Richtlinienzuweisung eines Volumes
+
+Sie können die Zuweisung einer QoS-Richtlinie aus einem Volume entfernen oder eine andere QoS-Richtlinie oder benutzerdefinierte QoS auswählen.
+
+Das Volume, das Sie ändern möchten, ist  a QoS policy to a volume,Zugewiesen Eine QoS-Richtlinie
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard das Menü für Ihr Speichercluster.
+. Wählen Sie *Storage > Volumes*.
+. Klicken Sie auf das Menü *Aktionen* neben dem Volumen, den Sie ändern möchten.
+. Wählen Sie im Menü Ergebnis die Option *Bearbeiten*.
+. Führen Sie im Dialogfeld einen der folgenden Schritte aus:
++
+** Deaktivieren Sie *Assign QoS Policy* und ändern Sie die *Min IOPS*, *Max IOPS* und *Burst IOPS*-Werte für die QoS einzelner Volumes.
++
+
+NOTE: Wenn QoS-Richtlinien deaktiviert sind, verwendet das Volume Standard-QoS-IOPS-Werte, sofern nichts anderes geändert wurde.
+
+** Wählen Sie in der Dropdown-Liste eine andere QoS-Richtlinie aus, die auf das ausgewählte Volume angewendet werden soll.
+
+
+. Klicken Sie Auf *Speichern*.
++
+Das aktualisierte Volume wird auf der Seite Übersicht angezeigt.
+
+
+
+
+
+== Bearbeiten einer QoS-Richtlinie
+
+Sie können den Namen einer vorhandenen QoS-Richtlinie ändern oder die mit der Richtlinie verknüpften Werte bearbeiten. Das Ändern von Performance-Werten für die QoS-Richtlinie wirkt sich auf die QoS aller mit der Richtlinie verknüpften Volumes aus.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard das Menü für Ihr Speichercluster.
+. Wählen Sie *Storage > Volumes*.
+. Klicken Sie auf die Registerkarte *QoS Policies*.
+. Klicken Sie auf das Menü *Aktionen* neben der QoS-Richtlinie, die Sie ändern möchten.
+. Klicken Sie Auf *Bearbeiten*.
+. Ändern Sie im Dialogfeld *QoS-Richtlinie bearbeiten* einen oder mehrere der folgenden Optionen:
++
+** *Name*: Der benutzerdefinierte Name für die QoS-Richtlinie.
+** *Minimum IOPS*: Die Mindestzahl an IOPS für das Volume garantiert. Standard = 50.
+** *Maximale IOPS*: Die maximale Anzahl von IOPS für das Volume zulässig. Standard = 15,000.
+** *Burst IOPS*: Die maximale Anzahl an IOPS über einen kurzen Zeitraum für das Volume zulässig. Standard = 15,000.
+
+
+. Klicken Sie Auf *Speichern*.
++
+Die aktualisierte QoS-Richtlinie wird auf der Seite QoS-Richtlinien angezeigt.
+
++
+
+TIP: Klicken Sie auf den Link in der Spalte *aktive Volumes*, um eine Richtlinie anzuzeigen, in der eine gefilterte Liste der Volumes angezeigt wird, die dieser Richtlinie zugeordnet sind.
+
+
+
+
+
+== Löschen einer QoS-Richtlinie
+
+Die QoS-Richtlinie kann gelöscht werden, wenn sie nicht mehr benötigt wird. Wenn Sie eine QoS-Richtlinie löschen, erhalten alle mit der Richtlinie zugewiesenen Volumes die QoS-Werte, die zuvor von der Richtlinie definiert wurden, jedoch als individuelle Volume-QoS. Jede Zuordnung zur Richtlinie „Gelöschte QoS“ wird entfernt.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
+. Erweitern Sie im Dashboard das Menü für Ihr Speichercluster.
+. Wählen Sie *Storage > Volumes*.
+. Klicken Sie auf die Registerkarte *QoS Policies*.
+. Klicken Sie auf das Menü *Aktionen* neben der QoS-Richtlinie, die Sie ändern möchten.
+. Klicken Sie Auf *Löschen*.
+. Bestätigen Sie die Aktion.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
+

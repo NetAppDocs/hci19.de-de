@@ -1,0 +1,425 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_upgrade_element_prechecks.html 
+summary: Im Rahmen eines Upgrades des NetApp HCI Systems müssen Sie Zustandsprüfungen für die NetApp Element Software durchführen. 
+keywords: netapp, storage prechecks, element upgrade, healthtools, sfupgradecheck 
+---
+= Integritätsprüfungen von Element Storage vor einem Storage Upgrade durchführen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vor dem Upgrade von Element Storage müssen Sie Zustandsprüfungen durchführen, um sicherzustellen, dass alle Storage-Nodes im Cluster für das nächste Element Storage Upgrade bereit sind.
+
+.Was Sie und#8217;ll benötigen
+* *Management Services*: Sie haben das neueste Management Services Bundle (2.10.27 oder höher) aktualisiert.
++
+
+IMPORTANT: Vor einem Upgrade der Element Software müssen Sie ein Upgrade auf das neueste Management Services Bundle durchführen.
+
+* *Management Node*: Sie führen Management Node 11.3 oder höher aus.
+* *Element Software*: Ihre Clusterversion wird mit der NetApp Element Software 11.3 oder höher ausgeführt.
+* *Endbenutzer-Lizenzvereinbarung (EULA)*: Ab Management Services 2.20.69 müssen Sie die EULA akzeptieren und speichern, bevor Sie die NetApp Hybrid Cloud Control UI oder API verwenden, um die Integritätsprüfungen für Element Storage auszuführen:
++
+.. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+.. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators bereitstellen.
+.. Wählen Sie *Upgrade* oben rechts auf der Schnittstelle aus.
+.. Die EULA erscheint. Scrollen Sie nach unten, wählen Sie *Ich akzeptiere aktuelle und alle zukünftigen Updates* und wählen Sie *Speichern*.
++
+
+NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates aufgezeichnet und die automatische Download-Funktion ist aktiviert. Der Kunde erhält Aktualisierungen zu NetApp Software Updates und Upgrades, die nach eigenem Ermessen und nach eigenem Ermessen installiert werden können. Sie können die Funktion zum automatischen Download deaktivieren, indem Sie die Netzwerkverbindung zum NetApp Online-Software-Repository deaktivieren.
+
+
+
+
+
+Sie können Systemchecks mit der Benutzeroberfläche von NetApp Hybrid Cloud Control (HCC), der HCC API oder der HealthTools Suite durchführen:
+
+*  NetApp Hybrid Cloud Control to run Element storage health checks prior to upgrading storage (Bevorzugte Methode)
+*  API to run Element storage health checks prior to upgrading storage
+*  HealthTools to run Element storage health checks prior to upgrading storage
+
+
+Weitere Informationen zu den vom Service ausgeführten Storage-Zustandsprüfungen:
+
+*  health checks made by the service
+
+
+
+
+== NetApp Hybrid Cloud Control bietet Zustandsüberprüfungen für Element Storage vor Storage-Upgrades
+
+Mithilfe von NetApp Hybrid Cloud Control (HCC) können Sie überprüfen, ob ein Storage-Cluster für ein Upgrade bereit ist.
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators bereitstellen.
+. Wählen Sie *Upgrade* oben rechts auf der Schnittstelle aus.
+. Wählen Sie auf der Seite *Upgrades* die Registerkarte *Storage* aus.
+. Wählen Sie die Integritätsprüfung aus image:hcc_healthcheck_icon.png["Symbol"] Für den Cluster möchten Sie die Upgrade-Bereitschaft überprüfen.
+. Wählen Sie auf der Seite *Storage Health Check* die Option *Run Health Check*.
+. Gehen Sie bei Problemen wie folgt vor:
++
+.. Gehen Sie zu dem für jedes Problem angegebenen KB-Artikel oder führen Sie das angegebene Heilmittel aus.
+.. Wenn ein KB angegeben wird, führen Sie den im entsprechenden KB-Artikel beschriebenen Prozess aus.
+.. Wählen Sie nach der Behebung von Cluster-Problemen die Option *Integritätsprüfung erneut ausführen* aus.
+
+
+
+
+Nachdem die Integritätsprüfung ohne Fehler abgeschlossen wurde, kann das Storage-Cluster aktualisiert werden. Siehe Upgrade des Storage-Node link:task_hcc_upgrade_element_software.html["Anweisungen"] Fortfahren.
+
+
+
+== Nutzen Sie API zur Ausführung von Element Storage-Zustandsprüfungen vor einem Storage-Upgrade
+
+Mithilfe DER REST-API können Sie überprüfen, ob ein Storage-Cluster aktualisiert werden kann. Bei der Zustandsprüfung werden keine Hindernisse für Upgrades beseitigt, z. B. ausstehende Nodes, Probleme mit Festplattenspeicher und Cluster-Fehler.
+
+.Schritte
+. Suchen Sie die Storage Cluster ID:
++
+.. Öffnen Sie die REST-API-UI für den Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode
+----
+.. Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client` Wenn der Wert nicht bereits ausgefüllt ist.
+... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Autorisierungsfenster.
+
+
+.. Wählen Sie in DER REST API-UI aus `GET /assets`.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Wählen Sie *Ausführen*.
+.. Kopieren Sie von der Antwort die `"id"` Von `"storage"` Abschnitt des Clusters, den Sie auf die Upgrade-Bereitschaft überprüfen möchten.
++
+
+NOTE: Verwenden Sie das nicht `"parent"` Der Wert in diesem Abschnitt, da dies die ID des Management-Node und nicht die ID des Storage-Clusters ist.
+
++
+[listing, subs="+quotes"]
+----
+"config": {},
+"credentialid": "12bbb2b2-f1be-123b-1234-12c3d4bc123e",
+"host_name": "SF_DEMO",
+*"id": "12cc3a45-e6e7-8d91-a2bb-0bdb3456b789",*
+"ip": "10.123.12.12",
+"parent": "d123ec42-456e-8912-ad3e-4bd56f4a789a",
+"sshcredentialid": null,
+"ssl_certificate": null
+----
+
+
+. Führen Sie Zustandsprüfungen für das Storage Cluster durch:
++
+.. Öffnen Sie die Storage REST API-UI auf dem Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/storage/1/
+----
+.. Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client` Wenn der Wert nicht bereits ausgefüllt ist.
+... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Autorisierungsfenster.
+
+
+.. Wählen Sie *POST/Health-Checks*.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie im Feld Parameter die Storage-Cluster-ID ein, die in Schritt 1 erhalten wurde.
++
+[listing]
+----
+{
+  "config": {},
+  "storageId": "123a45b6-1a2b-12a3-1234-1a2b34c567d8"
+}
+----
+.. Wählen Sie *Ausführen* aus, um eine Integritätsprüfung auf dem angegebenen Speichercluster auszuführen.
++
+Die Antwort sollte Status als angeben `initializing`:
+
++
+[listing]
+----
+{
+  "_links": {
+    "collection": "https://10.117.149.231/storage/1/health-checks",
+    "log": "https://10.117.149.231/storage/1/health-checks/358f073f-896e-4751-ab7b-ccbb5f61f9fc/log",
+    "self": "https://10.117.149.231/storage/1/health-checks/358f073f-896e-4751-ab7b-ccbb5f61f9fc"
+  },
+  "config": {},
+  "dateCompleted": null,
+  "dateCreated": "2020-02-21T22:11:15.476937+00:00",
+  "healthCheckId": "358f073f-896e-4751-ab7b-ccbb5f61f9fc",
+  "state": "initializing",
+  "status": null,
+  "storageId": "c6d124b2-396a-4417-8a47-df10d647f4ab",
+  "taskId": "73f4df64-bda5-42c1-9074-b4e7843dbb77"
+}
+----
+.. Kopieren Sie die `healthCheckID` Das ist Teil der Antwort.
+
+
+. Überprüfen Sie die Ergebnisse der Zustandsprüfungen:
++
+.. Wählen Sie *GET ​/Health-checks​/{healtCheckId}* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie im Feld Parameter die ID für die Integritätsprüfung ein.
+.. Wählen Sie *Ausführen*.
+.. Blättern Sie zum unteren Rand des Antwortkörpers.
++
+Wenn alle Zustandsprüfungen erfolgreich sind, ähnelt die Rückkehr dem folgenden Beispiel:
+
++
+[listing]
+----
+"message": "All checks completed successfully.",
+"percent": 100,
+"timestamp": "2020-03-06T00:03:16.321621Z"
+----
+
+
+. Wenn der `message` „Return“ gibt an, dass im Hinblick auf den Cluster-Systemzustand Probleme aufgetreten sind. Führen Sie folgende Schritte aus:
++
+.. Wählen Sie *GET ​/Health-checks​/{healtCheckId}/log* aus
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie im Feld Parameter die ID für die Integritätsprüfung ein.
+.. Wählen Sie *Ausführen*.
+.. Überprüfen Sie alle bestimmten Fehler und erhalten Sie die zugehörigen KB-Artikellinks.
+.. Gehen Sie zu dem für jedes Problem angegebenen KB-Artikel oder führen Sie das angegebene Heilmittel aus.
+.. Wenn ein KB angegeben wird, führen Sie den im entsprechenden KB-Artikel beschriebenen Prozess aus.
+.. Nachdem Sie Cluster-Probleme behoben haben, führen Sie wieder *GET ​/Health-checks​/{healtCheckId}/log* aus.
+
+
+
+
+
+
+== Verwenden Sie HealthTools, um vor einem Storage-Upgrade Zustandsprüfungen für Element Storage auszuführen
+
+Sie können überprüfen, ob das Storage-Cluster mit der bereit für ein Upgrade ist `sfupgradecheck` Befehl. Mit diesem Befehl werden Informationen, z. B. ausstehende Nodes, Speicherplatz- und Cluster-Fehler, überprüft.
+
+Wenn sich der Management-Node an einem dunklen Standort ohne externe Konnektivität befindet, muss die Upgrade-Readiness-Prüfung das `metadata.json` Datei, die Sie während heruntergeladen haben link:task_upgrade_element_latest_healthtools.html["HealthTools-Upgrades"] Erfolgreich ausgeführt.
+
+In diesem Verfahren wird beschrieben, wie Sie Upgrade-Checks durchführen, die zu einem der folgenden Ergebnisse führen:
+
+* Ausführen des `sfupgradecheck` Der Befehl wird erfolgreich ausgeführt. Das Cluster ist bereit für ein Upgrade.
+* Überprüfungen innerhalb des `sfupgradecheck` Werkzeug schlägt mit einer Fehlermeldung fehl. Der Cluster ist nicht für ein Upgrade bereit und weitere Schritte sind erforderlich.
+* Ihre Upgrade-Prüfung schlägt mit einer Fehlermeldung fehl, dass HealthTools veraltet ist.
+* Ihre Upgrade-Prüfung schlägt fehl, da sich Ihr Management-Node an einem dunklen Standort befindet.
+
+
+.Schritte
+. Führen Sie die aus `sfupgradecheck` Befehl:
++
+[listing]
+----
+sfupgradecheck -u <cluster-user-name> MVIP
+----
++
+
+NOTE: Fügen Sie bei Passwörtern, die Sonderzeichen enthalten, einen umgekehrten Schrägstrich hinzu (`\`) Vor jedem besonderen Charakter. Beispiel: `mypass!@1` Muss als eingegeben werden `mypass\!\@`.
+
++
+Beispiel-Eingabebefehl mit Beispielausgabe, bei dem keine Fehler auftreten und Sie bereit für ein Upgrade sind:
+
++
+[listing]
+----
+sfupgradecheck -u admin 10.117.78.244
+----
++
+[listing]
+----
+check_pending_nodes:
+Test Description: Verify no pending nodes in cluster
+More information: https://kb.netapp.com/support/s/article/ka11A0000008ltOQAQ/pendingnodes
+check_cluster_faults:
+Test Description: Report any cluster faults
+check_root_disk_space:
+Test Description: Verify node root directory has at least 12 GBs of available disk space
+Passed node IDs: 1, 2, 3
+More information: https://kb.netapp.com/support/s/article/ka11A0000008ltTQAQ/
+SolidFire-Disk-space-error
+check_mnode_connectivity:
+Test Description: Verify storage nodes can communicate with management node
+Passed node IDs: 1, 2, 3
+More information: https://kb.netapp.com/support/s/article/ka11A0000008ltYQAQ/mNodeconnectivity
+check_files:
+Test Description: Verify options file exists
+Passed node IDs: 1, 2, 3
+check_cores:
+Test Description: Verify no core or dump files exists
+Passed node IDs: 1, 2, 3
+check_upload_speed:
+Test Description: Measure the upload speed between the storage node and the
+management node
+Node ID: 1 Upload speed: 90063.90 KBs/sec
+Node ID: 3 Upload speed: 106511.44 KBs/sec
+Node ID: 2 Upload speed: 85038.75 KBs/sec
+----
+. Bei Fehlern sind zusätzliche Maßnahmen erforderlich. Weitere Informationen finden Sie in den folgenden Unterabschnitten.
+
+
+
+
+=== Das Cluster ist nicht bereit für ein Upgrade
+
+Wenn eine Fehlermeldung zu einer der Zustandsprüfungen angezeigt wird, führen Sie die folgenden Schritte aus:
+
+. Überprüfen Sie die `sfupgradecheck` Fehlermeldung.
++
+Beispielantwort:
+
+
+
+[listing]
+----
+The following tests failed:
+check_root_disk_space:
+Test Description: Verify node root directory has at least 12 GBs of available disk space
+Severity: ERROR
+Failed node IDs: 2
+Remedy: Remove unneeded files from root drive
+More information: https://kb.netapp.com/support/s/article/ka11A0000008ltTQAQ/SolidFire-
+Disk-space-error
+check_pending_nodes:
+Test Description: Verify no pending nodes in cluster
+More information: https://kb.netapp.com/support/s/article/ka11A0000008ltOQAQ/pendingnodes
+check_cluster_faults:
+Test Description: Report any cluster faults
+check_root_disk_space:
+Test Description: Verify node root directory has at least 12 GBs of available disk space
+Passed node IDs: 1, 3
+More information: https://kb.netapp.com/support/s/article/ka11A0000008ltTQAQ/SolidFire-
+Disk-space-error
+check_mnode_connectivity:
+Test Description: Verify storage nodes can communicate with management node
+Passed node IDs: 1, 2, 3
+More information: https://kb.netapp.com/support/s/article/ka11A0000008ltYQAQ/mNodeconnectivity
+check_files:
+Test Description: Verify options file exists
+Passed node IDs: 1, 2, 3
+check_cores:
+Test Description: Verify no core or dump files exists
+Passed node IDs: 1, 2, 3
+check_upload_speed:
+Test Description: Measure the upload speed between the storage node and the management node
+Node ID: 1 Upload speed: 86518.82 KBs/sec
+Node ID: 3 Upload speed: 84112.79 KBs/sec
+Node ID: 2 Upload speed: 93498.94 KBs/sec
+----
+In diesem Beispiel ist der Speicherplatz in Node 1 knapp. Weitere Informationen finden Sie im https://kb.netapp.com["Wissensdatenbank"^] (KB) in der Fehlermeldung aufgeführten Artikel.
+
+
+
+=== HealthTools ist veraltet
+
+Wenn eine Fehlermeldung angezeigt wird, dass HealthTools nicht die neueste Version ist, befolgen Sie die folgenden Anweisungen:
+
+. Überprüfen Sie die Fehlermeldung, und beachten Sie, dass die Upgrade-Prüfung fehlschlägt.
++
+Beispielantwort:
+
++
+[listing]
+----
+sfupgradecheck failed: HealthTools is out of date:
+installed version: 2018.02.01.200
+latest version: 2020.03.01.09.
+The latest version of the HealthTools can be downloaded from: https://mysupport.netapp.com/NOW/cgi-bin/software/
+Or rerun with the -n option
+----
+. Befolgen Sie die Anweisungen in der Antwort.
+
+
+
+
+=== Der Management-Node befindet sich an einem dunklen Standort
+
+. Überprüfen Sie die Meldung, und beachten Sie, dass die Upgrade-Prüfung fehlschlägt:
++
+Beispielantwort:
+
++
+[listing]
+----
+sfupgradecheck failed: Unable to verify latest available version of healthtools.
+----
+. Laden Sie A herunter link:https://library.netapp.com/ecm/ecm_get_file/ECMLP2840740["JSON-Datei"^] Von der NetApp Support Site auf einem Computer, der nicht der Management-Node ist, und benennen Sie ihn in um `metadata.json`.
+. Führen Sie den folgenden Befehl aus:
++
+[listing]
+----
+sfupgradecheck -l --metadata=<path-to-metadata-json>
+----
+. Weitere Informationen finden Sie unter Zusatz link:task_upgrade_element_latest_healthtools.html["HealthTools-Upgrades"] Informationen für dunkle Seiten.
+. Überprüfen Sie, ob die HealthTools Suite aktuell ist, indem Sie den folgenden Befehl ausführen:
++
+[listing]
+----
+sfupgradecheck -u <cluster-user-name> -p <cluster-password> MVIP
+----
+
+
+
+
+== Storage-Systemprüfungen, die vom Service durchgeführt werden
+
+Bei den Storage-Zustandsprüfungen werden die folgenden Prüfungen pro Cluster durchgeführt.
+
+|===
+| Prüfen Sie Den Namen | Node/Cluster | Beschreibung 
+
+
+| Check_async_Results | Cluster | Überprüft, ob die Anzahl der asynchronen Ergebnisse in der Datenbank unter einer Schwellennummer liegt. 
+
+
+| „Check_Cluster_Fehlerbeseitigung“ | Cluster | Stellt sicher, dass keine Fehler beim Blockieren von Cluster beim Upgrade auftreten (wie in Element Source definiert) 
+
+
+| Check_Upload_Speed | Knoten | Misst die Upload-Geschwindigkeit zwischen dem Storage-Node und dem Management-Node. 
+
+
+| Connection_Speed_Check | Knoten | Stellt sicher, dass Nodes mit dem Management-Node verbunden sind, der Upgrade-Pakete bereitstellt, und schätzt die Verbindungsgeschwindigkeit. 
+
+
+| Check_Cores | Knoten | Überprüft auf den Kernel Crash Dump und die Core-Dateien auf dem Node. Die Prüfung schlägt bei Abstürzen in einem der letzten Zeit (Schwellenwert 7 Tage) fehl. 
+
+
+| Prüfen Sie_root_Disk_space | Knoten | Überprüft, ob das Root-Dateisystem über genügend freien Speicherplatz verfügt, um ein Upgrade durchzuführen. 
+
+
+| Überprüfen Sie_var_log_Disk_space | Knoten | Überprüft das `/var/log` Freier Speicherplatz entspricht einem prozentualen freien Schwellenwert. Wenn dies nicht der Fall ist, dreht sich die Prüfung und löscht ältere Protokolle, um unter den Schwellenwert zu fallen. Die Prüfung schlägt fehl, wenn die Erstellung von ausreichend freiem Speicherplatz nicht erfolgreich ist. 
+
+
+| Prüfung_ausstehend_Knoten | Cluster | Stellt sicher, dass keine ausstehenden Nodes im Cluster vorhanden sind. 
+|===
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

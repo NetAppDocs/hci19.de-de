@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_h610srepl.html 
+summary: 'Möglicherweise müssen Sie das Gehäuse austauschen, wenn der Lüfter, die CPU (Central Processing Unit) oder ein Duales Inline-Speichermodul (DIMM) ausfällt oder Überhitzungsprobleme oder Probleme mit dem Bootvorgang beheben. Die blinkende gelbe LED an der Vorderseite des Chassis zeigt an, dass ein Chassis möglicherweise ausgetauscht werden muss. Wenden Sie sich zunächst an den NetApp Support, bevor Sie fortfahren.' 
+keywords: netapp, hci, h610s, chassis replacement, node replacement 
+---
+= H610S Nodes ersetzen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Möglicherweise müssen Sie das Gehäuse austauschen, wenn der Lüfter, die CPU (Central Processing Unit) oder ein Duales Inline-Speichermodul (DIMM) ausfällt oder Überhitzungsprobleme oder Probleme mit dem Bootvorgang beheben. Die blinkende gelbe LED an der Vorderseite des Chassis zeigt an, dass ein Chassis möglicherweise ausgetauscht werden muss. Wenden Sie sich zunächst an den NetApp Support, bevor Sie fortfahren.
+
+
+NOTE: Siehe link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/NetApp_H610S_installation_requirements_for_replacement_or_expansion_nodes["KB-Artikel"^] Weitere Informationen zu Installationsanforderungen für H610S Nodes Neue und Ersatz-H610S Storage-Nodes weisen möglicherweise zusätzliche Installationsanforderungen auf Grundlage der vorhandenen Element Softwareversion des Storage-Clusters auf. Weitere Informationen erhalten Sie von Ihrem NetApp Support.
+
+
+TIP: Die Begriffe „Node“ und „Chassis“ werden bei H610S gemeinsam verwendet, bei dem es sich um ein 1-HE-Chassis handelt.
+
+
+
+== Best Practices zum Hinzufügen und Entfernen von Laufwerken
+
+Beim Hinzufügen von Laufwerken zum Cluster sollten Sie folgende Best Practices beachten:
+
+* Fügen Sie alle Blocklaufwerke hinzu, und stellen Sie sicher, dass die Blocksynchronisierung abgeschlossen ist, bevor Sie die Slice-Laufwerke hinzufügen.
+* Fügen Sie für Element Software ab 10.x alle Blocklaufwerke gleichzeitig ein. Stellen Sie sicher, dass Sie dies nicht für mehr als drei Knoten gleichzeitig tun.
+* Fügen Sie bei der Element Software 9.x und früher drei Laufwerke gleichzeitig hinzu, um sie vollständig zu synchronisieren, bevor Sie die nächste Gruppe von drei hinzufügen.
+* Entfernen Sie das Slice-Laufwerk, und stellen Sie sicher, dass die Schichtsynchronisierung abgeschlossen ist, bevor Sie die Blocklaufwerke entfernen.
+* Entfernen Sie alle Blocklaufwerke gleichzeitig aus einem einzelnen Node. Vergewissern Sie sich, dass die Blocksynchronisierung abgeschlossen ist, bevor Sie zum nächsten Node fahren.
+
+
+.Was Sie und#8217;ll benötigen
+* Sie haben den NetApp Support kontaktiert. Wenn Sie einen Ersatz bestellen, sollten Sie beim NetApp Support einen Case eröffnen.
+* Sie haben den Ersatzknoten erhalten.
+* Sie haben ein elektrostatisches Entladungsband (ESD) oder einen anderen antistatischen Schutz.
+* Wenn Sie den RTFI-Prozess (Return to Factory Image) durchführen müssen, haben Sie den USB-Schlüssel erhalten. NetApp Support hilft Ihnen bei der Entscheidung, ob der RTFI-Prozess ausgeführt werden muss.
+* Sie verfügen über eine Tastatur und einen Monitor.
+* Sie haben den ausgefallenen Node ordnungsgemäß aus dem Cluster entfernt.
+* Wenn ein DIMM ausgefallen ist, haben Sie die Laufwerke entfernt, bevor Sie den Node aus dem Cluster entfernen.
+
+
+Alarme im VMware vSphere Web Client warnen Sie bei einem Host-Ausfall. Sie müssen die Seriennummer des ausgefallenen Hosts vom VMware vSphere Web Client mit der Seriennummer auf dem Aufkleber auf der Rückseite des Node übereinstimmen.
+
+.Schritte
+. Suchen Sie die Service-Tag-Nummer an der Vorderseite des ausgefallenen Gehäuses.
++
+image::h610s-servicetag.gif[Zeigt die Service-Tag-Nummer an der Vorderseite des H610S Chassis.]
+
+. Vergewissern Sie sich, dass die Seriennummer auf der Service-Tag-Nummer der NetApp Support-Fallnummer bei der Bestellung des Ersatzgehäuses entspricht.
+. Schließen Sie die Tastatur und den Monitor an die Rückseite des defekten Gehäuses an.
+. Überprüfen Sie die Seriennummer des ausgefallenen Nodes mit NetApp Support.
+. Schalten Sie das Chassis aus.
+. Beschriften Sie die Laufwerke vorn und die Kabel auf der Rückseite mit ihren Positionen, damit Sie sie nach dem Austausch an denselben Stellen wiederaufnehmen können.
++
+Die Anordnung der Laufwerke im Gehäuse ist in der folgenden Abbildung dargestellt:
+
++
+image::h610s-drives.gif[Zeigt die Vorderseite des H610S-Chassis mit den beschrifteten Laufwerken.]
+
+. Entfernen Sie die Kabel.
+. Entfernen Sie das Gehäuse, indem Sie die Rändelschrauben an den BefestigungsOhren lösen. Sie sollten das fehlerhafte Chassis verpacken und an NetApp zurücksenden.
+. Setzen Sie das Ersatzgehäuse ein.
+. Entfernen Sie die Laufwerke sorgfältig aus dem ausgefallenen Chassis und setzen Sie sie in das Ersatzgehäuse ein.
++
+
+NOTE: Sie sollten die Laufwerke in die gleichen Steckplätze einsetzen, bevor Sie sie entfernt haben.
+
+. Entfernen Sie die Netzteile aus dem ausgefallenen Gehäuse und setzen Sie sie in das Ersatzgehäuse ein.
+. Stecken Sie die Netzteilkabel und die Netzwerkkabel in die ursprünglichen Anschlüsse.
+. SFP-Transceiver (Small Form-Factor Pluggable) können möglicherweise in die 10-GbE-Ports des Ersatz-Nodes eingesetzt werden. Sie sollten sie entfernen, bevor Sie die 10-GbE-Ports verkabeln.
++
+
+NOTE: Wenn der Switch die Kabel nicht erkennt, lesen Sie die Dokumentation des Switch-Anbieters.
+
+. Schalten Sie das Gehäuse ein, indem Sie den Netzschalter an der Vorderseite drücken. Es dauert etwa fünf Minuten und 30 Sekunden, bis der Node gebootet wird.
+. Führen Sie die Konfigurationsschritte durch.
++
+** Wenn der H610S-Node Teil einer NetApp HCI Installation ist, konfigurieren Sie die Storage-Ressource mit NetApp Hybrid Cloud Control. Siehe link:task_hcc_expand_storage.html["Erweitern Sie NetApp HCI Storage-Ressourcen"].
+** Wenn der H610S-Node Teil einer SolidFire All-Flash-Storage-Installation ist, konfigurieren Sie den Node mithilfe der NetApp Element Software-Benutzeroberfläche (UI). Wenden Sie sich an den NetApp Support, um Hilfe zu erhalten.
+
+
+
+
+
+
+== Weitere Informationen
+
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

@@ -1,0 +1,140 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_enable_activeIQ.html 
+summary: 'Der Management-Node (mNode) kann zur Aktivierung der NetApp Active IQ- und NetApp HCI-Telemetrie verwendet werden.' 
+keywords: netapp, hci, api, enable, active iq, activeiq, hci monitoring 
+---
+= Active IQ- und NetApp HCI-Monitoring aktivieren
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Das Active IQ-Storage-Monitoring für das Computing-Monitoring von NetApp HCI und NetApp HCI lässt sich aktivieren, falls dies bei der Installation oder einem Upgrade nicht bereits geschehen war. Wenn Sie die Telemetrie mithilfe der NetApp HCI Deployment Engine deaktiviert haben, müssen Sie dieses Verfahren möglicherweise verwenden.
+
+Der Active IQ Collector Service leitet Konfigurationsdaten und softwarebasierte Element Cluster-Performance-Kennzahlen an NetApp Active IQ weiter, um historische Berichte zu erstellen und Performance-Monitoring nahezu in Echtzeit zu ermöglichen. Der NetApp HCI Monitoring Service ermöglicht die Weiterleitung von Storage-Cluster-Fehlern an vCenter zur Alarmbenachrichtigung.
+
+.Bevor Sie beginnen
+* Im Storage Cluster wird die NetApp Element Software 11.3 oder höher ausgeführt.
+* Sie haben einen Management-Node mit Version 11.3 oder höher implementiert.
+* Sie haben Internetzugang. Der Active IQ Collector Service kann nicht von dunklen Standorten verwendet werden, die keine externe Verbindung haben.
+
+
+.Schritte
+. Holen Sie sich die Basis-Asset-ID für die Installation:
++
+.. Öffnen Sie die REST API-UI für den Bestandsdienst auf dem Managementknoten:
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. Klicken Sie auf *autorisieren* und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client`.
+... Klicken Sie auf *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Fenster.
+
+
+.. Klicken Sie in DER REST API UI auf *GET ​/Installations*.
+.. Klicken Sie auf *Probieren Sie es aus*.
+.. Klicken Sie Auf *Ausführen*.
+.. Kopieren Sie aus dem Text Code 200 Antwort den `id` Für die Installation.
++
+[listing, subs="+quotes"]
+----
+{
+  "installations": [
+    {
+      "_links": {
+        "collection": "https://10.111.211.111/inventory/1/installations",
+        "self": "https://10.111.217.111/inventory/1/installations/abcd01e2-ab00-1xxx-91ee-12f111xxc7x0x"
+      },
+      *"id": "abcd01e2-ab00-1xxx-91ee-12f111xxc7x0x",*
+----
++
+
+NOTE: Die Installation verfügt über eine Basiskonfiguration, die während der Installation oder eines Upgrades erstellt wurde.
+
+
+
+. Telemetrie aktivieren:
++
+.. Rufen Sie die mNode-Service-API-UI auf dem Management-Node auf, indem Sie die Management-Node-IP-Adresse, gefolgt von eingeben `/mnode`:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode
+----
+.. Klicken Sie auf *autorisieren* oder auf ein Schloss-Symbol, und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client`.
+... Klicken Sie auf *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Fenster.
+
+
+.. Konfigurieren der BasisinAssets:
++
+... Klicken Sie auf *PUT /Assets/{Asset_id}*.
+... Klicken Sie auf *Probieren Sie es aus*.
+... Geben Sie die folgende in die JSON-Nutzlast ein:
++
+[listing]
+----
+{
+"telemetry_active": true
+"config": {}
+}
+----
+... Geben Sie die Basis-ID des vorherigen Schritts in *Asset_ID* ein.
+... Klicken Sie Auf *Ausführen*.
++
+Der Active IQ Service wird automatisch neu gestartet, sobald die Assets geändert werden. Das Ändern von Anlagen führt zu einer kurzen Verzögerung, bevor Einstellungen angewendet werden.
+
+
+
+
+
+. Wenn dies noch nicht der Fall ist, fügen Sie dem Management-Node bekannte Assets, die als Management-Node bekannt sind, eine vCenter-Controller-Ressource für das NetApp HCI-Monitoring (nur NetApp HCI-Installationen) und Hybrid Cloud Control (für alle Installationen) hinzu:
++
+
+NOTE: Für NetApp HCI Monitoring Services ist ein Controller-Asset erforderlich.
+
++
+.. Klicken Sie auf *POST /Assets/{Asset_id}/Controllers*, um eine Unterressource des Controllers hinzuzufügen.
+.. Klicken Sie auf *Probieren Sie es aus*.
+.. Geben Sie im Feld *Asset_id* die ID der übergeordneten Basis ein, die Sie in die Zwischenablage kopiert haben.
+.. Geben Sie die erforderlichen Nutzlastwerte mit ein `type` Als `vCenter` Und vCenter Zugangsdaten.
++
+[listing]
+----
+{
+"username": "string",
+"password": "string",
+"ip": "string",
+"type": "vCenter",
+"host_name": "string",
+"config": {}
+}
+----
++
+
+NOTE: `ip` Ist die vCenter IP-Adresse.
+
+.. Klicken Sie Auf *Ausführen*.
+
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

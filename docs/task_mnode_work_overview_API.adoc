@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_work_overview_API.html 
+summary: 'Mit der Management-Node (mNode)-API können Sie Systemdienste aktualisieren, Cluster-Ressourcen und -Einstellungen managen, Systemtests und Dienstprogramme ausführen, Active IQ für die Systemüberwachung konfigurieren und den NetApp Support SSH-Zugriff zur Fehlerbehebung aktivieren oder deaktivieren.' 
+keywords: netapp, mnode api, management node api, rest api 
+---
+= Übersicht über DIE REST-API-UI für den Management-Node
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Über die integrierte REST-API-UI (`https://<ManagementNodeIP>/mnode`) Können Sie APIs ausführen oder verstehen, die mit den Management-Knoten-Services verbunden sind, einschließlich Proxy-Server-Konfiguration, Service-Level-Updates oder Asset-Management.
+
+Aufgaben, die Sie mit REST-APIs durchführen können:
+
+
+
+== Autorisierung
+
+* link:task_mnode_api_get_authorizationtouse.html["Autorisierung zur Verwendung VON REST-APIs"]
+
+
+
+
+== Konfiguration der Ressourcen
+
+* link:task_mnode_enable_activeIQ.html["Active IQ- und NetApp HCI-Monitoring aktivieren"]
+* link:task_mnode_configure_proxy_server.html["Konfigurieren Sie einen Proxy-Server für den Management-Node"]
+* link:task_mnode_multi_vcenter_config.html["Konfiguration von NetApp Hybrid Cloud Control für mehrere vCenter"]
+* link:task_mnode_add_assets.html["Fügen Sie dem Management-Node Computing- und Controller-Ressourcen hinzu"]
+* link:task_mnode_manage_storage_cluster_assets.html["Erstellen und Managen von Storage-Cluster-Assets"]
+
+
+
+
+== Asset Management
+
+* link:task_mnode_edit_vcenter_assets.html["Vorhandene Controller-Assets können angezeigt oder bearbeitet werden"]
+* link:task_mnode_manage_storage_cluster_assets.html["Erstellen und Managen von Storage-Cluster-Assets"]
+* link:task_mnode_remove_assets.html["Entfernen Sie ein Asset vom Management-Node"]
+* link:task_hcc_collectlogs.html#use-the-rest-api-to-collect-netapp-hci-logs["VERWENDEN Sie die REST API, um NetApp HCI-Protokolle zu sammeln"]
+* link:task_mnode_api_find_mgmt_svcs_version.html["Überprüfen Sie die Betriebssystem- und Servicestversionen der Management-Nodes"]
+* link:task_mnode_logs.html["Abrufen von Protokollen von Managementservices"]
+
+
+[discrete]
+== Weitere Informationen
+
+* link:task_mnode_access.html["Greifen Sie auf den Management-Node zu"]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_import_installation_profile.html 
+summary: Erfahren Sie, wie Sie ein NetApp HCI Installationsprofil importieren, in dem NetApp HCI automatisch Felder des Assistenten für die NetApp Deployment Engine ausfüllen kann. 
+keywords: netapp, hci, deployment, compatibility, nodes, installation, profile, import, settings, auto, fill 
+---
+= Importieren Sie ein Installationsprofil
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie den NetApp erhalten haben https://configbuilder.netapp.com/["ConfigBuilder"^] Profilausgabe für Ihre Installation. Sie können sie während des NetApp HCI Installationsprozesses importieren, um die Felder in der NetApp Deployment Engine automatisch auszufüllen. Dies ist ein optionaler Schritt.
+
+Wenn Sie ein Installationsprofil importieren, müssen Sie dennoch Anmeldedaten für NetApp HCI eingeben, um diese auf der Seite *Credentials* der NetApp Deployment Engine verwenden zu können.
+
+
+NOTE: Wenn die Felder im Installationsprofil leer bleiben oder falsch eingegeben werden, müssen Sie die Informationen möglicherweise manuell auf den Seiten der NetApp Deployment Engine eingeben oder korrigieren. Wenn Sie Informationen hinzufügen oder korrigieren müssen, stellen Sie sicher, dass Sie die Informationen in Ihren Datensätzen und das Installationsprofil aktualisieren.
+
+.Importieren Sie ein Profil
+. Klicken Sie auf der Seite *Installationsprofil* auf *Durchsuchen*, um Ihr Installationsprofil zu suchen und hochzuladen.
+. Wählen Sie im Dateidialogfeld die JSON-Profildatei aus und öffnen Sie sie.
+. Nachdem das Profil erfolgreich importiert wurde, klicken Sie auf *Weiter*.
++
+Sie können die einzelnen Seiten der NetApp Deployment Engine durchlaufen und überprüfen, welche Einstellungen aus dem Installationsprofil importiert wurden.
+
+
+
+.Fortfahren, ohne ein Profil zu importieren
+. Um den Importschritt zu überspringen, klicken Sie auf der Seite *Installationsprofil* auf *Weiter*.
+
+
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

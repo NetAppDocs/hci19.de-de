@@ -1,0 +1,111 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_performance.html 
+summary:  
+keywords: netapp, hci, on premise, concept_hci_performance 
+---
+= Leistung und Servicequalität
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, onprem, documentation,
+
+
+[role="lead"]
+Ein SolidFire Storage Cluster bietet QoS-Parameter (Quality of Service) für einzelne Volumes. Sie können die Cluster-Performance, die in ein- und Ausgaben pro Sekunde (IOPS) gemessen wird, mit drei konfigurierbaren Parametern garantieren, die QoS definieren: Das IOPS-Minimum, das IOPS-Maximum und die Burst-IOPS.
+
+
+NOTE: SolidFire Active IQ verfügt über eine Seite mit QoS-Empfehlungen zur optimalen Konfiguration und Einrichtung von QoS-Einstellungen.
+
+
+
+== Parameter für die Servicequalität
+
+IOPS-Parameter werden folgendermaßen definiert:
+
+* *Minimum IOPS* - die Mindestanzahl kontinuierlicher ein- und Ausgänge pro Sekunde (IOPS), die der Storage Cluster einem Volume zur Verfügung stellt. Die für ein Volume konfigurierten IOPS-Mindestwerte sind das garantierte Performance-Niveau für ein Volume. Die Performance sinkt nicht unter dieses Niveau.
+* *Maximale IOPS* - die maximale Anzahl an anhaltenden IOPS, die der Storage Cluster einem Volume zur Verfügung stellt. Wenn Cluster-IOPS-Niveaus kritisch hoch sind, wird diese IOPS-Performance nicht überschritten.
+* *Burst IOPS* - die maximale Anzahl von IOPS in einem kurzen Burst Szenario erlaubt. Wenn ein Volume unter dem IOPS-Maximum ausgeführt wurde, werden Burst Credits gesammelt. Wenn Performance-Level sehr hoch sind und auf ein Maximum geschoben werden, sind kurze Anstiegen von IOPS auf dem Volume zulässig.
++
+Element Software verwendet Burst IOPS, wenn ein Cluster eine niedrige IOPS-Auslastung aufweist.
+
++
+Ein einzelnes Volume kann die Burst-IOPS erhalten und die Gutschriften verwenden, um über ihrem IOPS-Maximum bis auf ihr Burst-IOPS-Level für einen festgelegten „Burst-Zeitraum“ zu IOPS-Burst-Wert aufzusteigen. Ein Volume kann für bis zu 60 Sekunden einen Burst ausführen, wenn das Cluster die Kapazität für die Burst-Volumes hat. Ein Volume kann für jede Sekunde, in der das Volume unter seinem maximalen IOPS-Limit ausgeführt wird, eine Sekunde Burst Credit (bis zu einem Maximum von 60 Sekunden) angesammelt werden.
+
++
+Die IOPS-Burst-IOPS-Werte sind auf zwei Arten begrenzt:
+
++
+** Ein Volume kann für einige Sekunden einen Spitzenwert über dem maximalen IOPS erzielen, der der Anzahl der Burst Credits entspricht, die es beim Volume gesammelt hat.
+** Wenn ein Volume über die Einstellung für maximale IOPS platzt, ist es durch die Einstellung für Burst IOPS eingeschränkt. Daher überschreitet der IOPS-Burst niemals die Burst-IOPS-Einstellung für das Volume.
+
+
+* *Effektive max. Bandbreite* - die maximale Bandbreite wird berechnet, indem die Anzahl der IOPS (basierend auf der QoS-Kurve) mit der I/O-Größe multipliziert wird.
++
+Beispiel: QoS-Parametereinstellungen für 100 Min IOPS, 1000 Max IOPS und 1500 Burst IOPS wirken sich auf die Performance-Qualität aus:
+
++
+** Workloads können ein Maximum von 1000 IOPS erreichen und halten, bis sich der Zustand von Workload-Engpässen für IOPS im Cluster bemerkbar macht. Die IOPS werden dann inkrementell reduziert, bis sich die IOPS auf allen Volumes innerhalb der designierten QoS-Bereiche befinden und die Konflikte für die Performance sinken.
+** Die Performance auf allen Volumes wird über den Mindestwert von 100 IOPS erreicht. Die Werte sinken nicht unter die Einstellung für Min IOPS, könnten aber bei Entlastung der Workloads über 100 IOPS bleiben.
+** Die Performance beträgt in einem kontinuierlichen Zeitraum niemals mehr als 1000 IOPS oder weniger als 100 IOPS. Die Performance von 1500 IOPS (Burst IOPS) ist zulässig, aber nur für die Volumes, die Burst Credits aufgesammelt haben, wenn sie unter dem IOPS-Maximum laufen und nur für kurze Zeit zulässig sind. Burst-Werte werden niemals aufrechterhalten.
+
+
+
+
+
+
+== QoS-Wertbegrenzungen
+
+Hier sind die möglichen Mindest- und Höchstwerte für QoS.
+
+[cols="7*"]
+|===
+| Parameter | Mindestwert | Standard | 4 4 KB | 5 8 KB | 6 16 KB | 262 KB 
+
+
+| IOPS-Minimum | 50 | 50 | 15,000 | 9,375* | 5556* | 385* 
+
+
+| IOPS-Maximum | 100 | 15,000 | 200,000** | 125,000 | 74,074 | 5128 
+
+
+| IOPS-Burst | 100 | 15,000 | 200,000** | 125,000 | 74.074 | 5128 
+|===
+*Diese Schätzungen sind ungefähr. **Maximale IOPS und Burst IOPS können auf 200,000 gesetzt werden. Diese Einstellung ist jedoch nur erlaubt, die Performance eines Volumes effektiv zu nutzen. Die tatsächliche maximale Performance eines Volumes wird durch die Auslastung des Clusters und die Performance pro Node begrenzt.
+
+
+
+== QoS-Performance
+
+Die QoS-Performance-Kurve zeigt die Beziehung zwischen Blockgröße und dem Prozentsatz der IOPS.
+
+Die Blockgröße und die Bandbreite haben direkte Auswirkungen auf die Anzahl der IOPS, die eine Applikation erreichen kann. Element Software berücksichtigt die Blockgröße, die durch die Normalisierung der Blockgrößen auf 4 kb erhält. Je nach Workload kann das System die Blockgrößen erhöhen. Mit zunehmender Blockgröße erhöht das System die Bandbreite auf ein Niveau, das für die Verarbeitung größerer Blockgrößen erforderlich ist. Mit einer höheren Bandbreite verringert sich auch die Anzahl an IOPS, die das System erreichen kann.
+
+Die QoS-Performance-Kurve zeigt die Beziehung zwischen zunehmenden Blockgrößen und dem sinkenden Prozentsatz an IOPS:
+
+image::hci_performance_curve.png[QoS-Performance-Kurve]
+
+Wenn Blockgröße beispielsweise 4 kb und eine Bandbreite 4000 kbit/s beträgt, betragen die IOPS 1000. Bei einer Blockgröße von bis zu 8.000 USD erhöht sich die Bandbreite auf 5000 kBit/s und der IOPS-Wert sinkt auf 625. Unter Berücksichtigung der Blockgröße übernimmt das System dafür, dass Workloads mit niedrigerer Priorität, bei denen größere Blockgrößen zum Beispiel Backups und Hypervisor-Aktivitäten verwendet werden, nicht zu viele der Performance in Anspruch nehmen, die durch Datenverkehr mit höherer Priorität durch kleinere Blöcke benötigt wird.
+
+
+
+== QoS-Richtlinien (QoS
+
+Mit einer QoS-Richtlinie können Sie standardisierte Quality-of-Service-Einstellungen erstellen und speichern, die auf viele Volumes angewendet werden können.
+
+QoS-Richtlinien eignen sich am besten für Serviceumgebungen, beispielsweise mit Datenbank-, Applikations- oder Infrastrukturservern, die selten neu gestartet werden und den konstanten Zugriff auf den Storage benötigen. Einzelne Volume-QoS eignet sich am besten für lichtstarke VMs, z. B. virtuelle Desktops oder spezielle VMs mit Kiosk-Typ. Diese können täglich neu gestartet, eingeschaltet oder mehrfach ausgeschaltet werden.
+
+QoS- und QoS-Richtlinien sollten nicht gemeinsam eingesetzt werden. Wenn Sie QoS-Richtlinien verwenden, verwenden Sie keine benutzerdefinierte QoS für ein Volume. Durch benutzerdefinierte QoS werden die QoS-Richtlinienwerte für Volume-QoS-Einstellungen überschrieben und angepasst.
+
+
+NOTE: Der ausgewählte Cluster muss zur Verwendung von QoS-Richtlinien Element 10.0 oder höher sein. Anderenfalls sind QoS-Richtlinienfunktionen nicht verfügbar.
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

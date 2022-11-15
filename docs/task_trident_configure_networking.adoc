@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: docs/task_trident_configure_networking.html 
+summary: Aktivieren Sie die Trident Unterstützung für Benutzer-Cluster. 
+keywords: netapp, hci, netapp, networking, clusters, user, trident, rancher 
+---
+= Aktivieren Sie die Trident Unterstützung für Benutzer-Cluster
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn in der NetApp HCI Umgebung keine Route zwischen den Management- und Storage-Netzwerken besteht und Sie Benutzer-Cluster implementieren, die Unterstützung für Trident benötigen, müssen Sie nach der Installation von Trident weitere Netzwerke für Benutzercluster konfigurieren. Für jedes Benutzer-Cluster müssen Sie die Kommunikation zwischen Management- und Storage-Netzwerken ermöglichen. Hierzu können Sie die Netzwerkkonfiguration für jeden Node im Benutzer-Cluster ändern.
+
+Führen Sie diese allgemeinen Schritte aus, um die Netzwerkkonfiguration für jeden Node im Benutzer-Cluster zu ändern. Bei diesen Schritten wird davon ausgegangen, dass Sie das Benutzer-Cluster mit der Standard-Node-Vorlage erstellt haben, die mit Rancher auf NetApp HCI installiert ist.
+
+
+NOTE: Sie können diese Änderungen im Rahmen einer benutzerdefinierten Node-Vorlage vornehmen, die für zukünftige Benutzer Cluster verwendet werden soll.
+
+.Schritte
+. Implementieren Sie ein Benutzer-Cluster mit vorhandener Standardvorlage.
+. Verbinden Sie das Storage-Netzwerk mit dem Benutzer-Cluster.
++
+.. Öffnen Sie den VMware vSphere Web-Client für die verbundene vCenter-Instanz.
+.. Wählen Sie in der Strukturansicht Hosts und Cluster einen Knoten im neu bereitgestellten Benutzer-Cluster aus.
+.. Bearbeiten Sie die Einstellungen des Node.
+.. Fügen Sie im Dialogfeld Einstellungen einen neuen Netzwerkadapter hinzu.
+.. Suchen Sie in der Dropdown-Liste *New Network* nach einem Netzwerk und wählen Sie *HCI_Internal_Storage_Data_Network* aus.
+.. Erweitern Sie den Abschnitt Netzwerkadapter, und notieren Sie die MAC-Adresse für den neuen Netzwerkadapter.
+.. Klicken Sie auf *OK*.
+
+
+. Laden Sie in Rancher die private SSH-Schlüsseldatei für jeden Knoten im Benutzer-Cluster herunter.
+. Stellen Sie eine Verbindung über SSH mit einem Node im Benutzer-Cluster her und verwenden Sie die Datei mit dem privaten Schlüssel, die Sie für diesen Node heruntergeladen haben:
++
+[listing]
+----
+ssh -i <private key filename> <ip address>
+----
+. Bearbeiten und speichern Sie als Superuser das `/etc/netplan/50-cloud-init.yaml` So dass er das enthält `ens224` Abschnitt, ähnlich dem folgenden Beispiel. Austausch `<MAC address>` Mit der zuvor notierten MAC-Adresse:
++
+[listing]
+----
+network:
+    ethernets:
+        ens192:
+            dhcp4: true
+            match:
+                macaddress: 00:50:56:91:1d:41
+            set-name: ens192
+        ens224:
+            dhcp4: true
+            match:
+                macaddress: <MAC address>
+            set-name: ens224
+    version: 2
+----
+. Verwenden Sie den folgenden Befehl, um das Netzwerk neu zu konfigurieren:
++
+[listing]
+----
+`netplan try`
+----
+. Wiederholen Sie die Schritte 4 bis 6 für jeden verbleibenden Node im Benutzer-Cluster.
+. Wenn Sie das Netzwerk für jeden Node im Benutzer-Cluster neu konfiguriert haben, können Sie Applikationen im Benutzer-Cluster implementieren, die Trident verwenden.
+

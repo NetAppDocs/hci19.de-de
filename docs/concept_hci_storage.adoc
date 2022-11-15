@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_storage.html 
+summary: NetApp HCI ist in einer Reihe von Konfigurationsoptionen für Computing- und Storage-Ressourcen erhältlich. Ab NetApp HCI 1.8 können Kunden mit mindestens zwei Storage- und zwei Computing-Nodes konfiguriert werden. In früheren Versionen war die Minimalkonfiguration mit vier Storage-Nodes und zwei Compute-Nodes erforderlich. 
+keywords: netapp, hci, storage nodes, volumes 
+---
+= Storage
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp HCI ist in einer Reihe von Konfigurationsoptionen für Computing- und Storage-Ressourcen erhältlich. Ab NetApp HCI 1.8 ist eine Minimalkonfiguration mit zwei Storage- und zwei Computing-Nodes möglich. Vor NetApp HCI 1.8 waren als Minimalkonfiguration vier Storage-Nodes und zwei Compute-Nodes erforderlich.
+
+* NetApp HCI unterstützt verschiedene Storage-Node-Modelle der H-Series, z. B. H300S, H500S, H700S H410S und H610S.
++
+Siehe https://www.netapp.com/us/products/converged-systems/hyper-converged-infrastructure.aspx#modelsAndSpecs["NetApp HCI Modelle und Spezifikationen"^]
+
+* Die Storage-Ebene in NetApp HCI wird durch NetApp Element bereitgestellt. Die Management-Ebene wird durch das NetApp Element Plug-in für vCenter Server bereitgestellt.
+* Ein Storage-Node ist ein Server, der eine Sammlung von Laufwerken enthält, die über die Bond10G-Netzwerkschnittstelle miteinander kommunizieren.
+* Jeder Storage Node ist mit zwei Netzwerken verbunden, Storage und Management, wobei jeder über zwei unabhängige Links verfügt, um für Redundanz und Performance zu sorgen. Jeder Node benötigt in jedem Netzwerk eine IP-Adresse.
+* Sie können mit neuen Storage-Nodes ein Cluster erstellen oder einem vorhandenen Cluster Storage Nodes hinzufügen, um die Storage-Kapazität und Performance zu steigern.
+* Im NetApp HCI und SolidFire Ecosystem wird Storage mithilfe von Volumes bereitgestellt.
+
+
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

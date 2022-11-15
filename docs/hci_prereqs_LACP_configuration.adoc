@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_LACP_configuration.html 
+summary: Erfahren Sie, wie Sie NetApp HCI konfigurieren, um eine optimale Storage-Performance zu erzielen. 
+keywords: netapp, hci, storage, performance, LACP 
+---
+= Konfigurieren Sie LACP, um eine optimale Storage-Performance zu erzielen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, storage, performance, LACP
+
+
+[role="lead"]
+Um eine optimale NetApp HCI-Storage-Cluster-Performance zu erzielen, sollten Sie das Link Aggregation Control Protocol (LACP) auf den Switch-Ports konfigurieren, die für jeden Storage-Node verwendet werden.
+
+.Bevor Sie beginnen
+* Sie haben die Switch-Ports, die mit den 10/25-GbE-Schnittstellen der NetApp HCI Storage-Nodes verbunden sind, als LACP-Port-Channel konfiguriert.
+* Sie haben die LACP-Timer auf den Switches eingestellt, die Speicherdatenverkehr auf „fast Mode (1s)“ setzen, um eine optimale Failover-Erkennungszeit zu erreichen. Während der Implementierung werden die Bond1G-Schnittstellen auf allen Storage-Nodes automatisch für den aktiv/Passiv-Modus konfiguriert.
+* Sie haben Cisco Virtual PortChannel (vPC) oder die entsprechende Switch-Stack-Technologie für die Switches konfiguriert, die das Storage-Netzwerk bedienen. Die Switch-Stack-Technologie erleichtert die Konfiguration von LACP- und Port-Kanälen und bietet eine Loop-freie Topologie zwischen Switches und den 10/25-GbE-Ports auf den Storage-Nodes.
+
+
+.Schritte
+. Folgen Sie den Empfehlungen Ihres Switch-Anbieters, um LACP auf den für NetApp H-Series Storage-Nodes verwendeten Switch-Ports zu aktivieren.
+. Vor der Implementierung von NetApp HCI muss der Bond-Modus auf allen Storage-Nodes in der On-Node-Benutzeroberfläche (auch bekannt als Terminal User Interface, TUI) auf LACP eingestellt werden.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

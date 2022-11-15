@@ -1,0 +1,179 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_dataprotection.html 
+summary: Datensicherungsbegriffe umfassen verschiedene Arten von Remote-Replizierung, Volume Snapshots, Volume, Klonen, Sicherungsdomänen, Und Hochverfügbarkeit mit doppelter Helix Technologie. 
+keywords: netapp, hci, data protection, ha, snapshots, replication, cloning, helix 
+---
+= Datensicherung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Begriffe der NetApp HCI Datensicherung umfassen verschiedene Arten von Remote-Replizierung, Volume Snapshots, Volume-Klonen, Sicherungsdomänen und Hochverfügbarkeit mit der Double Helix Technologie.
+
+Die NetApp HCI Datensicherung umfasst folgende Konzepte:
+
+*  replication types
+*  snapshots for data protection
+*  clones
+*  and restore process overview for SolidFire storage
+*  domains
+*  Helix high availability
+
+
+
+
+== Typen der Remote-Replizierung
+
+Die Remote-Replikation von Daten kann folgende Formen annehmen:
+
+*  and asynchronous replication between clusters
+*  replication
+*  between Element and ONTAP clusters using SnapMirror
+
+
+Siehe https://www.netapp.com/us/media/tr-4741.pdf["TR-4741: NetApp Element Software Remote Replication"^].
+
+
+
+=== Synchrone und asynchrone Replizierung zwischen Clustern
+
+Für Cluster mit NetApp Element Software ermöglicht Echtzeitreplizierung die schnelle Erstellung von Remote-Kopien von Volume-Daten.
+
+Ein Storage-Cluster kann mit bis zu vier anderen Storage-Clustern gekoppelt werden. Sie können Volume-Daten für Failover- und Failback-Szenarien synchron oder asynchron von einem Cluster in einem Cluster-Paar replizieren.
+
+
+
+==== Synchrone Replizierung
+
+Die synchrone Replizierung repliziert die Daten kontinuierlich vom Quell-Cluster zum Ziel-Cluster und wird von Latenz, Paketverlust, Jitter und Bandbreite beeinträchtigt.
+
+Synchrone Replizierung eignet sich für die folgenden Situationen:
+
+* Replizierung mehrerer Systeme über kurze Entfernungen
+* Ein Disaster-Recovery-Standort lokal an der Quelle
+* Zeitkritische Applikationen und der Schutz von Datenbanken
+* Business-Continuity-Applikationen, bei denen der sekundäre Standort als primärer Standort fungieren muss, wenn der primäre Standort ausfällt
+
+
+
+
+==== Asynchrone Replizierung
+
+Die asynchrone Replikation repliziert kontinuierlich Daten von einem Quellcluster zu einem Zielcluster, ohne auf die Bestätigungen aus dem Zielcluster zu warten. Während der asynchronen Replizierung werden Schreibvorgänge dem Client (Applikation) bestätigt, nachdem sie im Quell-Cluster durchgeführt wurden.
+
+Asynchrone Replizierung eignet sich für die folgenden Situationen:
+
+* Der Disaster-Recovery-Standort ist weit von der Quelle entfernt und die Applikation toleriert keine durch das Netzwerk verursachten Latenzen.
+* Das Netzwerk, das die Quell- und Ziel-Cluster verbindet, weist Bandbreiteneinschränkungen auf.
+
+
+
+
+=== Reine Snapshot Replizierung
+
+Bei der Datensicherung nur mit Snapshots werden geänderte Daten zu einem bestimmten Zeitpunkt in ein Remote-Cluster repliziert. Es werden nur die Snapshots repliziert, die auf dem Quellcluster erstellt wurden. Aktive Schreibvorgänge vom Quell-Volume sind nicht.
+
+Sie können die Häufigkeit der Snapshot Replikationen festlegen.
+
+Die Snapshot Replizierung hat keine Auswirkungen auf die asynchrone oder synchrone Replizierung.
+
+
+
+=== Replizierung zwischen Element und ONTAP Clustern mit SnapMirror
+
+Mit der NetApp SnapMirror Technologie können Snapshots repliziert werden, die mit NetApp Element Software für Disaster Recovery-Zwecke in ONTAP erstellt wurden. In einer SnapMirror Beziehung stellt Element einen Endpunkt dar, und ONTAP ist der andere.
+
+SnapMirror ist eine NetApp Snapshot™ Replizierungstechnologie für Disaster Recovery, die für das Failover von primärem Storage auf sekundärem Storage an einem externen Standort ausgelegt ist. Die SnapMirror Technologie erstellt ein Replikat bzw. eine Spiegelung der Arbeitsdaten im sekundären Storage, von dem aus Sie bei einem Ausfall am primären Standort weiterhin Daten bereitstellen können. Daten werden auf Volume-Ebene gespiegelt.
+
+Die Beziehung zwischen dem Quell-Volume im primären Storage und dem Ziel-Volume im sekundären Storage wird als Datensicherungsbeziehung bezeichnet. Die Cluster werden als Endpunkte bezeichnet, in denen sich die Volumes befinden und die Volumes, die die replizierten Daten enthalten, müssen peed sein. Eine Peer-Beziehung ermöglicht einen sicheren Datenaustausch zwischen Clustern und Volumes.
+
+SnapMirror wird nativ auf den NetApp ONTAP Controllern ausgeführt und ist in Element integriert, das auf NetApp HCI und SolidFire Clustern ausgeführt wird. Die Logik zur Steuerung von SnapMirror befindet sich in ONTAP Software. Daher müssen alle SnapMirror Beziehungen mindestens ein ONTAP System erfordern, um die Koordination durchzuführen. Benutzer managen die Beziehungen zwischen Element- und ONTAP-Clustern. Dies erfolgt hauptsächlich über die Element UI. Einige Managementaufgaben befinden sich jedoch im NetApp ONTAP System Manager. Benutzer können SnapMirror auch über die CLI und die API managen, die sowohl in ONTAP als auch in Element verfügbar sind.
+
+Siehe https://fieldportal.netapp.com/content/616239["TR-4651: NetApp SolidFire SnapMirror Architektur und Konfiguration"^] (anmeldung erforderlich).
+
+Sie müssen die SnapMirror Funktion auf Cluster-Ebene manuell mit der Element Software aktivieren. Die SnapMirror Funktion ist standardmäßig deaktiviert und wird nicht automatisch im Rahmen einer neuen Installation oder eines Upgrades aktiviert.
+
+Nach der Aktivierung von SnapMirror können Sie SnapMirror Beziehungen über die Registerkarte Datensicherung in der Element Software erstellen.
+
+
+
+== Volume Snapshots zur Datensicherung
+
+Ein Volume Snapshot ist eine zeitpunktgenaue Kopie eines Volumes, mit der Sie später ein Volume auf diesen speziellen Zeitpunkt wiederherstellen können.
+
+Während Snapshots einem Volume-Klon ähneln, sind Snapshots lediglich Replikate von Volume-Metadaten. Sie können also nicht mounten oder darauf schreiben. Das Erstellen eines Volume-Snapshots nimmt ebenfalls nur eine geringe Menge an Systemressourcen und Platz in Anspruch, sodass die Snapshot-Erstellung schneller als das Klonen erfolgt.
+
+Sie können Snapshots in einem Remote-Cluster replizieren und als Sicherungskopie des Volumes verwenden. Dadurch können Sie ein Rollback eines Volumes zu einem bestimmten Zeitpunkt mit dem replizierten Snapshot durchzuführen. Sie können auch einen Klon eines Volumes aus einem replizierten Snapshot erstellen.
+
+Sie können ein Backup von Snapshots aus einem SolidFire Cluster auf einem externen Objektspeicher oder auf einem anderen SolidFire Cluster erstellen. Wenn Sie einen Snapshot in einem externen Objektspeicher sichern, müssen Sie über eine Verbindung zum Objektspeicher verfügen, der Lese-/Schreibvorgänge ermöglicht.
+
+Sie können einen Snapshot eines einzelnen Volumes oder mehrerer zur Datensicherheit erstellen.
+
+
+
+== Volume-Klone
+
+Ein Klon eines einzelnen oder mehrerer Volumes ist eine zeitpunktgenaue Kopie der Daten. Wenn Sie ein Volume klonen, erstellt das System einen Snapshot des Volume und erstellt dann eine Kopie der Daten, auf die der Snapshot verweist.
+
+Dies ist ein asynchroner Prozess und die erforderliche Zeit hängt von der Größe des zum Klonen benötigten Volumes und der aktuellen Cluster-Last ab.
+
+Das Cluster unterstützt bis zu zwei aktuell laufende Klonanforderungen pro Volume und bis zu acht aktive Volume-Klonvorgänge gleichzeitig. Anforderungen, die über diese Grenzen hinausgehen, werden zur späteren Verarbeitung in die Warteschlange gestellt.
+
+
+
+== Backup- und Restore-Prozess – Übersicht für SolidFire Storage
+
+Backups und Restores von Volumes mit anderen SolidFire Storage-Systemen sowie in sekundären Objektspeichern mit Amazon S3 oder OpenStack Swift möglich.
+
+Sie können ein Volume unter folgender Adresse sichern:
+
+* Ein SolidFire Storage-Cluster
+* Ein Amazon S3-Objektspeicher
+* OpenStack Swift Objektspeicher
+
+
+Wenn Sie Volumes aus OpenStack Swift oder Amazon S3 wiederherstellen, benötigen Sie Manifest-Informationen aus dem ursprünglichen Backup-Prozess. Wenn Sie ein Volume wiederherstellen, das auf einem SolidFire Storage-System gesichert wurde, sind keine Manifest-Informationen erforderlich.
+
+
+
+== Sicherungsdomänen
+
+Eine Sicherungsdomäne ist ein Node oder eine Gruppe von Nodes, die so gruppiert werden, dass ein Teil oder sogar alle Knoten ausfallen könnten, ohne dass die Datenverfügbarkeit beeinträchtigt wird. Sicherungsdomänen ermöglichen die automatische Selbstreparatur eines Storage-Clusters beim Verlust eines Chassis (Chassis-Affinität) oder einer gesamten Domäne (Chassis-Gruppe).
+
+Ein Protection-Domain-Layout weist jeden Knoten einer bestimmten Protection-Domain zu.
+
+Es werden zwei unterschiedliche Protection Domain Layouts unterstützt, sogenannte Protection Domain Levels.
+
+* Auf Node-Ebene befindet sich jeder Node in einer eigenen Sicherungsdomäne.
+* Auf Chassis-Ebene befinden sich nur Nodes, die sich ein Chassis teilen, in derselben Schutzdomäne.
++
+** Das Layout auf Chassis-Ebene wird automatisch von der Hardware bestimmt, wenn der Node zum Cluster hinzugefügt wird.
+** In einem Cluster, in dem sich jeder Node in einem separaten Chassis befindet, sind diese beiden Ebenen funktional identisch.
+
+
+
+
+Sie können es manuell ausführen https://docs.netapp.com/us-en/vcp/vcp_task_clusters_manage.html#set-protection-domain-monitoring["Aktivieren Sie die Überwachung von Schutzdomänen"^] Verwenden des NetApp Element Plug-ins für vCenter Server. Sie können einen Schutz-Domain-Schwellenwert basierend auf Node- oder Chassis-Domänen auswählen.
+
+Wenn ein neues Cluster erstellt wird, sollten Storage-Nodes genutzt werden, die sich in einem gemeinsamen Chassis befinden, sollte mithilfe der Sicherungs-Domains-Funktion ein Design für Ausfallschutz auf Chassis-Ebene in Betracht gezogen werden.
+
+Sie können ein benutzerdefiniertes Schutz-Domain-Layout definieren, in dem jeder Knoten einer und nur einer benutzerdefinierten Schutzdomäne zugeordnet ist. Standardmäßig wird jeder Knoten derselben benutzerdefinierten Standard-Schutzdomäne zugewiesen.
+
+
+
+== Hochverfügbarkeit mit Double Helix
+
+Die Double Helix Datensicherung ist eine Replizierungsmethode, die mindestens zwei redundante Datenkopien auf alle Laufwerke innerhalb eines Systems verteilt. Der Ansatz „RAID-less“ ermöglicht es einem System, mehrere gleichzeitige Ausfälle auf allen Ebenen des Storage-Systems zu absorbieren und schnell zu reparieren.
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_load_balancing.html 
+summary: Erfahren Sie, wie Sie den Lastenausgleich nach der Installation von Rancher auf NetApp HCI konfigurieren. 
+keywords: netapp, hci, Rancher, install, installation, load, balance 
+---
+= Konfigurieren Sie den Lastausgleich
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie den Lastenausgleich nach der Installation von Rancher auf NetApp HCI konfigurieren. Load Balancing für Rancher auf NetApp HCI umfasst die Management-Cluster.
+
+Für Produktions-Workloads sollten Sie eine Technik wie Round-Robin-DNS oder einen L4-Load-Balancer für den Wert der Rancher-URL in Betracht ziehen. Eine dieser Techniken wird den Zugriff auf die Rancher-UI verteilen und die größte Ausfallsicherheit bieten.
+
+L4 Load Balancing ist eine Technik, bei der eine virtuelle Maschine oder ein Container, der eine Applikation hostet, so konfiguriert ist, dass sie Anforderungen auf die drei Nodes des Management-Clusters verteilen kann.
+
+[discrete]
+== Weitere Informationen
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

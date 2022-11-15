@@ -1,0 +1,162 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_deploy.html 
+summary: Erfahren Sie mehr über Aufgaben, die Sie nach der Installation von Rancher auf NetApp HCI ausführen müssen. 
+keywords: netapp, hci, rancher, deploy, cluster, kubernetes 
+---
+= NetApp HCI-Ranking einsetzen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um Rancher in Ihrer NetApp HCI Umgebung einzusetzen, setzen Sie zuerst Rancher auf NetApp HCI ein.
+
+
+TIP: Bevor Sie mit der Bereitstellung beginnen, überprüfen Sie den freien Speicherplatz des Datenspeichers und andere link:rancher_prereqs_overview.html["Anforderungen für die Rangliste auf NetApp HCI"].
+
+
+NOTE: Rancher Support ist nicht in Ihrer NetApp Support Edge Vereinbarung enthalten. Wenden Sie sich an den NetApp Vertrieb oder Ihren Reseller, um Optionen zu erhalten. Wenn Sie Rancher Support von NetApp erwerben, erhalten Sie eine E-Mail mit Anweisungen.
+
+
+
+== Was passiert, wenn Sie Rancher auf NetApp HCI implementieren?
+
+Die Implementierung umfasst folgende Schritte, die jeweils weiter beschrieben werden:
+
+* Verwenden Sie NetApp Hybrid Cloud Control, um die Implementierung zu initiieren.
+* Die Rancher Implementierung erstellt ein Management Cluster, das drei Virtual Machines enthält.
++
+Jeder Virtual Machine werden alle Kubernetes-Rollen sowohl für die Kontrollebene als auch für Worker zugewiesen. Das bedeutet, dass die Rancher-UI auf jedem Knoten verfügbar ist.
+
+* Die Rancher Control Plane (oder _Rancher Server_) ist ebenfalls installiert. Zur Vereinfachung der Bereitstellung wird die NetApp HCI Node-Vorlage in Rancher verwendet. Die Rancher Control Plane arbeitet automatisch mit der Konfiguration zusammen, die in der NetApp Deployment Engine zum Aufbau der NetApp HCI Infrastruktur verwendet wurde.
+* Nach der Entwicklung erhalten Sie von NetApp eine E-Mail, die Ihnen die Möglichkeit bietet, sich für NetApp Support bei Rancher Implementierungen auf NetApp HCI zu registrieren.
+* Nach der Implementierung können die Dev- und Ops-Teams ihre Benutzer-Cluster, ähnlich wie bei Rancher-Implementierungen, bereitstellen.
+
+
+
+
+== Schritte zur Bereitstellung eines Ranchers auf NetApp HCI
+
+*  the NetApp Hybrid Cloud Control
+*  Rancher on NetApp HCI
+*  your deployment by using vCenter Server
+
+
+
+
+=== Rufen Sie die NetApp Hybrid Cloud Control auf
+
+Um mit der Implementierung zu beginnen, rufen Sie NetApp Hybrid Cloud Control auf.
+
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser. Beispiel:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
++
+Die Benutzeroberfläche von NetApp Hybrid Cloud Control wird angezeigt.
+
+
+
+
+
+=== NetApp HCI-Ranking einsetzen
+
+. Klicken Sie in der Hybrid Cloud Control links unten in der Navigationsleiste auf das Symbol *Rancher*.
++
+image::rancher_hcc_dashboard.png[Das NetApp Hybrid Cloud Control Dashboard und das Rancher-Symbol]
+
++
+Ein Popup-Fenster zeigt eine Meldung über die ersten Schritte mit Rancher.
+
++
+image::rancher_hcc_getstarted.png[Rancher Getting Started Bild]
+
+. Klicken Sie Auf *Rancher Bereitstellen*.
++
+Die Rancher-UI wird angezeigt.
+
++
+image::rancher_hcc_deploy_vcenter.png[Seite „Rancher Deployment“]
+
++
+Ihre vCenter Zugangsdaten werden basierend auf Ihrer Installation der NetApp Deployment Engine erfasst.
+
+. Geben Sie *vCenter Ressourcen* Informationen ein. Einige Felder werden als Nächstes beschrieben.
++
+** *Datacenter*: Wählen Sie ein Rechenzentrum. Nachdem Sie das Datacenter ausgewählt haben, werden alle anderen Felder bereits ausgefüllt, obwohl Sie sie ändern können.
+** *Datastore*: Wählen Sie einen Datenspeicher auf den NetApp HCI Speicherknoten. Dieser Datenspeicher sollte für alle VMware Hosts ausfallsicher sein und auf sie zugreifen können. Wählen Sie keinen lokalen Datenspeicher aus, auf den nur einer der Hosts zugreifen kann.
+** *Managementnetzwerk*: Dieser sollte von den Management Stations und vom Virtual Machine Network aus zugänglich sein, wo die User Cluster gehostet werden.
+
+
+. Geben Sie die * Bereitstellungseinstellungen*-Informationen ein:
++
+** *DNS-Server*: Optional. Wenn Sie Load Balancing verwenden, geben Sie die Informationen zum internen DNS-Server ein.
+** *Rancher Server FQDN*: Um sicherzustellen, dass der Rancher Server bei Knotenausfällen verfügbar bleibt, geben Sie einen vollständig qualifizierten Domänennamen (FQDN) an, den Ihr DNS-Server auf eine der IP-Adressen auflösen kann, die den Knoten des Rancher-Server-Clusters zugewiesen sind. Dieser FQDN mit dem Präfix „https“ wird zur Rancher-URL, mit der Sie auf Ihre Rancher-Implementierung zugreifen können.
++
+Wenn kein Domänenname angegeben ist, wird stattdessen Wildcard DNS verwendet, und Sie können mit einer der URLs, die nach Abschluss der Bereitstellung angezeigt werden, auf den Rancher Server zugreifen.
+
+
+
+. Geben Sie *Erweiterte Einstellungen* Informationen ein:
++
+** *Statische IP-Adressen zuweisen*: Wenn Sie statische IP-Adressen aktivieren, geben Sie StartIP-Adressen für drei IPv4-Adressen nacheinander an, eine für jede virtuelle Verwaltungscluster-Maschine. Rancher auf NetApp HCI setzt drei Management Cluster Virtual Machines ein.
+** *Proxy-Server Konfigurieren*:
+
+
+. Prüfen Sie das Kontrollkästchen für die Rancher-Endbenutzer-Lizenzvereinbarung, und aktivieren Sie es.
+. Überprüfen Sie das Kontrollkästchen, und aktivieren Sie das Kontrollkästchen, um Informationen zur Rancher-Software zu bestätigen.
+. Klicken Sie Auf *Bereitstellen*.
++
+Ein Balken zeigt den Fortschritt der Bereitstellung an.
+
++
+
+TIP: Die Rancher-Implementierung konnte etwa 15 Minuten dauern.
+
++
+Wenn die Bereitstellung abgeschlossen ist, zeigt Rancher eine Meldung über den Abschluss an und liefert eine Rancher-URL.
+
++
+image::rancher_deploy_complete_url.png[Abschluss der Rancher-Bereitstellung und URL]
+
+. Notieren Sie die Rancher-URL, die am Ende der Bereitstellung angezeigt wird. Sie verwenden diese URL, um auf die Rancher-UI zuzugreifen.
+
+
+
+
+=== Überprüfen Sie die Bereitstellung mit vCenter Server
+
+Im vSphere-Client sehen Sie das Rancher Management Cluster, das die drei Virtual Machines umfasst.
+
+
+IMPORTANT: Nachdem Sie die Bereitstellung abgeschlossen haben, dürfen Sie die Konfiguration des virtuellen VM-Clusters des Rancher-Servers nicht ändern oder die virtuellen Maschinen entfernen. Rancher auf NetApp HCI setzt für den normalen Betrieb auf die bereitgestellte RKE-Management-Cluster-Konfiguration.
+
+
+
+== Was kommt als Nächstes?
+
+Nach der Bereitstellung können Sie Folgendes tun:
+
+* link:task_rancher_post-deploy.html["Aufgaben nach der Implementierung abschließen"]
+* link:task_rancher_trident.html["Installation von Trident mit Rancher auf NetApp HCI"]
+* link:task_rancher_deploy_user_clusters.html["Implementieren von Benutzer-Clustern und Applikationen"]
+* link:task_rancher_manage.html["Managen Sie die Rangliste auf NetApp HCI"]
+* link:task_rancher_monitor.html["Überwachen Sie die Rangliste auf NetApp HCI"]
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Fehlerbehebung bei der Rancher-Implementierung"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_clusters.html 
+summary: Ein Cluster besteht aus einer Sammlung von Storage-Nodes. Ein NetApp HCI Storage-Cluster muss mindestens zwei Storage-Nodes haben. Ein Cluster wird im Netzwerk als einzelne logische Gruppe angezeigt und kann dann als Block-Storage genutzt werden. 
+keywords: netapp, hci, storage nodes, clusters, two-node cluster, three-node cluster, 2-node cluster, 3-node cluster 
+---
+= Cluster
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ein Cluster ist eine Gruppe von Nodes, die als Ganzes funktionieren und Storage- oder Computing-Ressourcen bereitstellen. Ab NetApp HCI 1.8 können Sie ein Storage-Cluster mit zwei Knoten haben. Ein Storage-Cluster wird im Netzwerk als einzelne logische Gruppe angezeigt und kann dann als Block-Storage genutzt werden.
+
+Die Storage-Ebene in NetApp HCI wird durch NetApp Element bereitgestellt. Die Management-Ebene wird durch das NetApp Element Plug-in für vCenter Server bereitgestellt. Ein Storage-Node ist ein Server, der eine Sammlung von Laufwerken enthält, die über die Bond10G-Netzwerkschnittstelle miteinander kommunizieren. Jeder Storage Node ist mit zwei Netzwerken verbunden, Storage und Management, wobei jeder über zwei unabhängige Links verfügt, um für Redundanz und Performance zu sorgen. Jeder Node benötigt in jedem Netzwerk eine IP-Adresse. Sie können mit neuen Storage-Nodes ein Cluster erstellen oder einem vorhandenen Cluster Storage Nodes hinzufügen, um die Storage-Kapazität und Performance zu steigern.
+
+
+
+== Autorisierende Storage-Cluster
+
+Der Storage-Cluster ist der Storage-Cluster, mit dem NetApp Hybrid Cloud Control Benutzer authentifizieren kann.
+
+Wenn der Management-Node nur über einen Storage-Cluster verfügt, dann ist er das autorisierende Cluster. Wenn der Management-Node zwei oder mehr Storage-Cluster umfasst, wird einem dieser Cluster als autorisierende Cluster zugewiesen. Nur Benutzer dieses Clusters können sich bei NetApp Hybrid Cloud Control anmelden. Um herauszufinden, welcher Cluster der maßgebliche Cluster ist, können Sie den verwenden `GET /mnode/about` API: In der Antwort die IP-Adresse im `token_url` Feld ist die virtuelle Management-IP-Adresse (MVIP) des autorisierenden Storage-Clusters. Wenn Sie versuchen, sich bei NetApp Hybrid Cloud Control als Benutzer anzumelden, der sich nicht auf dem autorisierenden Cluster befindet, schlägt der Anmeldeversuch fehl.
+
+Viele Funktionen von NetApp Hybrid Cloud Control wurden für den Einsatz mit mehreren Storage-Clustern entwickelt. Allerdings schränkteutig die Authentifizierung und Autorisierung sein. Die Authentifizierung und Autorisierung im Zusammenhang mit der Authentifizierung besteht darin, dass der Benutzer aus dem autorisierenden Cluster Aktionen auf anderen Clustern ausführen kann, die an NetApp Hybrid Cloud Control gebunden sind, auch wenn diese nicht Anwender in den anderen Storage-Clustern sind. Bevor Sie mit der Verwaltung mehrerer Storage-Cluster fortfahren, sollten Sie sicherstellen, dass die auf den Standards definierten Benutzer auf allen anderen Storage-Clustern mit denselben Berechtigungen definiert sind.
+
+Benutzer können mit NetApp Hybrid Cloud Control managen.
+
+Bevor Sie mit der Verwaltung mehrerer Storage-Cluster fortfahren, sollten Sie sicherstellen, dass die auf den Standards definierten Benutzer auf allen anderen Storage-Clustern mit denselben Berechtigungen definiert sind. Siehe link:task_mnode_manage_storage_cluster_assets.html["Erstellen und Managen von Storage-Cluster-Assets"] Weitere Informationen zur Arbeit mit den Management-Node-Storage-Cluster-Assets.
+
+
+
+== Ungenutzte Kapazität
+
+Wenn ein neu hinzugefügter Node mehr als 50 % der gesamten Cluster-Kapazität beträgt, wird einige der Kapazitäten dieses Node unbrauchbar („ungenutzt“) gemacht, sodass die Kapazitätsregel eingehalten wird. Dies bleibt der Fall, bis mehr Storage-Kapazität hinzugefügt wird. Wenn ein sehr großer Node hinzugefügt wird, der auch die Kapazitätsregel nicht befolgt, kann der zuvor isolierte Node nicht mehr ungenutzt bleiben, während der neu hinzugefügte Node ungenutzt ist. Kapazität sollte immer paarweise hinzugefügt werden, um dies zu vermeiden. Wenn ein Node ungenutzt wird, ist ein geeigneter Cluster-Fehler zu werfen.
+
+
+
+== Storage-Cluster mit zwei Nodes
+
+Ab NetApp HCI 1.8 können Sie ein Storage-Cluster mit zwei Storage-Nodes einrichten.
+
+* Sie können bestimmte Node-Typen verwenden, um das Storage-Cluster mit zwei Nodes zu bilden. Siehe https://library.netapp.com/ecm/ecm_download_file/ECMLP2865021["Versionshinweise zu NetApp HCI 1.8"^].
++
+
+NOTE: In einem Cluster mit zwei Nodes sind die Storage-Nodes auf Nodes mit 480-GB- und 960-GB-Laufwerken begrenzt, und die Nodes müssen denselben Modelltyp aufweisen.
+
+* Storage-Cluster mit zwei Nodes eignen sich am besten für kleinere Implementierungen mit Workloads, die nicht von hohen Anforderungen an Kapazität und Performance abhängig sind.
+* Neben zwei Storage-Nodes enthält ein Storage-Cluster mit zwei Nodes auch zwei *NetApp HCI Witness Nodes*.
++
+
+NOTE: Weitere Informationen zu link:concept_hci_nodes.html["Witness Nodes"]
+
+* Sie können ein zwei-Node-Storage-Cluster auf ein Storage-Cluster mit drei Nodes skalieren. Die Ausfallsicherheit durch drei-Node-Cluster wird erhöht, da sich Storage-Node-Ausfälle automatisch beheben lassen.
+* Storage-Cluster mit zwei Nodes bieten dieselben Sicherheitsfunktionen und Funktionen wie herkömmliche Storage-Cluster mit vier Nodes.
+* Storage-Cluster mit zwei Nodes nutzen dieselben Netzwerke wie Storage-Cluster mit vier Nodes. Die Netzwerke werden während der NetApp HCI-Implementierung mit dem NetApp Deployment Engine Wizard eingerichtet.
+
+
+
+
+=== Storage Cluster Quorum
+
+Element Software erstellt ein Storage-Cluster von ausgewählten Nodes, wobei eine replizierte Datenbank der Clusterkonfiguration erhalten bleibt. Zur Teilnahme am Cluster-Ensemble sind mindestens drei Nodes erforderlich, um das Quorum für die Cluster-Ausfallsicherheit zu erhalten. Witness Nodes werden in einem Cluster mit zwei Knoten verwendet, um sicherzustellen, dass genügend Speicherknoten vorhanden sind, um ein gültiges Ensemble-Quorum zu bilden. Für die Erstellung eines Ensembles sind Storage Nodes vor Witness Nodes vorzuziehen. Für das Ensemble mit mindestens drei Nodes, das ein Storage Cluster mit zwei Nodes beinhaltet, werden zwei Storage-Nodes und ein Witness-Node verwendet.
+
+
+TIP: In einem Ensemble mit drei Nodes mit zwei Storage-Nodes und einem Witness-Node wird bei einem Ausfall eines Storage-Node ein eingeschränkter Zustand des Clusters ausgeführt. Von den beiden Zeugenknoten kann nur einer im Ensemble aktiv sein. Der zweite Witness Node kann dem Ensemble nicht hinzugefügt werden, da er die Backup-Rolle ausführt. Das Cluster bleibt im eingeschränkten Zustand, bis der Offline-Storage-Node wieder in den Online-Status wechselt oder ein Ersatz-Node dem Cluster hinzugefügt wird.
+
+Wenn ein Witness Node ausfällt, schließt sich der verbleibende Witness Node dem Ensemble zu einem Dreiknotenensemble an. Sie können einen neuen Witness Node bereitstellen, um den fehlgeschlagenen Witness Node zu ersetzen.
+
+
+
+=== Automatische Reparatur und Fehlerbehandlung in Storage-Clustern mit zwei Nodes
+
+Wenn eine Hardwarekomponente in einem Node ausfällt, der Teil eines herkömmlichen Clusters ist, kann der Cluster Daten ausgleichen, die sich auf der Komponente befinden, die zu anderen verfügbaren Nodes im Cluster ausgefallen ist. Diese Funktion zur automatischen Fehlerbehebung ist in einem Storage-Cluster mit zwei Nodes nicht verfügbar, da dem Cluster mindestens drei physische Storage-Nodes zur automatischen Fehlerbehebung zur Verfügung stehen müssen. Wenn ein Node in einem Cluster mit zwei Nodes ausfällt, muss im Cluster mit zwei Nodes keine zweite Kopie der Daten neu gebootet werden. Neue Schreibvorgänge werden für Blockdaten im verbleibenden aktiven Storage-Node repliziert. Wenn der ausgefallene Node ersetzt und zum Cluster hinzugefügt wird, werden die Daten zwischen den beiden physischen Storage-Nodes gleichmäßig verteilt.
+
+
+
+== Storage Cluster mit drei oder mehr Nodes
+
+Die Erweiterung von zwei Storage-Nodes auf drei Storage-Nodes erhöht die Ausfallsicherheit des Clusters. Diese Lösung ermöglicht automatische Reparatur bei Node- und Laufwerksausfällen, bietet jedoch keine zusätzliche Kapazität. Sie können mit dem erweitern link:task_hcc_expand_storage.html["UI für die NetApp Hybrid Cloud Control"]. Bei der Erweiterung von einem Cluster mit zwei Nodes auf ein Cluster mit drei Nodes kann die Kapazität ungenutzt bleiben (siehe  capacity). Der UI-Assistent zeigt vor der Installation Warnungen zu ungenutzte Kapazität an. Ein einziger Zeuge-Knoten ist weiterhin verfügbar, um das Ensemble-Quorum bei Ausfall eines Speicherknoten zu erhalten, wobei ein zweiter Zeuge-Knoten im Standby-Modus. Wenn Sie ein Storage-Cluster mit drei Nodes auf ein Cluster mit vier Nodes erweitern, werden die Kapazität und die Performance erhöht. In einem Cluster mit vier Nodes sind Witness Nodes nicht mehr erforderlich, um das Cluster-Quorum zu bilden. Sie können das System auf bis zu 64 Computing-Nodes und 40 Storage-Nodes erweitern.
+
+
+
+== Weitere Informationen
+
+* https://www.netapp.com/us/media/tr-4823.pdf["NetApp HCI Storage Cluster mit zwei Nodes – TR-4823"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

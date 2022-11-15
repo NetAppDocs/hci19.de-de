@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_access_no_dhcp.html 
+summary: Erfahren Sie, wie Sie in Umgebungen ohne DHCP auf die NetApp Deployment Engine zugreifen. 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+---
+= Zugriff auf die NetApp Deployment Engine in Umgebungen ohne DHCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+Wenn DHCP im Netzwerk nicht verwendet wird, müssen Sie eine statische IPv4-Adresse auf der Bond1G-Schnittstelle eines der Storage-Nodes (auch bekannt als kontrollierende Storage-Node) festlegen, über die Sie auf die NetApp Deployment Engine zugreifen können. Die NetApp Deployment Engine auf dem steuernden Storage-Node erkennt und kommuniziert mit anderen Computing- und Storage-Nodes mithilfe von IPv4-Adressen, die auf den Bond10G-Schnittstellen aller Nodes automatisch konfiguriert wurden. Sie sollten diese Methode verwenden, es sei denn, Ihr Netzwerk hat spezielle Anforderungen.
+
+.Was Sie und#8217;ll benötigen
+* Sie oder Ihr Netzwerkadministrator haben die Aufgaben im Dokument Installations- und Setup-Anleitung ausgeführt.
+* Sie haben physischen Zugriff auf die NetApp HCI-Nodes.
+* Alle NetApp HCI-Nodes sind eingeschaltet.
+* DHCP ist für die NetApp HCI-Netzwerke nicht aktiviert, und die NetApp HCI-Nodes haben keine IP-Adressen von DHCP-Servern erhalten.
+* Das NetApp HCI Management-Netzwerk ist als natives VLAN auf den Bond1G- und Bond10G-Schnittstellen aller Nodes konfiguriert.
+
+
+.Schritte
+. Stecken Sie ein KVM in die Rückseite eines der NetApp HCI Storage-Nodes (dieser Node wird der steuernde Storage-Node).
+. Konfigurieren Sie die IP-Adresse, die Subnetzmaske und die Gateway-Adresse für Bond1G in der Benutzeroberfläche. Sie können bei Bedarf auch eine VLAN-ID für das Bond1G-Netzwerk konfigurieren.
++
+
+NOTE: Sie können diese IPv4-Adresse während der Implementierung mit der NetApp Deployment Engine später nicht mehr verwenden.
+
+. Öffnen Sie einen Webbrowser auf einem Computer, der auf das NetApp HCI-Managementnetzwerk zugreifen kann.
+. Navigieren Sie zu der IP-Adresse, die Sie dem steuernden Speicher-Node zugewiesen haben. Beispiel:
++
+[listing]
+----
+http://<Bond1G IP address>
+----
++
+
+NOTE: Stellen Sie sicher, dass Sie hier HTTP verwenden.
+
++
+Dies führt Sie zur Benutzeroberfläche der NetApp Deployment Engine.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

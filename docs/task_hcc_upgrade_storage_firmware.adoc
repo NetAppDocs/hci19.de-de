@@ -1,0 +1,459 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_upgrade_storage_firmware.html 
+summary: Im Rahmen eines Upgrades eines NetApp HCI Systems führen Sie ein Upgrade der Firmware durch, die Ihren Storage-Nodes zugeordnet ist. 
+keywords: netapp, element, hcc, firmware, storage firmware 
+---
+= Firmware für Storage-Upgrades
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ab Element 12.0 und den Managementservices Version 2.14 können Sie mithilfe der NetApp Hybrid Cloud Control UI und DER REST-API Firmware-reine Upgrades auf Ihren Storage-Nodes durchführen. Dieses Verfahren führt keine Upgrades für Element Software durch und ermöglicht ein Upgrade der Storage-Firmware außerhalb einer größeren Version.
+
+.Was Sie und#8217;ll benötigen
+* *Administratorrechte*: Sie haben Berechtigungen für den Storage Cluster Administrator, um das Upgrade durchzuführen.
+* *System Time SYNC*: Sie haben sichergestellt, dass die Systemzeit auf allen Knoten synchronisiert ist und NTP für den Speicher-Cluster und die Knoten korrekt konfiguriert ist. Jeder Node muss in der Web-UI pro Node mit einem DNS-Nameserver konfiguriert sein (`https://[IP address]:442`) Ohne ungelöste Cluster Fehler im Zusammenhang mit Zeitverzerrung.
+* *System-Ports*: Bei Upgrade-Nutzung von NetApp Hybrid Cloud Control haben Sie sichergestellt, dass die erforderlichen Ports geöffnet sind. Siehe link:hci_prereqs_required_network_ports.html["Netzwerkports"] Finden Sie weitere Informationen.
+* *Management-Node*: Für NetApp Hybrid Cloud Control UI und API wird der Management-Node in Ihrer Umgebung mit Version 11.3 ausgeführt.
+* *Management Services*: Sie haben Ihr Management Services Bundle auf die neueste Version aktualisiert.
+
+
+
+IMPORTANT: Bei H610S Storage-Nodes mit Element Softwareversion 12.0 sollten Sie D-Patch SUST-909 anwenden, bevor Sie ein Upgrade auf das Storage-Firmware-Bundle 2.27 durchführen. Wenden Sie sich an den NetApp Support, um den D-Patch vor dem Upgrade zu erhalten. Siehe link:rn_storage_firmware_2.27.html["Versionshinweise Zum Speicher-Firmware-Bundle 2.27"].
+
+
+IMPORTANT: Sie müssen ein Upgrade auf das neueste Management Services Bundle durchführen, bevor Sie die Firmware auf Ihren Storage-Nodes aktualisieren. Wenn Sie die Element Software auf Version 12.2 oder höher aktualisieren, benötigen Sie Managementdienste 2.14.60 oder höher, um fortfahren zu können.
+
+
+IMPORTANT: Wenden Sie sich an den NetApp Support, um die iDRAC/BIOS-Firmware zu aktualisieren. Weitere Informationen finden Sie unter link:https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/SF_Series/How_to_update_iDRAC%2F%2FBIOS_firmware_on_SF_Series_nodes["KB-Artikel"^].
+
+* *Cluster Health*: Sie haben Health Checks durchgeführt. Siehe link:task_hcc_upgrade_element_prechecks.html["Integritätsprüfungen von Element Storage vor einem Storage Upgrade durchführen"].
+* *BMC für H610S-Knoten aktualisiert*: Sie haben die BMC-Version für Ihre H610S-Knoten aktualisiert. Siehe link:rn_H610S_BMC_3.84.07.html["Versionshinweise und Upgrade-Anweisungen"].
+
+
+
+NOTE: Eine vollständige Matrix von Firmware und Treiber-Firmware für Ihre Hardware finden Sie unter https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["KB-Artikel"^] (anmeldung erforderlich).
+
+* *Endbenutzer-Lizenzvereinbarung (EULA)*: Ab Management Services 2.20.69 müssen Sie die EULA akzeptieren und speichern, bevor Sie die NetApp Hybrid Cloud Control UI oder API zum Upgrade der Storage-Firmware verwenden:
++
+.. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+.. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators bereitstellen.
+.. Wählen Sie *Upgrade* oben rechts auf der Schnittstelle aus.
+.. Die EULA erscheint. Scrollen Sie nach unten, wählen Sie *Ich akzeptiere aktuelle und alle zukünftigen Updates* und wählen Sie *Speichern*.
++
+
+NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates aufgezeichnet und die automatische Download-Funktion ist aktiviert. Der Kunde erhält Aktualisierungen zu NetApp Software Updates und Upgrades, die nach eigenem Ermessen und nach eigenem Ermessen installiert werden können. Sie können die Funktion zum automatischen Download deaktivieren, indem Sie die Netzwerkverbindung zum NetApp Online-Software-Repository deaktivieren.
+
+
+
+
+
+Wählen Sie eine der folgenden Upgrade-Optionen für die Speicher-Firmware:
+
+*  NetApp Hybrid Cloud Control UI to upgrade storage firmware
+*  NetApp Hybrid Cloud Control API to upgrade storage firmware
+
+
+
+
+== Verwenden Sie die NetApp Hybrid Cloud Control UI für ein Upgrade der Storage-Firmware
+
+Mit der NetApp Hybrid Cloud Control UI lässt sich die Firmware der Storage-Nodes in Ihrem Cluster aktualisieren.
+
+Wenn Ihr Management-Node nicht mit dem Internet verbunden ist, haben Sie den Zugriff https://mysupport.netapp.com/site/products/all/details/element-software/downloads-tab/download/62654/Storage_Firmware_Bundle["Laden Sie das Storage-Firmware-Paket für NetApp HCI Storage-Cluster herunter"^].
+
+
+CAUTION: Informationen zu potenziellen Problemen beim Upgrade von Storage-Clustern mit NetApp Hybrid Cloud Control und den zugehörigen Workarounds finden Sie im https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Potential_issues_and_workarounds_when_running_storage_upgrades_using_NetApp_Hybrid_Cloud_Control["KB-Artikel"^].
+
+
+TIP: Das Upgrade dauert etwa 30 Minuten pro Storage-Node. Wenn Sie ein Element Storage Cluster auf eine Storage-Firmware vor Version 2.76 aktualisieren, werden einzelne Storage-Nodes während des Upgrades nur neu gebootet, wenn neue Firmware auf den Node geschrieben wurde.
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators bereitstellen.
+. Wählen Sie *Upgrade* oben rechts auf der Schnittstelle aus.
+. Wählen Sie auf der Seite *Upgrades* die Option *Speicherung*.
++
+
+NOTE: Auf der Registerkarte *Storage* werden die Speichercluster aufgelistet, die Teil Ihrer Installation sind. Wenn durch NetApp Hybrid Cloud Control auf ein Cluster zugegriffen werden kann, wird es nicht auf der Seite *Upgrades* angezeigt. Wenn bei Clustern mit Element 12.0 oder höher die aktuelle Firmware-Bundle-Version für diese Cluster aufgeführt ist. Wenn die Knoten in einem einzelnen Cluster unterschiedliche Firmware-Versionen haben oder wenn das Upgrade fortschreitet, wird in der Spalte *Aktuelle Firmware Bundle Version* *Multiple* angezeigt. Sie können *multiple* auswählen, um zur Seite *Nodes* zu navigieren, um Firmware-Versionen zu vergleichen. Wenn auf allen Clustern Elementversionen vor 12.0 ausgeführt werden, werden Ihnen keine Informationen über die Versionsnummern der Firmware-Bundles angezeigt. Diese Informationen finden Sie auch auf der Seite *Nodes*. Siehe link:task_hcc_nodes.html["Zeigen Sie Ihren Bestand an"]. Wenn der Cluster aktuell ist und/oder keine Upgrade-Pakete verfügbar sind, werden die Registerkarten *Element* und *Firmware Only* nicht angezeigt. Diese Registerkarten werden auch nicht angezeigt, wenn ein Upgrade ausgeführt wird. Wenn die Registerkarte *Element* angezeigt wird, nicht jedoch die Registerkarte *Firmware only*, stehen keine Firmware-Pakete zur Verfügung.
+
+. Wählen Sie eine der folgenden Optionen aus und führen Sie die für das Cluster zutreffenden Schritte aus:
++
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Der Management-Node verfügt über externe Konnektivität.  a| 
+.. Wählen Sie den Dropdown-Pfeil neben dem Cluster aus, das Sie aktualisieren möchten.
+.. Wählen Sie *nur Firmware* aus, und wählen Sie aus den verfügbaren Upgrade-Versionen.
+.. Wählen Sie *Upgrade Starten*.
+
+
+
+TIP: Der *Upgrade-Status* ändert sich während des Upgrades, um den Status des Prozesses anzuzeigen. Es ändert sich auch in Reaktion auf Aktionen, die Sie ergreifen, z. B. die Unterbrechung des Upgrades oder wenn das Upgrade einen Fehler zurückgibt. Siehe  status changes.
+
+
+NOTE: Während das Upgrade läuft, können Sie die Seite verlassen und zu einem späteren Zeitpunkt zurückkehren, um den Fortschritt zu überwachen. Die Seite aktualisiert den Status und die aktuelle Version nicht dynamisch, wenn die Cluster-Zeile ausgeblendet ist. Die Cluster-Zeile muss erweitert werden, um die Tabelle zu aktualisieren, oder Sie können die Seite aktualisieren.
+
+Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist.
+
+
+
+| Ihr Management Node befindet sich an einem dunklen Standort ohne externe Konnektivität.  a| 
+.. Wählen Sie den Dropdown-Pfeil neben dem Cluster aus, das Sie aktualisieren möchten.
+.. Wählen Sie *Durchsuchen*, um das heruntergeladene Aktualisierungspaket hochzuladen.
+.. Warten Sie, bis der Upload abgeschlossen ist. In einer Statusleiste wird der Status des Uploads angezeigt.
+
+
+
+CAUTION: Der Datei-Upload geht verloren, wenn Sie vom Browser-Fenster wegnavigieren.
+
+Nach dem erfolgreichen Hochladen und Validierungen der Datei wird eine Meldung auf dem Bildschirm angezeigt. Die Validierung kann mehrere Minuten in Anspruch nehmen. Wenn Sie zu diesem Zeitpunkt vom Browser-Fenster weg navigieren, bleibt der Datei-Upload erhalten. Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist. Informationen zu den verschiedenen Änderungen des Aktualisierungsstatus finden Sie unter  status changes.
+
+|===
+
+
+
+
+=== Statusänderungen des Upgrades
+
+Hier sind die verschiedenen Status, in denen die Spalte *Upgrade Status* in der UI vor, während und nach dem Upgrade-Prozess angezeigt wird:
+
+[cols="2*"]
+|===
+| Upgrade-Status | Beschreibung 
+
+
+| Auf dem aktuellen Stand | Das Cluster wurde auf die neueste verfügbare Element-Version aktualisiert oder die Firmware wurde auf die neueste Version aktualisiert. 
+
+
+| Erkennung nicht möglich | NetApp Hybrid Cloud Control zeigt diesen Status anstelle von *verfügbaren Versionen* an, wenn keine externe Verbindung zum Online-Software-Repository vorhanden ist. Dieser Status wird auch angezeigt, wenn die Speicherservice-API einen Upgrade-Status zurückgibt, der sich nicht in der Liste möglicher Upgrade-Status befindet. 
+
+
+| Verfügbare Versionen | Neuere Versionen von Element und/oder Storage Firmware stehen für ein Upgrade zur Verfügung. 
+
+
+| In Bearbeitung | Das Upgrade läuft. In einer Statusleiste wird der Aktualisierungsstatus angezeigt. Auf dem Bildschirm werden zudem Fehler auf Node-Ebene angezeigt und die Node-ID jedes Node im Cluster wird angezeigt, wenn das Upgrade fortschreitet. Sie können den Status jedes Knotens über die Element-UI oder das NetApp Element Plug-in für vCenter Server UI überwachen. 
+
+
+| Anhalten Des Upgrades | Sie können das Upgrade anhalten. Je nach Status des Upgrade-Prozesses kann der Pause-Vorgang erfolgreich oder fehlgeschlagen sein. Es wird eine UI-Eingabeaufforderung angezeigt, in der Sie aufgefordert werden, den Pause-Vorgang zu bestätigen. Um sicherzustellen, dass sich das Cluster vor dem Anhalten eines Upgrades an einem sicheren Ort befindet, kann es bis zu zwei Stunden dauern, bis der Upgrade-Vorgang vollständig angehalten ist. Um das Upgrade fortzusetzen, wählen Sie *Fortsetzen*. 
+
+
+| Angehalten | Sie haben das Upgrade angehalten. Wählen Sie *Fortsetzen*, um den Prozess fortzusetzen. 
+
+
+| Fehler | Während des Upgrades ist ein Fehler aufgetreten. Sie können das Fehlerprotokoll herunterladen und an den NetApp Support senden. Nachdem Sie den Fehler behoben haben, können Sie zur Seite zurückkehren und *Fortsetzen* wählen. Wenn Sie das Upgrade fortsetzen, geht die Statusleiste einige Minuten lang zurück, während das System die Zustandsprüfung ausführt und den aktuellen Status des Upgrades überprüft. 
+|===
+
+
+== Was geschieht bei einem Upgrade mit NetApp Hybrid Cloud Control
+
+Wenn während eines Upgrades ein Laufwerk oder ein Node ausfällt, zeigt die Element-UI Clusterfehler an. Der Upgrade-Prozess setzt nicht auf den nächsten Node fort und wartet auf die Behebung der Cluster-Fehler. Die Fortschrittsleiste in der UI zeigt an, dass das Upgrade auf die Behebung der Cluster-Fehler wartet. In dieser Phase funktioniert die Auswahl von *Pause* in der Benutzeroberfläche nicht, da das Upgrade wartet, bis der Cluster wieder gesund ist. Sie müssen NetApp Support beauftragen, die Fehleruntersuchung zu unterstützen.
+
+NetApp Hybrid Cloud Control verfügt über eine festgelegte Wartezeit von drei Stunden. In diesem Fall kann es zu einem der folgenden Szenarien kommen:
+
+* Die Behebung von Clusterfehlern erfolgt innerhalb des dreistündigen Zeitfensters und das Upgrade wird fortgesetzt. Sie müssen in diesem Szenario keine Maßnahmen ergreifen.
+* Das Problem besteht nach drei Stunden weiter, und der Aktualisierungsstatus zeigt *Fehler* mit einem roten Banner an. Sie können das Upgrade fortsetzen, indem Sie nach der Behebung des Problems *Fortsetzen* auswählen.
+* Der NetApp Support hat festgestellt, dass das Upgrade vorübergehend abgebrochen werden muss, damit Korrekturmaßnahmen vor dem dreistündigen Fenster durchgeführt werden können. Der Support verwendet die API, um das Upgrade abzubrechen.
+
+
+
+CAUTION: Wenn das Cluster-Upgrade abgebrochen wird, während ein Node aktualisiert wird, kann dies dazu führen, dass die Laufwerke nicht ordnungsgemäß vom Node entfernt werden. Wenn die Laufwerke unnormal entfernt werden, muss das Hinzufügen der Laufwerke während eines Upgrades manuell durch den NetApp Support erfolgen. Der Node kann länger dauern, um Firmware-Updates durchzuführen oder Aktivitäten zur Synchronisierung nach dem Update durchzuführen. Wenn der Upgrade-Fortschritt blockiert wird, wenden Sie sich an den NetApp Support.
+
+
+
+== Verwenden Sie die NetApp Hybrid Cloud Control API für ein Upgrade der Storage-Firmware
+
+Mit APIs können Storage-Nodes in einem Cluster auf die neueste Element Softwareversion aktualisiert werden. Sie können ein Automatisierungstool Ihrer Wahl zum Ausführen der APIs verwenden. Der hier dokumentierte API-Workflow nutzt die REST-API-UI, die am Management-Node verfügbar ist.
+
+.Schritte
+. Führen Sie je nach Verbindung einen der folgenden Schritte aus:
++
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Der Management-Node verfügt über externe Konnektivität.  a| 
+.. Überprüfen Sie die Repository-Verbindung:
++
+... Öffnen Sie die REST-API-UI für den Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/package-repository/1/
+----
+... Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+.... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+.... Geben Sie die Client-ID als ein `mnode-client`.
+.... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+.... Schließen Sie das Autorisierungsfenster.
+
+
+... Wählen Sie in DER REST-API-UI *GET ​/packages​/Remote-repository​/Connection* aus.
+... Wählen Sie *Probieren Sie es aus*.
+... Wählen Sie *Ausführen*.
+... Wenn Code 200 zurückgegeben wird, fahren Sie mit dem nächsten Schritt fort. Wenn keine Verbindung zum Remote-Repository besteht, stellen Sie die Verbindung her, oder verwenden Sie die Option „Dark Site“.
+
+
+.. Suchen Sie die Aktualisierungspaket-ID:
++
+... Wählen Sie in DER REST API-Benutzeroberfläche *GET /Packages* aus.
+... Wählen Sie *Probieren Sie es aus*.
+... Wählen Sie *Ausführen*.
+... Kopieren Sie die Firmware-Paket-ID aus der Antwort, und speichern Sie sie in einem späteren Schritt.
+
+
+
+
+
+
+| Ihr Management Node befindet sich an einem dunklen Standort ohne externe Konnektivität.  a| 
+.. Laden Sie das neueste Upgrade-Paket für die Storage-Firmware auf ein Gerät herunter, auf das für den Management-Node zugegriffen werden kann. Gehen Sie zu https://mysupport.netapp.com/site/products/all/details/element-software/downloads-tab/download/62654/Storage_Firmware_Bundle["Bundle-Seite für die Element Software Storage-Firmware"^] Und laden Sie das neueste Speicher-Firmware-Image herunter.
+.. Laden Sie das Upgrade-Paket für die Speicher-Firmware auf den Management-Node hoch:
++
+... Öffnen Sie die REST-API-UI für den Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/package-repository/1/
+----
+... Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+.... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+.... Geben Sie die Client-ID als ein `mnode-client`.
+.... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+.... Schließen Sie das Autorisierungsfenster.
+
+
+... Wählen Sie in DER REST API-Benutzeroberfläche *POST /Packages* aus.
+... Wählen Sie *Probieren Sie es aus*.
+... Wählen Sie *Durchsuchen* und wählen Sie das Aktualisierungspaket aus.
+... Wählen Sie *Ausführen*, um den Upload zu initiieren.
+... Kopieren Sie die Paket-ID aus der Antwort, und speichern Sie sie (`"id"`) Für den Einsatz in einem späteren Schritt.
+
+
+.. Überprüfen Sie den Status des Uploads.
++
+... Wählen Sie in DER REST-API-Benutzeroberfläche *GET​ /packages​/{id}​/Status* aus.
+... Wählen Sie *Probieren Sie es aus*.
+... Geben Sie die Firmware-Paket-ID ein, die Sie im vorherigen Schritt in *id* kopiert haben.
+... Wählen Sie *Ausführen*, um die Statusanforderung zu initiieren.
++
+Die Antwort zeigt an `state` Als `SUCCESS` Nach Abschluss.
+
+
+
+
+
+|===
+. Suchen Sie die Installations-Asset-ID:
++
+.. Öffnen Sie die REST-API-UI für den Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client`.
+... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Autorisierungsfenster.
+
+
+.. Wählen Sie in DER REST API-Benutzeroberfläche *GET /Installations* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Wählen Sie *Ausführen*.
+.. Kopieren Sie als Antwort die Installations-Asset-ID (`id`).
++
+[listing, subs="+quotes"]
+----
+*"id": "abcd01e2-xx00-4ccf-11ee-11f111xx9a0b",*
+"management": {
+  "errors": [],
+  "inventory": {
+    "authoritativeClusterMvip": "10.111.111.111",
+    "bundleVersion": "2.14.19",
+    "managementIp": "10.111.111.111",
+    "version": "1.4.12"
+----
+.. Wählen Sie in DER REST-API-UI *GET /installations/{id}* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Fügen Sie die Installations-Asset-ID in das Feld *id* ein.
+.. Wählen Sie *Ausführen*.
+.. Kopieren Sie aus der Antwort die Storage-Cluster-ID und speichern Sie sie (`"id"`) Des Clusters Sie beabsichtigen, für die Verwendung in einem späteren Schritt zu aktualisieren.
++
+[listing, subs="+quotes"]
+----
+"storage": {
+  "errors": [],
+  "inventory": {
+    "clusters": [
+      {
+        "clusterUuid": "a1bd1111-4f1e-46zz-ab6f-0a1111b1111x",
+        *"id": "a1bd1111-4f1e-46zz-ab6f-a1a1a111b012",*
+----
+
+
+. Führen Sie das Speicher-Firmware-Upgrade aus:
++
+.. Öffnen Sie die Storage REST API-UI auf dem Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/storage/1/
+----
+.. Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client`.
+... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Fenster.
+
+
+.. Wählen Sie *POST/Upgrades*.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie die Paket-ID des Upgrades in das Feld Parameter ein.
+.. Geben Sie im Parameterfeld die Storage-Cluster-ID ein.
+.. Wählen Sie *Ausführen*, um das Upgrade zu initiieren.
++
+Die Antwort sollte Status als angeben `initializing`:
+
++
+[listing, subs="+quotes"]
+----
+{
+  "_links": {
+    "collection": "https://localhost:442/storage/upgrades",
+    "self": "https://localhost:442/storage/upgrades/3fa85f64-1111-4562-b3fc-2c963f66abc1",
+    "log": https://localhost:442/storage/upgrades/3fa85f64-1111-4562-b3fc-2c963f66abc1/log
+  },
+  "storageId": "114f14a4-1a1a-11e9-9088-6c0b84e200b4",
+  "upgradeId": "334f14a4-1a1a-11e9-1055-6c0b84e2001b4",
+  "packageId": "774f14a4-1a1a-11e9-8888-6c0b84e200b4",
+  "config": {},
+  *"state": "initializing",*
+  "status": {
+    "availableActions": [
+      "string"
+    ],
+    "message": "string",
+    "nodeDetails": [
+      {
+        "message": "string",
+        "step": "NodePreStart",
+        "nodeID": 0,
+        "numAttempt": 0
+      }
+    ],
+    "percent": 0,
+    "step": "ClusterPreStart",
+    "timestamp": "2020-04-21T22:10:57.057Z",
+    "failedHealthChecks": [
+      {
+        "checkID": 0,
+        "name": "string",
+        "displayName": "string",
+        "passed": true,
+        "kb": "string",
+        "description": "string",
+        "remedy": "string",
+        "severity": "string",
+        "data": {},
+        "nodeID": 0
+      }
+    ]
+  },
+  "taskId": "123f14a4-1a1a-11e9-7777-6c0b84e123b2",
+  "dateCompleted": "2020-04-21T22:10:57.057Z",
+  "dateCreated": "2020-04-21T22:10:57.057Z"
+}
+----
+.. Kopieren Sie die Upgrade-ID (`"upgradeId"`Das ist Teil der Antwort.
+
+
+. Überprüfen Sie den Aktualisierungsfortschritt und die Ergebnisse:
++
+.. Wählen Sie *GET ​/Upgrades/{upgradeId}* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie die Upgrade-ID des vorherigen Schritts in *UpgradeId* ein.
+.. Wählen Sie *Ausführen*.
+.. Führen Sie einen der folgenden Schritte aus, wenn während des Upgrades Probleme oder besondere Anforderungen auftreten:
++
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Sie müssen Probleme mit dem Cluster-Systemzustand aufgrund von korrigieren `failedHealthChecks` Nachricht im Antwortkörper.  a| 
+... Gehen Sie zu dem für jedes Problem angegebenen KB-Artikel oder führen Sie das angegebene Heilmittel aus.
+... Wenn ein KB angegeben wird, führen Sie den im entsprechenden KB-Artikel beschriebenen Prozess aus.
+... Nachdem Sie Clusterprobleme behoben haben, authentifizieren Sie sich bei Bedarf erneut und wählen Sie *PUT ​/Upgrades/{UpgradeId}* aus.
+... Wählen Sie *Probieren Sie es aus*.
+... Geben Sie die Upgrade-ID des vorherigen Schritts in *UpgradeId* ein.
+... Eingabe `"action":"resume"` Im Anforderungsgremium.
++
+[listing]
+----
+{
+  "action": "resume"
+}
+----
+... Wählen Sie *Ausführen*.
+
+
+
+
+| Sie müssen das Upgrade unterbrechen, da das Wartungsfenster geschlossen wird oder aus einem anderen Grund.  a| 
+... Bei Bedarf erneut authentifizieren und *PUT ​/Upgrades/{UpgradeId}* auswählen.
+... Wählen Sie *Probieren Sie es aus*.
+... Geben Sie die Upgrade-ID des vorherigen Schritts in *UpgradeId* ein.
+... Eingabe `"action":"pause"` Im Anforderungsgremium.
++
+[listing]
+----
+{
+  "action": "pause"
+}
+----
+... Wählen Sie *Ausführen*.
+
+
+|===
+.. Führen Sie die *GET ​/Upgrades/{upgradeId}* API nach Bedarf mehrmals aus, bis der Prozess abgeschlossen ist.
++
+Während des Upgrades, die `status` Zeigt an `running` Wenn keine Fehler aufgetreten sind. Wenn jeder Node aktualisiert wird, wird der `step` Wertänderungen an `NodeFinished`.
+
++
+Das Upgrade wurde erfolgreich abgeschlossen, wenn der abgeschlossen wurde `percent` Wert ist `100` Und das `state` Zeigt an `finished`.
+
+
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

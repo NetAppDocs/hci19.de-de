@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_enable_remote_support_connections.html 
+summary: Sie können den Management-Node verwenden, um NetApp Support-Zugriff für die Fehlerbehebung zu aktivieren. 
+keywords: netapp, mnode, management node, connect to support, support tunnel, rst 
+---
+= Starten Sie eine Remote NetApp Support Sitzung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie technischen Support für Ihr NetApp HCI System benötigen, kann sich der NetApp Support per Fernzugriff mit Ihrem System verbinden. Um eine Sitzung zu starten und Remote-Zugriff zu erhalten, kann der NetApp Support eine Reverse Secure Shell-(SSH)-Verbindung zu Ihrer Umgebung öffnen.
+
+Sie können einen TCP-Port für eine SSH-Reverse-Tunnel-Verbindung mit NetApp Support öffnen. Über diese Verbindung kann sich NetApp Support beim Management Node einloggen.
+
+.Bevor Sie beginnen
+* Für Managementservices ab Version 2.18 ist die Möglichkeit für den Remote-Zugriff auf dem Management-Node standardmäßig deaktiviert. Informationen zum Aktivieren der Fernzugriffsfunktionen finden Sie unter link:task_mnode_ssh_management.html["Verwalten der SSH-Funktionalität auf dem Management-Node"].
+* Wenn sich der Managementknoten hinter einem Proxyserver befindet, sind die folgenden TCP-Ports in der Datei sshd.config erforderlich:
++
+[cols="15,25,60"]
+|===
+| TCP-Port | Beschreibung | Verbindungsrichtung 
+
+
+| 443 | API-Aufrufe/HTTPS zur Umkehrung der Port-Weiterleitung über offenen Support-Tunnel zur Web-UI | Management-Node zu Storage-Nodes 
+
+
+| 22 | SSH-Login-Zugriff | Management-Node zu Storage-Nodes oder von Storage-Nodes zum Management-Node 
+|===
+
+
+.Schritte
+* Melden Sie sich bei Ihrem Management-Knoten an und öffnen Sie eine Terminalsitzung.
+* Geben Sie an einer Eingabeaufforderung Folgendes ein:
++
+`rst -r  sfsupport.solidfire.com -u element -p <port_number>`
+
+* Um den Remote Support-Tunnel zu schließen, geben Sie Folgendes ein:
++
+`rst --killall`
+
+* (Optional) Deaktivieren link:task_mnode_ssh_management.html["Remote-Zugriffsfunktion"] Ein weiteres Jahr in der
++
+
+NOTE: SSH bleibt aktiviert, wenn Sie ihn nicht deaktivieren. Die SSH-fähige Konfiguration bleibt auf dem Management-Node durch Updates und Upgrades bestehen, bis sie manuell deaktiviert ist.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

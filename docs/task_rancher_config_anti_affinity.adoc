@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_config_anti_affinity.html 
+summary: Erfahren Sie, wie Sie Anti-Affinitätsregeln für Rancher VMs konfigurieren, um die Ausfallsicherheit des Hosts zu unterstützen. 
+keywords: netapp, hci, rancher, deploy, cluster, kubernetes, anti, affinity, resiliency 
+---
+= Verbesserte Resiliency für Rancher Virtual Machines
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach der Implementierung von Rancher auf NetApp HCI enthält Ihre vSphere Umgebung drei neue Nodes als Virtual Machines, um die Rancher Umgebung zu hosten. Die Rancher Web-UI ist von jedem dieser Knoten verfügbar. Um eine vollständige Ausfallsicherheit zu erzielen, sollten sich die drei Virtual Machines zusammen mit den entsprechenden virtuellen Laufwerken nach Ereignissen wie Stromkreisläufen und Failover auf einem anderen physischen Host befinden.
+
+Um sicherzustellen, dass jede VM und die zugehörigen Ressourcen auf einem anderen physischen Host bleiben, können Sie Antiaffinitätsregeln für VMware vSphere Distributed Resource Scheduler (DRS) erstellen. Dies ist im Rahmen der Rancher-Studie zur NetApp HCI-Implementierung nicht automatisiert.
+
+Anweisungen zur Konfiguration von DRS-Antiaffinitätsregeln finden Sie in den folgenden VMware-Dokumentationsmaterialien:
+
+https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-FBE46165-065C-48C2-B775-7ADA87FF9A20.html["Anti-Affinitätsregeln für VMs erstellen"^]
+
+https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.avail.doc/GUID-E137A9F8-17E4-4DE7-B986-94A0999CF327.html["VSphere HA und DRS Affinitätsregeln"^]
+
+[discrete]
+== Weitere Informationen
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_initiators.html 
+summary: Lernen Sie Initiatoren kennen und erfahren Sie, wie sie den Zugriff auf Storage in Volume-Zugriffsgruppen erlauben. 
+keywords: netapp, hci, initiator, storage volume, solidfire volume, element volume, access group 
+---
+= Initiatoren
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Initiatoren ermöglichen den Zugriff auf externe Clients auf Volumes in einem Cluster. Diese dienen als Einstiegspunkt für die Kommunikation zwischen Clients und Volumes. Sie können Initiatoren für CHAP-basierten Zugriff anstelle von kontenbasierten Speichervolumes verwenden. Wenn ein einzelner Initiator einer Volume-Zugriffsgruppe hinzugefügt wird, können die Mitglieder der Volume-Zugriffsgruppen auf alle der Gruppe hinzugefügten Storage Volumes zugreifen, ohne dass eine Authentifizierung erforderlich ist. Ein Initiator kann nur einer Zugriffsgruppe angehören.
+
+
+
+== Weitere Informationen
+
+* link:task_hcc_manage_initiators.html["Verwalten von Initiatoren"]
+* link:concept_hci_volume_access_groups.html["Volume-Zugriffsgruppen"]
+* link:task_hcc_manage_vol_access_groups.html["Management von Volume-Zugriffsgruppen"]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_work_overview_UI.html 
+summary: 'Mit der Management-Node-UI (https://<mNodeIP>:442)[], Sie können Änderungen an Netzwerk- und Cluster-Einstellungen vornehmen, Systemtests ausführen oder Systemdienstprogramme verwenden.' 
+keywords: 'netapp, management node ui, mnode ui, :442, element' 
+---
+= Übersicht über die Management-Node-UI
+:allow-uri-read: 
+
+
+[role="lead"]
+Mit der Management-Node-UI (`https://<mNodeIP>:442`) Können Sie Änderungen an Netzwerk- und Clustereinstellungen vornehmen, Systemtests ausführen oder Systemdienstprogramme verwenden.
+
+Aufgaben, die Sie mit der Management-Node-UI durchführen können:
+
+* link:task_mnode_enable_alerts.html["Konfigurieren Sie die Meldungsüberwachung auf NetApp HCI"]
+* link:task_mnode_settings.html["Ändern und Testen der Netzwerk-, Cluster- und Systemeinstellungen des Management-Node"]
+* link:task_mnode_run_system_utilities.html["Führen Sie Systemdienstprogramme vom Management-Node aus"]
+
+
+[discrete]
+== Weitere Informationen
+
+* link:task_mnode_access_ui.html["Greifen Sie auf den Management-Node zu"]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

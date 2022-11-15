@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: docs/task_reduce_boot_media_wear.html 
+summary: Erfahren Sie, wie sich die Boot-Mediabnutzung bei einem NetApp HCI Computing-Node verringern lässt. 
+keywords: netapp, hci, deployment, review, deploy, boot, drive, wear 
+---
+= Verringern Sie den Verschleiß der Boot-Medien in einem NetApp HCI Computing-Node
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie Flash-Speicher oder NVDIMM-Boot-Medien mit einem NetApp HCI-Computing-Node verwenden, wird durch die Beibehaltung der Systemprotokolle auf diesem Medium häufig auf diese Medien geschrieben. In diesem Fall kann der Flash-Speicher eventuell verschlechtert werden. Verwenden Sie die Anweisungen im folgenden KB-Artikel, um die Host-Protokollierung und die Core Dump-Datei auf einen freigegebenen Speicherort zu verschieben. So können Sie verhindern, dass das Boot-Medium im Laufe der Zeit abfällt, und vermeiden Sie vollständige Fehler auf der Boot-Festplatte.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_reduce_wear_on_the_boot_drive_of_a_Netapp_HCI_compute_node["So wird der Verschleiß des Boot-Laufwerks eines NetApp HCI Computing-Node reduziert"^]
+
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

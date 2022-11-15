@@ -1,0 +1,453 @@
+---
+settings:
+  name: HCI
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: de-de,us-en,ja-jp,zh-cn,zh-tw,ko-kr,fr-fr
+sidebar:
+  entries:
+  - title: NetApp HCI 1.9-Dokumentation
+    url: "/index.html"
+  - title: NetApp HCI Lösungen
+    url: "/docs/hci_solutions_index.html"
+  - title: Versionshinweise
+    entries:
+    - title: Neuerungen in NetApp HCI
+      url: "/docs/rn_whatsnew.html"
+    - title: Weitere Release-Informationen
+      url: "/docs/rn_relatedrn.html"
+  - title: Konzepte
+    entries:
+    - title: Produktübersicht
+      url: "/docs/concept_hci_product_overview.html"
+    - title: Konten
+      url: "/docs/concept_cg_hci_accounts.html"
+    - title: Datensicherung
+      url: "/docs/concept_hci_dataprotection.html"
+    - title: Cluster
+      url: "/docs/concept_hci_clusters.html"
+    - title: Knoten
+      url: "/docs/concept_hci_nodes.html"
+    - title: Storage
+      entries:
+      - title: Wartungsmodus
+        url: "/docs/concept_hci_storage_maintenance_mode.html"
+      - title: Volumes
+        url: "/docs/concept_hci_volumes.html"
+      - title: Volume-Zugriffsgruppen
+        url: "/docs/concept_hci_volume_access_groups.html"
+      - title: Initiatoren
+        url: "/docs/concept_hci_initiators.html"
+      - title: Benutzerdefinierte Sicherungsdomänen
+        url: "/docs/concept_hcc_custom_protection_domains.html"
+    - title: Lizenzierung
+      url: "/docs/concept_cg_hci_licensing.html"
+    - title: Maximale Konfigurationswerte für NetApp Hybrid Cloud Control
+      url: "/docs/reference_hcc_config_maximums.html"
+    - title: Sicherheit
+      url: "/docs/concept_cg_hci_security.html"
+    - title: Leistung
+      url: "/docs/concept_hci_performance.html"
+  - title: Anforderungen und Vorbereitstellungs-Aufgaben zu erfüllen
+    entries:
+    - title: Anforderungen für die NetApp HCI-Implementierung
+      url: "/docs/hci_prereqs_overview.html"
+    - title: Anforderungen an Management-Nodes
+      url: "/docs/hci_prereqs_management_node.html"
+    - title: Anforderungen an Netzwerk-Ports
+      url: "/docs/hci_prereqs_required_network_ports.html"
+    - title: Netzwerk- und Switch-Anforderungen
+      url: "/docs/hci_prereqs_network_switch.html"
+    - title: Anforderungen an die Netzwerkkabel
+      url: "/docs/hci_prereqs_network_cables.html"
+    - title: Anforderungen an die IP-Adresse
+      url: "/docs/hci_prereqs_ip_address.html"
+    - title: Netzwerkkonfiguration
+      entries:
+      - title: Übersicht über die Netzwerkkonfigurationsoptionen
+        url: "/docs/hci_prereqs_network_configuration.html"
+      - title: Netzwerkkonfigurationsoption A
+        url: "/docs/hci_prereqs_network_configuration_option_A.html"
+      - title: Netzwerkkonfigurationsoption B
+        url: "/docs/hci_prereqs_network_configuration_option_B.html"
+      - title: Netzwerkkonfigurationsoption C
+        url: "/docs/hci_prereqs_network_configuration_option_C.html"
+    - title: DNS- und Zeitdaueranforderungen
+      url: "/docs/hci_prereqs_timekeeping.html"
+    - title: Umweltanforderungen
+      url: "/docs/hci_prereqs_environmental.html"
+    - title: Sicherungsdomänen
+      url: "/docs/hci_prereqs_protection_domains.html"
+    - title: Ressourcenanforderungen von Witness Node für Storage Cluster mit zwei
+        Nodes
+      url: "/docs/hci_prereqs_witness_nodes.html"
+  - title: Legen Sie los – mit NetApp HCI
+    entries:
+    - title: Übersicht über die Installation und Implementierung von NetApp HCI
+      url: "/docs/task_hci_getstarted.html"
+    - title: Hardware der H-Serie installieren
+      url: "/docs/task_hci_installhw.html"
+    - title: Konfigurieren Sie LACP, um eine optimale Storage-Performance zu erzielen
+      url: "/docs/hci_prereqs_LACP_configuration.html"
+    - title: Validieren Sie Ihre Umgebung mit Active IQ Config Advisor
+      url: "/docs/hci_prereqs_task_validate_config_advisor.html"
+    - title: Konfigurieren Sie IPMI für jeden Node
+      url: "/docs/hci_prereqs_final_prep.html"
+  - title: Implementieren Sie NetApp HCI
+    entries:
+    - title: Rufen Sie die NetApp Deployment Engine auf
+      entries:
+      - title: Übersicht über die Zugriffsoptionen der NetApp Deployment Engine
+        url: "/docs/concept_nde_access_overview.html"
+      - title: Zugriff auf die NetApp Deployment Engine in Umgebungen ohne DHCP
+        url: "/docs/task_nde_access_no_dhcp.html"
+      - title: Greifen Sie in Umgebungen mit DHCP auf die NetApp Deployment Engine
+          zu
+        url: "/docs/task_nde_access_dhcp.html"
+      - title: Weisen Sie IP-Adressen manuell dem Zugriff auf die NetApp Deployment
+          Engine zu
+        url: "/docs/task_nde_access_manual_ip.html"
+    - title: Starten Sie die Implementierung
+      url: "/docs/task_nde_start_deployment.html"
+    - title: Importieren Sie ein Installationsprofil
+      url: "/docs/task_nde_import_installation_profile.html"
+    - title: Konfigurieren Sie VMware vSphere
+      entries:
+      - title: Übersicht über die vSphere-Konfiguration
+        url: "/docs/concept_nde_config_vsphere_overview.html"
+      - title: Konfigurieren einer neuen VMware vSphere Umgebung
+        url: "/docs/task_nde_configure_new_vsphere.html"
+      - title: Schließen Sie sich einer vorhandenen VMware vSphere Implementierung
+          an
+        url: "/docs/task_nde_join_existing_vsphere.html"
+    - title: Konfigurieren Sie die NetApp HCI-Anmeldedaten
+      url: "/docs/task_nde_configure_credentials.html"
+    - title: Wählen Sie eine Netzwerktopologie aus
+      url: "/docs/task_nde_select_net_topology.html"
+    - title: Bestandsauswahl
+      entries:
+      - title: Bestandsauswahl und Knotenkompatibilität
+        url: "/docs/concept_nde_node_compatibility.html"
+      - title: Wählen Sie Inventar aus
+        url: "/docs/task_nde_select_inventory.html"
+    - title: Netzwerkeinstellungen konfigurieren
+      url: "/docs/task_nde_configure_net_settings.html"
+    - title: Prüfung und Implementierung
+      url: "/docs/task_nde_review_deploy.html"
+    - title: Aufgaben nach der Implementierung
+      entries:
+      - title: Überblick über Aufgaben nach der Implementierung
+        url: "/docs/concept_nde_post_deployment_overview.html"
+      - title: Unterstützte Netzwerkänderungen
+        url: "/docs/task_nde_supported_net_changes.html"
+      - title: Deaktivieren Sie den Smartd-Dienst auf NetApp HCI-Compute-Nodes
+        url: "/docs/task_nde_disable_smartd.html"
+      - title: Deaktivieren Sie den Befehl „lacp-individual“ bei konfigurierten Switches
+        url: "/docs/task_nde_disable_lacp_individual.html"
+      - title: Erstellen einer NetApp HCC-Rolle in vCenter
+        url: "/docs/task_mnode_create_netapp_hcc_role_vcenter.html"
+      - title: Halten Sie VMware vSphere auf dem neuesten Stand
+        url: "/docs/task_nde_update_vsphere.html"
+      - title: Installieren von GPU-Treibern für Compute-Nodes mit GPU-Aktivierung
+        url: "/docs/task_nde_install_GPU_drivers.html"
+      - title: Zugriff auf NetApp Hybrid Cloud Control
+        url: "/docs/task_nde_access_hcc.html"
+      - title: Verringern Sie den Verschleiß der Boot-Medien in einem NetApp HCI Computing-Node
+        url: "/docs/task_reduce_boot_media_wear.html"
+  - title: Managen Sie NetApp HCI
+    entries:
+    - title: NetApp HCI managen – Übersicht
+      url: "/docs/task_hci_manage_overview.html"
+    - title: Konfigurieren Sie vollständig qualifizierten Domänennamen Web UI-Zugriff
+      url: "/docs/task_nde_access_ui_fqdn.html"
+    - title: Ändern Sie die Anmeldedaten in NetApp HCI
+      url: "/docs/task_post_deploy_credentials.html"
+    - title: Aktualisieren der vCenter- und ESXi-Anmeldedaten
+      url: "/docs/task_hci_credentials_vcenter_esxi.html"
+    - title: Managen Sie NetApp HCI Storage
+      entries:
+      - title: Management von NetApp HCI Storage – Überblick
+        url: "/docs/task_hcc_manage_storage_overview.html"
+      - title: Benutzerkonten erstellen und verwalten
+        url: "/docs/task_hcc_manage_accounts.html"
+      - title: Hinzufügen und Managen von Storage-Clustern
+        url: "/docs/task_hcc_manage_storage_clusters.html"
+      - title: Erstellung und Management von Volumes
+        url: "/docs/task_hcc_manage_vol_management.html"
+      - title: Erstellung und Management von Volume-Zugriffsgruppen
+        url: "/docs/task_hcc_manage_vol_access_groups.html"
+      - title: Erstellen und Verwalten von Initiatoren
+        url: "/docs/task_hcc_manage_initiators.html"
+      - title: Erstellung und Management von QoS-Richtlinien für Volumes
+        url: "/docs/task_hcc_qos_policies.html"
+    - title: Arbeiten Sie mit dem Management-Node
+      entries:
+      - title: Übersicht über Management-Nodes
+        url: "/docs/task_mnode_work_overview.html"
+      - title: Installation oder Wiederherstellung eines Management-Node
+        entries:
+        - title: Installieren Sie einen Management-Node
+          url: "/docs/task_mnode_install.html"
+        - title: Konfigurieren eines Speicher-Netzwerkschnittstellentoncontrollers
+            (NIC)
+          url: "/docs/task_mnode_install_add_storage_NIC.html"
+        - title: Wiederherstellung eines Management-Node
+          url: "/docs/task_mnode_recover.html"
+      - title: Greifen Sie auf den Management-Node zu
+        url: "/docs/task_mnode_access_ui.html"
+      - title: Arbeiten Sie mit der Management-Node-UI
+        entries:
+        - title: Übersicht über die Management-Node-UI
+          url: "/docs/task_mnode_work_overview_UI.html"
+        - title: Konfigurieren Sie die Meldungsüberwachung auf NetApp HCI
+          url: "/docs/task_mnode_enable_alerts.html"
+        - title: Ändern und Testen der Netzwerk-, Cluster- und Systemeinstellungen
+            des Management-Node
+          url: "/docs/task_mnode_settings.html"
+        - title: Führen Sie Systemdienstprogramme vom Management-Node aus
+          url: "/docs/task_mnode_run_system_utilities.html"
+      - title: Arbeiten mit DER REST-API des Management-Node
+        entries:
+        - title: Übersicht über DIE REST-API-UI für den Management-Node
+          url: "/docs/task_mnode_work_overview_API.html"
+        - title: Autorisierung zur Verwendung VON REST-APIs
+          url: "/docs/task_mnode_api_get_authorizationtouse.html"
+        - title: Active IQ- und NetApp HCI-Monitoring aktivieren
+          url: "/docs/task_mnode_enable_activeIQ.html"
+        - title: Konfiguration von NetApp Hybrid Cloud Control für mehrere vCenter
+          url: "/docs/task_mnode_multi_vcenter_config.html"
+        - title: Fügen Sie dem Management-Node Computing- und Controller-Ressourcen
+            hinzu
+          url: "/docs/task_mnode_add_assets.html"
+        - title: So finden Sie ein Hardware-Tag für Compute-Knoten
+          url: "/docs/task_mnode_locate_hardware_tag.html"
+        - title: Erstellen und Managen von Storage-Cluster-Assets
+          url: "/docs/task_mnode_manage_storage_cluster_assets.html"
+        - title: Vorhandene Controller-Assets können angezeigt oder bearbeitet werden
+          url: "/docs/task_mnode_edit_vcenter_assets.html"
+        - title: Entfernen Sie ein Asset vom Management-Node
+          url: "/docs/task_mnode_remove_assets.html"
+        - title: Konfigurieren Sie einen Proxy-Server für den Management-Node
+          url: "/docs/task_mnode_configure_proxy_server.html"
+        - title: Überprüfen Sie die Betriebssystem- und Servicestversionen der Management-Nodes
+          url: "/docs/task_mnode_api_find_mgmt_svcs_version.html"
+        - title: Abrufen von Protokollen von Managementservices
+          url: "/docs/task_mnode_logs.html"
+      - title: Managen von Supportverbindungen
+        entries:
+        - title: Starten Sie eine Remote NetApp Support Sitzung
+          url: "/docs/task_mnode_enable_remote_support_connections.html"
+        - title: Verwalten der SSH-Funktionalität auf dem Management-Node
+          url: "/docs/task_mnode_ssh_management.html"
+    - title: Schaltet das NetApp HCI System aus oder ein
+      entries:
+      - title: Überblick über die Leistungsstärke von NetApp HCI
+        url: "/docs/concept_nde_hci_power_off_on.html"
+      - title: Schalten Sie Computing-Ressourcen für ein NetApp HCI System aus
+        url: "/docs/task_nde_hci_power_off_compute.html"
+      - title: Schalten Sie die Storage-Ressourcen für ein NetApp HCI System aus
+        url: "/docs/task_nde_hci_power_off_storage.html"
+      - title: Schalten Sie Storage-Ressourcen für ein NetApp HCI System ein
+        url: "/docs/task_nde_hci_power_on_storage.html"
+      - title: Schalten Sie Computing-Ressourcen für ein NetApp HCI System ein
+        url: "/docs/task_nde_hci_power_on_compute.html"
+  - title: Überwachen Sie Ihr NetApp HCI System mit NetApp Hybrid Cloud Control
+    entries:
+    - title: Zeigen Sie Ressourcen auf der Konsole von NetApp Hybrid Cloud Control
+        an
+      url: "/docs/task_hcc_dashboard.html"
+    - title: Zeigen Sie Ihre Inventar auf der Seite Nodes von NetApp Hybrid Cloud
+        Control an
+      url: "/docs/task_hcc_nodes.html"
+    - title: Bearbeiten Sie BMC-Verbindungsinformationen mit NetApp Hybrid Cloud Control
+      url: "/docs/task_hcc_edit_bmc_info.html"
+    - title: Überwachen Sie Volumes auf Ihrem Storage-Cluster mit NetApp Hybrid Cloud
+        Control
+      url: "/docs/task_hcc_volumes.html"
+    - title: Überwachung von Performance, Kapazität und Cluster-Zustand mit NetApp
+        Hybrid Cloud Control Verbindungen zu Active IQ
+      url: "/docs/task_hcc_activeiq.html"
+    - title: Sammelt Protokolle für die Fehlerbehebung
+      url: "/docs/task_hcc_collectlogs.html"
+  - title: Aktualisieren Sie die NetApp HCI-Systemversion 1.9 oder 1,9P1
+    entries:
+    - title: Übersicht der Aktualisierungssequenz
+      url: "/docs/concept_hci_upgrade_overview.html"
+    - title: Verfahren für System-Upgrades
+      entries:
+      - title: Managementservices aktualisieren
+        url: "/docs/task_hcc_update_management_services.html"
+      - title: Upgrade auf die neuesten HealthTools
+        url: "/docs/task_upgrade_element_latest_healthtools.html"
+      - title: Integritätsprüfungen von Element Storage vor einem Storage Upgrade
+          durchführen
+        url: "/docs/task_hcc_upgrade_element_prechecks.html"
+      - title: Upgrade der Element Software
+        url: "/docs/task_hcc_upgrade_element_software.html"
+      - title: Firmware für Storage-Upgrades
+        url: "/docs/task_hcc_upgrade_storage_firmware.html"
+      - title: Upgrade eines Management-Node
+        url: "/docs/task_hcc_upgrade_management_node.html"
+      - title: Upgrade des NetApp Element Plug-ins für vCenter Server
+        url: "/docs/task_vcp_upgrade_plugin.html"
+      - title: Vor einem Upgrade der Computing-Firmware müssen Systemzustandsprüfungen
+          für Computing-Nodes durchgeführt werden
+        url: "/docs/task_upgrade_compute_prechecks.html"
+      - title: Aktualisieren von Compute-Node-Treibern
+        url: "/docs/task_hcc_upgrade_compute_node_drivers.html"
+      - title: Aktualisiert die Firmware der Computing-Node
+        url: "/docs/task_hcc_upgrade_compute_node_firmware.html"
+      - title: Automatisieren Sie Upgrades der Computing-Node-Firmware mit Ansible
+        url: "/docs/task_hcc_upgrade_compute_firmware_ansible.html"
+    - title: Aktualisieren Sie Ihre vSphere Komponenten für ein NetApp HCI System
+        mit dem Element Plug-in für vCenter Server
+      url: "/docs/task_hci_upgrade_all_vsphere.html"
+  - title: Erweitern Sie Ihr NetApp HCI System
+    entries:
+    - title: Übersicht erweitern
+      url: "/docs/concept_hcc_expandoverview.html"
+    - title: Erweitern Sie NetApp HCI Storage-Ressourcen
+      url: "/docs/task_hcc_expand_storage.html"
+    - title: Erweitern Sie die NetApp HCI Computing-Ressourcen
+      url: "/docs/task_hcc_expand_compute.html"
+    - title: Erweiterung der NetApp Storage- und Computing-Ressourcen
+      url: "/docs/task_hcc_expand_compute_and_storage.html"
+    - title: Entfernen Sie Witness Nodes nach dem erweitern des Clusters
+      url: "/docs/task_hci_removewn.html"
+  - title: Verwenden Sie Rancher auf NetApp HCI
+    entries:
+    - title: Übersicht über die NetApp HCI
+      url: "/docs/concept_rancher_product_overview.html"
+    - title: Konzepte
+      url: "/docs/concept_rancher_concepts.html"
+    - title: Anforderungen für die Rangliste auf NetApp HCI
+      url: "/docs/rancher_prereqs_overview.html"
+    - title: NetApp HCI-Ranking einsetzen
+      url: "/docs/task_rancher_deploy.html"
+    - title: Aufgaben nach der Implementierung
+      entries:
+      - title: Überblick über Aufgaben nach der Implementierung
+        url: "/docs/concept_rancher_post_deployment_overview.html"
+      - title: Stellen Sie sicher, dass Rancher Support-Parität erreicht ist
+        url: "/docs/task_rancher_ensure_rancher_support_parity.html"
+      - title: Verbesserte Resiliency für Rancher Virtual Machines
+        url: "/docs/task_rancher_config_anti_affinity.html"
+      - title: Monitoring konfigurieren
+        url: "/docs/task_rancher_enable_monitoring.html"
+      - title: Installation Von Trident
+        url: "/docs/task_rancher_trident.html"
+      - title: Aktivieren Sie die Trident Unterstützung für Benutzer-Cluster
+        url: "/docs/task_trident_configure_networking.html"
+    - title: Implementieren von Benutzer-Clustern und Applikationen
+      url: "/docs/task_rancher_deploy_user_clusters.html"
+    - title: Managen Sie die Rangliste auf NetApp HCI
+      url: "/docs/task_rancher_manage.html"
+    - title: Überwachen Sie die Rangliste auf NetApp HCI
+      url: "/docs/task_rancher_monitor.html"
+    - title: Upgrade-Rangliste auf NetApp HCI
+      url: "/docs/task_rancher_upgrades.html"
+    - title: Entfernen Sie eine Rancher-Installation auf NetApp HCI
+      url: "/docs/task_rancher_remove_deployment.html"
+  - title: Hardware der H-Serie warten
+    entries:
+    - title: Hardware-Wartung der H-Serie – Übersicht
+      url: "/docs/task_hci_hwmainoverview.html"
+    - title: Ersetzen Sie das 2-HE-Gehäuse der H-Serie
+      url: "/docs/task_hci_hserieschassisrepl.html"
+    - title: Austausch von Gleichstromnetzteilen in H615C und H610S Nodes
+      url: "/docs/task_hci_dcpsurepl.html"
+    - title: DIMMs in Computing-Nodes ersetzen
+      url: "/docs/task_hci_dimmcomputerepl.html"
+    - title: Austausch von Laufwerken für Storage-Nodes
+      url: "/docs/task_hci_driverepl.html"
+    - title: Ersetzen Sie die H410C Nodes
+      url: "/docs/task_hci_h410crepl.html"
+    - title: H410S Nodes austauschen
+      url: "/docs/task_hci_h410srepl.html"
+    - title: H610C und H615C Nodes ersetzen
+      url: "/docs/task_hci_h610ch615crepl.html"
+    - title: H610S Nodes ersetzen
+      url: "/docs/task_hci_h610srepl.html"
+    - title: Ersetzen Sie die Netzteile
+      url: "/docs/task_hci_psurepl.html"
+    - title: Ersetzen Sie die Switches SN2010, SN2100 und SN2700
+      url: "/docs/task_hci_snswitches.html"
+    - title: Storage-Node wird in einem 2-Node-Cluster ersetzt
+      url: "/docs/task_hci_2noderepl.html"
+  - title: Frühere Versionen
+    url: "/docs/reference_earlier_versions.html"
+  - title: Rechtliche Hinweise
+    url: "/docs/reference_notices_hci.html"
+homepage:
+  tiles:
+  - title: Los geht's
+    links:
+    - title: Produktübersicht
+      url: "/docs/concept_hci_product_overview.html"
+    - title: Versionshinweise
+      url: "/docs/rn_relatedrn.html"
+    - title: Was ist neu
+      url: "/docs/rn_whatsnew.html"
+  - title: Hardware warten
+    links:
+    - title: Hardware-Installation der H-Serie
+      url: "/docs/task_hci_installhw.html"
+    - title: Hardware-Wartung der H-Serie
+      url: "/docs/task_hci_hwmainoverview.html"
+  - title: Installation von NetApp HCI
+    links:
+    - title: Übersicht über Installation und Implementierung
+      url: "/docs/task_hci_getstarted.html"
+    - title: Starten Sie die Implementierung mit der NetApp Deployment Engine
+      url: "/docs/concept_nde_access_overview.html"
+    - title: Ausführung von Aufgaben nach der Implementierung
+      url: "/docs/concept_nde_post_deployment_overview.html"
+  - title: Verwenden Sie NetApp HCI
+    links:
+    - title: Management über NetApp Hybrid Cloud Control
+      url: "/docs/task_nde_access_hcc.html"
+    - title: Arbeiten Sie mit dem Management-Node
+      url: "/docs/task_mnode_work_overview.html"
+    - title: Verwenden Sie das NetApp Element Plug-in für vCenter Server
+      url: https://docs.netapp.com/us-en/vcp/index.html
+    - title: Verwenden Sie Rancher
+      url: "/docs/concept_rancher_product_overview.html"
+    - title: Erweitern Sie NetApp HCI
+      url: "/docs/concept_hcc_expandoverview.html"
+    - title: Upgrade von NetApp HCI
+      url: "/docs/concept_hci_upgrade_overview.html"
+  - title: Fehlerbehebung
+    links:
+    - title: Fehler bei NetApp HCI und Rancher beheben
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting
+    - title: BMC auf Computing-Knoten zurücksetzen
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_reset_BMC_on_NetApp_HCI_compute_nodes
+    - title: Weitere Knowledge Base-Artikel
+      url: https://kb.netapp.com/Special:Search?query=netapp+hci&type=wiki
+  - title: Verbessern Lassen
+    links:
+    - title: Ressourcen-Seite zu NetApp HCI
+      url: https://www.netapp.com/hybrid-cloud/hci-documentation/
+    - title: NetApp Lösungen
+      url: https://docs.netapp.com/us-en/netapp-solutions/index.html
+  - title: Demos Tutorials
+    links:
+    - title: NetApp HCI-Videobibliothek
+      url: https://tv.netapp.com/category/videos/netapp-hci
+    - title: NetApp Learning Services
+      url: https://www.netapp.com/support-and-training/netapp-university/
+  - title: Blogs Community
+    links:
+    - title: NetApp Community
+      url: https://community.netapp.com/t5/forums/searchpage/tab/message?advanced=false&allow_punctuation=false&q=hci
+    - title: Wo Sie Hilfe erhalten
+      url: https://mysupport.netapp.com/site/products/all/details/netapp-hci/guideme-tab
+  - title: Frühere Versionen
+    links:
+    - title: NetApp HCI 1.8-Dokumentation
+      url: https://docs.netapp.com/us-en/hci18/index.html
+    - title: NetApp HCI Documentation Center
+      url: https://docs.netapp.com/hci/index.jsp

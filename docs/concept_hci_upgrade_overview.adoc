@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_upgrade_overview.html 
+summary: Sie können ein Upgrade von NetApp HCI und allen zugehörigen Komponenten durchführen. 
+keywords: netapp, hci, on premise, cluster, upgrade, element 
+---
+= Übersicht der Aktualisierungssequenz
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können das NetApp HCI System nach der Implementierung durch das sequenzielle Upgrade aller NetApp HCI Softwarekomponenten weiterhin auf dem neuesten Stand halten.
+
+Zu diesen Komponenten gehören Management-Services, HealthTools, NetApp Hybrid Cloud Control, Element Software, Management-Node, Computing-Firmware, Computing-Treiber, Und das Element Plug-in für vCenter Server.​
+
+Der ,Systemaktualisierungssequenz Inhalt beschreibt die Aufgaben, die zum Abschluss eines NetApp HCI-Systemupgrades erforderlich sind. Idealerweise führen Sie diese Verfahren als Teil der größeren Upgrade-Sequenz und nicht isoliert durch. Wenn ein komponentenbasiertes Upgrade oder eine Aktualisierung erforderlich ist, lesen Sie die Verfahrensvoraussetzungen, um sicherzustellen, dass zusätzliche Komplexität bewältigt wird.
+
+Der xref:task_hci_upgrade_all_vsphere.adoc[VSphere-Upgrade-Sequenz] Der Inhalt des Element Plug-ins für vCenter Server enthält zusätzliche Schritte vor und nach dem Upgrade, die zur Neuinstallation des Element Plug-ins für vCenter Server erforderlich sind.
+
+.Was Sie und#8217;ll benötigen
+* Sie führen Management-Node 11.3 oder höher aus. Neuere Versionen des Management-Node verfügen über eine modulare Architektur, die individuelle Services zur Verfügung stellt.
++
+
+TIP: Um die Version zu überprüfen, melden Sie sich bei Ihrem Management-Node an, und zeigen Sie die Versionsnummer des Elements im Anmeldebanner an. Wenn Sie keine 11.3 haben, lesen Sie link:task_hcc_upgrade_management_node.html["Upgrade Ihres Management-Node"].
+
+* Sie haben Ihre Managementservices auf mindestens Version 2.1.326 aktualisiert.
++
+Upgrades mit NetApp Hybrid Cloud Control sind in früheren Service-Bundle-Versionen nicht verfügbar.
+
+* Sie stellen sicher, dass die Systemzeit auf allen Knoten synchronisiert ist und dass NTP für den Speicher-Cluster und die Knoten korrekt konfiguriert ist. Jeder Node muss in der Web-UI pro Node mit einem DNS-Nameserver konfiguriert sein (`https://[IP address]:442`) Ohne ungelöste Cluster Fehler im Zusammenhang mit Zeitverzerrung.
+
+
+
+
+== Systemaktualisierungssequenz
+
+Sie können die folgende Sequenz verwenden, um Ihr NetApp HCI-System zu aktualisieren.
+
+.Schritte
+. link:task_hcc_update_management_services.html["Aktualisierung der Managementservices von Hybrid Cloud Control"].
++
+
+IMPORTANT: Wenn Sie Managementservices auf Version 2.16 oder höher aktualisieren und einen Management-Node 11.3 bis 11.8 ausführen, müssen Sie vor der Aktualisierung der Managementservices den RAM der Management-Node-VM erhöhen.
+
++
+
+IMPORTANT: Vor einem Upgrade der Element Software müssen Sie das neueste Management-Services-Bundle aktualisieren.
+
+. link:task_upgrade_element_latest_healthtools.html["(Optional) Upgrade auf die neuesten HealthTools"].
++
+
+NOTE: Ein Upgrade von HealthTools ist nur erforderlich, wenn der Management-Node und die Element-Software, die Sie verwenden, 11.1 oder älter sind. HealthTools sind bei der Durchführung von Element-Upgrades mit NetApp Hybrid Cloud Control nicht erforderlich.
+
+. link:task_hcc_upgrade_element_prechecks.html["Integritätsprüfungen von Element Storage vor einem Storage Upgrade durchführen"].
+. link:task_hcc_upgrade_element_software.html["Aktualisieren Sie die Element Software und die Storage-Firmware"].
+. link:task_hcc_upgrade_storage_firmware.html["(Optional) Aktualisieren Sie nur die Element Storage-Firmware"].
++
+
+NOTE: Möglicherweise führen Sie diese Aufgabe aus, wenn außerhalb einer Hauptversion ein neues Speicher-Firmware-Upgrade verfügbar wird.
+
+. link:task_hcc_upgrade_management_node.html["(Optional) Upgrade Ihres Management-Node"].
++
+
+NOTE: Zum Upgrade der Element Software auf dem Storage-Cluster ist kein Upgrade des Betriebssystems des Management-Node mehr erforderlich. Wenn der Management-Node Version 11.3 oder höher ist, können die Managementservices einfach auf die neueste Version aktualisiert werden, um Element-Upgrades mithilfe von NetApp Hybrid Cloud Control durchzuführen. Befolgen Sie für Ihr Szenario die Vorgehensweise zum Upgrade des Management-Node, wenn Sie aus anderen Gründen, wie z. B. Sicherheitsbehebungsmaßnahmen, ein Upgrade des Betriebssystems des Management-Node durchführen möchten.
+
+. link:task_vcp_upgrade_plugin.html["Aktualisieren Sie Ihr Element Plug-in für vCenter Server"].
+. link:task_upgrade_compute_prechecks.html["Vor einem Upgrade der Computing-Firmware müssen Systemzustandsprüfungen für Computing-Nodes durchgeführt werden"].
+. link:task_hcc_upgrade_compute_node_drivers.html["Aktualisieren Sie Ihre Compute-Node-Treiber"].
+. link:task_hcc_upgrade_compute_node_firmware.html["Aktualisieren Sie die Computing-Node-Firmware mit NetApp Hybrid Cloud Control"] Oder link:task_hcc_upgrade_compute_firmware_ansible.html["Automatisieren Sie Upgrades Ihrer Computing-Firmware mit Ansible"].
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+* https://docs.netapp.com/us-en/element-software/upgrade/task_sf_upgrade_all.html["Upgrade eines NetApp SolidFire All-Flash-Storage-Systems"^]
+

@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_install_GPU_drivers.html 
+summary: Erfahren Sie, wie Sie GPU-Treiber für GPU-fähige Computing-Nodes nach der Implementierung von NetApp HCI installieren. 
+keywords: netapp, hci, deployment, review, GPU, install, driver, drivers 
+---
+= Installieren von GPU-Treibern für Compute-Nodes mit GPU-Aktivierung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Compute-Nodes mit NVIDIA-GPUs (Graphics Processing Units) wie dem H610C müssen NVIDIA-Softwaretreiber in VMware ESXi installiert sein, damit sie von der höheren Verarbeitungsleistung profitieren können. Nach der Implementierung von Computing-Nodes mit GPUs müssen die folgenden Schritte auf jedem GPU-fähigen Compute-Node ausgeführt werden, um die GPU-Treiber in ESXi zu installieren.
+
+.Schritte
+. Öffnen Sie einen Browser, und navigieren Sie zum NVIDIA Lizenzportal unter folgender URL:
++
+[listing]
+----
+https://nvid.nvidia.com/dashboard/
+----
+. Laden Sie je nach Umgebung eines der folgenden Treiberpakete auf Ihren Computer herunter:
++
+|===
+| VSphere Version | Treiberpaket 
+
+
+| VSphere 6.5 | `NVIDIA-GRID-vSphere-6.5-410.92-410.91-412.16.zip` 
+
+
+| VSphere 6.7 | `NVIDIA-GRID-vSphere-6.7-410.92-410.91-412.16.zip` 
+|===
+. Extrahieren Sie das Treiberpaket auf Ihrem Computer.
++
+Die resultierende .VIB-Datei ist die unkomprimierte Treiberdatei.
+
+. Kopieren Sie die `.VIB` Treiberdatei von Ihrem Computer zu ESXi, die auf dem Computing-Knoten ausgeführt wird. Die folgenden Beispielbefehle für jede Version setzen voraus, dass sich der Treiber im befindet `$HOME/NVIDIA/ESX6.x/` Verzeichnis auf dem Management-Host. Das SCP Utility ist in den meisten Linux Distributionen jederzeit verfügbar oder als Download-Dienstprogramm für alle Windows Versionen erhältlich:
++
+|===
+| ESXi-Version | Beschreibung 
+
+
+| ESXi 6.5 | `scp $HOME/NVIDIA/ESX6.5/NVIDIA**.vib root@<ESXi_IP_ADDR>:/.` 
+
+
+| ESXi 6.7 | `scp $HOME/NVIDIA/ESX6.7/NVIDIA**.vib root@<ESXi_IP_ADDR>:/.` 
+|===
+. Verwenden Sie die folgenden Schritte, um sich als Root-Protokoll auf dem ESXi Host einzuloggen und den NVIDIA vGPU-Manager in ESXi zu installieren.
++
+.. Führen Sie den folgenden Befehl aus, um sich beim ESXi-Host als Root-Benutzer anzumelden:
++
+[listing]
+----
+ssh root@<ESXi_IP_ADDRESS>
+----
+.. Führen Sie den folgenden Befehl aus, um zu überprüfen, ob derzeit keine NVIDIA-GPU-Treiber installiert sind:
++
+[listing]
+----
+nvidia-smi
+----
++
+Dieser Befehl sollte die Meldung zurückgeben `nvidia-smi: not found`.
+
+.. Führen Sie die folgenden Befehle aus, um den Wartungsmodus auf dem Host zu aktivieren und den NVIDIA vGPU-Manager aus der VIB-Datei zu installieren:
++
+[listing]
+----
+esxcli system maintenanceMode set --enable true
+esxcli software vib install -v /NVIDIA**.vib
+----
++
+Sie sollten die Meldung sehen `Operation finished successfully`.
+
+.. Führen Sie den folgenden Befehl aus, und überprüfen Sie, ob alle acht GPU-Treiber in der Befehlsausgabe aufgeführt sind:
++
+[listing]
+----
+nvidia-smi
+----
+.. Führen Sie den folgenden Befehl aus, um zu überprüfen, ob das NVIDIA vGPU-Paket ordnungsgemäß installiert und geladen wurde:
++
+[listing]
+----
+vmkload_mod -l | grep nvidia
+----
++
+Der Befehl sollte die Ausgabe wie die folgende zurückgeben: `nvidia 816 13808`
+
+.. Führen Sie den folgenden Befehl aus, um den Host neu zu starten:
++
+[listing]
+----
+reboot -f
+----
+.. Führen Sie den folgenden Befehl aus, um den Wartungsmodus zu beenden:
++
+[listing]
+----
+esxcli system maintenanceMode set --enable false
+----
+
+
+. Wiederholen Sie die Schritte 4-6 für alle anderen neu implementierten Computing-Nodes mit NVIDIA-GPUs.
+. Führen Sie die folgenden Aufgaben anhand der Anweisungen auf der NVIDIA-Dokumentationswebsite durch:
++
+.. Installieren Sie den NVIDIA Lizenzserver.
+.. Konfigurieren Sie die Virtual Machine-Gastsysteme für die NVIDIA vGPU-Software.
+.. Wenn Sie vGPU-fähige Desktops im Kontext einer Virtual Desktop Infrastructure (VDI) verwenden, konfigurieren Sie die VMware Horizon View für NVIDIA vGPU-Software.
+
+
+
+
+
+
+== Weitere Informationen
+
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
+

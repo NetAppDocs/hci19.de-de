@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_resiliency.html 
+summary: Erfahren Sie, wie Sie die VM-Platzierung konfigurieren, um nach der Installation von Rancher auf NetApp HCI für optimale Ausfallsicherheit zu sorgen. 
+keywords: netapp, hci, Rancher, install, resiliency, vm, affinity 
+---
+= Konfigurieren Sie die Ausfallsicherheit
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Erfahren Sie, wie Sie die Platzierung von Virtual Machines konfigurieren, um nach der Installation von Rancher auf NetApp HCI eine optimale Ausfallsicherheit zu erzielen.
+
+Bei diesen Aspekten kann die Ausfallsicherheit Folgendes berücksichtigt werden:
+
+* Management-Cluster sind ausfallsicher, wenn Sie Load Balancing oder Round Robin Proxy konfigurieren.
+* Bei Benutzer-Clustern können Sie die Ausfallsicherheit je nach Konfiguration der Benutzer-Cluster einrichten.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

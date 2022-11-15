@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: docs/task_rancher_enable_monitoring.html 
+summary: Erfahren Sie, wie Monitoring nach Rancher bei der NetApp HCI-Implementierung konfiguriert wird. 
+keywords: netapp, hci, rancher, deploy, cluster, kubernetes, telemetry, monitoring 
+---
+= Aktivieren Sie Monitoring
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nach der Implementierung von Rancher auf NetApp HCI können Sie die Funktionen zur Active IQ-Storage-Überwachung (für SolidFire All-Flash-Storage und NetApp HCI) und zur Computing-Überwachung von NetApp HCI (nur für NetApp HCI) aktivieren, falls Sie dies bei der Installation oder bei einem Upgrade noch nicht getan haben.
+
+Anweisungen zum Aktivieren der Überwachung finden Sie unter link:task_mnode_enable_activeIQ.html["Active IQ- und NetApp HCI-Monitoring aktivieren"].
+
+[discrete]
+== Weitere Informationen
+
+* https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
+* https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

@@ -1,0 +1,637 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_upgrade_compute_node_firmware.html 
+summary: Im Rahmen eines Upgrades des NetApp HCI Systems führen Sie ein Upgrade der Computing Node Firmware durch. 
+keywords: netapp, hci, on premise, cluster, element, compute node, vmware, upgrade firmware 
+---
+= Aktualisiert die Firmware der Computing-Node
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Bei H-Series Computing-Nodes können Sie die Firmware für Hardwarekomponenten wie BMC, BIOS und NIC aktualisieren. Für ein Upgrade der Firmware von Computing-Nodes können Sie die Benutzeroberfläche von NetApp Hybrid Cloud Control, DIE REST-API, ein USB-Laufwerk mit dem neuesten Firmware-Image oder die BMC-Benutzeroberfläche verwenden.
+
+Nach dem Upgrade bootet der Computing-Node in ESXi hoch und funktioniert wie zuvor, wobei die Konfiguration beibehalten wird.
+
+.Was Sie und#8217;ll benötigen
+* *Compute drivers*: Sie haben Ihre Compute Node drivers aktualisiert. Wenn Computing-Node-Treiber nicht mit der neuen Firmware kompatibel sind, wird das Upgrade nicht gestartet. Siehe https://mysupport.netapp.com/matrix["Interoperabilitäts-Matrix-Tool (IMT)"^] Informationen zur Kompatibilität von Treibern und Firmware erhalten Sie auf dem neuesten Stand link:rn_relatedrn.html["Versionshinweise zu der computing-Node-Firmware"] Für wichtige, spätbreakende Firmware- und Treiberdetails.
+* *Admin-Berechtigungen*: Sie haben Cluster Administrator und BMC Administrator Berechtigungen, um das Upgrade durchzuführen.
+* *System-Ports*: Bei Upgrade-Nutzung von NetApp Hybrid Cloud Control haben Sie sichergestellt, dass die erforderlichen Ports geöffnet sind. Siehe link:hci_prereqs_required_network_ports.html["Netzwerkports"] Finden Sie weitere Informationen.
+* *BMC- und BIOS-Mindestversionen*: Der Knoten, den Sie mit NetApp Hybrid Cloud Control aktualisieren möchten, erfüllt die folgenden Mindestanforderungen:
++
+[cols="3*"]
+|===
+| Modell | Minimale BMC-Version | Minimale BIOS-Version 
+
+
+| H410C​ | Alle Versionen werden unterstützt (kein Upgrade erforderlich)​ | Alle Versionen werden unterstützt (kein Upgrade erforderlich)​ 
+
+
+| H610C​ | 3.96.07​ | 3B01 
+
+
+| H615C​ | 4.68.07 | 3B08.CO ​ ​ 
+|===
++
+
+NOTE: H615C Computing Nodes müssen BMC-Firmware mit der Version 4.68 aktualisieren link:rn_compute_firmware_2.27.html["bundle für computing-Firmware 2.27"] Und NetApp Hybrid Cloud Control zur Durchführung zukünftiger Firmware-Upgrades zu aktivieren.
+
++
+
+NOTE: Eine vollständige Matrix der Firmware und der Treiber-Firmware für Ihre Hardware finden Sie unter https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Diesen KB-Artikel"^] (anmeldung erforderlich).
+
+* *BIOS-Startreihenfolge*: Ändern Sie die Startreihenfolge im BIOS-Setup für jeden Knoten manuell `USB CD/DVD` Wird in der Boot-Liste angezeigt. Siehe das link:https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Known_issues_and_workarounds_for_Compute_Node_upgrades#BootOrder["Artikel"^] Finden Sie weitere Informationen.
+* *BMC-Zugangsdaten*: Aktualisieren der Zugangsdaten NetApp Hybrid Cloud Control verwendet, um eine Verbindung zum BMC des Computing-Nodes herzustellen. Dazu wird entweder die NetApp Hybrid Cloud Control verwendet link:task_hcc_edit_bmc_info.html#use-netapp-hybrid-cloud-control-to-edit-bmc-information["UI"] Oder link:task_hcc_edit_bmc_info.html#use-the-rest-api-to-edit-bmc-information["API"]. Durch Aktualisieren der BMC-Informationen vor dem Upgrade wird der Bestand aktualisiert und sichergestellt, dass Management-Node-Services über alle Hardwareparameter informiert sind, die zum Abschluss des Upgrades erforderlich sind.
+* *Angeschlossene Medien*: Trennen Sie alle physischen USB- oder ISO-Geräte, bevor Sie ein Upgrade der Rechenknoten starten.
+* *KVM ESXi Console*: Schließen Sie alle offenen SOL-Sitzungen und aktiven KVM-Sitzungen in der BMC-Benutzeroberfläche, bevor Sie ein Upgrade von Computing-Knoten starten.
+* *Witness Node-Anforderungen*: In Storage-Clustern mit zwei und drei Nodes, eines link:concept_hci_nodes.html["Witness Node"] Muss jederzeit in der NetApp HCI-Installation ausgeführt werden.
+* *Integritätsprüfung für Compute-Knoten*: Sie haben überprüft, ob der Knoten bereit für ein Upgrade ist. Siehe link:task_upgrade_compute_prechecks.html["Vor einem Upgrade der Computing-Firmware müssen Systemzustandsprüfungen für Computing-Nodes durchgeführt werden"].
+* *Endbenutzer-Lizenzvertrag (EULA)*: Ab Management Services 2.20.69 müssen Sie die EULA akzeptieren und speichern, bevor Sie die NetApp Hybrid Cloud Control UI oder API zum Upgrade der Computing-Node-Firmware verwenden:
++
+.. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+.. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators bereitstellen.
+.. Wählen Sie *Upgrade* oben rechts auf der Schnittstelle aus.
+.. Die EULA erscheint. Scrollen Sie nach unten, wählen Sie *Ich akzeptiere aktuelle und alle zukünftigen Updates* und wählen Sie *Speichern*.
++
+
+NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates aufgezeichnet und die automatische Download-Funktion ist aktiviert. Der Kunde erhält Aktualisierungen zu NetApp Software Updates und Upgrades, die nach eigenem Ermessen und nach eigenem Ermessen installiert werden können. Sie können die Funktion zum automatischen Download deaktivieren, indem Sie die Netzwerkverbindung zum NetApp Online-Software-Repository deaktivieren.
+
+
+
+
+
+Aktualisieren Sie in Produktionsumgebungen die Firmware auf jeweils einem Computing-Node.
+
+
+NOTE: Der ESXi-Host muss vor Durchführung einer Integritätsprüfung und Fortsetzen der Firmware-Aktualisierung aus dem Sperrmodus entfernt werden. Siehe link:https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_disable_lockdown_mode_on_ESXi_host["So deaktivieren Sie den Sperrmodus auf ESXi-Host"^] Und link:https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-F8F105F7-CF93-46DF-9319-F8991839D265.html["Verhalten des VMware Sperrmodus"^] Finden Sie weitere Informationen.
+
+Bei UI- oder API-Upgrades der NetApp Hybrid Cloud Control wird Ihr ESXi Host automatisch während des Upgrades in den Wartungsmodus versetzt, wenn Sie über die DRS-Funktion und die erforderliche Lizenzierung verfügen. Der Node wird neu gebootet, und nach Abschluss des Upgrades wird der ESXi Host aus dem Wartungsmodus entfernt. Bei USB- und BMC-UI-Optionen müssen Sie den ESXi-Host wie in jedem Verfahren beschrieben manuell in den Wartungsmodus versetzen.
+
+
+NOTE: Überprüfen Sie vor dem Upgrade die aktuelle ESXi Treiberversion. Wenn der Treiber veraltet ist, aktualisieren Sie zuerst den Treiber. Dann aktualisieren Sie die Computing-Firmware für Ihre Computing-Nodes.
+
+Wählen Sie die Option aus, die für Ihr Upgrade-Szenario relevant ist:
+
+*  NetApp Hybrid Cloud Control UI to upgrade a compute node (Empfohlen)
+*  NetApp Hybrid Cloud Control API to upgrade a compute node
+*  a USB drive imaged with the latest compute firmware bundle
+*  the Baseboard Management Controller (BMC) user interface (UI)
+
+
+
+
+== Verwenden Sie die UI von NetApp Hybrid Cloud Control zum Upgrade eines Computing-Node
+
+Ab den Management Services 2.14 können Sie über die Benutzeroberfläche von NetApp Hybrid Cloud Control ein Computing-Node aktualisieren. Sie müssen in der Liste der Nodes den Node auswählen, der aktualisiert werden soll. Auf der Registerkarte *Aktuelle Versionen* werden die aktuellen Firmware-Versionen angezeigt und auf der Registerkarte *vorgeschlagene Versionen* werden ggf. die verfügbaren Upgrade-Versionen angezeigt.
+
+
+TIP: Stellen Sie für ein erfolgreiches Upgrade sicher, dass die Integritätsprüfung auf dem vSphere-Cluster erfolgreich ist.
+
+
+TIP: Bei Upgrades an dunklen Standorten kann die Upload-Zeit verkürzt werden, wenn das Computing-Firmware-Bundle und der Management-Node lokal sind.
+
+
+NOTE: Das Upgrade von NIC, BIOS und BMC dauert je nach Geschwindigkeit der Netzwerkverbindung zwischen dem Management-Node und dem BMC-Host etwa 60 Minuten pro Node.
+
+
+NOTE: Die Verwendung der NetApp Hybrid Cloud Control UI ermöglicht das Upgrade der Computing-Firmware auf H300E/H500E/H700E Computing-Nodes nicht mehr. Für ein Upgrade sollten Sie ein verwenden ,USB-Laufwerk Oder im ,BMC-UI So mounten Sie das Computing-Firmware-Bundle.
+
+.Was Sie und#8217;ll benötigen
+* Wenn der Management-Node nicht mit dem Internet verbunden ist, haben Sie das Paket der Computing-Firmware von heruntergeladen https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp Support Website"^].
++
+
+NOTE: Sie sollten die extrahieren `TAR.GZ` Datei zu A `TAR` Datei, und extrahieren Sie dann die `TAR` Datei zum Paket der Compute-Firmware.
+
+
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators bereitstellen.
+. Wählen Sie *Upgrade* oben rechts auf der Schnittstelle aus.
+. Wählen Sie auf der Seite *Upgrades* die Option *Firmware berechnen*.
+. Wählen Sie eine der folgenden Optionen aus und führen Sie die für das Cluster zutreffenden Schritte aus:
++
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Der Management-Node verfügt über externe Konnektivität.  a| 
+.. Wählen Sie das Cluster aus, das Sie aktualisieren möchten.
++
+Die im Cluster aufgeführten Nodes werden zusammen mit den aktuellen Firmware-Versionen und neueren Versionen angezeigt, sofern ein Upgrade verfügbar ist.
+
+.. Wählen Sie das Paket der Compute-Firmware aus.
+.. Wählen Sie *Upgrade Starten*.
++
+Nachdem Sie *Upgrade starten* ausgewählt haben, werden im Fenster ggf. fehlerhafte Integritätsprüfungen angezeigt.
+
++
+
+CAUTION: Das Upgrade kann nach dem Start nicht angehalten werden. Die Firmware wird nacheinander in der folgenden Reihenfolge aktualisiert: NIC, BIOS und BMC. Melden Sie sich während des Upgrades nicht bei der BMC-Benutzeroberfläche an. Wenn Sie sich am BMC anmelden, wird die SOL-Sitzung (Serial-over-LAN) von Hybrid Cloud Control beendet, die den Upgradeprozess überwacht.
+
+.. Wenn die Integritätsprüfung auf Cluster- oder Node-Ebene mit Warnungen bestanden wurde, aber ohne kritische Ausfälle, wird *bereit für ein Upgrade* angezeigt. Wählen Sie *Upgrade Node*.
+
+
+
+NOTE: Während das Upgrade läuft, können Sie die Seite verlassen und zu einem späteren Zeitpunkt zurückkehren, um den Fortschritt zu überwachen. Während des Upgrades zeigt die Benutzeroberfläche verschiedene Meldungen über den Status des Upgrades an.
+
+
+CAUTION: Öffnen Sie die Konsole „Serial-over-LAN“ (SOL) nicht über die BMC Web-UI, während Sie die Firmware auf den H610C und H615C Computing-Nodes aktualisieren. Dies kann zum Fehlschlagen des Upgrades führen.
+
+Die Benutzeroberfläche zeigt eine Meldung an, nachdem das Upgrade abgeschlossen wurde. Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist.
+
+
+
+| Ihr Management Node befindet sich an einem dunklen Standort ohne externe Konnektivität.  a| 
+.. Wählen Sie das Cluster aus, das Sie aktualisieren möchten.
+.. Wählen Sie *Durchsuchen* aus, um das von Ihnen heruntergeladene Paket der Rechner-Firmware hochzuladenhttps://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp Support Website"^].
+.. Warten Sie, bis der Upload abgeschlossen ist. In einer Statusleiste wird der Status des Uploads angezeigt.
+
+
+
+TIP: Die Datei wird im Hintergrund hochgeladen, wenn Sie vom Browser-Fenster weg navigieren.
+
+Nach dem erfolgreichen Hochladen und Validierungen der Datei wird eine Meldung auf dem Bildschirm angezeigt. Die Validierung kann mehrere Minuten in Anspruch nehmen. Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist. Informationen zu den verschiedenen Änderungen des Aktualisierungsstatus finden Sie unter  status changes.
+
+|===
+
+
+
+TIP: Wenn während des Upgrades ein Fehler auftritt, wird der Node durch NetApp Hybrid Cloud Control neu gebootet, der Wartungsmodus nicht ausgeführt und der Fehlerstatus wird über eine Verbindung zum Fehlerprotokoll angezeigt. Sie können das Fehlerprotokoll mit spezifischen Anweisungen oder Links zu KB-Artikeln herunterladen, um Probleme zu diagnostizieren und zu beheben. Weitere Informationen über Probleme bei Upgrades der Computing-Node-Firmware mithilfe von NetApp Hybrid Cloud Control finden Sie hier link:https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Known_issues_and_workarounds_for_Compute_Node_upgrades["KB"^] Artikel:
+
+
+
+=== Statusänderungen des Upgrades
+
+Hier sind die verschiedenen Status, die die UI vor, während und nach dem Upgrade-Prozess anzeigt:
+
+[cols="2*"]
+|===
+| Upgrade-Status | Beschreibung 
+
+
+| Mindestens eine Zustandsprüfung des Node ist fehlgeschlagen. Erweitern, um Details anzuzeigen. | Mindestens eine Zustandsprüfung ist fehlgeschlagen. 
+
+
+| Fehler | Während des Upgrades ist ein Fehler aufgetreten. Sie können das Fehlerprotokoll herunterladen und an den NetApp Support senden. 
+
+
+| Erkennung nicht möglich | NetApp Hybrid Cloud Control verfügt nicht über eine externe Konnektivität zum Online-Software-Repository. Dieser Status wird auch angezeigt, wenn NetApp Hybrid Cloud Control den Computing-Node nicht abfragen kann, wenn die Computing-Node-Ressource nicht über die Hardware-Tag-Nummer verfügt. 
+
+
+| Ein Upgrade ist möglich. | Alle Zustandsprüfungen wurden erfolgreich bestanden und der Node kann aktualisiert werden. 
+
+
+| Während des Upgrades ist ein Fehler aufgetreten. | Das Upgrade schlägt mit dieser Benachrichtigung fehl, wenn ein kritischer Fehler auftritt. Laden Sie die Protokolle herunter, indem Sie den Link *Download Logs* auswählen, um den Fehler zu beheben. Sie können versuchen, das Upgrade erneut zu aktualisieren, nachdem Sie den Fehler behoben haben. 
+
+
+| Der Node wird aktualisiert. | Das Upgrade läuft. In einer Statusleiste wird der Aktualisierungsstatus angezeigt. 
+|===
+
+
+== Computing-Node mit der NetApp Hybrid Cloud Control API aktualisieren
+
+Mithilfe von APIs können Sie jeden Computing-Node in einem Cluster auf die neueste Firmware-Version aktualisieren. Sie können ein Automatisierungstool Ihrer Wahl zum Ausführen der APIs verwenden. Der hier dokumentierte API-Workflow nutzt die REST-API-UI, die am Management-Node verfügbar ist.
+
+
+NOTE: Die Verwendung der NetApp Hybrid Cloud Control UI ermöglicht das Upgrade der Computing-Firmware auf H300E/H500E/H700E Computing-Nodes nicht mehr. Für ein Upgrade sollten Sie ein verwenden ,USB-Laufwerk Oder im ,BMC-UI So mounten Sie das Computing-Firmware-Bundle.
+
+Computing-Node-Ressourcen, einschließlich vCenter und Hardware-Assets, müssen Management-Node-Ressourcen bekannt sein. Sie können die Inventurservice-APIs verwenden, um die Ressourcen zu überprüfen (`https://<ManagementNodeIP>/inventory/1/`).
+
+.Schritte
+. Führen Sie je nach Verbindung einen der folgenden Schritte aus:
++
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Der Management-Node verfügt über externe Konnektivität.  a| 
+.. Überprüfen Sie die Repository-Verbindung:
++
+... Öffnen Sie DIE REST API-UI für den Paketdienst auf dem Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/package-repository/1/
+----
+... Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+.... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+.... Geben Sie die Client-ID als ein `mnode-client`.
+.... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+.... Schließen Sie das Autorisierungsfenster.
+
+
+... Wählen Sie in DER REST-API-UI *GET ​/packages​/Remote-repository​/Connection* aus.
+... Wählen Sie *Probieren Sie es aus*.
+... Wählen Sie *Ausführen*.
+... Wenn Code 200 zurückgegeben wird, fahren Sie mit dem nächsten Schritt fort. Wenn keine Verbindung zum Remote-Repository besteht, stellen Sie die Verbindung her, oder verwenden Sie die Option „Dark Site“.
+
+
+.. Suchen Sie die Compute-Firmware-Bundle-ID:
++
+... Wählen Sie in DER REST API-Benutzeroberfläche *GET /Packages* aus.
+... Wählen Sie *Probieren Sie es aus*.
+... Wählen Sie *Ausführen*.
+... Kopieren Sie in der Antwort den Namen des Computing-Firmware-Pakets und speichern Sie sie (`"packageName"`) Und Version (`"packageVersion"`) Für den Einsatz in einem späteren Schritt.
+
+
+
+
+
+
+| Ihr Management Node befindet sich an einem dunklen Standort ohne externe Konnektivität.  a| 
+.. Wechseln Sie zur NetApp HCI-Software https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["Download-Seite"^] Laden Sie anschließend das neueste Computing-Firmware-Bundle auf ein Gerät herunter, auf das der Management-Node zugreifen kann.
++
+
+TIP: Bei Upgrades an dunklen Standorten kann die Upload-Zeit verkürzt werden, wenn das Computing-Firmware-Bundle und der Management-Node lokal sind.
+
+.. Laden Sie das Bundle der Computing-Firmware auf den Management-Node hoch:
++
+... Öffnen Sie die REST-API-UI für den Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/package-repository/1/
+----
+... Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+.... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+.... Geben Sie die Client-ID als ein `mnode-client`.
+.... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+.... Schließen Sie das Autorisierungsfenster.
+
+
+... Wählen Sie in DER REST API-Benutzeroberfläche *POST /Packages* aus.
+... Wählen Sie *Probieren Sie es aus*.
+... Wählen Sie *Durchsuchen* und wählen Sie das Rechner-Firmware-Bundle aus.
+... Wählen Sie *Ausführen*, um den Upload zu initiieren.
+... Kopieren Sie aus der Antwort die Bundle-ID der Computing-Firmware und speichern Sie sie (`"id"`) Für den Einsatz in einem späteren Schritt.
+
+
+.. Überprüfen Sie den Status des Uploads.
++
+... Wählen Sie in DER REST-API-Benutzeroberfläche *GET​ /packages​/{id}​/Status* aus.
+... Wählen Sie *Probieren Sie es aus*.
+... Geben Sie die Paket-ID ein, die Sie im vorherigen Schritt in *id* kopiert haben.
+... Wählen Sie *Ausführen*, um die Statusanforderung zu initiieren.
++
+Die Antwort zeigt an `state` Als `SUCCESS` Nach Abschluss.
+
+... Kopieren Sie in der Antwort den Namen des Computing-Firmware-Pakets und speichern Sie sie (`"name"`) Und Version (`"version"`) Für den Einsatz in einem späteren Schritt.
+
+
+
+
+|===
+. Suchen Sie die Computing-Controller-ID und die Hardware-ID des Nodes für den Node, den Sie aktualisieren möchten:
++
+.. Öffnen Sie die REST API-UI für den Bestandsdienst auf dem Managementknoten:
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client`.
+... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Autorisierungsfenster.
+
+
+.. Wählen Sie in DER REST API-Benutzeroberfläche *GET /Installations* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Wählen Sie *Ausführen*.
+.. Kopieren Sie als Antwort die Installations-Asset-ID (`"id"`).
+.. Wählen Sie in DER REST-API-UI *GET /installations/{id}* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Fügen Sie die Installations-Asset-ID in das Feld *id* ein.
+.. Wählen Sie *Ausführen*.
+.. Kopieren Sie aus der Antwort die Cluster-Controller-ID und speichern Sie sie (`"controllerId"`Und Knoten Hardware-ID (`"hardwareId"`) Zur Verwendung in einem späteren Schritt:
++
+[listing, subs="+quotes"]
+----
+"compute": {
+  "errors": [],
+  "inventory": {
+    "clusters": [
+      {
+        "clusterId": "Test-1B",
+        *"controllerId": "a1b23456-c1d2-11e1-1234-a12bcdef123a",*
+----
++
+[listing, subs="+quotes"]
+----
+"nodes": [
+  {
+    "bmcDetails": {
+      "bmcAddress": "10.111.0.111",
+      "credentialsAvailable": true,
+      "credentialsValidated": true
+    },
+    "chassisSerialNumber": "111930011231",
+    "chassisSlot": "D",
+    *"hardwareId": "123a4567-01b1-1243-a12b-11ab11ab0a15",*
+    "hardwareTag": "00000000-0000-0000-0000-ab1c2de34f5g",
+    "id": "e1111d10-1a1a-12d7-1a23-ab1cde23456f",
+    "model": "H410C",
+----
+
+
+. Führen Sie das Upgrade der Computing-Node-Firmware aus:
++
+.. Öffnen Sie DIE REST API-UI für den Hardware-Service auf dem Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/hardware/2/
+----
+.. Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client`.
+... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Autorisierungsfenster.
+
+
+.. Wählen Sie *POST /Nodes/{Hardware_id}/Upgrades* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie die Hardware-Host-Asset-ID ein (`"hardwareId"` Aus einem vorherigen Schritt) im Parameterfeld gespeichert.
+.. Führen Sie die Nutzlastwerte folgendermaßen aus:
++
+... Die Werte beibehalten `"force": false` Und `"maintenanceMode": true"` So werden Zustandsprüfungen auf dem Node durchgeführt, und der ESXi Host ist auf den Wartungsmodus festgelegt.
+... Geben Sie die Cluster-Controller-ID ein (`"controllerId"` Aus einem vorherigen Schritt gespeichert).
+... Geben Sie den Namen und die Version des Computing-Firmware-Pakets ein, die Sie in einem vorherigen Schritt gespeichert haben.
++
+[listing]
+----
+{
+  "config": {
+    "force": false,
+    "maintenanceMode": true
+  },
+  "controllerId": "a1b23456-c1d2-11e1-1234-a12bcdef123a",
+  "packageName": "compute-firmware-12.2.109",
+  "packageVersion": "12.2.109"
+}
+----
+
+
+.. Wählen Sie *Ausführen*, um das Upgrade zu initiieren.
++
+
+CAUTION: Das Upgrade kann nach dem Start nicht angehalten werden. Die Firmware wird nacheinander in der folgenden Reihenfolge aktualisiert: NIC, BIOS und BMC. Melden Sie sich während des Upgrades nicht bei der BMC-Benutzeroberfläche an. Wenn Sie sich am BMC anmelden, wird die SOL-Sitzung (Serial-over-LAN) von Hybrid Cloud Control beendet, die den Upgradeprozess überwacht.
+
+.. Kopieren Sie die Upgrade-Task-ID, die Teil der Ressourcenverknüpfung ist (`"resourceLink"`) URL in der Antwort.
+
+
+. Überprüfen Sie den Aktualisierungsfortschritt und die Ergebnisse:
++
+.. Wählen Sie *GET /Task/{Task_id}/logs* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie die Task-ID aus dem vorherigen Schritt in *Task_ID* ein.
+.. Wählen Sie *Ausführen*.
+.. Führen Sie einen der folgenden Schritte aus, wenn während des Upgrades Probleme oder besondere Anforderungen auftreten:
++
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Sie müssen Probleme mit dem Cluster-Systemzustand aufgrund von korrigieren `failedHealthChecks` Nachricht im Antwortkörper.  a| 
+... Gehen Sie zu dem für jedes Problem angegebenen KB-Artikel oder führen Sie das angegebene Heilmittel aus.
+... Wenn ein KB angegeben wird, führen Sie den im entsprechenden KB-Artikel beschriebenen Prozess aus.
+... Nachdem Sie Cluster-Probleme behoben haben, authentifizieren Sie sich bei Bedarf erneut und wählen Sie *POST /Nodes/{Hardware_id}/Upgrades* aus.
+... Wiederholen Sie die Schritte wie zuvor im Aktualisierungsschritt beschrieben.
+
+
+
+
+| Das Upgrade schlägt fehl und die Schritte zur Risikominderung werden im Upgrade-Protokoll nicht aufgeführt.  a| 
+... Siehe das https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Known_issues_and_workarounds_for_Compute_Node_upgrades["KB-Artikel"^] (anmeldung erforderlich).
+
+
+|===
+.. Führen Sie die API *GET ​/Task/{Task_id}/logs* mehrmals nach Bedarf aus, bis der Prozess abgeschlossen ist.
++
+Während des Upgrades, die `status` Zeigt an `running` Wenn keine Fehler aufgetreten sind. Wenn jeder Schritt beendet ist, das `status` Wertänderungen an `completed`.
+
++
+Das Upgrade wurde erfolgreich abgeschlossen, wenn der Status für jeden Schritt lautet `completed` Und das `percentageCompleted` Wert ist `100`.
+
+
+
+. (Optional) Aktualisieren der Firmware-Versionen für jede Komponente bestätigen:
++
+.. Öffnen Sie DIE REST API-UI für den Hardware-Service auf dem Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/hardware/2/
+----
+.. Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client`.
+... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Autorisierungsfenster.
+
+
+.. Wählen Sie in DER REST-API-UI *GET ​/nodes​/{Hardware_id}​/Upgrades* aus.
+.. (Optional) Geben Sie Datum und Status-Parameter ein, um die Ergebnisse zu filtern.
+.. Geben Sie die Hardware-Host-Asset-ID ein (`"hardwareId"` Aus einem vorherigen Schritt) im Parameterfeld gespeichert.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Wählen Sie *Ausführen*.
+.. Überprüfen Sie in der Antwort, ob die Firmware für alle Komponenten von der vorherigen Version auf die neueste Firmware erfolgreich aktualisiert wurde.
+
+
+
+
+
+
+== Verwenden Sie ein USB-Laufwerk, das mit dem neuesten Firmware-Bundle abgebildet ist
+
+Sie können ein USB-Laufwerk mit dem neuesten Compute-Firmware-Bundle anschließen, das auf einen USB-Port des Computing-Node heruntergeladen wurde. Alternativ zur Verwendung der in diesem Verfahren beschriebenen USB-Stick-Methode können Sie das Rechner-Firmware-Bundle mit der Option *Virtual CD/DVD* in der virtuellen Konsole in der BMC-Schnittstelle (Baseboard Management Controller) auf dem Rechner-Knoten montieren. Die BMC-Methode dauert erheblich länger als die USB-Stick-Methode. Stellen Sie sicher, dass Ihre Workstation oder Ihr Server über die erforderliche Netzwerkbandbreite verfügt und dass Ihre Browsersitzung mit dem BMC nicht ausläuft.
+
+.Was Sie und#8217;ll benötigen
+* Wenn der Management-Node nicht mit dem Internet verbunden ist, haben Sie das Paket der Computing-Firmware von heruntergeladen https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp Support Website"^].
++
+
+NOTE: Sie sollten die extrahieren `TAR.GZ` Datei zu A `TAR` Datei, und extrahieren Sie dann die `TAR` Datei zum Paket der Compute-Firmware.
+
+
+
+.Schritte
+. Verwenden Sie das Dienstprogramm Etcher, um das Paket der Compute-Firmware auf einem USB-Laufwerk zu blinken.
+. Setzen Sie den Computing-Node mit VMware vCenter in den Wartungsmodus und evakuieren Sie alle Virtual Machines vom Host.
++
+
+NOTE: Wenn der VMware Distributed Resource Scheduler (DRS) auf dem Cluster aktiviert ist (dies ist die Standardeinstellung in NetApp HCI-Installationen), werden virtuelle Maschinen automatisch zu anderen Knoten im Cluster migriert.
+
+. Stecken Sie das USB-Stick in einen USB-Anschluss am Compute-Node und starten Sie den Compute-Node mithilfe von VMware vCenter neu.
+. Drücken Sie während DES POST-Zyklus des Computing-Knotens *F11*, um den Boot Manager zu öffnen. Möglicherweise müssen Sie *F11* mehrmals in schneller Folge drücken. Sie können diesen Vorgang durchführen, indem Sie ein Video/eine Tastatur anschließen oder die Konsole in verwenden `BMC`.
+. Wählen Sie im angezeigten Menü * One Shot* > *USB Flash Drive* aus. Wenn das USB-Stick nicht im Menü angezeigt wird, stellen Sie sicher, dass das USB-Flash-Laufwerk Teil der älteren Startreihenfolge im BIOS des Systems ist.
+. Drücken Sie *Enter*, um das System vom USB-Stick zu starten. Der Firmware-Flash-Prozess beginnt.
++
+Nachdem die Firmware-Aktualisierung abgeschlossen und der Node neu gebootet wurde, kann es ein paar Minuten dauern, bis ESXi gestartet wird.
+
+. Verlassen Sie nach Abschluss des Neubootens den Wartungsmodus auf dem aktualisierten Computing-Node mit vCenter.
+. Entfernen Sie das USB-Flash-Laufwerk vom aktualisierten Compute-Node.
+. Wiederholen Sie diesen Vorgang für andere Computing-Nodes im ESXi Cluster, bis alle Computing-Nodes aktualisiert werden.
+
+
+
+
+== Verwendung der Benutzeroberfläche (UI) des Baseboard Management Controller (BMC)
+
+Sie müssen die sequenziellen Schritte durchführen, um das Computing-Firmware-Bundle zu laden und den Node auf das Computing-Firmware-Bundle neu zu booten, um sicherzustellen, dass das Upgrade erfolgreich abgeschlossen wurde. Das Paket der Rechner-Firmware sollte sich auf dem System oder der virtuellen Maschine (VM) befinden, die den Webbrowser hostet. Überprüfen Sie, ob Sie das Paket der Computing-Firmware heruntergeladen haben, bevor Sie den Prozess starten.
+
+
+TIP: Es wird empfohlen, das System oder die VM und den Knoten im gleichen Netzwerk zu verwenden.
+
+
+NOTE: Über die BMC-UI dauert das Upgrade etwa 25 bis 30 Minuten.
+
+*  firmware on H410C and H300E/H500E/H700E nodes
+*  firmware on H610C/H615C nodes
+
+
+
+
+=== Firmware-Upgrade auf den Nodes H410C und H300E/H500E/H700E
+
+Wenn der Node Teil eines Clusters ist, müssen Sie den Node vor dem Upgrade in den Wartungsmodus versetzen und nach dem Upgrade den Wartungsmodus nicht mehr aktivieren.
+
+
+TIP: Ignorieren Sie die folgende Informationsmeldung, die während des Prozesses angezeigt wird: `Untrusty Debug Firmware Key is used, SecureFlash is currently in Debug Mode`
+
+.Schritte
+. Wenn der Node Teil eines Clusters ist, versetzen Sie ihn wie folgt in den Wartungsmodus. Falls nicht, fahren Sie mit Schritt 2 fort.
++
+.. Melden Sie sich beim VMware vCenter Web-Client an.
+.. Klicken Sie mit der rechten Maustaste auf den Namen des Hosts (Compute Node) und wählen Sie *Wartungsmodus > Wartungsmodus eingeben*.
+.. Wählen Sie *OK*. VMs auf dem Host werden zu einem anderen verfügbaren Host migriert. Die VM-Migration kann je nach Anzahl der zu migrierenden VMs Zeit in Anspruch nehmen.
++
+
+CAUTION: Stellen Sie sicher, dass alle VMs auf dem Host migriert werden, bevor Sie fortfahren.
+
+
+
+. Navigieren Sie zur BMC-Benutzeroberfläche, `https://BMCIP/#login`, Wobei BMCIP die IP-Adresse des BMC ist.
+. Melden Sie sich mit Ihren Anmeldedaten an.
+. Wählen Sie *Fernbedienung > Konsolenumleitung*.
+. Wählen Sie *Einführungskonsole*.
++
+
+NOTE: Sie müssen vielleicht Java installieren oder aktualisieren.
+
+. Wenn die Konsole geöffnet wird, wählen Sie *Virtueller Datenträger > virtueller Speicher*.
+. Wählen Sie auf dem Bildschirm * Virtueller Speicher* die Option *Logischer Laufwerkstyp* aus und wählen Sie *ISO-Datei*.
++
+image:BIOS_H410C_iso.png["Zeigt den Navigationspfad zur Auswahl der Bundle-Datei für die Rechner-Firmware an."]
+
+. Wählen Sie *Bild öffnen* aus, um in den Ordner zu navigieren, in dem Sie die Bundle-Datei der Rechner-Firmware heruntergeladen haben, und wählen Sie die Bundle-Datei der Compute-Firmware aus.
+. Wählen Sie *Plug-In*.
+. Wenn der Verbindungsstatus angezeigt wird `Device#: VM Plug-in OK!!`, Wählen Sie *OK*.
+. Starten Sie den Knoten neu, indem Sie *F12* drücken und *Neustart* wählen oder *Power Control > Power Reset einstellen* wählen.
+. Drücken Sie während des Neustarts *F11*, um die Startoptionen auszuwählen und das Compute-Firmware-Bundle zu laden. Möglicherweise müssen Sie F11 ein paar Mal drücken, bevor das Startmenü angezeigt wird.
++
+Das folgende Fenster wird angezeigt:
+
++
+image:boot_option_iso_h410c.png["Zeigt den Bildschirm, den das virtuelle ISO-Booten von bis zu startet."]
+
+. Drücken Sie auf dem obigen Bildschirm *Enter*. Je nach Netzwerk kann es einige Minuten dauern, nachdem Sie *Enter* drücken, um das Upgrade zu starten.
++
+
+NOTE: Einige Firmware-Upgrades können dazu führen, dass die Konsole getrennt wird und/oder Ihre Sitzung auf dem BMC die Verbindung getrennt. Sie können sich wieder beim BMC anmelden, jedoch sind einige Dienste, wie z. B. die Konsole, aufgrund der Firmware-Upgrades möglicherweise nicht verfügbar. Nach Abschluss der Upgrades führt der Node ein Kaltstart durch, das ca. fünf Minuten dauern kann.
+
+. Melden Sie sich wieder bei der BMC-Benutzeroberfläche an und wählen Sie *System* aus, um die BIOS-Version und die Erstellungszeit nach dem Starten des Betriebssystems zu überprüfen. Wenn das Upgrade korrekt abgeschlossen wurde, werden die neuen BIOS- und BMC-Versionen angezeigt.
++
+
+NOTE: Die aktualisierte Version wird in der BIOS-Version erst angezeigt, wenn der Node vollständig gebootet wurde.
+
+. Wenn der Node Teil eines Clusters ist, führen Sie die folgenden Schritte aus. Wenn es sich um einen Standalone-Node handelt, sind keine weiteren Maßnahmen erforderlich.
++
+.. Melden Sie sich beim VMware vCenter Web-Client an.
+.. Beenden Sie den Wartungsmodus des Hosts. Dies kann eine nicht verbundene rote Markierung anzeigen. Warten Sie, bis alle Status gelöscht sind.
+.. Schalten Sie eine der restlichen VMs ein, die ausgeschaltet waren.
+
+
+
+
+
+
+=== Firmware auf H610C/H615C Nodes aktualisieren
+
+Die Schritte hängen davon ab, ob der Node Standalone oder Teil eines Clusters ist. Der Vorgang dauert etwa 25 Minuten und beinhaltet das Ausschalten des Node, das Hochladen des Bundle der Datenverarbeitungs-Firmware, das Flashen der Geräte und das Einschalten des Node nach dem Upgrade.
+
+.Schritte
+. Wenn der Node Teil eines Clusters ist, versetzen Sie ihn wie folgt in den Wartungsmodus. Falls nicht, fahren Sie mit Schritt 2 fort.
++
+.. Melden Sie sich beim VMware vCenter Web-Client an.
+.. Klicken Sie mit der rechten Maustaste auf den Namen des Hosts (Compute Node) und wählen Sie *Wartungsmodus > Wartungsmodus eingeben*.
+.. Wählen Sie *OK*. VMs auf dem Host werden zu einem anderen verfügbaren Host migriert. Die VM-Migration kann je nach Anzahl der zu migrierenden VMs Zeit in Anspruch nehmen.
++
+
+CAUTION: Stellen Sie sicher, dass alle VMs auf dem Host migriert werden, bevor Sie fortfahren.
+
+
+
+. Navigieren Sie zur BMC-Benutzeroberfläche, `https://BMCIP/#login`, Wobei BMC IP die IP-Adresse des BMC ist.
+. Melden Sie sich mit Ihren Anmeldedaten an.
+. Wählen Sie *Fernbedienung > KVM (Java) starten*.
+. Wählen Sie im Konsolenfenster *Medien > Assistent für virtuelle Datenträger* aus.
++
+image::bmc_wizard.gif[Starten Sie den Assistenten für virtuelle Datenträger über die BMC-Benutzeroberfläche.]
+
+. Wählen Sie *Durchsuchen* und wählen Sie die Rechner-Firmware aus `.iso` Datei:
+. Wählen Sie *Verbinden*. Es wird ein Popup-Fenster angezeigt, in dem der Erfolg angezeigt wird. Der Pfad und das Gerät werden unten angezeigt. Sie können das Fenster * Virtual Media* schließen.
++
+image::virtual_med_popup.gif[Popup-Fenster mit dem Erfolg des ISO-Uploads.]
+
+. Starten Sie den Knoten neu, indem Sie *F12* drücken und *Neustart* wählen oder *Power Control > Power Reset einstellen* wählen.
+. Drücken Sie während des Neustarts *F11*, um die Startoptionen auszuwählen und das Compute-Firmware-Bundle zu laden.
+. Wählen Sie in der angezeigten Liste * AMI Virtual CD-ROM* aus und wählen Sie *Enter*. Wenn Sie die virtuelle AMI-CD-ROM in der Liste nicht sehen, gehen Sie zum BIOS und aktivieren Sie sie in der Startliste. Der Node wird nach dem Speichern neu gebootet. Drücken Sie während des Neustarts *F11*.
++
+image::boot_device.gif[Zeigt das Fenster an, in dem Sie das Startgerät auswählen können.]
+
+. Wählen Sie auf dem angezeigten Bildschirm *Enter* aus.
++
+
+NOTE: Einige Firmware-Upgrades können dazu führen, dass die Konsole getrennt wird und/oder Ihre Sitzung auf dem BMC die Verbindung getrennt. Sie können sich wieder am BMC anmelden. Einige Services, z. B. die Konsole, sind aufgrund der Firmware-Upgrades möglicherweise nicht verfügbar. Nach Abschluss der Upgrades führt der Node ein Kaltstart durch, das ca. fünf Minuten dauern kann.
+
+. Wenn Sie die Verbindung zur Konsole getrennt haben, wählen Sie *Fernbedienung* und wählen Sie *KVM starten* oder *KVM starten (Java)* aus, um die Verbindung wiederherzustellen und zu überprüfen, wann der Knoten den Startvorgang abgeschlossen hat. Möglicherweise müssen Sie mehrere erneute Verbindungen einrichten, um zu überprüfen, ob der Node erfolgreich gebootet wurde.
++
+
+CAUTION: Während des Einschaltvorgangs etwa fünf Minuten lang zeigt die KVM-Konsole *kein Signal* an.
+
+. Wählen Sie nach dem Einschalten des Knotens *Dashboard > Geräteinformationen > Weitere Informationen* aus, um die BIOS- und BMC-Versionen zu überprüfen. Die aktualisierten BIOS- und BMC-Versionen werden angezeigt. Die aktualisierte Version des BIOS wird erst angezeigt, wenn der Knoten vollständig gestartet wurde.
+. Wenn Sie den Knoten in den Wartungsmodus versetzt haben, nachdem der Knoten in ESXi gebootet wurde, klicken Sie mit der rechten Maustaste auf den Host-Namen (Compute Node) und wählen Sie *Wartungsmodus > Wartungsmodus beenden* aus, und migrieren Sie die VMs zurück zum Host.
+. Konfigurieren und überprüfen Sie in vCenter mit dem ausgewählten Hostnamen die BIOS-Version.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_nodes.html 
+summary: Nodes sind die Hardware, die in einem Cluster gruppiert ist und als Block-Storage- oder Computing-Ressourcen aufgerufen werden kann. 
+keywords: netapp, hci, storage nodes, volumes, compute nodes, witness nodes, management node 
+---
+= Knoten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nodes sind Hardware- oder virtuelle Ressourcen, die in einem Cluster gruppiert werden, um Block-Storage- und Computing-Funktionen bereitzustellen.
+
+NetApp HCI und Element Software definiert verschiedene Node-Rollen für ein Cluster. Die vier Arten von Node-Rollen sind *Management Node*, *Storage Node*, *Compute Node* und *NetApp HCI Witness Nodes*.
+
+
+
+== Management-Node
+
+Der Management-Node (manchmal als mNode abgekürzt) interagiert mit einem Storage-Cluster, um Managementaktionen auszuführen, ist jedoch nicht Mitglied des Storage-Clusters. Managementknoten erfassen regelmäßig über API-Aufrufe Informationen über das Cluster und melden diese Informationen zur Remote-Überwachung an Active IQ (sofern aktiviert). Management-Nodes sind auch für die Koordinierung von Software-Upgrades der Cluster-Nodes verantwortlich.
+
+Der Management-Node ist eine Virtual Machine (VM), die parallel mit einem oder mehreren auf Element Software basierenden Storage-Clustern ausgeführt wird. Neben Upgrades bietet es Systemservices wie Monitoring und Telemetrie, Management von Cluster-Ressourcen und -Einstellungen, Tests und Utilities sowie NetApp Support-Zugang zur Fehlerbehebung. Ab Element 11.3 fungiert der Management Node als Microservice-Host, wodurch sich ausgewählte Softwareservices schneller außerhalb der Hauptversionen aktualisieren lassen. Diese Microservices und Managementservices, wie Active IQ Collector, QoSSIOC für das vCenter Plug-in und der Management-Node-Service, werden häufig als Service-Bundles aktualisiert.
+
+
+
+== Storage-Nodes
+
+NetApp HCI Storage-Nodes sind Hardware, die die Storage-Ressourcen für ein NetApp HCI System bereitstellen. Laufwerke im Node enthalten Block- und Metadatenspeicherplatz für den Daten-Storage und das Datenmanagement. Jeder Node enthält ein Factory Image der NetApp Element Software. NetApp HCI Storage Nodes können mit dem NetApp Element Management-Erweiterungspunkt gemanagt werden.
+
+
+
+== Computing Nodes
+
+NetApp HCI Computing-Nodes sind Hardware, die Computing-Ressourcen wie CPU, Arbeitsspeicher und Netzwerk bereitstellt, die für die Virtualisierung bei der NetApp HCI Installation erforderlich sind. Da auf jedem Server VMware ESXi ausgeführt wird, muss das Management der Computing-Nodes von NetApp HCI (Hinzufügen oder Entfernen von Hosts) außerhalb des Plug-ins im Menü Hosts und Cluster in vSphere erfolgen. Unabhängig davon, ob es sich um ein Storage-Cluster mit vier Nodes oder ein Storage-Cluster mit zwei Nodes handelt, bleibt die Mindestanzahl an Computing-Nodes bei NetApp HCI Implementierungen erhalten.
+
+
+
+== Witness Nodes
+
+NetApp HCI Witness Nodes sind VMs, die auf Computing-Nodes parallel mit einem Element Software-basierten Storage-Cluster ausgeführt werden. Witness Nodes hosten keine Slice- oder Block-Services. Ein Witness Node ermöglicht bei Ausfall eines Storage-Nodes die Verfügbarkeit des Storage-Clusters. Sie können Witness Nodes auf dieselbe Weise managen und aktualisieren wie andere Storage Nodes. Ein Storage-Cluster kann bis zu vier Witness-Nodes enthalten. Ihr primärer Zweck ist es, sicherzustellen, dass genügend Clusterknoten vorhanden sind, um ein gültiges Ensemble-Quorum zu bilden.
+
+|===
+
+
+ a| 
+*Best Practice:* Konfigurieren Sie die Witness Node VMs so konfigurieren Sie den lokalen Datastore des Computing-Nodes (Standardeinstellung: Nde) und konfigurieren Sie diese nicht auf Shared Storage, z. B. SolidFire Storage Volumes. Um eine automatische Migration der VMs zu verhindern, stellen Sie die Automatisierungsebene des Distributed Resource Scheduler (DRS) der Witness Node VM auf *deaktivierte* ein. Dadurch wird verhindert, dass beide Witness-Nodes auf demselben Computing-Node ausgeführt werden und eine Konfiguration mit einem Hochverfügbarkeitspaar (HA-Paar) erstellt wird.
+
+|===
+
+TIP: Weitere Informationen zu link:hci_prereqs_witness_nodes.html["Ressourcenanforderungen Witness Node"] Und link:hci_prereqs_ip_address.html["Anforderungen an die IP-Adresse des Witness Node"].
+
+
+NOTE: In einem Storage-Cluster mit zwei Nodes werden mindestens zwei Witness-Nodes für Redundanz bereitgestellt, falls ein Witness-Node ausfällt. Wenn der Installationsprozess von NetApp HCI Witness Nodes installiert, wird eine VM-Vorlage in VMware vCenter gespeichert, mit der Sie einen Witness-Node neu bereitstellen können, falls dieser versehentlich entfernt, verloren oder beschädigt wurde. Sie können auch die Vorlage verwenden, um einen Witness Node neu zu implementieren, wenn ein ausgefallener Computing-Node, der den Witness Node hostet, ersetzt werden muss. Anweisungen hierzu finden Sie im Abschnitt * Witness Nodes für zwei und drei-Node-Storage-Cluster neu implementieren* link:task_hci_h410crepl.html["Hier"].
+
+
+
+== Weitere Informationen
+
+* https://www.netapp.com/us/media/tr-4823.pdf["NetApp HCI Storage Cluster mit zwei Nodes – TR-4823"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

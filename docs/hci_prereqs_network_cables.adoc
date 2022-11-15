@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_cables.html 
+summary: Erfahren Sie mehr über die Anforderungen an die NetApp HCI-Netzwerkkabel. 
+keywords: netapp, hci, network, cable, requirements 
+---
+= Anforderungen an die Netzwerkkabel
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, network, cable, requirements
+
+
+[role="lead"]
+Sie können die folgenden Richtlinien verwenden, um sicherzustellen, dass Sie über genügend der richtigen Art von Netzwerkkabel für die Größe Ihrer Bereitstellung verfügen. Für RJ45-Ports müssen Kabel nach Kategorie 5e oder Cat 6 verwendet werden.
+
+* 2-Kabel-Computing-Node-Konfiguration: Jeder Computing-Node muss über zwei SFP+/SFP28-Schnittstellen mit einem 10/25-GbE-Netzwerk verbunden werden (optional ist ein zusätzliches Cat 5e/6-Kabel für Out-of-Band-Management erhältlich).
+* Konfiguration mit Computing-Nodes mit sechs Kabeln: Jeder Computing-Node muss über vier SFP+/SFP28-Schnittstellen mit einem 10/25-GbE-Netzwerk und über zwei Cat 5e/6-Kabel mit einem 1/10-GbE-Netzwerk verbunden werden (ein zusätzliches Cat 5e/6-Kabel ist optional für Out-of-Band-Management).
+* Jeder Storage Node muss über zwei SFP+/SFP28-Schnittstellen mit einem 10/25-GbE-Netzwerk und über zwei Cat 5e/6-Kabel mit einem 1/10-GbE-Netzwerk verbunden sein (ein zusätzliches Cat 5e/6-Kabel ist optional für Out-of-Band-Management).
+* Stellen Sie sicher, dass die Netzwerkkabel, die Sie zum Anschließen des NetApp HCI-Systems an Ihr Netzwerk verwenden, lang genug sind, um Ihre Switches bequem zu erreichen.
+
+
+Für eine Implementierung mit vier Storage-Nodes und drei Computing-Nodes (unter Verwendung der sechs-Kabel-Konfiguration) sind beispielsweise die folgende Anzahl an Netzwerkkabel erforderlich:
+
+* (14) Cat 5e/6-Kabel mit RJ45-Anschlüssen (plus sieben Kabel für IPMI-Datenverkehr, falls gewünscht)
+* (20) Twinax-Kabel mit SFP28/SFP+ Anschlüssen
+
+
+Dies ist auf folgende Gründe zurückzuführen:
+
+* Vier Storage-Nodes benötigen acht (8) Cat 5e/6-Kabel und acht (8) Twinax-Kabel.
+* Für drei Computing-Nodes bei der 6-Kabel-Konfiguration sind sechs (6) Cat 5e/6-Kabel und zwölf (12) Twinax-Kabel erforderlich.
+
+
+
+NOTE: In einer Konfiguration mit sechs Kabeln sind zwei Ports für VMware ESXi reserviert und von der NetApp Deployment Engine eingerichtet und gemanagt. Über die Element TUI oder die Element Web GUI können diese dedizierten ESXi Ports nicht aufgerufen oder gemanagt werden.
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

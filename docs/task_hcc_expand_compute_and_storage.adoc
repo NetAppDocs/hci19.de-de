@@ -1,0 +1,138 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_expand_compute_and_storage.html 
+summary: Nachdem die NetApp HCI Implementierung abgeschlossen ist, können Sie mithilfe von NetApp Hybrid Cloud Control NetApp HCI Storage-Ressourcen erweitern und konfigurieren. 
+keywords: netapp, hci, on premise, expand, storage, compute, cluster 
+---
+= Erweitern Sie gleichzeitig NetApp HCI Storage- und Computing-Ressourcen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Nachdem die NetApp HCI Implementierung abgeschlossen ist, können Sie mithilfe von NetApp Hybrid Cloud Control gleichzeitig NetApp HCI Storage- und Computing-Ressourcen erweitern und konfigurieren.
+
+.Bevor Sie beginnen
+* Stellen Sie sicher, dass die vSphere-Instanz von NetApp HCI die Lizenzierung von vSphere Enterprise Plus nutzt, wenn Sie eine Implementierung mit Virtual Distributed Switches erweitern.
+* Stellen Sie sicher, dass für keine der in NetApp HCI verwendeten vCenter oder vSphere Instanzen abgelaufene Lizenzen vorhanden sind.
+* Stellen Sie sicher, dass Sie über die Anmeldedaten für das vCenter-Administratorkonto verfügen.
+* Stellen Sie sicher, dass Sie über freie und nicht genutzte IPv4-Adressen im gleichen Netzwerksegment wie vorhandene Knoten verfügen (jeder neue Node muss im gleichen Netzwerk wie die vorhandenen Knoten seines Typs installiert sein).
+* Stellen Sie sicher, dass Sie über einen der folgenden Typen von SolidFire Storage-Cluster-Konten verfügen:
++
+** Das native Administratorkonto, das während der ersten Implementierung erstellt wurde
+** Ein benutzerdefiniertes Benutzerkonto mit Berechtigungen für Cluster Admin, Laufwerke, Volumes und Nodes
+
+
+* Stellen Sie sicher, dass Sie mit jedem neuen Knoten die folgenden Aktionen durchgeführt haben:
++
+** Der neue Node im NetApp HCI Chassis wurde installiert, indem Sie den folgen link:task_hci_installhw.html["Installationsanweisungen"].
+** Verkabelung und Strom zum neuen Node
+
+
+* Stellen Sie sicher, dass Sie über die Management-IPv4-Adresse eines bereits installierten Storage-Node verfügen. Die IP-Adresse finden Sie auf der Registerkarte *NetApp Element Management* > *Cluster* > *Knoten* des NetApp Element Plug-ins für vCenter Server.
+* Stellen Sie sicher, dass jeder neue Node dieselbe Netzwerktopologie und -Verkabelung wie die vorhandenen Storage- oder Computing-Cluster verwendet.
+
+
+.Über diese Aufgabe
+* Sie können den H410C Compute-Node mit vorhandenen NetApp HCI Computing- und Storage-Nodes im selben Chassis und Cluster kombinieren.
+* Computing-Nodes und BPU-fähige Computing-Nodes können nicht im selben Cluster miteinander kombiniert werden. Wenn Sie einen GPU-fähigen Computing-Node auswählen, werden die aus CPU-Computing-Nodes nicht wählbar und umgekehrt.
+* Wenn Sie Compute-Nodes mit CPU-Generationen hinzufügen, die sich von der CPU-Generation der vorhandenen Computing-Nodes unterscheiden und Enhanced vMotion Compatibility (EVC) auf der steuernden vCenter Instanz deaktiviert ist, müssen Sie EVC aktivieren, bevor Sie fortfahren. Dadurch wird für vMotion Funktionalität nach der Erweiterung gesorgt.
+
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser. Beispiel:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
+. Klicken Sie auf *Expand* in der oberen rechten Ecke der Schnittstelle.
++
+Der Browser öffnet die NetApp Deployment Engine.
+
+. Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des NetApp HCI Storage-Cluster-Administrators bereitstellen.
+. Klicken Sie auf der Seite *Willkommen* auf *Ja* und klicken Sie auf *Weiter*.
+. Lesen Sie auf der Seite *Endbenutzer-Lizenz* die VMware Endbenutzer-Lizenzvereinbarung und klicken Sie auf *Ich akzeptiere*, um die Bedingungen zu akzeptieren und klicken Sie auf *Weiter*.
+. Führen Sie auf der Seite *vCenter* die folgenden Schritte aus:
++
+.. Geben Sie einen FQDN oder eine IP-Adresse und Administratoranmeldeinformationen für die vCenter Instanz ein, die mit Ihrer NetApp HCI-Installation verknüpft ist.
+.. Klicken Sie Auf *Weiter*.
+.. Wählen Sie ein vSphere Datacenter aus, in dem die Computing-Nodes hinzugefügt werden sollen, oder klicken Sie auf *Neues Datacenter erstellen*, um die Computing-Nodes einem neuen Datacenter hinzuzufügen.
++
+
+NOTE: Wenn Sie auf „Neues Datacenter erstellen“ klicken, wird das Feld Cluster automatisch ausgefüllt.
+
+.. Wenn Sie ein vorhandenes Datacenter ausgewählt haben, wählen Sie ein vSphere Cluster aus, mit dem die neuen Computing-Nodes verknüpft werden sollen.
++
+
+NOTE: Wenn NetApp HCI die Netzwerkeinstellungen des Clusters, die Sie für die Erweiterung ausgewählt haben, nicht erkennen kann, stellen Sie sicher, dass die vmKernel und vmnic Zuordnung für das Management, Storage und vMotion Netzwerke auf die Bereitstellungsstandards eingestellt sind. Siehe link:task_nde_supported_net_changes.html["Unterstützte Netzwerkänderungen"] Finden Sie weitere Informationen.
+
+.. Klicken Sie Auf *Weiter*.
+
+
+. Geben Sie auf der Seite *ESXi Credentials* ein ESXi-Root-Passwort für den Rechenknoten oder die Knoten ein, die Sie hinzufügen.
++
+Sie sollten dasselbe Passwort verwenden, das während der ersten NetApp HCI-Implementierung erstellt wurde.
+
+. Klicken Sie Auf *Weiter*.
+. Wenn Sie einen neuen vSphere Datacenter-Cluster erstellt haben, wählen Sie auf der Seite *Netzwerktopologie* eine Netzwerktopologie aus, die an die neuen Computing-Nodes, die Sie hinzufügen, angepasst ist.
++
+
+NOTE: Wählen Sie die Option mit zwei Kabeln nur aus, wenn Ihre Computing-Nodes die Topologie mit zwei Kabeln verwenden und die vorhandene NetApp HCI-Implementierung mit VLAN-IDs konfiguriert ist.
+
+. Wählen Sie auf der Seite *Available Inventory* die Speicher- und Computing-Nodes aus, die Sie hinzufügen möchten, und klicken Sie auf *Continue*.
++
+
+IMPORTANT: Bei einigen Rechenknoten müssen Sie möglicherweise EV auf der höchsten Ebene aktivieren, die Ihre vCenter-Version unterstützt, bevor Sie sie zu Ihrer Installation hinzufügen können. Zur Aktivierung von EVC für diese Computing-Nodes muss der vSphere Client verwendet werden. Aktualisieren Sie nach dem Aktivieren die Seite „Inventar“, und versuchen Sie erneut, die Computing-Nodes hinzuzufügen.
+
+. Klicken Sie Auf *Weiter*.
+. *Optional*: Wenn Sie einen neuen vSphere Datacenter-Cluster erstellt haben, importieren Sie auf der Seite *Netzwerkeinstellungen* Netzwerkinformationen aus einer vorhandenen NetApp HCI-Bereitstellung, indem Sie das Kontrollkästchen *Kopiereinstellung aus einem vorhandenen Cluster* aktivieren.
++
+Dadurch werden das Standard-Gateway und die Subnetzinformationen für jedes Netzwerk gefüllt.
+
+. Auf der Seite *Netzwerkeinstellungen* wurden einige Netzwerkinformationen von der ersten Bereitstellung erkannt. Jeder neue Storage Node wird nach Seriennummer aufgeführt und Sie müssen ihm die neuen Netzwerkinformationen zuweisen. Führen Sie für jeden neuen Storage-Node die folgenden Schritte aus:
++
+.. *Hostname*: Wenn NetApp HCI ein Benennungspräfix erkannt hat, kopieren Sie es aus dem Feld Erkennungspräfix und fügen Sie es als Präfix für den neuen eindeutigen Hostnamen ein, den Sie in das Feld Hostname einfügen.
+.. *Managementadresse*: Geben Sie eine Management-IP-Adresse für den neuen Speicherknoten ein, der sich im Subnetz des Managementnetzwerks befindet.
+.. *Speicher (iSCSI) IP-Adresse*: Geben Sie eine iSCSI-IP-Adresse für den neuen Speicherknoten ein, der sich im iSCSI-Netzwerk-Subnetz befindet.
+.. Klicken Sie Auf *Weiter*.
++
+
+NOTE: NetApp HCI nimmt möglicherweise eine Zeit in Anspruch, um die von Ihnen eingegebenen IP-Adressen zu validieren. Die Schaltfläche Weiter ist verfügbar, wenn die IP-Adressvalidierung abgeschlossen ist.
+
+
+
+. Auf der Seite *Review* im Abschnitt Netzwerkeinstellungen werden neue Knoten im Fettdruck angezeigt. Gehen Sie wie folgt vor, um Änderungen in einem beliebigen Abschnitt vorzunehmen:
++
+.. Klicken Sie für diesen Abschnitt auf *Bearbeiten*.
+.. Klicken Sie nach dem Abschluss auf einer der nachfolgenden Seiten auf *Weiter*, um zur Seite „Review“ zurückzukehren.
+
+
+. *Optional*: Wenn Sie keine Cluster-Statistiken und Support-Informationen an NetApp Hosted Active IQ Server senden möchten, deaktivieren Sie das endgültige Kontrollkästchen.
++
+Hierdurch wird der Zustand und die Diagnoseüberwachung in Echtzeit für NetApp HCI deaktiviert. Wenn diese Funktion deaktiviert wird, ist es NetApp nicht mehr möglich, NetApp HCI proaktiv zu unterstützen und zu überwachen, um Probleme zu erkennen und zu beheben, bevor die Produktion beeinträchtigt wird.
+
+. Klicken Sie Auf *Knoten Hinzufügen*.
++
+Sie können den Fortschritt überwachen, während NetApp HCI die Ressourcen hinzufügt und konfiguriert.
+
+. *Optional*: Überprüfen Sie, ob neue Knoten im VMware vSphere Web Client (für Compute Nodes) oder im Element Plug-in für vCenter Server (für Storage-Nodes) sichtbar sind.
++
+
+NOTE: Wenn Sie ein Storage-Cluster mit zwei Nodes auf vier oder mehr erweitert haben, sind die Witness-Nodes, die zuvor vom Storage-Cluster verwendet wurden, noch als Standby Virtual Machines in vSphere sichtbar. Sie werden vom neu erweiterten Storage-Cluster nicht genutzt; wenn Sie VM-Ressourcen zurückgewinnen möchten, können Sie dies gerne tun link:task_hci_removewn.html["Manuell entfernen"] Die virtuellen Witness Node-Maschinen.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["Installations- und Setup-Anleitung für NetApp HCI Computing- und Storage-Nodes"^]
+* https://kb.vmware.com/s/article/1003212["VMware Knowledge Base: Unterstützung für vMotion Compatibility (EVC)-Prozessoren"^]
+

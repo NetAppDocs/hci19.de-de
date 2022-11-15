@@ -1,0 +1,280 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_h410srepl.html 
+summary: 'Sie sollten einen Storage-Node ersetzen, wenn ein dualer Inline-Speichermodul (DIMM) ausfällt, CPU-Fehler, Probleme mit der Radian-Karte oder andere Probleme mit dem Motherboard auftreten oder sich dieser nicht einschalten lässt.' 
+keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S 
+---
+= H410S Nodes austauschen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie sollten einen Storage-Node ersetzen, wenn ein dualer Inline-Speichermodul (DIMM) ausfällt, CPU-Fehler, Probleme mit der Radian-Karte oder andere Probleme mit dem Motherboard auftreten oder sich dieser nicht einschalten lässt. Warnmeldungen im VMware vSphere Web Client warnen Sie, wenn ein Speicherknoten fehlerhaft ist. Sie sollten die NetApp Element Software-UI verwenden, um die Seriennummer (Service-Tag) des ausgefallenen Nodes zu erhalten. Sie benötigen diese Informationen, um den fehlgeschlagenen Node im Chassis zu finden.
+
+.Was Sie und#8217;ll benötigen
+* Sie haben festgestellt, dass der Storage-Node ersetzt werden muss.
+* Sie verfügen über einen Ersatz-Storage-Node.
+* Sie haben ein elektrostatisches Entladungsband (ESD) oder andere antistatische Vorsichtsmaßnahmen getroffen.
+* Sie haben jedes Kabel gekennzeichnet, das mit dem Speicher-Node verbunden ist.
+
+
+Das Ersatzverfahren gilt für H410S Storage-Nodes in einem 2-HE-NetApp HCI-Chassis mit vier Nodes.
+
+Folgende Rückansicht eines Chassis mit vier Nodes mit H410S Nodes:
+
+image::h410s_chassis_rear.png[Zeigt die Rückseite eines 4-Node-Chassis mit H410S Nodes.]
+
+Hier ist die Vorderansicht eines Chassis mit vier Nodes mit H410S Nodes, in dem die entsprechenden Schächte für jeden Node angezeigt werden:
+
+image::h410s_ssd_bays.png[Zeigt die mit jedem Node in einem Chassis mit vier Nodes verbundenen Schächte mit H410S Nodes.]
+
+Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahrens: to replace the storage node
+ the storage node in the chassis
+ the storage node to the cluster
+
+
+
+== Bereiten Sie den Austausch des Storage-Nodes vor
+
+Sie sollten den fehlerhaften Storage-Node ordnungsgemäß aus dem Cluster entfernen, bevor Sie den Ersatz-Node installieren. Dies ist möglich, ohne dass es zu einer Serviceunterbrechung kommt. Sie sollten die Seriennummer des ausgefallenen Storage Node von der Element UI beziehen und diesen mit der Seriennummer auf dem Aufkleber auf der Rückseite des Node übereinstimmen.
+
+
+NOTE: Beim Ausfall von Komponenten, wenn der Node beispielsweise weiterhin online ist und funktioniert, sollten Sie die Laufwerke aus dem Cluster entfernen, bevor Sie den ausgefallenen Node entfernen.
+
+.Schritte
+. Wenn ein DIMM-Fehler auftritt, entfernen Sie die dem Node zugeordneten Laufwerke, die Sie anschließend vom Cluster ersetzen. Sie können entweder die NetApp Element Software-UI oder den NetApp Element Management-Erweiterungspunkt in Element Plug-in für vCenter Server verwenden, bevor Sie den Knoten entfernen.
+. Entfernen Sie die Knoten, indem Sie entweder die NetApp Element Software UI oder den NetApp Element Management Extension Point im Element Plug-in für vCenter Server verwenden:
++
+[cols="2*"]
+|===
+| Option | Schritte 
+
+
+| Verwenden der Element-UI  a| 
+.. Wählen Sie in der Element UI die Option *Cluster > Knoten*.
+.. Notieren Sie sich die Seriennummer (Service-Tag) des fehlerhaften Knotens. Diese Informationen müssen der Seriennummer auf dem Aufkleber auf der Rückseite des Node entsprechen.
+.. Nachdem Sie die Seriennummer notieren, entfernen Sie den Node wie folgt aus dem Cluster:
+.. Wählen Sie *Actions* für den Knoten, den Sie entfernen möchten.
+.. Wählen Sie *Entfernen*.
+
+
+Sie können den Knoten nun physisch aus dem Gehäuse entfernen.
+
+
+
+| Verwenden des Element Plug-ins für die vCenter Server-UI  a| 
+.. Wählen Sie im Erweiterungspunkt NetApp Element Management des vSphere Web Clients die Option *NetApp Element-Verwaltung > Cluster* aus.
+.. Wählen Sie die Unterregisterkarte *Nodes* aus.
+.. Aktivieren Sie in der aktiven Ansicht das Kontrollkästchen für jeden Knoten, den Sie entfernen möchten, und wählen Sie *Aktionen > Entfernen*.
+.. Bestätigen Sie die Aktion. Alle aus einem Cluster entfernten Nodes werden in der Liste der ausstehenden Nodes angezeigt.
+
+
+|===
+
+
+
+
+== Ersetzen Sie den Storage-Node im Chassis
+
+Sie sollten den Ersatz-Node im selben Steckplatz im Chassis installieren, aus dem Sie den fehlerhaften Node entfernen. Sie sollten die Seriennummer, die Sie über die UI notiert haben, verwenden und sie der Seriennummer auf der Rückseite des Node entsprechen.
+
+
+NOTE: Stellen Sie sicher, dass Sie einen antistatischen Schutz haben, bevor Sie die hier beschriebenen Schritte ausführen.
+
+.Schritte
+. Packen Sie den neuen Storage-Node aus, und stellen Sie ihn auf eine Ebene Fläche in der Nähe des Chassis ein. Bewahren Sie das Verpackungsmaterial der Verpackung auf, wenn Sie den ausgefallenen Node an NetApp zurücksenden.
+. Beschriften Sie jedes Kabel, das an der Rückseite des Storage Node eingesetzt wird, den Sie entfernen möchten. Nach der Installation des neuen Speicherknoten müssen die Kabel in die ursprünglichen Anschlüsse eingesetzt werden.
+. Trennen Sie alle Kabel vom Storage-Node.
+. Ziehen Sie den Nockengriff auf der rechten Seite des Knotens nach unten, und ziehen Sie den Knoten mit beiden Nockengriffen heraus. Der Nockengriff, den Sie nach unten ziehen sollten, hat einen Pfeil darauf, um die Richtung anzuzeigen, in der er sich bewegt. Der andere Nockengriff bewegt sich nicht und ist dort, um den Knoten herausziehen zu helfen.
++
+
+NOTE: Unterstützen Sie den Node mit beiden Händen, wenn Sie ihn aus dem Chassis ziehen.
+
++
+image::HCI_stor_node_camhandles.png[Zeigt den Speicherknoten mit ausgerufenen Nockengriffen.]
+
+. Legen Sie den Knoten auf eine Ebene Fläche.
+. Installieren Sie den Ersatzknoten.
+. Drücken Sie den Node in, bis Sie einen Klick hören.
++
+
+CAUTION: Stellen Sie sicher, dass Sie beim Einschieben des Node in das Chassis keine übermäßige Kraft verwenden.
+
+. Schließen Sie die Kabel wieder an die Anschlüsse an, von denen Sie sie ursprünglich getrennt haben. Die Etiketten, die Sie beim Trennen an den Kabeln angebracht hatten, helfen Ihnen dabei.
++
+
+CAUTION: Wenn die Luftströmungsöffnungen an der Rückseite des Gehäuses durch Kabel oder Etiketten blockiert sind, kann dies zu vorzeitigen Komponentenausfällen aufgrund einer Überhitzung führen. Zwingen Sie die Kabel nicht zu den Ports. Kabel, Ports oder beides können beschädigt werden.
+
++
+
+TIP: Stellen Sie sicher, dass der Ersatz-Node auf die gleiche Weise wie die anderen Nodes im Chassis verkabelt ist.
+
+. Drücken Sie die Taste an der Vorderseite des Knotens, um ihn wieder einschalten zu können.
+
+
+
+
+== Fügen Sie den Storage-Node dem Cluster hinzu
+
+Sie sollten den Storage-Node wieder dem Cluster hinzufügen. Die Schritte hängen von der Version von NetApp HCI ab, die Sie ausführen.
+
+.Was Sie und#8217;ll benötigen
+* Sie verfügen über freie und nicht genutzte IPv4-Adressen im gleichen Netzwerksegment wie vorhandene Nodes (jeder neue Node muss im gleichen Netzwerk installiert sein wie vorhandene Knoten seines Typs).
+* Sie verfügen über einen der folgenden Typen von SolidFire Storage Cluster Accounts:
++
+** Das native Administratorkonto, das während der ersten Implementierung erstellt wurde
+** Ein benutzerdefiniertes Benutzerkonto mit Berechtigungen für Cluster Admin, Laufwerke, Volumes und Nodes
+
+
+* Sie haben den neuen Node verkabelt und mit Strom versorgt.
+* Sie verfügen über die Management-IPv4-Adresse eines bereits installierten Storage-Node. Die IP-Adresse finden Sie auf der Registerkarte *NetApp Element-Verwaltung > Cluster > Knoten* des NetApp Element-Plug-ins für vCenter Server.
+* Dabei ist sichergestellt, dass der neue Node dieselbe Netzwerktopologie und -Verkabelung wie die vorhandenen Storage-Cluster verwendet.
++
+
+TIP: Sorgen Sie dafür, dass die Storage-Kapazität gleichmäßig auf das gesamte Chassis verteilt wird, um eine optimale Zuverlässigkeit zu erzielen.
+
+
+
+
+
+=== NetApp HCI 1.6P1 und höher
+
+Sie können NetApp Hybrid Cloud Control nur verwenden, wenn Ihre NetApp HCI Installation unter Version 1.6P1 oder höher ausgeführt wird.
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser. Beispiel:
++
+[listing]
+----
+https://<ManagementNodeIP>/manager/login
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
+. Wählen Sie im Fenster Installation erweitern die Option *erweitern*.
+. Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des NetApp HCI Storage-Cluster-Administrators bereitstellen.
+. Wählen Sie auf der Willkommensseite *Nein*.
+. Wählen Sie *Weiter*.
+. Wählen Sie auf der Seite „Available Inventory“ den Storage-Node aus, den Sie der vorhandenen NetApp HCI-Installation hinzufügen möchten.
+. Wählen Sie *Weiter*.
+. Auf der Seite Netzwerkeinstellungen wurden einige Netzwerkinformationen von der ersten Bereitstellung erkannt. Jeder neue Storage Node wird nach Seriennummer aufgeführt. Sollten Sie ihm neue Netzwerkinformationen zuweisen. Führen Sie folgende Schritte aus:
++
+.. Wenn NetApp HCI ein Benennungspräfix erkannt hat, kopieren Sie es aus dem Feld Erkennungspräfix, und fügen Sie es als Präfix für den neuen eindeutigen Hostnamen ein, den Sie im Feld Hostname hinzufügen.
+.. Geben Sie im Feld Management-IP-Adresse eine Management-IP-Adresse für den neuen Storage Node im Subnetz des Managementnetzwerks ein.
+.. Geben Sie im Feld Speicher (iSCSI) IP-Adresse eine iSCSI-IP-Adresse für den neuen Speicherknoten ein, der sich im iSCSI-Netzwerk-Subnetz befindet.
+.. Wählen Sie *Weiter*.
++
+
+NOTE: NetApp HCI nimmt möglicherweise eine Zeit in Anspruch, um die von Ihnen eingegebenen IP-Adressen zu validieren. Die Schaltfläche Weiter ist verfügbar, wenn die IP-Adressvalidierung abgeschlossen ist.
+
+
+
+. Auf der Seite „Überprüfung“ im Abschnitt „Netzwerkeinstellungen“ werden neue Knoten fett gedruckt. Wenn Sie die Informationen in einem beliebigen Abschnitt ändern müssen, führen Sie die folgenden Schritte aus:
++
+.. Wählen Sie *Bearbeiten* für diesen Abschnitt aus.
+.. Wenn Sie die Änderungen abgeschlossen haben, wählen Sie auf den nachfolgenden Seiten *Weiter* aus, um zur Seite Überprüfung zurückzukehren.
+
+
+. Optional: Wenn Sie keine Cluster-Statistiken und Support-Informationen an von NetApp gehostete Active IQ Server senden möchten, deaktivieren Sie das endgültige Kontrollkästchen. Hierdurch wird der Zustand und die Diagnoseüberwachung in Echtzeit für NetApp HCI deaktiviert. Wenn diese Funktion deaktiviert wird, ist es für NetApp nicht mehr möglich, NetApp HCI proaktiv zu unterstützen und zu überwachen, um Probleme zu erkennen und zu beheben, bevor die Produktion beeinträchtigt wird.
+. Wählen Sie *Knoten Hinzufügen*. Sie können den Fortschritt überwachen, während NetApp HCI die Ressourcen hinzufügt und konfiguriert.
+. Optional: Überprüfen Sie, ob neue Storage-Nodes im VMware vSphere Web Client sichtbar sind.
+
+
+
+
+=== NetApp HCI 1.4 P2, 1.4 und 1.3
+
+Wenn Ihre NetApp HCI-Installation Version 1.4P2, 1.4 oder 1.3 ausführt, können Sie den Node mit der NetApp Deployment Engine dem Cluster hinzufügen.
+
+.Schritte
+. Navigieren Sie zu der Management-IP-Adresse eines der vorhandenen Storage-Nodes:
+`http://<storage_node_management_IP_address>/`
+. Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des NetApp HCI Storage-Cluster-Administrators bereitstellen.
+. Wählen Sie *Erweitern Sie Ihre Installation*.
+. Wählen Sie auf der Willkommensseite *Nein*.
+. Klicken Sie Auf *Weiter*.
+. Wählen Sie auf der Seite „Available Inventory“ den Speicher-Node aus, der der NetApp HCI-Installation hinzugefügt werden soll.
+. Wählen Sie *Weiter*.
+. Führen Sie auf der Seite Netzwerkeinstellungen die folgenden Schritte aus:
++
+.. Überprüfen Sie die bei der ersten Bereitstellung erkannten Informationen. Jeder neue Storage Node wird nach Seriennummer aufgeführt. Sollten Sie ihm neue Netzwerkinformationen zuweisen. Führen Sie für jeden neuen Storage-Node die folgenden Schritte aus:
++
+... Wenn NetApp HCI ein Benennungspräfix erkannt hat, kopieren Sie es aus dem Feld Erkennungspräfix, und fügen Sie es als Präfix für den neuen eindeutigen Hostnamen ein, den Sie im Feld Hostname hinzufügen.
+... Geben Sie im Feld Management-IP-Adresse eine Management-IP-Adresse für den neuen Storage Node im Subnetz des Managementnetzwerks ein.
+... Geben Sie im Feld Speicher (iSCSI) IP-Adresse eine iSCSI-IP-Adresse für den neuen Speicherknoten ein, der sich im iSCSI-Netzwerk-Subnetz befindet.
+
+
+.. Wählen Sie *Weiter*.
+.. Auf der Seite „Überprüfung“ im Abschnitt „Netzwerkeinstellungen“ wird der neue Knoten fett gedruckt. Wenn Sie Änderungen an den Informationen in einem beliebigen Abschnitt vornehmen möchten, führen Sie die folgenden Schritte aus:
++
+... Wählen Sie *Bearbeiten* für diesen Abschnitt aus.
+... Wenn Sie die Änderungen abgeschlossen haben, wählen Sie auf den nachfolgenden Seiten *Weiter* aus, um zur Seite Überprüfung zurückzukehren.
+
+
+
+
+. Optional: Wenn Sie keine Cluster-Statistiken und Support-Informationen an von NetApp gehostete Active IQ Server senden möchten, deaktivieren Sie das endgültige Kontrollkästchen. Hierdurch wird der Zustand und die Diagnoseüberwachung in Echtzeit für NetApp HCI deaktiviert. Wenn diese Funktion deaktiviert wird, ist es für NetApp nicht mehr möglich, NetApp HCI proaktiv zu unterstützen und zu überwachen, um Probleme zu erkennen und zu beheben, bevor die Produktion beeinträchtigt wird.
+. Wählen Sie *Knoten Hinzufügen*. Sie können den Fortschritt überwachen, während NetApp HCI die Ressourcen hinzufügt und konfiguriert.
+. Optional: Überprüfen Sie, ob neue Storage-Nodes im VMware vSphere Web Client sichtbar sind.
+
+
+
+
+=== NetApp HCI 1.2, 1.1 und 1.0
+
+Bei der Installation des Knotens zeigt die Terminal-Benutzeroberfläche (TUI) die für die Konfiguration des Knotens erforderlichen Felder an. Sie müssen die erforderlichen Konfigurationsinformationen für den Node eingeben, bevor Sie mit dem Hinzufügen des Node zum Cluster fortfahren.
+
+
+NOTE: Sie müssen die TUI verwenden, um statische Netzwerkinformationen sowie Cluster-Informationen zu konfigurieren. Wenn Sie Out-of-Band-Management verwendet haben, müssen Sie es auf dem neuen Node konfigurieren.
+
+Sie sollten über eine Konsole oder Tastatur, ein Video, eine Maus (KVM) verfügen, um diese Schritte auszuführen und über die erforderlichen Netzwerk- und Clusterinformationen zum Konfigurieren des Knotens verfügen.
+
+.Schritte
+. Schließen Sie eine Tastatur und einen Monitor an den Knoten an. Die TUI wird auf dem tty1 Terminal mit der Registerkarte Netzwerkeinstellungen angezeigt.
+. Verwenden Sie die Bildschirmnavigation, um die Bond1G- und Bond10G-Netzwerkeinstellungen für den Node zu konfigurieren. Sie sollten die folgenden Informationen für Bond1G eingeben:
++
+** IP-Adresse. Sie können die Management-IP-Adresse vom ausgefallenen Node wiederverwenden.
+** Subnetzmaske. Wenn Sie nicht wissen, kann Ihr Netzwerkadministrator diese Informationen bereitstellen.
+** Gateway-Adresse. Wenn Sie nicht wissen, kann Ihr Netzwerkadministrator diese Informationen bereitstellen. Sie sollten die folgenden Informationen für Bond10G eingeben:
+** IP-Adresse. Sie können die Speicher-IP-Adresse vom ausgefallenen Knoten wiederverwenden.
+** Subnetzmaske. Wenn Sie nicht wissen, kann Ihr Netzwerkadministrator diese Informationen bereitstellen.
+
+
+. Eingabe `s` Um die Einstellungen zu speichern, und geben Sie dann ein `y` Um die Änderungen zu akzeptieren.
+. Eingabe `c` Navigieren Sie zur Registerkarte Cluster.
+. Verwenden Sie die Bildschirmnavigation, um den Hostnamen und das Cluster für den Knoten einzustellen.
++
+
+NOTE: Wenn Sie den Standardhostnamen in den Namen des Node ändern möchten, den Sie entfernt haben, sollten Sie dies jetzt tun.
+
++
+
+TIP: Am besten sollte derselbe Name für den neuen Node verwendet werden, den Sie ersetzt haben, um in Zukunft zu Verwirrungen zu vermeiden.
+
+. Eingabe `s` Um die Einstellungen zu speichern. Die Cluster-Mitgliedschaft ändert sich von „verfügbar“ in „Ausstehend“.
+. Wählen Sie im NetApp Element Plug-in für vCenter Server die Option *NetApp Element-Verwaltung > Cluster > Knoten* aus.
+. Wählen Sie in der Dropdown-Liste * Ausstehend* aus, um die Liste der verfügbaren Knoten anzuzeigen.
+. Wählen Sie den Knoten aus, den Sie hinzufügen möchten, und wählen Sie *Hinzufügen*.
++
+
+NOTE: Es kann bis zu 2 Minuten dauern, bis der Node dem Cluster hinzugefügt und unter Nodes > aktiv angezeigt wird.
+
++
+
+IMPORTANT: Das Hinzufügen der Laufwerke gleichzeitig kann zu Unterbrechungen führen. Best Practices zum Hinzufügen und Entfernen von Laufwerken finden Sie unter https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/What_is_the_best_practice_on_adding_or_removing_drives_from_a_cluster_on_Element%3F["Diesen KB-Artikel"^] (anmeldung erforderlich).
+
+. Wählen Sie *Laufwerke*.
+. Wählen Sie in der Dropdown-Liste die Option *verfügbar* aus, um die verfügbaren Laufwerke anzuzeigen.
+. Wählen Sie die Laufwerke aus, die Sie hinzufügen möchten, und wählen Sie *Hinzufügen*.
+
+
+
+
+== Weitere Informationen
+
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

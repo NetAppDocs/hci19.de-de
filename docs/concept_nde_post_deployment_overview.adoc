@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_post_deployment_overview.html 
+summary: Erfahren Sie mehr über Aufgaben nach der Implementierung, die Sie nach der Bereitstellung von NetApp HCI ausführen sollten. 
+keywords: netapp, hci, deployment, review, deploy 
+---
+= Aufgaben nach der Implementierung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Je nach Ihrer Auswahl während des Implementierungsprozesses müssen Sie einige abschließende Aufgaben ausführen, bevor das NetApp HCI System betriebsbereit ist. Hierzu zählen die Aktualisierung von Firmware und Treibern und das Vornehmen erforderlicher Änderungen der Konfiguration.
+
+* link:task_nde_supported_net_changes.html["Unterstützte Netzwerkänderungen"]
+* link:task_nde_disable_smartd.html["Deaktivieren Sie den Smartd-Dienst auf NetApp HCI-Compute-Nodes"]
+* link:task_nde_disable_lacp_individual.html["Deaktivieren Sie den Befehl „lacp-individual“ bei konfigurierten Switches"]
+* link:task_nde_update_vsphere.html["Halten Sie VMware vSphere auf dem neuesten Stand"]
+* link:task_nde_install_GPU_drivers.html["Installieren von GPU-Treibern für Compute-Nodes mit GPU-Aktivierung"]
+* link:task_nde_access_hcc.html["Zugriff auf NetApp Hybrid Cloud Control"]
+* link:task_reduce_boot_media_wear.html["Verringern Sie den Verschleiß der Boot-Medien in einem NetApp HCI Computing-Node"]
+
+
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+

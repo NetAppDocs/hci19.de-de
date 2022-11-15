@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_start_deployment.html 
+summary: Beginnen Sie mit der Bereitstellung von NetApp HCI. 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+---
+= Starten Sie die Implementierung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+Bevor Sie mit der NetApp HCI-Bereitstellung fortfahren können, müssen Sie die Endbenutzer-Lizenzvereinbarungen lesen und verstehen.
+
+.Schritte
+. Klicken Sie auf der Seite *Welcome to NetApp HCI* auf *Get Started*.
+. Gehen Sie auf der Seite *Voraussetzungen* wie folgt vor:
++
+.. Stellen Sie sicher, dass jede Voraussetzung erfüllt ist, und klicken Sie zum Bestätigen auf die entsprechenden Kontrollkästchen.
+.. Klicken Sie Auf *Weiter*.
+
+
+. Gehen Sie auf der Seite *Endbenutzer-Lizenzen* wie folgt vor:
++
+.. Lesen Sie die NetApp Endnutzer-Lizenzvereinbarung.
+.. Wenn Sie die Bedingungen akzeptieren, klicken Sie *Ich akzeptiere* am Ende des Vertragstextes.
+.. Lesen Sie die VMware-Endbenutzer-Lizenzvereinbarung.
+.. Wenn Sie die Bedingungen akzeptieren, klicken Sie *Ich akzeptiere* am Ende des Vertragstextes.
+.. Klicken Sie Auf *Weiter*.
+
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_timekeeping.html 
+summary: Hier erfahren Sie mehr über DNS und die Anforderungen an die Zeiterfassung für NetApp HCI. 
+keywords: netapp, hci, timekeeping, NTP, DNS 
+---
+= DNS- und Zeitdaueranforderungen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, timekeeping, NTP, DNS
+
+
+[role="lead"]
+Vor der Bereitstellung müssen Sie DNS-Datensätze (Domain Name System) für Ihr NetApp HCI-System vorbereiten und NTP-Serverinformationen erfassen. Für eine erfolgreiche Bereitstellung ist für NetApp HCI ein DNS-Server mit den richtigen DNS-Einträgen und ein NTP-Server erforderlich.
+
+Vor der Bereitstellung von NetApp HCI folgende Vorbereitungen für DNS und Server treffen:
+
+* Erstellen Sie alle erforderlichen DNS-Einträge für Hosts (z. B. einzelne Rechner- oder Speicherknoten) und dokumentieren Sie, wie die Host-Einträge mit den jeweiligen IP-Adressen übereinstimmen. Während der Bereitstellung müssen Sie Ihrem Storage-Cluster ein Präfix zuweisen, das auf jeden Host angewendet wird. Um Verwirrung zu vermeiden, sollten Sie bei der Auswahl eines Präfixes Ihre DNS-Benennungspläne im Auge behalten.
+* Wenn Sie NetApp HCI mit einer neuen VMware vSphere Installation unter Verwendung eines vollständig qualifizierten Domain-Namens implementieren, müssen Sie einen PTR-Datensatz (Pointer) und einen Adressdatensatz (A) für vCenter Server auf einem beliebigen DNS-Server erstellen, der vor der Bereitstellung verwendet wird.
+* Wenn Sie NetApp HCI mit einer neuen vSphere Installation mit ausschließlich IP-Adressen implementieren, müssen Sie für vCenter keine neuen DNS-Einträge erstellen.
+* NetApp HCI erfordert einen gültigen NTP-Server für die Zeiterfassung. Sie können einen öffentlich verfügbaren Zeitserver verwenden, wenn Sie keinen in Ihrer Umgebung haben.
+* Stellen Sie sicher, dass alle Storage- und Computing-Node-Uhren miteinander synchronisiert sind und dass die Uhren der Geräte, die Sie zum Anmelden bei NetApp HCI verwenden, mit den NetApp HCI-Nodes synchronisiert werden.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_storage_maintenance_mode.html 
+summary: Wenn Sie einen Storage Node für Wartungsarbeiten, wie z. B. Software-Upgrades oder Host-Reparaturen, offline schalten müssen, können Sie die Auswirkungen auf den Rest des Storage-Clusters durch Aktivierung des Wartungsmodus für diesen Node auf ein Minimum minimieren. Sie können den Wartungsmodus mit beiden Appliance-Nodes und SolidFire Enterprise SDS-Nodes verwenden. 
+keywords: netapp, hci, storage nodes, maintenance, mode 
+---
+= Wartungsmodus
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie einen Storage Node für Wartungsarbeiten, wie z. B. Software-Upgrades oder Host-Reparaturen, offline schalten müssen, können Sie die Auswirkungen auf den Rest des Storage-Clusters durch Aktivierung des Wartungsmodus für diesen Node auf ein Minimum minimieren. Sie können den Wartungsmodus mit beiden Appliance-Nodes und SolidFire Enterprise SDS-Nodes verwenden.
+
+
+NOTE: Wenn ein Speicherknoten ausgeschaltet ist, wird er in der Spalte Knotenstatus auf der Seite Speicher in HCC als *nicht verfügbar* angezeigt, da in dieser Spalte der Status des Knotens aus der Perspektive des Clusters angezeigt wird. Der Status „ausgeschaltet“ des Knotens wird durch das Symbol *Offline* neben dem Hostnamen des Knotens angezeigt.
+
+Sie können einen Storage Node nur in den Wartungsmodus versetzen, wenn der Node in einem ordnungsgemäßen Zustand (keine Blockierung von Cluster-Fehlern) ist und das Storage Cluster einem Ausfall einzelner Nodes gegenüber tolerant ist. Sobald Sie den Wartungsmodus für einen gesunden und toleranten Node aktivieren, wird der Node nicht sofort migriert. Er wird überwacht, bis die folgenden Bedingungen erfüllt sind:
+
+* Für alle auf dem Node gehosteten Volumes ist ein Failover fehlgeschlagen
+* Der Node hostet für ein Volume nicht mehr als primärer Node
+* Jedem Failover eines Volumes wird ein temporärer Standby-Node zugewiesen
+
+
+Nachdem diese Kriterien erfüllt sind, wird der Node in den Wartungsmodus versetzt. Wenn diese Kriterien innerhalb eines Zeitraums von 5 Minuten nicht erfüllt werden, wechselt der Node nicht in den Wartungsmodus.
+
+Wenn Sie den Wartungsmodus für einen Storage-Node deaktivieren, wird der Node überwacht, bis die folgenden Bedingungen erfüllt sind:
+
+* Alle Daten werden vollständig zum Node repliziert
+* Alle blockierenden Cluster-Fehler werden behoben
+* Alle temporären Standby-Node-Zuweisungen für die auf dem Node gehosteten Volumes wurden deaktiviert
+
+
+Nachdem diese Kriterien erfüllt sind, wird der Node aus dem Wartungsmodus migriert. Wenn diese Kriterien nicht innerhalb einer Stunde erfüllt werden, kann der Node nicht in den Wartungsmodus wechseln.
+
+Bei Verwendung der Element API werden die Status von Vorgängen im Wartungsmodus angezeigt:
+
+* *Deaktiviert*: Es wurde keine Wartung angefordert.
+* *FailedToRecover*: Der Knoten konnte nicht von der Wartung wiederherstellen.
+* *RecoveringFromMaintenance*: Der Knoten wird gerade von der Wartung wiederhergestellt.
+* *VorbereitungForMaintenance*: Es werden Maßnahmen ergriffen, damit ein Knoten die Wartung durchführen kann.
+* *ReadyForMaintenance*: Der Knoten ist zur Wartung bereit.
+
+
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/element-software/api/reference_element_api_enablemaintenancemode.html["Aktivieren Sie den Wartungsmodus mit der Element API"^]
+* https://docs.netapp.com/us-en/element-software/api/reference_element_api_disablemaintenancemode.html["Deaktivieren Sie den Wartungsmodus mit der Element API"^]
+* https://docs.netapp.com/us-en/element-software/api/concept_element_api_about_the_api.html["Dokumentation der NetApp Element-API"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

@@ -1,0 +1,105 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_edit_vcenter_assets.html 
+summary: Sie können vCenter Management-Node-Controller mithilfe der REST-API-UI bearbeiten. 
+keywords: netapp, mnode, management node, rest api, hci 
+---
+= Vorhandene Controller-Assets können angezeigt oder bearbeitet werden
+:allow-uri-read: 
+
+
+[role="lead"]
+Sie können Informationen zu vorhandenen VMware vCenter Controllern in der Management-Node-Konfiguration über DIE REST-API anzeigen und bearbeiten. Controller sind VMware vCenter Instanzen, die bei Ihrer NetApp HCI Installation auf dem Management-Node registriert sind.
+
+.Bevor Sie beginnen
+* Stellen Sie sicher, dass auf Ihrer Cluster-Version NetApp Element 11.3 oder höher ausgeführt wird.
+* Stellen Sie sicher, dass Sie einen Management-Node mit Version 11.3 oder höher bereitgestellt haben.
+
+
+
+
+== Zugriff auf DIE REST-API für Managementservices
+
+.Schritte
+. Rufen Sie die REST-API-UI für Managementservices auf, indem Sie die IP-Adresse des Management-Node gefolgt von eingeben `/vcenter/1/`:
++
+[listing]
+----
+https://<ManagementNodeIP>/vcenter/1/
+----
+. Klicken Sie auf *autorisieren* oder auf ein Schloss-Symbol, und füllen Sie Folgendes aus:
++
+.. Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+.. Geben Sie die Client-ID als ein `mnode-client`.
+.. Klicken Sie auf *autorisieren*, um eine Sitzung zu starten.
+.. Schließen Sie das Fenster.
+
+
+
+
+
+
+== Anzeigen gespeicherter Informationen zu vorhandenen Controllern
+
+Sie können vorhandene vCenter Controller, die beim Management-Node registriert sind, auflisten und gespeicherte Informationen über sie mithilfe der REST-API anzeigen.
+
+.Schritte
+. Klicken Sie auf *GET /Compute/Controllers*.
+. Klicken Sie auf *Probieren Sie es aus*.
+. Klicken Sie Auf *Ausführen*.
++
+Die API gibt eine Liste aller bekannten vCenter-Controller sowie die IP-Adresse, Controller-ID, Hostname und Benutzer-ID zurück, die für die Kommunikation mit jedem Controller verwendet wurden.
+
+. Wenn Sie den Verbindungsstatus eines bestimmten Controllers möchten, kopieren Sie die Controller-ID von `id` Feld dieses Controllers in der Zwischenablage und siehe  the status of an existing controller.
+
+
+
+
+== Den Status eines vorhandenen Controllers anzeigen
+
+Sie können den Status aller vorhandenen vCenter Controller anzeigen, die beim Management-Node registriert sind. Die API gibt einen Status zurück, der angibt, ob NetApp Hybrid Cloud Control sich sowohl mit dem vCenter Controller verbinden kann als auch mit dem Grund für diesen Status.
+
+.Schritte
+. Klicken Sie auf *GET /Compute/Controllers/{Controller_id}/Status*.
+. Klicken Sie auf *Probieren Sie es aus*.
+. Geben Sie die Controller-ID ein, die Sie zuvor in kopiert haben `controller_id` Parameter.
+. Klicken Sie Auf *Ausführen*.
++
+Die API gibt einen Status dieses bestimmten vCenter-Controllers zurück, zusammen mit einem Grund für diesen Status.
+
+
+
+
+
+== Bearbeiten Sie die gespeicherten Eigenschaften eines Controllers
+
+Sie können den gespeicherten Benutzernamen oder das gespeicherte Passwort für einen der vorhandenen vCenter Controller bearbeiten, die beim Management-Node registriert sind. Sie können die gespeicherte IP-Adresse eines vorhandenen vCenter-Controllers nicht bearbeiten.
+
+.Schritte
+. Klicken Sie auf *PUT /Compute/Controllers/{Controller_id}*.
+. Geben Sie die Controller-ID eines vCenter Controllers in ein `controller_id` Parameter.
+. Klicken Sie auf *Probieren Sie es aus*.
+. Ändern Sie einen der folgenden Parameter im Feld *Text anfordern*:
++
+|===
+| Parameter | Typ | Beschreibung 
+
+
+| `userId` | Zeichenfolge | Ändern Sie die Benutzer-ID, die für die Kommunikation mit dem vCenter Controller verwendet wird (der Benutzer muss über Administratorrechte verfügen). 
+
+
+| `password` | Zeichenfolge | Ändern Sie das Passwort, das für die Kommunikation mit dem vCenter Controller verwendet wird. 
+|===
+. Klicken Sie Auf *Ausführen*.
++
+Die API gibt aktualisierte Controller-Informationen zurück.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* link:task_mnode_add_assets.html["Fügen Sie dem Management-Node Computing- und Controller-Ressourcen hinzu"]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_psurepl.html 
+summary: Wenn ein Netzteil defekt ist, sollten Sie es so schnell wie möglich austauschen, um sicherzustellen, dass das Gehäuse über eine redundante Stromquelle verfügt. 
+keywords: netapp, hci, psu, replace power supply, H410S, H610S, H410C, H610C, H615C 
+---
+= Ersetzen Sie die Netzteile
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Jedes Chassis besitzt zwei Netzteile für Redundanz bei der Stromversorgung. Wenn ein Netzteil defekt ist, sollten Sie es so schnell wie möglich austauschen, um sicherzustellen, dass das Gehäuse über eine redundante Stromquelle verfügt.
+
+.Was Sie und#8217;ll benötigen
+* Sie haben festgestellt, dass das Netzteil defekt ist.
+* Sie haben ein Ersatznetzteil.
+* Sie haben überprüft, dass das zweite Netzteil in Betrieb ist.
+* Sie haben ein elektrostatisches Entladungsband (ESD) oder andere antistatische Vorsichtsmaßnahmen getroffen.
+
+
+Das Ersatzverfahren gilt für die folgenden Node-Modelle:
+
+* Zwei Höheneinheiten (2 HE) mit vier Nodes NetApp HCI-Chassis
+* 2 HE H610C Computing-Chassis
+* 1-HE-H615C Computing-Chassis
+* 1-HE-H610S Storage-Chassis
++
+
+NOTE: Bei H610C, H615C und H610S werden die Begriffe „Node“ und „Chassis“ austauschbar verwendet, da Node und Chassis keine separaten Komponenten sind, im Gegensatz zum 2-HE-Chassis mit vier Nodes.
+
+
+
+Alarme im VMware vSphere Web Client geben Informationen über das fehlerhafte Netzteil, die sich auf PS1 oder PS2 beziehen. In einem NetApp HCI 2-HE-Chassis mit vier Nodes bezeichnet PS1 die Einheit in der oberen Zeile des Gehäuses und PS2 die Einheit in der unteren Zeile des Gehäuses. Sie können das fehlerhafte Netzteil austauschen, während das Gehäuse eingeschaltet und funktionsfähig ist, solange das redundante Netzteil funktioniert.
+
+.Schritte
+. Suchen Sie das defekte Netzteil im Gehäuse. Die LED auf dem defekten Gerät zeigt gelb an.
++
+
+NOTE: Die Netzteile befinden sich je nach Gehäusetyp unterschiedlich.
+
++
+Die Positionen der Netzteile finden Sie in den folgenden Bildern:
+
++
+[cols="2*"]
+|===
+| Modell | Position der Netzteile 
+
+
+| 2-HE-NetApp HCI-Storage-Chassis mit vier Nodes  a| 
+image::storage_chassis_psu.png[Zeigt die Netzteile in einem 2-HE-Formfaktor]
+
+
+NOTE: Die Nodes in Ihrem Chassis können je nach Node-Typ (Storage oder Computing) unterschiedlich aussehen.
+
+
+
+| H610C Chassis  a| 
+image::h610c_psu.png[Zeigt die Netzteile in einem H610C Chassis.]
+
+
+
+| H615C Chassis  a| 
+image::h615c_psu.png[Zeigt die Netzteile in einem H615C Chassis.]
+
+
+
+| H610S Chassis  a| 
+image::h610s_psu.png[Zeigt die Netzteile in einem H610S-Chassis.]
+
+|===
+. Ziehen Sie das Netzkabel vom Netzteil ab.
+. Heben Sie den Nockengriff an, und drücken Sie die blaue Verriegelung, um das Netzteil herauszuschieben.
++
+image::psu-remove.gif[Zeigt den Heben des Nockengriffs und das Netzteil aus dem Gehäuse.]
+
++
+
+NOTE: Die Abbildung ist ein Beispiel. Die Position des Netzteils im Gehäuse und die Farbe der Entriegelungstaste variieren je nach Gehäusetyp.
+
++
+
+IMPORTANT: Stellen Sie sicher, dass Sie beide Hände verwenden, um das Gewicht des Netzteils zu unterstützen.
+
+. Richten Sie die Kanten des Netzteils mit beiden Händen an der Öffnung im Gehäuse aus. Schieben Sie das Gerät vorsichtig mit dem Nockengriff in das Gehäuse, bis es einrastet, und bringen Sie den Nockengriff in die aufrechte Position zurück.
++
+image::psu-install.gif[Zeigt das Netzteil, das im Chassis installiert wird.]
+
+. Schließen Sie das Netzkabel an.
+. Senden Sie das fehlerhafte Gerät an NetApp zurück. Befolgen Sie die Anweisungen im Lieferumfang, die Sie erhalten haben.
+
+
+
+
+== Weitere Informationen
+
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

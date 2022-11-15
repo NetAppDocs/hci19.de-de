@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_access.html 
+summary: Sie können sich bei NetApp Hybrid Cloud Control anmelden. 
+keywords: netapp, hci, on premise, hybrid cloud control, hcc 
+---
+= Zugang zu NetApp HCI Hybrid Cloud Control
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Mit NetApp Hybrid Cloud Control können Sie NetApp HCI managen.
+
+Sie melden sich bei NetApp Hybrid Cloud Control an, indem Sie die IP-Adresse des Management-Node nutzen.
+
+Hybrid Cloud Control bietet folgende Möglichkeiten:
+
+* link:task_hcc_dashboard.html["Überwachen Sie die NetApp HCI-Installation"]
+* link:concept_hci_upgrade_overview.html["Führen Sie ein Upgrade Ihres NetApp HCI Systems durch"]
+* link:concept_hcc_expandoverview.html["Erweitern Sie Ihre NetApp HCI Storage- oder Computing-Ressourcen"]
+
+
+*Schritte*
+
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser. Beispiel:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
++
+Die Benutzeroberfläche von NetApp Hybrid Cloud Control wird angezeigt.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

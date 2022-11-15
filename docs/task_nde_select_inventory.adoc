@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_select_inventory.html 
+summary: Erfahren Sie, wie Sie bei der Bereitstellung den NetApp HCI-Knotenbestand auswählen. 
+keywords: netapp, hci, deployment, compatibility, nodes 
+---
+= Wählen Sie Inventar aus
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Auf der Seite *Inventar* erkennt die NetApp Deployment Engine automatisch verfügbare Computing- und Storage-Nodes und ermöglicht es Ihnen, alle NetApp HCI-Ressourcen zur Implementierung auszuwählen und hinzuzufügen. Wenn ein Node die Implementierungsanforderungen nicht erfüllt, kann er nicht ausgewählt werden. Die Probleme werden als Fehler angezeigt. Sie können den Cursor über den Fehler in der Zeile des Knotens positionieren, um eine Erklärung anzuzeigen. Wenn Sie auf der Seite „Inventar“ den Node auswählen, der die NetApp Deployment Engine hostet, wird automatisch ausgewählt. Sie können die Auswahl nicht aufheben.
+
+Jumbo-Frames müssen aktiviert sein, um eine ordnungsgemäße Inventarerkennung zu gewährleisten. Wenn im Inventar keine Nodes oder nur eine Untermenge von Nodes angezeigt werden, überprüfen Sie, ob die für NetApp HCI Nodes verwendeten Switch Ports (alle SFP+/SFP28-Schnittstellen) mit Jumbo Frames konfiguriert sind.
+
+.Schritte
+. Zeigen Sie auf der Seite *Inventar* die Liste der verfügbaren Knoten an.
++
+Wenn das System keine Bestandsliste erkennt, wird ein Fehler angezeigt. Beheben Sie den Fehler, bevor Sie fortfahren. Wenn Ihr System DHCP für die Zuweisung von IP-Adressen verwendet, werden die Storage- und Computing-Ressourcen möglicherweise nicht sofort im Inventar angezeigt.
+
+. Optional: Wenn eine Ressource nicht sofort im Bestand angezeigt wird oder wenn Sie einen Fehler beheben und den Bestand aktualisieren müssen, klicken Sie auf *Bestand aktualisieren*. Möglicherweise müssen Sie den Bestand mehrmals aktualisieren.
+. Optional: So filtern Sie den Bestand nach Node-Attributen wie Node-Typ:
++
+.. Klicken Sie in der Kopfzeile der Listen *Compute Nodes* oder *Storage Nodes* auf *Filter*.
+.. Wählen Sie aus den Dropdown-Listen Kriterien aus.
+.. Geben Sie unter den Dropdown-Listen Informationen ein, um die Kriterien zu erfüllen.
+.. Klicken Sie Auf *Filter Hinzufügen*.
+.. Löschen Sie einzelne Filter, indem Sie neben einem aktiven Filter *X* klicken oder alle Filter aufheben, indem Sie über die Filterliste *X* klicken.
+
+
+. Wählen Sie aus der Liste *Compute Nodes* alle mit Ihrem System gelieferten Computing-Nodes aus.
++
+Sie müssen mindestens zwei Computing-Nodes auswählen, um mit der Implementierung fortzufahren.
+
+. Wählen Sie aus der Liste *Storage Nodes* alle Storage Nodes aus, die mit Ihrem System geliefert wurden.
++
+Sie müssen mindestens zwei Storage-Nodes auswählen, um mit der Implementierung fortzufahren.
+
+. Optional: Wenn ein Auswahlfeld für Storage-Nodes gekennzeichnet ist, überschreitet dieser Storage-Node 33 % der gesamten Storage Cluster-Kapazität. Gehen Sie wie folgt vor:
++
+** Löschen Sie das Auswahlfeld für den markierten Speicherknoten.
+** Wählen Sie zusätzliche Storage-Nodes aus, um die Storage-Cluster-Kapazität gleichmäßig auf die Nodes zu verteilen.
+
+
+. Klicken Sie Auf *Weiter*.
+
+
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
+

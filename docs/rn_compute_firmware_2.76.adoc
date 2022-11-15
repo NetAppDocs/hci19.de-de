@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: docs/rn_compute_firmware_2.76.html 
+summary: Hier finden Sie Links zu Versionshinweisen für die Firmware-Pakete, die Sie herunterladen und für NetApp HCI-Nodes anwenden können. 
+keywords: netapp, hci, compute firmware 
+---
+= Versionshinweise Zum Computing-Firmware-Bundle 2.76
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+Das herunterladbare Rechner-Firmware-Bundle enthält die neuesten BIOS- und BMC-Funktionserweiterungen, Bugfixes und Hardware-Support für alle unterstützten NetApp HCI-Compute-Nodes.
+
+
+
+== Was ist neu
+
+Version 2.76 enthält allgemeine Bugfixes.
+
+
+
+=== Aktualisierte Firmware-Komponenten
+
+Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekomponenten. Aktualisierte Versionen in Bold:
+
+|===
+| Komponente | H300E, H500E, H700E | H410C | H610C | H615C 
+
+
+| BIOS | NA2.1 | *NATP3.9* | 3B03 | 3B08.CO 
+
+
+| BMC | 6.84.00 | 6.71.18 | 4.00.07 | 4.68.07 
+
+
+| NIC/Mellanox | 14.25.1020 | 14.25.1020 | 14.25.1020 | 14.24.1000 
+|===
+
+
+=== Änderungen in den Firmware-Komponenten
+
+Im Folgenden finden Sie Details zu den Verbesserungen und Änderungen, die in jeder neuen Firmware-Komponente enthalten sind:
+
+|===
+| Node- und Firmware-Komponente | Verbesserungen und Änderungen 
+
+
+| *NATP3.9*  a| 
+* CSESF-284 Tatooine + BMC 6.71.18 meldet nicht, wenn PPR-Funktion Erfolg Ereignis.
+* CSESF-289 NA3.7 BIOS hat nicht die Möglichkeit, einen Erfolg auf hPPR (Hard PPR) zu melden.
+* SKX-ucode auf 0x6906 und CLX-ucode auf 0x2F01 aktualisiert.
+
+
+|===
+
+
+=== Kompatibilität mit Mellanox NIC-Firmware-Treibern
+
+Die aktualisierten Mellanox-Firmware-Versionen 14.25.1020 und 14.24.1000 sind nur mit den folgenden Versionen des VMware ESXi-Treibers kompatibel:
+
+* *ESXi 7.0*: H300E/H500E/H700E/H410C: Version 4.19.16.1
+* *ESXi 7.0*: H610C/H615C: Version 4.17.15.16
+* *ESXi 6.7*: Version 4.17.15.16
+* *ESXi 6.5*: Version 4.16.13.5
+
+
+
+NOTE: Überprüfen Sie vor dem Upgrade auf Version 2.76 die aktuelle Version des ESXi-Treibers. Wenn der Treiber veraltet ist, aktualisieren Sie zuerst den Treiber. Dann aktualisieren Sie die Computing-Firmware für Ihre Computing-Nodes auf Version 2.76. Besuchen Sie link:task_hcc_upgrade_compute_node_drivers.html["Aktualisieren von Compute-Node-Treibern"] Anweisungen zum Aktualisieren der Treiber für die Rechnerknoten, einschließlich des ESXi-Treibers.
+
+Während NetApp Deployment Engine 1.8P1 keine ESXi Version 7.0 implementiert, wird ESXi 7.0 als Selbstinstallierungs- oder manuelle Upgrade-Option unterstützt. Wenn Sie Host Betriebssysteme manuell installieren oder aktualisieren, kann NetApp die Treiber und Firmware für diese Betriebssysteme nicht steuern.
+
+
+
+== Computing Firmware Bundle 2.76 Herunterladen
+
+Zum Herunterladen des Computing-Firmware-Pakets gehen Sie zu https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp HCI Computing Firmware-Bundle"^] Seite.
+
+Besuchen Sie link:task_hcc_upgrade_compute_node_firmware.html#use-the-baseboard-management-controller-bmc-user-interface-ui["Aktualisiert die Computing-Node-Firmware"] Anweisungen zum Aktualisieren der Computing-Node-Firmware.
+
+
+
+== Sicherheitsschwachstellen wurden behoben
+
+Im Folgenden sind Sicherheitslücken aufgeführt, die in dieser Version behoben wurden:
+
+* CVE2020-0548, CVE2020-0549
+* CVE2019-11157, CVE2019-14607
+
+
+
+
+== Gelöste und bekannte Probleme
+
+Siehe https://mysupport.netapp.com/site/bugs-online/product["Bugs Online Tool"^] Für Details zu Problemen, die behoben wurden, und für neue Probleme.
+
+
+
+=== Zugriff auf das BOL-Tool
+
+. Navigieren Sie zum  https://mysupport.netapp.com/site/bugs-online/product["BOL-Werkzeug"^] Und wählen Sie in der Dropdown-Liste * Element Software* aus:
++
+image::bol_dashboard.png[Versionshinweise für Storage-Firmware-Bundles]
+
+. Geben Sie im Suchfeld „Compute Firmware Bundle“ ein und klicken Sie auf *New Search*:
++
+image::compute_firmware_bundle_choice.png[Versionshinweise für Storage-Firmware-Bundles]
+
+. Es wird eine Liste der behobenen oder offenen Fehler angezeigt. Sie können die Ergebnisse wie folgt verfeinern:
++
+image::bol_list_bugs_found.png[Versionshinweise für Storage-Firmware-Bundles]
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

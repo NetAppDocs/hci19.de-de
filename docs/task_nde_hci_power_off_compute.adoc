@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_hci_power_off_compute.html 
+summary: So schalten Sie die NetApp HCI Computing-Nodes aus. 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Schalten Sie Computing-Ressourcen für ein NetApp HCI System aus
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+Um NetApp HCI Computing-Ressourcen auszuschalten, müssen Sie einzelne VMware ESXi-Hosts sowie die VMware vCenter Server Appliance in einer bestimmten Reihenfolge ausschalten.
+
+.Schritte
+. Melden Sie sich bei der vCenter-Instanz an, die das NetApp HCI-System steuert, und bestimmen Sie den ESXi-Rechner, der die virtuelle vCenter Server-Appliance (vCSA) hostet.
+. Nachdem Sie den ESXi-Host ermittelt haben, auf dem vCSA ausgeführt wird, schalten Sie alle anderen virtuellen Maschinen außer vCSA wie folgt aus:
++
+.. Wählen Sie eine virtuelle Maschine aus.
+.. Klicken Sie mit der rechten Maustaste, und wählen Sie *ein/aus > Gastbetriebssystem herunterfahren* aus.
+
+
+. Schalten Sie alle ESXi-Hosts aus, die nicht der ESXi-Host sind, auf dem die vCSA ausgeführt wird.
+. Schalten Sie die vCSA aus.
++
+Dadurch wird die vCenter-Sitzung beendet, da die vCSA während des Ausschaltvorgangs die Verbindung getrennt. Alle virtuellen Maschinen sollten jetzt heruntergefahren werden, wenn nur ein ESXi Host eingeschaltet ist.
+
+. Melden Sie sich bei dem ausgeführten ESXi-Host an.
+. Vergewissern Sie sich, dass alle virtuellen Maschinen auf dem Host ausgeschaltet sind.
+. Fahren Sie den ESXi-Host herunter.
++
+Dadurch werden alle offenen iSCSI-Sitzungen mit dem NetApp HCI-Storage-Cluster getrennt.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

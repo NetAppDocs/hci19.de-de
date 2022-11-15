@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_nde_hci_power_off_on.html 
+summary: Erfahren Sie, wie Sie VMware vSphere während der NetApp HCI Implementierung konfigurieren. 
+keywords: netapp, hci, netapp deployment engine, deployment, vsphere 
+---
+= Ausschalten oder Einschalten des NetApp HCI Systems
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, netapp deployment engine, deployment, vsphere
+
+
+[role="lead"]
+Sie können Ihr NetApp HCI System ausschalten oder einschalten, wenn Sie einen geplanten Ausfall haben, Hardware-Wartungsarbeiten durchführen oder das System erweitern müssen. Verwenden Sie die folgenden Aufgaben, um das NetApp HCI System auszuschalten oder es bei Bedarf auszuschalten.
+
+Unter verschiedenen Umständen müssen Sie Ihr NetApp HCI System ausschalten, z. B.:
+
+* Geplante Ausfallzeiten
+* Austausch des Chassis-Lüfters
+* Firmware-Upgrades
+* Erweiterung von Storage- oder Computing-Ressourcen
+
+
+Im Folgenden finden Sie eine Übersicht über die Aufgaben, die Sie zum Ausschalten eines NetApp HCI Systems ausführen müssen:
+
+* Schalten Sie alle virtuellen Maschinen außer dem VMware vCenter Server (vCSA) aus.
+* Schalten Sie alle ESXi-Server außer dem ein, der die vCSA hostet.
+* Schalten Sie die vCSA aus.
+* Schalten Sie das NetApp HCI Storage-System aus.
+
+
+Im Folgenden finden Sie eine Übersicht über die Aufgaben, die Sie zum Einschalten eines NetApp HCI Systems ausführen müssen:
+
+* Schalten Sie alle physischen Storage-Nodes ein.
+* Schalten Sie alle physischen Computing-Nodes ein.
+* Schalten Sie die vCSA ein.
+* Überprüfen Sie das System und schalten Sie zusätzliche Virtual Machines ein.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

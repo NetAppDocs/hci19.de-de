@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_api_find_mgmt_svcs_version.html 
+summary: Die vom Management-Node verwendeten Versionen für das Betriebssystem und die Managementservices finden Sie mithilfe der REST-API. 
+keywords: netapp, hci, management node, management services, version, bundle version, what is 
+---
+= Überprüfen Sie die Betriebssystem- und Servicestversionen der Management-Nodes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Versionsnummern des Management-Node-Betriebssystems, des Managementservices-Pakets und der einzelnen Services, die auf dem Management-Node ausgeführt werden, mithilfe der REST-API im Management-Node überprüfen.
+
+.Was Sie und#8217;ll benötigen
+* Auf dem Cluster wird die NetApp Element Software 11.3 oder höher ausgeführt.
+* Sie haben einen Management-Node mit Version 11.3 oder höher implementiert.
+
+
+.Optionen
+*  commands
+*  API UI steps
+
+
+
+
+== API-Befehle
+
+* Hier erhalten Sie Versionsinformationen zum Management-Node OS, zum Management-Services-Bundle und zum Management-Node-API-Service (mNode-API), der auf dem Management-Node ausgeführt wird:
++
+[listing]
+----
+curl -X GET "https://<ManagementNodeIP>/mnode/about" -H  "accept: application/json"
+----
+* Abrufen der Versionsinformationen zu den einzelnen auf dem Management-Node ausgeführten Services:
++
+[listing]
+----
+curl -X GET "https://<ManagementNodeIP>/mnode/services?status=running" -H  "accept: */*" -H  "Authorization: Bearer ${TOKEN}"
+----
++
+
+NOTE: Ihr könnt den Träger finden `${TOKEN}` Wird von dem API-Befehl verwendet, wenn Sie link:task_mnode_api_get_authorizationtouse.html["Autorisieren"]. Der Träger `${TOKEN}` Ist in der Curl-Antwort.
+
+
+
+
+
+== SCHRITTE DER REST API-UI
+
+. Rufen Sie die REST-API-UI für den Service auf, indem Sie die Management-Node-IP-Adresse, gefolgt von, eingeben `/mnode/`:
++
+[listing]
+----
+https://<ManagementNodeIP>/mnode/
+----
+. Führen Sie einen der folgenden Schritte aus:
++
+** Hier erhalten Sie Versionsinformationen zum Management-Node OS, zum Management-Services-Bundle und zum Management-Node-API-Service (mNode-API), der auf dem Management-Node ausgeführt wird:
++
+... Wählen Sie *GET /about* aus.
+... Wählen Sie *Probieren Sie es aus*.
+... Wählen Sie *Ausführen*.
++
+Die Bundle-Version der Managementservices (`"mnode_bundle_version"`), Version des Management-Node-Betriebssystems (`"os_version"`) Und der Version der Management-Node-API (`"version"`) Sind im Antwortkörper angegeben.
+
+
+
+** Abrufen der Versionsinformationen zu den einzelnen auf dem Management-Node ausgeführten Services:
++
+... Wählen Sie *GET /Services*.
+... Wählen Sie *Probieren Sie es aus*.
+... Wählen Sie den Status als *läuft* aus.
+... Wählen Sie *Ausführen*.
++
+Die Dienste, die auf dem Management-Knoten ausgeführt werden, werden im Response Body angezeigt.
+
+
+
+
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

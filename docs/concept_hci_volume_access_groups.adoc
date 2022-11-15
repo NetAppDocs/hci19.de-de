@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_hci_volume_access_groups.html 
+summary: Erfahren Sie mehr über Volume-Zugriffsgruppen und darüber, wie Sie diese für den Zugriff und das Management von Volumes nutzen können. 
+keywords: netapp, hci, storage volume, solidfire volume, element volume, persistent volume, access group 
+---
+= Volume-Zugriffsgruppen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Eine Volume-Zugriffsgruppe ist eine Sammlung von Volumes, auf die Benutzer entweder über iSCSI oder über Fibre Channel-Initiatoren zugreifen können.
+
+Durch die Erstellung und Nutzung von Volume-Zugriffsgruppen können Sie den Zugriff auf eine Gruppe von Volumes steuern. Wenn Sie einen Satz von Volumes und einen Satz von Initiatoren einer Volume-Zugriffsgruppe zuordnen, gewährt die Zugriffsgruppe diesen Initiatoren Zugriff auf diese Gruppe von Volumes.
+
+Volume-Zugriffsgruppen verfügen über die folgenden Grenzen:
+
+* Maximal 128 Initiatoren pro Volume-Zugriffsgruppe.
+* Maximal 64 Zugriffsgruppen pro Volume.
+* Eine Zugriffsgruppe kann aus maximal 2000 Volumes bestehen.
+* Ein IQN oder WWPN kann nur zu einer Volume-Zugriffsgruppe gehören.
+
+
+
+
+== Weitere Informationen
+
+* link:task_hcc_manage_vol_access_groups.html["Management von Volume-Zugriffsgruppen"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

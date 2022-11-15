@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_ip_address.html 
+summary: Erfahren Sie mehr über die IP-Adresse von NetApp HCI. 
+keywords: netapp, hci, IP address, requirements 
+---
+= Anforderungen an die IP-Adresse
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, IP address, requirements
+
+
+[role="lead"]
+NetApp HCI verfügt über spezifische IP-Adressanforderungen, die von der Größe der Implementierung abhängen. Zu beachten ist, dass die anfänglichen IP-Adressen, die Sie jedem Node zugewiesen haben, bevor Sie die NetApp Deployment Engine zur Implementierung des Systems verwenden, temporär sind und nicht wiederverwendet werden können. Sie müssen eine zweite permanente Gruppe nicht verwendeter IP-Adressen festlegen, die Sie während der endgültigen Bereitstellung zuweisen können.
+
+
+
+== Anzahl der pro NetApp HCI Implementierung benötigten IP-Adressen
+
+Das NetApp HCI-Storage-Netzwerk und das Management-Netzwerk sollten jeweils separate, zusammenhängende Bereiche der IP-Adressen verwenden. In der folgenden Tabelle können Sie ermitteln, wie viele IP-Adressen Sie für Ihre Implementierung benötigen:
+
+|===
+| Systemkomponente | Management-Netzwerk-IP-Adressen erforderlich | Erforderliche Storage-Netzwerk-IP-Adressen | VMotion Netzwerk-IP-Adressen erforderlich | Insgesamt pro Komponente benötigte IP-Adressen 
+
+
+| Computing-Node | 1 | 2 | 1 | 4 
+
+
+| Storage-Node | 1 | 1 |  | 2 
+
+
+| Storage-Cluster | 1 | 1 |  | 2 
+
+
+| VMware vCenter | 1 |  |  | 1 
+
+
+| Management-Node | 1 | 1 |  | 2 
+
+
+| Witness Node | 1 | 1 |  | 2 pro Witness Node (für jeden Storage-Cluster mit zwei oder drei Nodes werden zwei Witness-Nodes implementiert) 
+|===
+
+
+== IP-Adressen, die von NetApp HCI reserviert werden
+
+NetApp HCI behält sich die folgenden IP-Adressbereiche für Systemkomponenten vor. Vermeiden Sie bei der Planung Ihres Netzwerks die Verwendung dieser IP-Adressen:
+
+|===
+| IP-Adressbereich | Beschreibung 
+
+
+| 10.0.0.0/24 | Overlay-Netzwerk Docker 
+
+
+| 10.0.1.0/24 | Overlay-Netzwerk Docker 
+
+
+| 10.255.0.0/16 | Docker Swarm Ingress-Netzwerk 
+
+
+| 169.254.100.1/22 | Docker Bridge-Netzwerk 
+
+
+| 169.254.104.0/22 | Docker Bridge-Netzwerk 
+|===
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

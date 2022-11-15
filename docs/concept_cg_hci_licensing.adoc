@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: docs/concept_cg_hci_licensing.html 
+summary: Wenn Sie NetApp HCI verwenden, werden möglicherweise zusätzliche Lizenzen benötigt. 
+keywords: netapp, hci, license 
+---
+= NetApp HCI Lizenzierung
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Wenn Sie NetApp HCI verwenden, werden je nach verwendetem System möglicherweise zusätzliche Lizenzen benötigt.
+
+
+
+== NetApp HCI und VMware vSphere Lizenzierung
+
+Die VMware vSphere-Lizenzierung hängt von Ihrer Konfiguration ab:
+
+[cols="25,75"]
+|===
+| Netzwerkoption | Lizenzierung 
+
+
+| Option A: Zwei Kabel für Computing-Nodes mithilfe von VLAN-Tagging (alle Computing-Nodes) | Erfordert die Verwendung von vSphere Distributed Switch, für den eine Lizenz für VMware vSphere Enterprise Plus erforderlich ist 
+
+
+| Option B: Sechs Kabel für Computing-Nodes mit getaggten VLANs (H410C 2RU 4-Node Computing-Node) | Bei dieser Konfiguration wird standardmäßig vSphere Standard Switch verwendet. Für die optionale Verwendung von vSphere Distributed Switch ist eine VMware Enterprise Plus-Lizenzierung erforderlich. 
+
+
+| Option C: Sechs Kabel für Computing-Nodes mithilfe von nativen und getaggten VLANs (H410C, 2RU 4-Node Computing-Node) | Bei dieser Konfiguration wird standardmäßig vSphere Standard Switch verwendet. Für die optionale Verwendung von vSphere Distributed Switch ist eine VMware Enterprise Plus-Lizenzierung erforderlich. 
+|===
+
+
+== NetApp HCI und ONTAP Select Lizenzierung
+
+Falls Sie eine Version von ONTAP Select zur Verwendung in Verbindung mit einem erworbenen NetApp HCI System bereitgestellt wurden, gelten die folgenden zusätzlichen Einschränkungen:
+
+* Die ONTAP Select Lizenz, die im Paket mit einem NetApp HCI Systemverkauf angeboten wird, darf nur in Verbindung mit den NetApp HCI Computing-Nodes verwendet werden.
+* Der Storage für diese ONTAP Select Instanzen muss sich nur auf den NetApp HCI Storage-Nodes befinden.
+* Die Verwendung von Computing-Nodes von Drittanbietern oder Storage-Nodes von Drittanbietern ist untersagt.
+
+
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
+

@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_access_manual_ip.html 
+summary: Lesen Sie, wie Sie auf die NetApp Deployment Engine zugreifen und NetApp HCI-Nodes manuell IP-Adressen zuweisen. 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+---
+= Weisen Sie IP-Adressen manuell dem Zugriff auf die NetApp Deployment Engine zu
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+Sie können auf allen NetApp HCI-Nodes manuell statische IPv4-Adressen den Bond1G- und Bond10G-Schnittstellen zuweisen, um auf die NetApp Deployment Engine zuzugreifen und NetApp HCI zu implementieren. Sie sollten diese Methode nur verwenden, wenn Ihr Netzwerk besondere Anforderungen hat.
+
+.Was Sie und#8217;ll benötigen
+* Sie oder Ihr Netzwerkadministrator haben die Aufgaben im Dokument Installations- und Setup-Anleitung ausgeführt.
+* Sie haben physischen Zugriff auf die NetApp HCI-Nodes.
+* Alle NetApp HCI-Nodes sind eingeschaltet.
+* DHCP ist für die NetApp HCI-Netzwerke nicht aktiviert, und die NetApp HCI-Nodes haben keine IP-Adressen von DHCP-Servern erhalten. HINWEIS: Alle IP-Adressen, die Sie vor der Implementierung des Systems manuell mit der NetApp Deployment Engine zuweisen, sind temporär und können nicht wiederverwendet werden. Wenn Sie IP-Adressen manuell zuweisen möchten, müssen Sie einen zweiten permanenten Satz nicht verwendeter IP-Adressen festlegen, den Sie während der endgültigen Bereitstellung zuweisen können.
+
+
+In dieser Konfiguration verwenden Computing- und Storage-Nodes statische IPv4-Adressen, um während der Implementierung mit anderen Nodes zu erkennen und zu kommunizieren. Diese Konfiguration wird nicht empfohlen.
+
+.Schritte
+. Stecken Sie ein KVM in die Rückseite eines der NetApp HCI Storage-Nodes (dieser Node wird der steuernde Storage-Node).
+. Konfigurieren Sie die IP-Adresse, die Subnetzmaske und die Gateway-Adresse für Bond1G und Bond10G in der Benutzeroberfläche. Sie können bei Bedarf auch eine VLAN-ID für jedes Netzwerk konfigurieren.
+. Wiederholen Sie Schritt 2 für die übrigen Storage- und Computing-Nodes.
+. Öffnen Sie einen Webbrowser auf einem Computer, der auf das NetApp HCI-Managementnetzwerk zugreifen kann.
+. Navigieren Sie zur Bond1G-IP-Adresse, die Sie dem steuernden Storage-Node zugewiesen haben. Beispiel:
++
+[listing]
+----
+http://<Bond1G IP address>
+----
++
+Dies führt Sie zur Benutzeroberfläche der NetApp Deployment Engine.
+
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

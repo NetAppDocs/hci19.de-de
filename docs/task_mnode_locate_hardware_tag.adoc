@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: docs/task_mnode_locate_hardware_tag.html 
+summary: Mithilfe der REST API-Benutzeroberfläche müssen Sie die Hardware-Tag-Nummer zur Konfiguration der Managementknoten hinzufügen. 
+keywords: netapp, management node, rest api, hci, hardware tag 
+---
+= So finden Sie ein Hardware-Tag für einen Compute-Node
+:allow-uri-read: 
+
+
+[role="lead"]
+Mithilfe der REST API-Benutzeroberfläche müssen Sie die Hardware-Tag-Nummer zur Konfiguration der Managementknoten hinzufügen.
+
+In diesem Abschnitt erfahren Sie, wie Sie die Hardware-Tag-Nummer für Ihren Compute-Node finden.
+
+.Schritte
+. Wählen Sie den Host im vSphere Web Client Navigator aus.
+. Wählen Sie die Registerkarte *Monitor* aus und wählen Sie *Hardwarezustand*.
+. Abhängig von der Version von vSphere, die Sie ausführen, können Sie das Hardware-Tag an einem der folgenden Orte auf dem Bildschirm * Hardware Health* finden.
++
+** Überprüfen Sie, ob das Tag mit dem BIOS-Hersteller und der Modellnummer aufgelistet ist.
++
+image:../media/hw_tag_67.PNG["Hardwarezustand"]
+
+** Wählen Sie die Registerkarte *Konfigurieren* aus. Wählen Sie in der Seitenleiste die Option *Hardware* und *Übersicht* aus. Überprüfen Sie, ob die Hardware-Tag-Nummer im aufgeführt ist `System` Tabelle:
++
+image:../media/hw_tag_70.PNG["Hardwarezustand"]
+
+
+
+. Kopieren und speichern Sie den Wert für `Tag`.
+. Informationen zum Hinzufügen der Computing-Node-Ressource zum Management-Node finden Sie unter xref:task_mnode_add_assets.adoc[Fügen Sie dem Management-Node Computing- und Controller-Ressourcen hinzu].
+

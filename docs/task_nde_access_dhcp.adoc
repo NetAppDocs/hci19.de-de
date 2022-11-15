@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: docs/task_nde_access_dhcp.html 
+summary: Erfahren Sie, wie Sie auf die NetApp Deployment Engine in Umgebungen zugreifen, in denen IP-Adressen zugewiesen werden. 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access, dhcp 
+---
+= Greifen Sie in Umgebungen mit DHCP auf die NetApp Deployment Engine zu
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, release notes, vcp, element, management services, firmware
+
+
+[role="lead"]
+In Umgebungen, in denen Server automatisch eine IPv4-Konfiguration von DHCP beziehen, können Sie mithilfe der IPv4-Adresse, die der Bond1G-Schnittstelle auf einem der Storage-Nodes zugewiesen ist, auf die NetApp Deployment Engine zugreifen. Sie können einen USB-Stick verwenden, um die IPv4-Adresse von einem der Speicherknoten abzurufen. Die NetApp Deployment Engine erkennt automatisch andere Computing- und Storage-Nodes, die über DHCP zugewiesene IPv4-Adressen verwenden. Sie sollten diese Methode nur verwenden, wenn Ihr Netzwerk besondere Anforderungen hat.
+
+.Was Sie und#8217;ll benötigen
+* Sie oder Ihr Netzwerkadministrator haben die Aufgaben im Dokument Installations- und Setup-Anleitung ausgeführt.
+* Sie haben physischen Zugriff auf die NetApp HCI-Nodes.
+* Alle NetApp HCI-Nodes sind eingeschaltet.
+* DHCP ist in den NetApp HCI Management- und Storage-Netzwerken aktiviert.
+* Der DHCP-Adressenpool ist groß genug für zwei IPv4-Adressen pro NetApp HCI-Node.
+
+
+
+NOTE: Damit die NetApp HCI-Implementierung erfolgreich ist, müssen alle Nodes in der Implementierung entweder über DHCP-übernommene oder automatisch konfigurierte IPv4-Adressen verfügen (Sie können keine Methoden für die IPv4-Adresszuweisung kombinieren).
+
+Wenn DHCP nur für das Speichernetzwerk verwendet wird (Bond10G-Schnittstellen), sollten Sie die unter Link aufgeführten Schritte verwenden: link:task_nde_access_no_dhcp.html["Zugriff auf die NetApp Deployment Engine in Umgebungen ohne DHCP"] Für den Zugriff auf die NetApp Deployment Engine:
+
+.Schritte
+. Warten Sie mehrere Minuten, bis die Nodes IP-Adressen anfordern.
+. Wählen Sie einen Speicherknoten aus, und legen Sie einen USB-Stick in den Knoten ein. Lassen Sie es für mindestens fünf Sekunden.
+. Entfernen Sie den USB-Stick, und stecken Sie ihn in den Computer ein.
+. Öffnen Sie das `readme.html` Datei: Dies führt Sie zur Benutzeroberfläche der NetApp Deployment Engine.
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+

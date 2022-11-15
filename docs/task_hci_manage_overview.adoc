@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hci_manage_overview.html 
+summary: Sie können den FQDM konfigurieren und Anmeldeinformationen für NetApp HCI, Benutzerkonten, Speichercluster, Volumes, Volume Access Groups managen. Initiatoren, Volume QoS-Richtlinien und der Management-Node 
+keywords: netapp, hci, install, deploy, get started, configure, fqdn, fully qualified domain name 
+---
+= NetApp HCI Management-Überblick
+:allow-uri-read: 
+
+
+[role="lead"]
+Sie können den vollständig qualifizierten Domänennamen konfigurieren und Anmeldedaten für NetApp HCI, Benutzerkonten, Storage-Cluster, Volumes, Volume Access Groups managen. Initiatoren, Volume QoS-Richtlinien und der Management-Node
+
+Hier sind die Punkte, mit denen Sie arbeiten können:
+
+* link:task_nde_access_ui_fqdn.html["Konfigurieren Sie vollständig qualifizierten Domänennamen Web UI-Zugriff"]
+* link:task_post_deploy_credentials.html["Ändern Sie die Anmeldedaten in NetApp HCI"]
+* link:task_hci_credentials_vcenter_esxi.html["Aktualisieren der vCenter- und ESXi-Anmeldedaten"]
+* link:task_hcc_manage_storage_overview.html["Management von NetApp HCI Storage Assets"]
+* link:task_mnode_work_overview.html["Arbeiten Sie mit dem Management-Node"]
+* link:concept_nde_hci_power_off_on.html["Schaltet das NetApp HCI System aus oder ein"]
+
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+

@@ -1,0 +1,200 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_manage_storage_clusters.html 
+summary: Über die Benutzeroberfläche der NetApp Hybrid Control können Sie den Wartungsmodus für Storage-Cluster hinzufügen, entfernen, ändern und aktivieren bzw. deaktivieren. 
+keywords: netapp, hci, element, storage cluster, hybrid cloud control, hcc, maintenance mode, enable, disable 
+---
+= Fügen Sie Storage-Cluster mit NetApp Hybrid Cloud Control hinzu und managen Sie sie
+:allow-uri-read: 
+
+
+[role="lead"]
+Sie können Storage-Cluster zur Bestandsaufnahme der Management-Node-Ressourcen hinzufügen, sodass sie mittels NetApp Hybrid Cloud Control (HCC) gemanagt werden können. Der erste während der Systemeinrichtung hinzugefügte Storage Cluster ist der Standard link:concept_hci_clusters.html#authoritative-storage-clusters["Autorisierende Storage-Cluster"], Aber zusätzliche Cluster können mit HCC UI hinzugefügt werden.
+
+Nach dem Hinzufügen eines Speicher-Clusters können Sie die Cluster-Performance überwachen, die Anmeldeinformationen für das Storage-Cluster für die verwaltete Ressource ändern oder ein Storage-Cluster aus der Asset-Bestandsaufnahme des Management-Nodes entfernen, wenn dieses nicht mehr mit HCC verwaltet werden muss.
+
+Ab Element 12.2 können Sie den verwenden link:concept_hci_storage_maintenance_mode.html["Wartungsmodus"] Funktionsoptionen zum Aktivieren und Deaktivieren des Wartungsmodus für Ihre Storage-Cluster-Nodes
+
+.Was Sie und#8217;ll benötigen
+* *Clusteradministrator-Berechtigungen*: Sie haben Berechtigungen als Administrator auf dem link:concept_hci_clusters.html#authoritative-storage-clusters["Autorisierende Storage-Cluster"]. Das autoritäre Cluster ist das erste Cluster, das während der Systemeinrichtung zur Inventarisierung der Managementknoten hinzugefügt wird.
+* *Element Software*: Die NetApp Element Software 11.3 oder höher wird in Ihrer Speichercluster-Version ausgeführt.
+* *Management-Node*: Sie haben einen Management-Node mit Version 11.3 oder höher bereitgestellt.
+* *Management Services*: Sie haben Ihr Management Services Bundle auf Version 2.17 oder höher aktualisiert.
+
+
+.Optionen
+*  a storage cluster
+*  storage cluster status
+*  storage cluster credentials
+*  a storage cluster
+*  and disable maintenance mode
+
+
+
+
+== Fügen Sie einen Storage-Cluster hinzu
+
+Mit NetApp Hybrid Cloud Control können Sie dem Inventory der Management-Node-Ressourcen ein Storage-Cluster hinzufügen. Auf diese Weise können Sie den Cluster mithilfe der HCC-Benutzeroberfläche verwalten und überwachen.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an und stellen Sie die autorisierenden Anmeldedaten des Storage-Cluster-Administrators bereit.
+. Wählen Sie im Dashboard oben rechts das Optionsmenü aus und wählen Sie *Konfigurieren*.
+. Wählen Sie im Fensterbereich *Storage Cluster* *Storage Cluster Details* aus.
+. Wählen Sie *Storage-Cluster Hinzufügen*.
+. Geben Sie die folgenden Informationen ein:
++
+** Virtuelle IP-Adresse für das Storage-Cluster-Management
++
+
+NOTE: Es können nur Remote-Storage-Cluster hinzugefügt werden, die derzeit nicht von einem Management-Node gemanagt werden.
+
+** Benutzername und Passwort für den Storage Cluster
+
+
+. Wählen Sie *Hinzufügen*.
++
+
+NOTE: Nachdem Sie das Storage-Cluster hinzugefügt haben, kann der Cluster-Bestand bis zu 2 Minuten dauern, bis die neue Ergänzung angezeigt wird. Möglicherweise müssen Sie die Seite in Ihrem Browser aktualisieren, um die Änderungen anzuzeigen.
+
+. Wenn Sie Element ESDS-Cluster hinzufügen, geben Sie Ihren SSH-privaten Schlüssel und das SSH-Benutzerkonto ein oder laden Sie es hoch.
+
+
+
+
+== Bestätigen des Storage-Cluster-Status
+
+Über die Benutzeroberfläche von NetApp Hybrid Cloud Control können Sie den Verbindungsstatus von Storage-Cluster-Ressourcen überwachen.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an und stellen Sie die autorisierenden Anmeldedaten des Storage-Cluster-Administrators bereit.
+. Wählen Sie im Dashboard oben rechts das Optionsmenü aus und wählen Sie *Konfigurieren*.
+. Überprüfen Sie den Status von Speicherclustern im Inventar.
+. Wählen Sie im Fensterbereich *Storage Cluster* *Storage Cluster Details* für weitere Details.
+
+
+
+
+== Bearbeiten der Anmeldedaten für das Storage-Cluster
+
+Der Benutzername und das Passwort des Storage-Clusters können Sie über die Benutzeroberfläche von NetApp Hybrid Cloud Control bearbeiten.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an und stellen Sie die autorisierenden Anmeldedaten des Storage-Cluster-Administrators bereit.
+. Wählen Sie im Dashboard oben rechts das Optionsmenü aus und wählen Sie *Konfigurieren*.
+. Wählen Sie im Fensterbereich *Storage Cluster* *Storage Cluster Details* aus.
+. Wählen Sie für den Cluster das Menü *Aktionen* aus und wählen Sie *Cluster-Anmeldeinformationen bearbeiten*.
+. Aktualisieren Sie den Benutzernamen und das Passwort des Storage-Clusters.
+. Wählen Sie *Speichern*.
+
+
+
+
+== Entfernen eines Storage-Clusters
+
+Durch Entfernen eines Storage-Clusters aus NetApp Hybrid Cloud Control wird das Cluster aus der Inventar des Management-Node entfernt. Nachdem Sie ein Storage-Cluster entfernt haben, kann der Cluster nicht mehr von HCC gemanagt werden. Sie können ihn nur aufrufen, indem Sie direkt zur Management-IP-Adresse navigieren.
+
+
+IMPORTANT: Sie können das autorisierende Cluster nicht aus dem Bestand entfernen. Um den autorisierenden Cluster zu ermitteln, gehen Sie zu *Benutzerverwaltung > Benutzer*. Der autoritative Cluster wird neben der Überschrift *Benutzer* aufgelistet.
+
+.Schritte
+. Melden Sie sich bei NetApp Hybrid Cloud Control an und stellen Sie die autorisierenden Anmeldedaten des Storage-Cluster-Administrators bereit.
+. Wählen Sie im Dashboard oben rechts das Optionsmenü aus und wählen Sie *Konfigurieren*.
+. Wählen Sie im Fensterbereich *Storage Cluster* *Storage Cluster Details* aus.
+. Wählen Sie für den Cluster das Menü *Aktionen* aus und wählen Sie *Storage Cluster entfernen*.
++
+
+CAUTION: Durch Klicken auf *Ja* wird der Cluster aus der Installation entfernt.
+
+. Wählen Sie *Ja*.
+
+
+[discrete]
+== Aktivieren und deaktivieren Sie den Wartungsmodus
+
+Das link:concept_hci_storage_maintenance_mode.html["Wartungsmodus"] Optionen bieten die Möglichkeit ,Aktivieren Und ,Deaktivieren Wartungsmodus für einen Storage-Cluster-Node.
+
+.Was Sie und#8217;ll benötigen
+* *Element Software*: Die NetApp Element Software 12.2 oder höher wird in Ihrer Speichercluster-Version ausgeführt.
+* *Management-Node*: Sie haben einen Management-Node mit Version 12.2 oder höher bereitgestellt.
+* *Management Services*: Sie haben Ihr Management Services Bundle auf Version 2.19 oder höher aktualisiert.
+* Sie haben Zugriff auf die Anmeldung auf Administratorebene.
+
+
+
+
+=== Aktivieren Sie den Wartungsmodus
+
+Sie können das folgende Verfahren verwenden, um den Wartungsmodus für einen Storage-Cluster-Node zu aktivieren.
+
+
+NOTE: Es kann sich nur ein Node gleichzeitig im Wartungsmodus befinden.
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser. Beispiel:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
++
+
+NOTE: Die Funktionsoptionen für den Wartungsmodus sind auf der schreibgeschützten Ebene deaktiviert.
+
+. Wählen Sie im blauen Feld links die NetApp HCI-Installation aus.
+. Wählen Sie im linken Navigationsbereich *Knoten* aus.
+. Um Informationen zum Speicherbestand anzuzeigen, wählen Sie *Speicherung*.
+. Aktivieren des Wartungsmodus auf einem Storage-Node:
++
+[NOTE]
+====
+Die Tabelle der Storage-Nodes wird automatisch alle zwei Minuten für Aktionen aktualisiert, die nicht von Benutzern initiiert wurden. Um sicherzustellen, dass Sie über den aktuellen Status verfügen, können Sie die Knoten-Tabelle aktualisieren, indem Sie das Aktualisierungssymbol oben rechts in der Knotentabelle verwenden.
+
+image:hcc_enable_maintenance_mode.PNG["Aktivieren Sie den Wartungsmodus"]
+
+====
++
+.. Wählen Sie unter *Actions* die Option *Wartungsmodus aktivieren* aus.
++
+Während *Wartungsmodus* aktiviert wird, sind Aktionen im Wartungsmodus für den ausgewählten Knoten und alle anderen Knoten im selben Cluster nicht verfügbar.
+
++
+Nachdem *Aktivieren des Wartungsmodus* abgeschlossen ist, wird in der Spalte *Knotenstatus* ein Schraubenschlüsselsymbol und der Text „*Wartungsmodus*“ für den Knoten angezeigt, der sich im Wartungsmodus befindet.
+
+
+
+
+
+
+
+=== Deaktivieren des Wartungsmodus
+
+Nachdem ein Knoten erfolgreich in den Wartungsmodus versetzt wurde, steht für diesen Knoten die Aktion *Wartungsmodus deaktivieren* zur Verfügung. Aktionen auf den anderen Nodes sind erst verfügbar, wenn der Wartungsmodus auf dem Node, der gerade gewartet wird, erfolgreich deaktiviert wurde.
+
+.Schritte
+. Wählen Sie für den Knoten im Wartungsmodus unter *Aktionen* die Option *Wartungsmodus deaktivieren* aus.
++
+Während *Wartungsmodus* deaktiviert wird, sind Aktionen im Wartungsmodus für den ausgewählten Knoten und alle anderen Knoten im selben Cluster nicht verfügbar.
+
++
+Nachdem *Wartungsmodus deaktivieren* abgeschlossen ist, wird in der Spalte *Knotenstatus* *aktiv* angezeigt.
+
++
+
+NOTE: Wenn sich ein Node im Wartungsmodus befindet, werden keine neuen Daten akzeptiert. Daher kann das Deaktivieren des Wartungsmodus länger dauern, da der Node die Daten wieder synchronisieren muss, bevor er den Wartungsmodus beenden kann. Je länger Sie im Wartungsmodus verbringen, desto länger kann es zum Deaktivieren des Wartungsmodus dauern.
+
+
+
+
+
+=== Fehlerbehebung
+
+Falls beim Aktivieren oder Deaktivieren des Wartungsmodus Fehler auftreten, wird oben in der Node-Tabelle ein Banner-Fehler angezeigt. Für weitere Informationen über den Fehler können Sie den auf dem Banner bereitgestellten Link *Details anzeigen* wählen, um zu zeigen, was die API zurückgibt.
+
+
+
+== Weitere Informationen
+
+* link:task_mnode_manage_storage_cluster_assets.html["Erstellen und Managen von Storage-Cluster-Assets"]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+

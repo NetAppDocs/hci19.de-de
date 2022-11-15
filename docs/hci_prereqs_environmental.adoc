@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_environmental.html 
+summary: Hier erhalten Sie Informationen zu den Umweltanforderungen von NetApp HCI. 
+keywords: netapp, hci, environment, requirements 
+---
+= Umweltanforderungen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, environment, requirements
+
+
+[role="lead"]
+Stellen Sie sicher, dass das für die Installation von NetApp HCI verwendete Rack von Steckdosen mit Strom versorgt wird und dass Ihr Rechenzentrum ausreichend gekühlt für die Größe Ihrer NetApp HCI-Installation sorgt.
+
+Detaillierte Informationen zu den einzelnen Komponenten von NetApp HCI finden Sie im NetApp HCI http://www.netapp.com/us/media/ds-3881.pdf["Datenblatt"^].
+
+
+NOTE: Der Compute-Node H410C arbeitet nur mit Netzspannung (200-240 V AC). Sie müssen sicherstellen, dass die Stromanforderungen erfüllt sind, wenn Sie einer vorhandenen NetApp HCI-Installation H410C Nodes hinzufügen.
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

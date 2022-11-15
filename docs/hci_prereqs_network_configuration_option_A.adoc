@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: docs/hci_prereqs_network_configuration_option_A.html 
+summary: Erfahren Sie mehr über die Netzwerkkonfigurationsoption A. von NetApp HCI 
+keywords: netapp, hci, cabling, network configuration 
+---
+= Netzwerkkonfiguration
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: netapp, hci, cabling, network configuration
+
+
+[role="lead"]
+NetApp HCI kann mehrere verschiedene Netzwerkverkabelungen und VLAN-Konfigurationen nutzen. Bei der ersten Konfiguration, Option A, werden für jeden Computing-Node zwei Netzwerkkabel verwendet.
+
+
+
+== Konfigurationsoption A: Zwei Kabel für Computing-Nodes
+
+Die Compute-Nodes NetApp H410C, H610C und H615C unterstützen zwei Netzwerkkabel für die Konnektivität zu allen NetApp HCI-Netzwerken. Diese Konfiguration erfordert, dass der Storage, vMotion und alle Netzwerke virtueller Maschinen VLAN Tagging verwenden. Alle Computing- und Storage-Nodes müssen dasselbe VLAN-ID-Schema verwenden. Bei dieser Konfiguration kommen vSphere Distributed Switches zum Einsatz, für die eine Lizenzierung von VMware vSphere Enterprise Plus erforderlich ist.
+
+In der NetApp HCI-Dokumentation werden Buchstaben für die Netzwerkanschlüsse auf der Rückseite der H-Serie-Knoten verwendet.
+
+Im Folgenden sind die Netzwerk-Ports und die Standorte auf dem H410C Storage-Node aufgeführt:
+
+[#H35700E_H410C]
+image::HCI_ISI_compute_6cable.png[NetApp H410C Netzwerk-Ports für Storage-Nodes]
+
+Hier sind die Netzwerk-Ports und Standorte auf dem H610C Rechenknoten:
+
+[#H610C]
+image::H610C_node-cabling.png[NetApp H610C Computing-Node-Netzwerkports]
+
+Die Netzwerk-Ports und Standorte auf dem H615C Computing-Node:
+
+[#H615C]
+image::H615C_node_cabling.png[NetApp H615C Computing-Node-Netzwerk-Ports]
+
+Bei dieser Konfiguration werden auf jedem Node die folgenden Netzwerk-Ports verwendet:
+
+|===
+| Knoten | Verwendete Netzwerkports 
+
+
+| H410C | D und E 
+
+
+| H610C | C und D 
+
+
+| H615C | A und B 
+|===
+
+
+=== VLAN-Konfiguration
+
+Als Best Practice sollten Sie die erforderlichen Netzwerksegmente auf allen Switch-Ports konfigurieren, die die Nodes verwenden. Beispiel:
+
+|===
+| Netzwerkname | VLAN-ID | Switch-Port-Konfiguration 
+
+
+| Vereinfachtes | 100 | Nativ 
+
+
+| Storage | 105 | Getaggt 
+
+
+| VMotion | 107 | Getaggt 
+
+
+| Virtual Machines | 200, 201 | Getaggt 
+|===
+Die folgende Abbildung zeigt die empfohlene Verkabelungskonfiguration für H410C Computing-Nodes mit zwei Kabeln und H410S Storage-Nodes mit vier Kabeln. Alle Switch-Ports in diesem Beispiel teilen sich dieselbe Konfiguration.
+
+image::hci_networking_config_scenario_1.png[HCI-Netzwerkkonfigurationsoption Ein Image]
+
+
+
+=== Beispiel für Switch-Befehle
+
+Mit den folgenden Beispielbefehlen können Sie alle Switch-Ports konfigurieren, die für NetApp HCI-Nodes verwendet werden. Diese Befehle basieren auf einer Cisco Konfiguration, erfordern jedoch möglicherweise nur kleine Änderungen für Mellanox Switches. In der Switch-Dokumentation finden Sie die spezifischen Befehle, die Sie zur Implementierung dieser Konfiguration benötigen. Ersetzen Sie den Schnittstellennamen, die Beschreibung und das VLAN durch die Werte für Ihre Umgebung.
+
+`interface {interface name, such as EthernetX/Y or GigabitEthernetX/Y/Z}`
+`description {desired description, such as NetApp-HCI-NodeX-PortY}`
+`mtu 9216`
+`switchport mode trunk`
+`switchport trunk native vlan 100`
+`switchport trunk allowed vlan 105,107,200,201`
+`spanning-tree port type edge trunk`
+
+
+NOTE: Einige Switches erfordern möglicherweise die Einbeziehung des nativen VLANs in die Liste zulässiger VLANs. Informationen zu Ihrem spezifischen Switch-Modell und der Software-Version finden Sie in der Dokumentation.
+
+[discrete]
+== Weitere Informationen
+
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+

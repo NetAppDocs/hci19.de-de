@@ -1,0 +1,184 @@
+---
+sidebar: sidebar 
+permalink: docs/task_hcc_edit_bmc_info.html 
+summary: 'Mit NetApp Hybrid Cloud Control können Sie BMC-Verbindungsinformationen (Baseboard Management Controller) bearbeiten, sodass eine Verbindung zwischen NetApp HCI und diesem hergestellt werden kann.' 
+keywords: netapp, hci, BMC, connection, credentials, monitor 
+---
+= Verbindungsinformationen für Baseboard Management Controller bearbeiten
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Sie können die Zugangsdaten für den Baseboard Management Controller (BMC) Administrator in NetApp Hybrid Cloud Control für jeden Ihrer Computing-Nodes ändern. Möglicherweise müssen Sie die Anmeldedaten vor dem Aktualisieren der BMC-Firmware ändern oder um eine zu beheben `Hardware ID not available` Oder `Unable to Detect` Der Fehler wird unter NetApp Hybrid Cloud Control gemeldet.
+
+Cluster-Administrator-Berechtigungen zum Ändern der BMC-Anmeldedaten.
+
+
+NOTE: Wenn Sie BMC-Anmeldedaten während einer Integritätsprüfung festlegen, kann es bis zu 2 Minuten dauern, bis die Änderung auf der Seite *Nodes* angezeigt wird.
+
+Wählen Sie eine der folgenden Optionen, um BMC-Anmeldedaten zu ändern:
+
+*  NetApp Hybrid Cloud Control to edit BMC information
+*  the REST API to edit BMC information
+
+
+
+
+== Verwenden Sie NetApp Hybrid Cloud Control, um BMC-Informationen zu bearbeiten
+
+Sie können die gespeicherten BMC-Anmeldedaten über das NetApp Hybrid Cloud Control Dashboard bearbeiten.
+
+.Schritte
+. Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser. Beispiel:
++
+[listing]
+----
+https://<ManagementNodeIP>
+----
+. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
+. Wählen Sie im blauen Feld links die NetApp HCI-Installation aus.
++
+Das NetApp Hybrid Cloud Control Dashboard wird angezeigt.
+
+. Klicken Sie in der linken Navigation auf *Knoten*.
+. Klicken Sie zum Anzeigen von Rechnungsinformationen der Bestandsliste auf *Berechnen*.
++
+Eine Liste Ihrer Computing-Nodes wird angezeigt. Die Spalte *BMC-Verbindungsstatus* zeigt das Ergebnis der BMC-Verbindungsversuche für jeden Rechner-Knoten an. Wenn der Verbindungsversuch für einen Compute-Node fehlschlägt, wird in dieser Spalte für diesen Node eine Fehlermeldung angezeigt.
+
+. Um die gespeicherten BMC-Anmeldeinformationen für einen Compute-Knoten mit BMC-Verbindungsfehlern hinzuzufügen oder zu bearbeiten, klicken Sie im Text der Fehlermeldung auf *Verbindungseinstellungen bearbeiten*.
+. Fügen Sie im angezeigten Dialogfeld den korrekten Administrator-Benutzernamen und das Kennwort für den BMC dieses Computing-Knotens hinzu.
+. Klicken Sie Auf *Speichern*.
+. Wiederholen Sie die Schritte 6 bis 8 für alle Rechenknoten, für die keine oder falsche BMC-Anmeldedaten vorhanden sind.
+
+
+
+NOTE: Durch Aktualisieren der BMC-Informationen wird die Bestandsaufnahme aktualisiert und sichergestellt, dass Management-Node-Services über alle Hardware-Parameter informiert sind, die zum Abschluss des Upgrades erforderlich sind.
+
+
+
+== VERWENDEN Sie die REST-API, um BMC-Informationen zu bearbeiten
+
+Die gespeicherten BMC-Anmeldedaten können mit der NetApp Hybrid Cloud Control REST-API bearbeitet werden.
+
+.Schritte
+. Suchen Sie die Hardware-Tag-Nummer des Computing-Nodes und BMC-Informationen:
++
+.. Öffnen Sie die REST API-UI für den Bestandsdienst auf dem Managementknoten:
++
+[listing]
+----
+https://<ManagementNodeIP>/inventory/1/
+----
+.. Klicken Sie auf *autorisieren* und füllen Sie Folgendes aus:
++
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client`.
+... Klicken Sie auf *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Autorisierungsfenster.
+
+
+.. Klicken Sie in DER REST API UI auf *GET /Installations*.
+.. Klicken Sie auf *Probieren Sie es aus*.
+.. Klicken Sie Auf *Ausführen*.
+.. Kopieren Sie als Antwort die Installations-Asset-ID (`id`).
+.. Klicken Sie in DER REST API-UI auf *GET /Installations/{id}*.
+.. Klicken Sie auf *Probieren Sie es aus*.
+.. Fügen Sie die Installations-Asset-ID in das Feld *id* ein.
+.. Klicken Sie Auf *Ausführen*.
+.. Kopieren Sie aus der Antwort die Node-Asset-id und speichern Sie sie (`id`), BMC-IP-Adresse (`bmcAddress`), und die Seriennummer des Knotens (`chassisSerialNumber`) Für den Einsatz in einem späteren Schritt.
++
+[listing, subs="+quotes"]
+----
+"nodes": [
+  {
+    "bmcDetails": {
+      *"bmcAddress": "10.117.1.111",*
+      "credentialsAvailable": false,
+      "credentialsValidated": false
+    },
+    *"chassisSerialNumber": "221111019323",*
+    "chassisSlot": "C",
+    "hardwareId": null,
+    "hardwareTag": "00000000-0000-0000-0000-ac1f6ab4ecf6",
+    *"id": "8cd91e3c-1b1e-1111-b00a-4c9c4900b000",*
+----
+
+
+. Öffnen Sie DIE REST API-UI für den Hardware-Service auf dem Management-Node:
++
+[listing]
+----
+https://<ManagementNodeIP>/hardware/2/
+----
+. Klicken Sie auf *autorisieren* und füllen Sie Folgendes aus:
++
+.. Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+.. Geben Sie die Client-ID als ein `mnode-client` Wenn der Wert nicht bereits ausgefüllt ist.
+.. Klicken Sie auf *autorisieren*, um eine Sitzung zu starten.
+.. Schließen Sie das Fenster.
+
+
+. Klicken Sie auf *PUT /Nodes/{Hardware_id}*.
+. Klicken Sie auf *Probieren Sie es aus*.
+. Geben Sie die Asset-id des Knotens ein, die Sie zuvor in gespeichert haben `hardware_id` Parameter.
+. Geben Sie die folgenden Informationen in die Nutzlast ein:
++
+|===
+| Parameter | Beschreibung 
+
+
+| `assetId` | Die Installations-Asset-id (`id`) Dass Sie in Schritt 1(f) gespeichert. 
+
+
+| `bmcIp` | Die BMC-IP-Adresse (`bmcAddress`) Dass Sie in Schritt 1(k) gespeichert. 
+
+
+| `bmcPassword` | Ein aktualisiertes Passwort zur Anmeldung am BMC. 
+
+
+| `bmcUsername` | Ein aktualisierter Benutzername zur Anmeldung am BMC. 
+
+
+| `serialNumber` | Die Seriennummer des Chassis der Hardware. 
+|===
++
+Beispiel für Nutzlast:
+
++
+[listing]
+----
+{
+  "assetId": "7bb41e3c-2e9c-2151-b00a-8a9b49c0b0fe",
+  "bmcIp": "10.117.1.111",
+  "bmcPassword": "mypassword1",
+  "bmcUsername": "admin1",
+  "serialNumber": "221111019323"
+}
+----
+. Klicken Sie auf *Ausführen*, um BMC-Anmeldedaten zu aktualisieren. Ein erfolgreiches Ergebnis liefert eine Antwort ähnlich der folgenden:
++
+[listing]
+----
+{
+  "credentialid": "33333333-cccc-3333-cccc-333333333333",
+  "host_name": "hci-host",
+  "id": "8cd91e3c-1b1e-1111-b00a-4c9c4900b000",
+  "ip": "1.1.1.1",
+  "parent": "abcd01y3-ab30-1ccc-11ee-11f123zx7d1b",
+  "type": "BMC"
+}
+----
+
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Known_issues_and_workarounds_for_Compute_Node_upgrades["Bekannte Probleme und Behelfslösungen für Computing-Node-Upgrades"^]
+* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
+* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
+
