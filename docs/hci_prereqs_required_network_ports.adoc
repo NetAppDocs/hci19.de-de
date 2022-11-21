@@ -212,13 +212,25 @@ Software-Download:
 | System Administrator-PC | MIP-Speicher-Node | 442 | HTTPS-UI- und API-Zugriff auf Storage-Node, (nur NetApp HCI) Konfigurations- und Implementierungsüberwachung in der NetApp Deployment Engine 
 
 
+| System Administrator-PC | Computing Node BMC/IPMI H410 und H600 Serie | 443 | HTTPS-UI- und API-Zugriff auf die Remote-Steuerung des Nodes 
+
+
 | System Administrator-PC | Management-Node | 443 | HTTPS-UI- und API-Zugriff auf den Management-Node 
 
 
 | System Administrator-PC | Storage Cluster MVIP | 443 | HTTPS-UI- und API-Zugriff auf das Storage-Cluster 
 
 
+| System Administrator-PC | Storage Node BMC/IPMI H410 und H600 Series | 443 | HTTPS-UI- und API-Zugriff auf die Remote-Steuerung des Nodes 
+
+
 | System Administrator-PC | MIP-Speicher-Node | 443 | Erstellung von HTTPS-Storage-Clustern, UI-Zugriff nach der Implementierung auf das Storage-Cluster 
+
+
+| System Administrator-PC | Computing Node BMC/IPMI H410 und H600 Serie | 623 UDP | RMCP-Anschluss Dies ist erforderlich, um IPMI-fähige Systeme zu verwalten. 
+
+
+| System Administrator-PC | Storage Node BMC/IPMI H410 und H600 Series | 623 UDP | RMCP-Anschluss Dies ist erforderlich, um IPMI-fähige Systeme zu verwalten. 
 
 
 | System Administrator-PC | Witness Node | 8080 | Witness Node pro Node Web-UI 
@@ -238,7 +250,8 @@ Software-Download:
 
 | VCenter Server | Management-Node | 9443 | VCenter Plug-in-Registrierung: Der Port kann nach Abschluss der Registrierung geschlossen werden. 
 |===
-[discrete]
+
+
 == Weitere Informationen
 
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]

@@ -91,16 +91,15 @@ image::vcp_registration_utility_ui_qossioc.png[Zeigt die Benutzeroberfläche des
 
 . Wählen Sie *vCenter Plug-in Registrierung*.
 +
-Ab Element Plug-in für vCenter Server 5:0:
-
+** Die Seite vCenter Plug-in-Registrierung für Element Plug-in für vCenter Server 5.0:
 +
 image::vcp_remote_plugin_registration_ui.png[Zeigt die Benutzeroberfläche des Registrierungsprogramms für ein Remote-Plug-in]
 
-+
-Element Plug-in für vCenter Server 4.10 oder früher:
-
+** Die Seite vCenter Plug-in-Registrierung für Element Plug-in für vCenter Server 4.10 oder früher:
 +
 image::vcp_registration_utility_ui.png[Zeigt die Benutzeroberfläche des Registrierungsprogramms für ein lokales Plug-in]
+
+
 
 . Wählen Sie in *vCenter-Plug-in verwalten* die Option *Update Plug-in* aus.
 . Bestätigen oder aktualisieren Sie die folgenden Informationen:
@@ -112,7 +111,7 @@ image::vcp_registration_utility_ui.png[Zeigt die Benutzeroberfläche des Registr
 NOTE: Der von Ihnen eingegebene Benutzername und das Kennwort müssen für einen Benutzer mit den Berechtigungen der vCenter Administrator-Rolle verwendet werden.
 
 .. Das vCenter Administrator-Passwort.
-.. (Für interne Server/dunkle Sites) je nach Element Plug-in für vCenter Version, eine benutzerdefinierte URL für Plug-in-JSON-Datei oder Plug-in ZIP:
+.. (Für interne Server/dunkle Sites) je nach Element Plug-in für vCenter Version, eine benutzerdefinierte URL für die Plug-in-JSON-Datei oder Plug-in ZIP:
 +
 ... Beginnend mit dem Element Plug-in für vCenter Server 5.0, einer benutzerdefinierten URL für die JSON-Plug-in-Datei.
 +
@@ -140,14 +139,11 @@ NOTE: Durch diese Aktion wird eine neue Datenbank erstellt und die Installation 
 . Suchen Sie im vSphere Web Client nach den folgenden abgeschlossenen Aufgaben im Task Monitor, um sicherzustellen, dass die Installation abgeschlossen wurde: `Download plug-in` Und `Deploy plug-in`.
 . Überprüfen Sie, ob die Plug-in-Erweiterungspunkte auf der Registerkarte *Shortcuts* des vSphere Web Clients und im Seitenfenster angezeigt werden.
 +
-Beginnend mit dem Element Plug-in für vCenter Server 5.0, dem NetApp Element Remote Plugin Extension Point:
-
+** Ab dem Element Plug-in für vCenter Server 5.0 erscheint der NetApp Element Remote Plugin Extension Point:
 +
 image::vcp_remote_plugin_icons_home_page.png[Zeigt den Plug-in-Erweiterungspunkt nach einem erfolgreichen Upgrade oder einer erfolgreichen Installation für Element Plug-in 5.10 oder höher]
 
-+
-Für Element Plug-in für vCenter Server 4.10 oder früher, die Erweiterungspunkte für NetApp Element-Konfiguration und -Management:
-
+** Bei Element Plug-in für vCenter Server 4.10 oder früher werden die Erweiterungspunkte für NetApp Element-Konfiguration und -Verwaltung angezeigt:
 +
 image::vcp_shortcuts_page_accessing_plugin.png[Zeigt die Plug-in-Erweiterungspunkte nach einem erfolgreichen Upgrade oder einer erfolgreichen Installation für Element Plug-in 4.10 oder früher]
 
@@ -159,17 +155,20 @@ Wenn die vCenter-Plug-in-Symbole nicht angezeigt werden, lesen Sie link:https://
 Nach dem Upgrade auf NetApp Element Plug-in für vCenter Server 4.8 oder höher mit VMware vCenter Server 6.7U1, wenn die Speicher-Cluster nicht aufgeführt sind oder ein Serverfehler in den Abschnitten *Cluster* und *QoSSIOC-Einstellungen* der NetApp Element-Konfiguration angezeigt wird, siehe link:https://docs.netapp.com/us-en/vcp/vcp_reference_troubleshoot_vcp.html#error_vcp48_67u1["Element Plug-in für vCenter Server"^] Dokumentation über die Fehlerbehebung bei diesen Fehlern.
 
 ====
+
+
 . Überprüfen Sie die Versionsänderung auf der Registerkarte *über* im Erweiterungspunkt * NetApp Element Konfiguration* des Plug-ins.
 +
 Die folgenden Versionsdetails bzw. Details zu einer neueren Version sollten angezeigt werden:
 
-
-
++
 [listing]
 ----
 NetApp Element Plug-in Version: 5.0
 NetApp Element Plug-in Build Number: 37
 ----
+
+
 
 NOTE: Das vCenter Plug-in enthält Online-Hilfeinhalte. Um sicherzustellen, dass Ihre Hilfe die neuesten Inhalte enthält, löschen Sie Ihren Browser-Cache, nachdem Sie Ihr Plug-in aktualisiert haben.
 

@@ -21,7 +21,7 @@ NetApp aktualisiert regelmäßig den NetApp HCI, um Ihnen neue Funktionen, Verbe
 ====
 Element 12.3.2 enthält die Minderung, die das Risiko der Element Software gegenüber der Apache Log4j-Sicherheitsanfälligkeit schließt. NetApp SolidFire Storage-Cluster mit aktivierter Virtual Volumes (VVols)-Funktion sind von dieser Sicherheitsanfälligkeit betroffen.
 
-Wenn sich Ihr Storage-Cluster bei Element 12.3.1 befindet und die VVols Funktion aktiviert ist, sollten Sie ein Upgrade für die Element Software 12.3 durchführen.
+Wenn sich Ihr Storage-Cluster bei Element 12.3.1 befindet und die VVols Funktion aktiviert ist, sollten Sie ein Upgrade auf Element Software 12.3 durchführen.
 
 Wenn sich Ihr Storage-Cluster in Element 12.3.1 befindet und die VVols Funktion deaktiviert ist, ist ein Upgrade auf Element Software 12.3.2 optional.
 
