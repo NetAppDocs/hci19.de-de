@@ -16,14 +16,14 @@ keywords: netapp, hci, management node, management services, version, bundle ver
 [role="lead"]
 Sie können die Versionsnummern des Management-Node-Betriebssystems, des Managementservices-Pakets und der einzelnen Services, die auf dem Management-Node ausgeführt werden, mithilfe der REST-API im Management-Node überprüfen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Auf dem Cluster wird die NetApp Element Software 11.3 oder höher ausgeführt.
 * Sie haben einen Management-Node mit Version 11.3 oder höher implementiert.
 
 
 .Optionen
-*  commands
-*  API UI steps
+* <<API-Befehle>>
+* <<SCHRITTE DER REST API-UI>>
 
 
 

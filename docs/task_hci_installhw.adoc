@@ -19,15 +19,15 @@ Bevor NetApp HCI zum Einsatz kommt, sollten die Storage- und Computing-Nodes ord
 
 TIP: Siehe link:../media/hseries-isi.pdf["Poster"^] Für eine visuelle Darstellung der Anweisungen.
 
-*  diagrams
-*  for installation
-*  the rails
-*  the node/chassis
-*  the switches
-*  the nodes
-*  on the nodes
-*  NetApp HCI
-*  post-configuration tasks
+* <<Workflow-Diagramme>>
+* <<Installation vorbereiten>>
+* <<Installieren Sie die Schienen>>
+* <<Installieren Sie den Node/das Chassis>>
+* <<Installieren Sie die Schalter>>
+* <<Die Nodes verkabeln>>
+* <<Schalten Sie die Nodes ein>>
+* <<Konfigurieren Sie NetApp HCI>>
+* <<Ausführung von Aufgaben nach der Konfiguration>>
 
 
 
@@ -36,9 +36,9 @@ TIP: Siehe link:../media/hseries-isi.pdf["Poster"^] Für eine visuelle Darstellu
 
 Die Workflow-Diagramme hier bieten einen allgemeinen Überblick über die Installationsschritte. Die Schritte variieren je nach Modell der H-Serie leicht.
 
-*  and H410S
-*  and H615C
-* 
+* <<H410C und H410S>>
+* <<H610C und H615C>>
+* <<H610S>>
 
 
 
@@ -110,9 +110,9 @@ Die Hardwarebestellung, die Ihnen zugestellt wurde, enthält eine Reihe von Glei
 
 TIP: Installieren Sie die Hardware von der Unterseite des Racks bis zur Oberseite, um zu verhindern, dass das Gerät umkippeln kann. Wenn Ihr Rack Stabilisatoren beinhaltet, müssen Sie diese vor der Installation der Hardware installieren.
 
-*  and H410S
-* 
-*  and H615C
+* <<H410C und H410S>>
+* <<H610C>>
+* <<H610S und H615C>>
 
 
 
@@ -168,9 +168,9 @@ TIP: Ab NetApp HCI 1.8 können Sie ein Storage-Cluster mit zwei oder drei Storag
 
 CAUTION: Entfernen Sie das gesamte Verpackungsmaterial und die Verpackung vom Gerät. So wird verhindert, dass die Nodes überhitzt und heruntergefahren werden.
 
-*  and H410S nodes
-*  node/chassis
-*  and H615C node/chassis
+* <<H410C und H410S Nodes>>
+* <<H610C Node/Chassis>>
+* <<H610S und H615C Node/Chassis>>
 
 
 
@@ -227,10 +227,10 @@ Wenn Sie einer vorhandenen NetApp HCI Installation Nodes hinzufügen, stellen Si
 
 CAUTION: Stellen Sie sicher, dass die Luftzirkulation an der Rückseite des Gehäuses nicht durch Kabel oder Etiketten blockiert ist. Dies kann zu vorzeitigen Komponentenausfällen aufgrund von Überhitzung führen.
 
-*  compute node and H410S storage node
-*  compute node
-*  compute node
-*  storage node
+* <<H410C Computing-Node und H410S Storage-Node>>
+* <<H610C Computing-Node>>
+* <<H615C Computing-Node>>
+* <<H610S Storage-Node>>
 
 
 
@@ -345,8 +345,8 @@ image::H600S_ISI_nodefront.png[Zeigt den ein/aus-Schalter am H610S/H615C Node/Ch
 
 Wählen Sie eine der folgenden Optionen:
 
-*  NetApp HCI installation
-*  an existing NetApp HCI installation
+* <<Neue NetApp HCI Installation>>
+* <<Erweiterung einer vorhandenen NetApp HCI Installation>>
 
 
 
@@ -396,8 +396,8 @@ NOTE: Die neu installierten NetApp HCI Nodes im selben Netzwerk werden automatis
 
 Abhängig vom Typ Ihres Node müssen Sie möglicherweise nach der Installation der Hardware und der Konfiguration von NetApp HCI weitere Schritte durchführen.
 
-*  node
-*  and H610S nodes
+* <<H610C Node>>
+* <<H615C und H610S Nodes>>
 
 
 

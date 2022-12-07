@@ -16,7 +16,7 @@ keywords: netapp, hci, psu, replace power supply, H610S, H615C, DC
 [role="lead"]
 H615C und H610S Nodes unterstützen zwei–48 V bis –60 V DC-Netzteile. Diese Einheiten sind bei der Bestellung von H615C oder H610S Nodes als optionale Add-ons erhältlich. Sie können diese Anleitung verwenden, um die Netzteileinheiten im Gehäuse zu entfernen und durch Gleichstromnetzteile zu ersetzen oder ein defektes Gleichstromnetzteil durch ein neues Gleichstromnetzteil zu ersetzen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Wenn Sie ein defektes DC-Netzteil ersetzen, haben Sie ein Ersatznetzteil in Anspruch genommen.
 * Wenn Sie die Wechselstromnetzteile in Ihrem Gehäuse gegen Gleichstromeinheiten austauschen, haben Sie die Ausfallzeiten für das Verfahren berücksichtigt.
 * Sie haben ein elektrostatisches Entladungsband (ESD) oder andere antistatische Vorsichtsmaßnahmen getroffen.
@@ -37,6 +37,7 @@ H615C und H610S Nodes unterstützen zwei–48 V bis –60 V DC-Netzteile. Diese 
 
 
 
+.Über diese Aufgabe
 Das Verfahren gilt für die folgenden Node-Modelle:
 
 * 1-HE-H615C Computing-Chassis

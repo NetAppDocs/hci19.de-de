@@ -16,17 +16,18 @@ keywords: netapp, mnode, management node, rest api, hci, assets
 [role="lead"]
 Sie können dem Managementknoten neue Storage-Cluster-Assets hinzufügen, die gespeicherten Zugangsdaten für bekannte Storage-Cluster-Assets bearbeiten und Storage-Cluster-Assets über DIE REST-API vom Managementknoten löschen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Stellen Sie sicher, dass auf Ihrer Speichercluster-Version die NetApp Element-Software 11.3 oder höher ausgeführt wird.
 * Stellen Sie sicher, dass Sie einen Management-Node mit Version 11.3 oder höher bereitgestellt haben.
 
 
+.Optionen für das Storage Cluster Asset Management
 Wählen Sie eine der folgenden Optionen:
 
-*  the installation ID and cluster ID of a storage cluster asset
-*  a new storage cluster asset
-*  the stored credentials for a storage cluster asset
-*  a storage cluster asset
+* <<Rufen Sie die Installations-ID und die Cluster-ID einer Storage-Cluster-Ressource ab>>
+* <<Fügen Sie eine neue Storage-Cluster-Ressource hinzu>>
+* <<Bearbeiten Sie die gespeicherten Anmeldedaten für eine Storage-Cluster-Ressource>>
+* <<Löschen einer Speichercluster-Ressource>>
 
 
 
@@ -101,8 +102,8 @@ Die API gibt eine Liste aller bekannten Storage-Cluster in dieser Installation z
 
 Mithilfe der REST API können Sie dem Management-Node-Bestand eine oder mehrere neue Storage-Cluster-Ressourcen hinzufügen. Wenn Sie eine neue Storage-Cluster-Ressource hinzufügen, wird diese automatisch beim Management-Node registriert.
 
-.Was Sie und#8217;ll benötigen
-* Sie haben die kopiert  the installation ID and cluster ID of a storage cluster asset,Storage Cluster-ID und Installations-ID Für jeden Storage-Cluster, den Sie hinzufügen möchten.
+.Was Sie benötigen
+* Sie haben die kopiert <<Rufen Sie die Installations-ID und die Cluster-ID einer Storage-Cluster-Ressource ab,Storage Cluster-ID und Installations-ID>> Für jeden Storage-Cluster, den Sie hinzufügen möchten.
 * Wenn Sie mehr als einen Storage-Node hinzufügen, haben Sie die Einschränkungen von gelesen und verstanden link:concept_hci_clusters.html#authoritative-storage-clusters["Autorisierende Cluster"] Unterstützung für mehrere Storage-Cluster.
 +
 
@@ -167,7 +168,7 @@ Die API gibt ein Objekt mit Informationen über die neu hinzugefügte Storage-Cl
 Sie können die gespeicherten Anmeldeinformationen bearbeiten, die der Management-Node zur Anmeldung bei einem Storage-Cluster verwendet. Der von Ihnen gewählte Benutzer muss über einen Cluster-Admin-Zugriff verfügen.
 
 
-NOTE: Vergewissern Sie sich, dass Sie die Schritte in befolgt haben  the installation ID and cluster ID of a storage cluster asset Bevor Sie fortfahren.
+NOTE: Vergewissern Sie sich, dass Sie die Schritte in befolgt haben <<Rufen Sie die Installations-ID und die Cluster-ID einer Storage-Cluster-Ressource ab>> Bevor Sie fortfahren.
 
 .Schritte
 . Rufen Sie die REST-API-UI für den Storage-Service auf, indem Sie die IP-Adresse des Management-Node, gefolgt von, eingeben `/storage/1/`:
@@ -216,7 +217,7 @@ https://<ManagementNodeIP>/storage/1/
 Sie können eine Storage-Cluster-Ressource löschen, wenn das Storage-Cluster nicht mehr in Betrieb ist. Wenn Sie eine Storage-Cluster-Ressource entfernen, wird diese automatisch vom Management-Node registriert.
 
 
-NOTE: Vergewissern Sie sich, dass Sie die Schritte in befolgt haben  the installation ID and cluster ID of a storage cluster asset Bevor Sie fortfahren.
+NOTE: Vergewissern Sie sich, dass Sie die Schritte in befolgt haben <<Rufen Sie die Installations-ID und die Cluster-ID einer Storage-Cluster-Ressource ab>> Bevor Sie fortfahren.
 
 .Schritte
 . Rufen Sie die REST-API-UI für den Storage-Service auf, indem Sie die IP-Adresse des Management-Node, gefolgt von, eingeben `/storage/1/`:

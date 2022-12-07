@@ -16,6 +16,7 @@ keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S
 [role="lead"]
 Wenn ein Laufwerk defekt ist oder der Verschleiß des Laufwerks unter einen Schwellenwert fällt, sollten Sie dieses austauschen. Alarme in der Element Software UI und VMware vSphere Web Client benachrichtigen Sie, wenn ein Laufwerk ausgefallen ist oder ausfällt. Sie können ein ausgefallenes Laufwerk im laufenden Betrieb austauschen.
 
+.Über diese Aufgabe
 Dieses Verfahren dient zum Austausch von Laufwerken in H410S und H610S Storage-Nodes. Durch das Entfernen eines Laufwerks kann das Laufwerk offline geschaltet werden. Alle Daten auf dem Laufwerk werden entfernt und auf andere Laufwerke im Cluster migriert. Die Datenmigration auf andere aktive Laufwerke im System kann abhängig von Kapazitätsauslastung und aktiver I/O im Cluster einige Minuten bis eine Stunde dauern.
 
 

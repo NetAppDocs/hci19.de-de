@@ -16,11 +16,12 @@ keywords: netapp, hci, dimm, compute nodes
 [role="lead"]
 Sie können ein fehlerhaftes Dual Inline Memory Module (DIMM) in NetApp HCI-Computing-Nodes ersetzen, anstatt den gesamten Node zu ersetzen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Bevor Sie mit diesem Verfahren beginnen, sollten Sie den NetApp Support kontaktieren und ein Ersatzteil erhalten haben. Bei der Installation des Ersatzes ist der Support beteiligt. Falls Sie dies noch nicht getan haben, wenden Sie sich an https://www.netapp.com/us/contact-us/support.aspx["Unterstützung"^].
 * Geplante Systemausfallzeiten sind geplant, da der Node heruntergefahren oder aus- und wieder eingeschaltet und der Node im NetApp Safe Mode gebootet werden muss, um auf die Terminal User Interface (TUI) zuzugreifen.
 
 
+.Über diese Aufgabe
 Dieses Verfahren gilt für die folgenden Computing-Node-Modelle:
 
 * H410C Nodes Ein H410C Node wird in ein 2-HE-NetApp HCI-Chassis eingesetzt.
@@ -38,8 +39,8 @@ NOTE: Die Begriffe „Chassis“ und „Node“ werden im Fall von H610C und H61
 
 Nachfolgend sind die Schritte aufgeführt, die beim Austausch von DIMMs bei Computing-Nodes erforderlich sind:
 
-*  to replace the DIMM
-*  the DIMM from the chassis
+* <<Bereiten Sie den Austausch des DIMM vor>>
+* <<Ersetzen Sie das DIMM aus dem Gehäuse>>
 
 
 
@@ -264,6 +265,7 @@ IMPORTANT: Stellen Sie sicher, dass Sie nur die hinteren Enden des DIMM berühre
 
 
 
+.Wie es weiter geht
 Nachdem der Knoten wieder in den normalen Betrieb zurückkehrt, überprüfen Sie in vCenter die Registerkarte Zusammenfassung, um sicherzustellen, dass die Speicherkapazität wie erwartet ist.
 
 

@@ -29,6 +29,7 @@ Seit der Version für Element 11.3 Management-Nodes wurde das Design der Managem
 
 
 ====
+.Was Sie benötigen
 Ab Management Services 2.20.69 müssen Sie die Endbenutzer-Lizenzvereinbarung (Endbenutzer License Agreement, EULA) akzeptieren und speichern, bevor Sie die NetApp Hybrid Cloud Control UI oder -API für Upgrade-Managementservices verwenden:
 
 . Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser:
@@ -46,11 +47,12 @@ NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates auf
 
 
 
+.Update-Optionen
 Die Managementservices können mit der NetApp Hybrid Cloud Control UI oder DER REST-API des Management-Node aktualisiert werden:
 
-*  management services using Hybrid Cloud Control (Empfohlene Methode)
-*  management services using the management node API
-*  management services using the management node API for dark sites
+* <<Aktualisieren von Managementservices mit Hybrid Cloud Control>> (Empfohlene Methode)
+* <<Aktualisieren Sie Managementservices mit der Management-Node-API>>
+* <<Aktualisieren Sie Managementservices mit der Management-Node-API für dunkle Standorte>>
 
 
 

@@ -18,7 +18,7 @@ Bei H-Series Computing-Nodes können Sie die Firmware für Hardwarekomponenten w
 
 Nach dem Upgrade bootet der Computing-Node in ESXi hoch und funktioniert wie zuvor, wobei die Konfiguration beibehalten wird.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Compute drivers*: Sie haben Ihre Compute Node drivers aktualisiert. Wenn Computing-Node-Treiber nicht mit der neuen Firmware kompatibel sind, wird das Upgrade nicht gestartet. Siehe https://mysupport.netapp.com/matrix["Interoperabilitäts-Matrix-Tool (IMT)"^] Informationen zur Kompatibilität von Treibern und Firmware erhalten Sie auf dem neuesten Stand link:rn_relatedrn.html["Versionshinweise zu der computing-Node-Firmware"] Für wichtige, spätbreakende Firmware- und Treiberdetails.
 * *Admin-Berechtigungen*: Sie haben Cluster Administrator und BMC Administrator Berechtigungen, um das Upgrade durchzuführen.
 * *System-Ports*: Bei Upgrade-Nutzung von NetApp Hybrid Cloud Control haben Sie sichergestellt, dass die erforderlichen Ports geöffnet sind. Siehe link:hci_prereqs_required_network_ports.html["Netzwerkports"] Finden Sie weitere Informationen.
@@ -70,6 +70,7 @@ NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates auf
 
 
 
+.Über diese Aufgabe
 Aktualisieren Sie in Produktionsumgebungen die Firmware auf jeweils einem Computing-Node.
 
 
@@ -80,12 +81,13 @@ Bei UI- oder API-Upgrades der NetApp Hybrid Cloud Control wird Ihr ESXi Host aut
 
 NOTE: Überprüfen Sie vor dem Upgrade die aktuelle ESXi Treiberversion. Wenn der Treiber veraltet ist, aktualisieren Sie zuerst den Treiber. Dann aktualisieren Sie die Computing-Firmware für Ihre Computing-Nodes.
 
+.Upgrade-Optionen
 Wählen Sie die Option aus, die für Ihr Upgrade-Szenario relevant ist:
 
-*  NetApp Hybrid Cloud Control UI to upgrade a compute node (Empfohlen)
-*  NetApp Hybrid Cloud Control API to upgrade a compute node
-*  a USB drive imaged with the latest compute firmware bundle
-*  the Baseboard Management Controller (BMC) user interface (UI)
+* <<Verwenden Sie die UI von NetApp Hybrid Cloud Control zum Upgrade eines Computing-Node>> (Empfohlen)
+* <<Computing-Node mit der NetApp Hybrid Cloud Control API aktualisieren>>
+* <<Verwenden Sie ein USB-Laufwerk, das mit dem neuesten Firmware-Bundle abgebildet ist>>
+* <<Verwendung der Benutzeroberfläche (UI) des Baseboard Management Controller (BMC)>>
 
 
 
@@ -104,9 +106,9 @@ TIP: Bei Upgrades an dunklen Standorten kann die Upload-Zeit verkürzt werden, w
 NOTE: Das Upgrade von NIC, BIOS und BMC dauert je nach Geschwindigkeit der Netzwerkverbindung zwischen dem Management-Node und dem BMC-Host etwa 60 Minuten pro Node.
 
 
-NOTE: Die Verwendung der NetApp Hybrid Cloud Control UI ermöglicht das Upgrade der Computing-Firmware auf H300E/H500E/H700E Computing-Nodes nicht mehr. Für ein Upgrade sollten Sie ein verwenden ,USB-Laufwerk Oder im ,BMC-UI So mounten Sie das Computing-Firmware-Bundle.
+NOTE: Die Verwendung der NetApp Hybrid Cloud Control UI ermöglicht das Upgrade der Computing-Firmware auf H300E/H500E/H700E Computing-Nodes nicht mehr. Für ein Upgrade sollten Sie ein verwenden <<manual_method_USB,USB-Laufwerk>> Oder im <<manual_method_BMC,BMC-UI>> So mounten Sie das Computing-Firmware-Bundle.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Wenn der Management-Node nicht mit dem Internet verbunden ist, haben Sie das Paket der Computing-Firmware von heruntergeladen https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp Support Website"^].
 +
 
@@ -167,7 +169,7 @@ Die Benutzeroberfläche zeigt eine Meldung an, nachdem das Upgrade abgeschlossen
 
 TIP: Die Datei wird im Hintergrund hochgeladen, wenn Sie vom Browser-Fenster weg navigieren.
 
-Nach dem erfolgreichen Hochladen und Validierungen der Datei wird eine Meldung auf dem Bildschirm angezeigt. Die Validierung kann mehrere Minuten in Anspruch nehmen. Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist. Informationen zu den verschiedenen Änderungen des Aktualisierungsstatus finden Sie unter  status changes.
+Nach dem erfolgreichen Hochladen und Validierungen der Datei wird eine Meldung auf dem Bildschirm angezeigt. Die Validierung kann mehrere Minuten in Anspruch nehmen. Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist. Informationen zu den verschiedenen Änderungen des Aktualisierungsstatus finden Sie unter <<Statusänderungen des Upgrades>>.
 
 |===
 
@@ -210,8 +212,9 @@ Hier sind die verschiedenen Status, die die UI vor, während und nach dem Upgrad
 Mithilfe von APIs können Sie jeden Computing-Node in einem Cluster auf die neueste Firmware-Version aktualisieren. Sie können ein Automatisierungstool Ihrer Wahl zum Ausführen der APIs verwenden. Der hier dokumentierte API-Workflow nutzt die REST-API-UI, die am Management-Node verfügbar ist.
 
 
-NOTE: Die Verwendung der NetApp Hybrid Cloud Control UI ermöglicht das Upgrade der Computing-Firmware auf H300E/H500E/H700E Computing-Nodes nicht mehr. Für ein Upgrade sollten Sie ein verwenden ,USB-Laufwerk Oder im ,BMC-UI So mounten Sie das Computing-Firmware-Bundle.
+NOTE: Die Verwendung der NetApp Hybrid Cloud Control UI ermöglicht das Upgrade der Computing-Firmware auf H300E/H500E/H700E Computing-Nodes nicht mehr. Für ein Upgrade sollten Sie ein verwenden <<manual_method_USB,USB-Laufwerk>> Oder im <<manual_method_BMC,BMC-UI>> So mounten Sie das Computing-Firmware-Bundle.
 
+.Was Sie benötigen
 Computing-Node-Ressourcen, einschließlich vCenter und Hardware-Assets, müssen Management-Node-Ressourcen bekannt sein. Sie können die Inventurservice-APIs verwenden, um die Ressourcen zu überprüfen (`https://<ManagementNodeIP>/inventory/1/`).
 
 .Schritte
@@ -471,7 +474,7 @@ https://<ManagementNodeIP>/hardware/2/
 
 Sie können ein USB-Laufwerk mit dem neuesten Compute-Firmware-Bundle anschließen, das auf einen USB-Port des Computing-Node heruntergeladen wurde. Alternativ zur Verwendung der in diesem Verfahren beschriebenen USB-Stick-Methode können Sie das Rechner-Firmware-Bundle mit der Option *Virtual CD/DVD* in der virtuellen Konsole in der BMC-Schnittstelle (Baseboard Management Controller) auf dem Rechner-Knoten montieren. Die BMC-Methode dauert erheblich länger als die USB-Stick-Methode. Stellen Sie sicher, dass Ihre Workstation oder Ihr Server über die erforderliche Netzwerkbandbreite verfügt und dass Ihre Browsersitzung mit dem BMC nicht ausläuft.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Wenn der Management-Node nicht mit dem Internet verbunden ist, haben Sie das Paket der Computing-Firmware von heruntergeladen https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp Support Website"^].
 +
 
@@ -510,8 +513,8 @@ TIP: Es wird empfohlen, das System oder die VM und den Knoten im gleichen Netzwe
 
 NOTE: Über die BMC-UI dauert das Upgrade etwa 25 bis 30 Minuten.
 
-*  firmware on H410C and H300E/H500E/H700E nodes
-*  firmware on H610C/H615C nodes
+* <<Firmware-Upgrade auf den Nodes H410C und H300E/H500E/H700E>>
+* <<Firmware auf H610C/H615C Nodes aktualisieren>>
 
 
 

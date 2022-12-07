@@ -16,7 +16,7 @@ keywords: netapp, hci, deployment, review, GPU, install, driver, drivers
 [role="lead"]
 Mit NetApp Hybrid Cloud Control können Sie NetApp HCI managen. Sie können Management-Services und andere Komponenten von NetApp HCI aktualisieren und die Installation erweitern und überwachen. Sie melden sich bei NetApp Hybrid Cloud Control an, indem Sie die IP-Adresse des Management-Node nutzen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Cluster Administrator Berechtigungen*: Sie haben Berechtigungen als Administrator auf dem Speicher-Cluster.
 * *Management Services*: Sie haben Ihre Management Services auf mindestens Version 2.1.326 aktualisiert. NetApp Hybrid Cloud Control ist in früheren Service-Bundle-Versionen nicht verfügbar. Informationen zur aktuellen Service Bundle-Version finden Sie im https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["Versionshinweise Für Management Services"^].
 

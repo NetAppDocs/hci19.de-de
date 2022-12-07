@@ -18,11 +18,11 @@ Sie können das NetApp HCI System nach der Implementierung durch das sequenziell
 
 Zu diesen Komponenten gehören Management-Services, HealthTools, NetApp Hybrid Cloud Control, Element Software, Management-Node, Computing-Firmware, Computing-Treiber, Und das Element Plug-in für vCenter Server.​
 
-Der ,Systemaktualisierungssequenz Inhalt beschreibt die Aufgaben, die zum Abschluss eines NetApp HCI-Systemupgrades erforderlich sind. Idealerweise führen Sie diese Verfahren als Teil der größeren Upgrade-Sequenz und nicht isoliert durch. Wenn ein komponentenbasiertes Upgrade oder eine Aktualisierung erforderlich ist, lesen Sie die Verfahrensvoraussetzungen, um sicherzustellen, dass zusätzliche Komplexität bewältigt wird.
+Der <<sys_upgrade_seq,Systemaktualisierungssequenz>> Inhalt beschreibt die Aufgaben, die zum Abschluss eines NetApp HCI-Systemupgrades erforderlich sind. Idealerweise führen Sie diese Verfahren als Teil der größeren Upgrade-Sequenz und nicht isoliert durch. Wenn ein komponentenbasiertes Upgrade oder eine Aktualisierung erforderlich ist, lesen Sie die Verfahrensvoraussetzungen, um sicherzustellen, dass zusätzliche Komplexität bewältigt wird.
 
 Der xref:task_hci_upgrade_all_vsphere.adoc[VSphere-Upgrade-Sequenz] Der Inhalt des Element Plug-ins für vCenter Server enthält zusätzliche Schritte vor und nach dem Upgrade, die zur Neuinstallation des Element Plug-ins für vCenter Server erforderlich sind.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie führen Management-Node 11.3 oder höher aus. Neuere Versionen des Management-Node verfügen über eine modulare Architektur, die individuelle Services zur Verfügung stellt.
 +
 
@@ -37,7 +37,7 @@ Upgrades mit NetApp Hybrid Cloud Control sind in früheren Service-Bundle-Versio
 
 
 
-== Systemaktualisierungssequenz
+== [[sys_Upgrade_seq]]Systemaktualisierungssequenz
 
 Sie können die folgende Sequenz verwenden, um Ihr NetApp HCI-System zu aktualisieren.
 

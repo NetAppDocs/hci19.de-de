@@ -21,11 +21,11 @@ NOTE: Weitere Informationen zur Verwendung finden Sie unter NetApp HCI Concepts 
 
 Mithilfe von NetApp Hybrid Cloud Control lassen sich QoS-Richtlinien erstellen und managen, indem folgende Aufgaben ausgeführt werden:
 
-*  a QoS policy
-*  a QoS policy to a volume
-*  the QoS policy assignment of a volume
-*  a QoS policy
-*  a QoS policy
+* <<Erstellen einer QoS-Richtlinie>>
+* <<Wenden Sie eine QoS-Richtlinie auf ein Volume an>>
+* <<Ändern der QoS-Richtlinienzuweisung eines Volumes>>
+* <<Bearbeiten einer QoS-Richtlinie>>
+* <<Löschen einer QoS-Richtlinie>>
 
 
 
@@ -61,8 +61,10 @@ Für die Richtlinie wird eine System-ID generiert, und die Richtlinie wird auf d
 
 Mithilfe von NetApp Hybrid Cloud Control kann einer vorhandenen QoS-Richtlinie ein Volume zugewiesen werden.
 
-Die QoS-Richtlinie, die Sie zuweisen möchten, war  a QoS policy,Erstellt.
+.Was Sie benötigen
+Die QoS-Richtlinie, die Sie zuweisen möchten, war <<Erstellen einer QoS-Richtlinie,Erstellt>>.
 
+.Über diese Aufgabe
 Dieser Task beschreibt, wie eine QoS-Richtlinie einem einzelnen Volume durch Ändern der entsprechenden Einstellungen zugewiesen wird. Die neueste Version von NetApp Hybrid Cloud Control bietet keine Massenzuordnungsoption für mehr als ein Volume. Bis die Funktion für die Massen-Zuweisung in einer zukünftigen Version verfügbar ist, können Sie QoS-Richtlinien über die Element Web-UI oder das vCenter Plug-in in Bulk zuweisen.
 
 .Schritte
@@ -88,7 +90,8 @@ Das aktualisierte Volume mit der zugewiesenen QoS-Richtlinie wird auf der Übers
 
 Sie können die Zuweisung einer QoS-Richtlinie aus einem Volume entfernen oder eine andere QoS-Richtlinie oder benutzerdefinierte QoS auswählen.
 
-Das Volume, das Sie ändern möchten, ist  a QoS policy to a volume,Zugewiesen Eine QoS-Richtlinie
+.Was Sie benötigen
+Das Volume, das Sie ändern möchten, ist <<Wenden Sie eine QoS-Richtlinie auf ein Volume an,Zugewiesen>> Eine QoS-Richtlinie
 
 .Schritte
 . Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.

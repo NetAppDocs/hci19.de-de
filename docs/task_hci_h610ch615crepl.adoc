@@ -19,19 +19,21 @@ Sie sollten ein Chassis ersetzen, um Computing-Node-Ausfälle im Zusammenhang mi
 
 NOTE: Für H610C und H615C werden die Begriffe „Node“ und „Chassis“ austauschbar verwendet, da sich der Node und das Chassis nicht durch separate Komponenten unterscheiden.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben überprüft, ob der Node ausgefallen ist.
 * Sie verfügen über ein Ersatzgehäuse. Wenn Sie ein Ersatzteil bestellen möchten, wenden Sie sich bitte an den NetApp Support.
 * Sie haben ein elektrostatisches Entladungsband (ESD) oder einen anderen antistatischen Schutz.
 * Sie haben jedes Kabel gekennzeichnet, das mit dem Chassis verbunden ist.
 
 
+.Über diese Aufgabe
 Alarme im VMware vSphere Web Client warnen Sie bei einem Host-Ausfall. Sie müssen die Seriennummer des ausgefallenen Hosts vom VMware vSphere Web Client mit der Seriennummer auf dem Aufkleber auf der Rückseite des Node übereinstimmen.
 
-Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahrens: to replace the node
- the node
- the node to the cluster
- the GPU drivers
+.Schritte im Überblick
+Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahrens:<<Bereiten Sie den Austausch des Node vor>>
+<<Ersetzen Sie den Node>>
+<<Fügen Sie den Node dem Cluster hinzu>>
+<<Installieren Sie die GPU-Treiber>>
 
 
 
@@ -101,7 +103,7 @@ CAUTION: Wenn die Luftströmungsöffnungen an der Rückseite des Gehäuses durch
 
 Sie sollten NetApp HCI so konfigurieren, dass der neue Compute-Node verwendet wird.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Der vSphere Instance NetApp HCI verwendet vSphere Enterprise Plus-Lizenzen, wenn Sie den Knoten einer Implementierung mit Virtual Distributed Switches hinzufügen.
 * Keine der vCenter oder vSphere Instanzen, die mit NetApp HCI verwendet werden, verfügen über abgelaufene Lizenzen.
 * Sie verfügen über freie und nicht genutzte IPv4-Adressen im gleichen Netzwerksegment wie vorhandene Nodes (der neue Node muss im gleichen Netzwerk wie die vorhandenen Knoten seines Typs installiert sein).

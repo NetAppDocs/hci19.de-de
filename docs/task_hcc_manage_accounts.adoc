@@ -18,8 +18,8 @@ In Element-basierten Storage-Systemen können maßgebliche Cluster-Benutzer erst
 
 Verwalten Sie die folgenden Kontoarten:
 
-*  authoritative cluster accounts
-*  volume accounts
+* <<Managen von autorisierenden Cluster-Konten>>
+* <<Volume-Konten verwalten>>
 
 
 
@@ -62,7 +62,7 @@ Mithilfe dieses Kontos können Kunden sich bei der Hybrid Cloud Control, der UI 
 ** Wenn Sie LDAP ausgewählt haben, geben Sie den DN ein.
 +
 
-TIP: Um LDAP zu verwenden, müssen Sie zunächst LDAP oder LDAPS aktivieren. Siehe  LDAP.
+TIP: Um LDAP zu verwenden, müssen Sie zunächst LDAP oder LDAPS aktivieren. Siehe <<Aktivieren Sie LDAP>>.
 
 ** Wenn Sie Cluster als Auth-Typ ausgewählt haben, geben Sie einen Namen und ein Passwort für das neue Konto ein.
 

@@ -18,7 +18,7 @@ keywords: netapp, mnode, management node, rest api, hci
 
 Möglicherweise müssen Sie ein Asset hinzufügen, wenn Sie vor Kurzem Ihre Installation skaliert haben und neue Ressourcen nicht automatisch zu Ihrer Konfiguration hinzugefügt wurden. Mithilfe dieser APIs können Sie Ressourcen hinzufügen, die zu Ihrer Installation hinzugefügt wurden.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * In Ihrer Cluster-Version wird die NetApp Element Software 11.3 oder höher ausgeführt.
 * Sie haben einen Management-Node mit Version 11.3 oder höher implementiert.
 * Das ist schon link:task_mnode_create_netapp_hcc_role_vcenter.html["Neue NetApp HCC-Rolle in vCenter erstellt"] Begrenzung der Management-Node-Services-Ansicht auf reine NetApp Ressourcen
@@ -27,6 +27,7 @@ Möglicherweise müssen Sie ein Asset hinzufügen, wenn Sie vor Kurzem Ihre Inst
 * Sie verfügen über die Hardware- (BMC) Management-IP-Adresse und Administrator-Anmeldeinformationen.
 
 
+.Über diese Aufgabe
 (Nur NetApp HCI) Wenn nach der Skalierung Ihres NetApp HCI-Systems keine Computing-Nodes in der Hybrid Cloud Control (HCC) angezeigt werden, können Sie mithilfe der einen Compute-Node hinzufügen `POST /assets/{asset_id}/compute-nodes` Beschrieben in diesem Verfahren.
 
 

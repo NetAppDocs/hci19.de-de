@@ -17,7 +17,7 @@ keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, acc
 [role="lead"]
 In Umgebungen, in denen Server automatisch eine IPv4-Konfiguration von DHCP beziehen, können Sie mithilfe der IPv4-Adresse, die der Bond1G-Schnittstelle auf einem der Storage-Nodes zugewiesen ist, auf die NetApp Deployment Engine zugreifen. Sie können einen USB-Stick verwenden, um die IPv4-Adresse von einem der Speicherknoten abzurufen. Die NetApp Deployment Engine erkennt automatisch andere Computing- und Storage-Nodes, die über DHCP zugewiesene IPv4-Adressen verwenden. Sie sollten diese Methode nur verwenden, wenn Ihr Netzwerk besondere Anforderungen hat.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie oder Ihr Netzwerkadministrator haben die Aufgaben im Dokument Installations- und Setup-Anleitung ausgeführt.
 * Sie haben physischen Zugriff auf die NetApp HCI-Nodes.
 * Alle NetApp HCI-Nodes sind eingeschaltet.
@@ -28,6 +28,7 @@ In Umgebungen, in denen Server automatisch eine IPv4-Konfiguration von DHCP bezi
 
 NOTE: Damit die NetApp HCI-Implementierung erfolgreich ist, müssen alle Nodes in der Implementierung entweder über DHCP-übernommene oder automatisch konfigurierte IPv4-Adressen verfügen (Sie können keine Methoden für die IPv4-Adresszuweisung kombinieren).
 
+.Über diese Aufgabe
 Wenn DHCP nur für das Speichernetzwerk verwendet wird (Bond10G-Schnittstellen), sollten Sie die unter Link aufgeführten Schritte verwenden: link:task_nde_access_no_dhcp.html["Zugriff auf die NetApp Deployment Engine in Umgebungen ohne DHCP"] Für den Zugriff auf die NetApp Deployment Engine:
 
 .Schritte

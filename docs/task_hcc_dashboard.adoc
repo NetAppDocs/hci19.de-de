@@ -21,12 +21,12 @@ NOTE: Wenn Sie zum ersten Mal eine neue NetApp Hybrid Cloud Control Session star
 
 Im Hybrid Cloud Control Dashboard werden nur Compute-Nodes angezeigt, die gemanagt werden und Cluster mit mindestens einem gemanagten Node in H-Series Hardware.
 
-*  the NetApp HCC Dashboard
-*  storage resources
-*  compute resources
-*  storage capacity
-*  storage performance
-*  compute utilization
+* <<Zugriff auf das NetApp HCC Dashboard>>
+* <<Monitoring von Storage-Ressourcen>>
+* <<Monitoring von Computing-Ressourcen>>
+* <<Monitoring der Storage-Kapazität>>
+* <<Monitoring der Storage-Performance>>
+* <<Monitoring der Computing-Auslastung>>
 
 
 

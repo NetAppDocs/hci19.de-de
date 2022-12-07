@@ -19,6 +19,7 @@ Je nach Ihrer Auswahl während des Implementierungsprozesses müssen Sie einige 
 * link:task_nde_supported_net_changes.html["Unterstützte Netzwerkänderungen"]
 * link:task_nde_disable_smartd.html["Deaktivieren Sie den Smartd-Dienst auf NetApp HCI-Compute-Nodes"]
 * link:task_nde_disable_lacp_individual.html["Deaktivieren Sie den Befehl „lacp-individual“ bei konfigurierten Switches"]
+* link:task_mnode_create_netapp_hcc_role_vcenter.html["Erstellen einer NetApp HCC-Rolle in vCenter"]
 * link:task_nde_update_vsphere.html["Halten Sie VMware vSphere auf dem neuesten Stand"]
 * link:task_nde_install_GPU_drivers.html["Installieren von GPU-Treibern für Compute-Nodes mit GPU-Aktivierung"]
 * link:task_nde_access_hcc.html["Zugriff auf NetApp Hybrid Cloud Control"]

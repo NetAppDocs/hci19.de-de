@@ -17,13 +17,14 @@ keywords: netapp, hci, netapp deployment engine, deployment, vsphere
 [role="lead"]
 Sie können NetApp HCI so konfigurieren, dass Sie die Vorteile einer vorhandenen vSphere-Bereitstellung nutzen können, indem Sie die Netzwerkinformationen und Anmeldeinformationen des vCenter Server-Netzwerks bereitstellen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Wenn Sie einer vorhandenen vSphere 6.7-Bereitstellung beitreten, stellen Sie sicher, dass vCenter Server Version 6.7 Update 1 ausführt.
 * Wenn Sie einer vorhandenen vSphere 6.5-Implementierung beitreten, stellen Sie sicher, dass vCenter Server Version 6.5 Update 2 oder höher ausführt.
 * Holen Sie sich die Netzwerkdetails und die Anmeldedaten des Administrators für Ihre vorhandene vSphere Implementierung.
 * Wenn das NetApp Element Plug-in für vCenter Server bei der vorhandenen vCenter Instanz registriert ist, müssen Sie dies tun https://docs.netapp.com/us-en/vcp/task_vcp_unregister.html["Deregistrieren"^] Vor der Fortsetzung. Das Plug-in wird nach Abschluss der NetApp HCI-Bereitstellung erneut registriert.
 
 
+.Über diese Aufgabe
 Wenn Sie mehrere vCenter Server-Systeme verbinden, die über den vCenter Linked Mode verbunden sind, erkennt NetApp HCI nur eines der vCenter Server Systeme.
 
 [NOTE]

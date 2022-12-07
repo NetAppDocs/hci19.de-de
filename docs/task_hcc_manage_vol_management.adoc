@@ -15,14 +15,14 @@ Sie können die QoS-Einstellungen für ein Volume während der Erstellung festle
 
 Folgende Möglichkeiten zum Managen von Volumes in NetApp Hybrid Cloud Control:
 
-*  a volume
-*  a QoS policy to a volume
-*  a volume
-*  volumes
-*  volumes to a volume access group
-*  a volume
-*  a deleted volume
-*  a deleted volume
+* <<Erstellen eines Volumes>>
+* <<Wenden Sie eine QoS-Richtlinie auf ein Volume an>>
+* <<Bearbeiten Sie ein Volume>>
+* <<Volumes klonen>>
+* <<Hinzufügen von Volumes zu einer Volume-Zugriffsgruppe>>
+* <<Löschen Sie ein Volume>>
+* <<Wiederherstellen eines gelöschten Volumes>>
+* <<Löschen Sie ein gelöschtes Volume>>
 
 
 
@@ -71,7 +71,7 @@ Volumes mit einem IOPS-Wert von max oder Burst über 20,000 IOPS erfordern mögl
 
 == Wenden Sie eine QoS-Richtlinie auf ein Volume an
 
-Mithilfe von NetApp Hybrid Cloud Control können Sie eine QoS-Richtlinie auf vorhandene Storage-Volumes anwenden. Wenn Sie stattdessen benutzerdefinierte QoS-Werte für ein Volume festlegen müssen, ist dies möglich  a volume. Informationen zum Erstellen einer neuen QoS-Richtlinie finden Sie unter link:task_hcc_qos_policies.html["Erstellung und Management von QoS-Richtlinien für Volumes"^].
+Mithilfe von NetApp Hybrid Cloud Control können Sie eine QoS-Richtlinie auf vorhandene Storage-Volumes anwenden. Wenn Sie stattdessen benutzerdefinierte QoS-Werte für ein Volume festlegen müssen, ist dies möglich <<Bearbeiten Sie ein Volume>>. Informationen zum Erstellen einer neuen QoS-Richtlinie finden Sie unter link:task_hcc_qos_policies.html["Erstellung und Management von QoS-Richtlinien für Volumes"^].
 
 .Schritte
 . Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators für NetApp HCI oder Element bereitstellen.
@@ -92,6 +92,7 @@ NOTE: Wenn Sie QoS-Richtlinien für ein Volume verwenden, können Sie durch benu
 
 Mit NetApp Hybrid Cloud Control lassen sich Volume-Attribute wie QoS-Werte, Volume-Größe und die Maßeinheit bearbeiten, mit der Byte-Werte berechnet werden. Außerdem haben Sie die Möglichkeit, den Kontozugriff für die Replizierungsnutzung zu ändern oder den Zugriff auf das Volume zu beschränken.
 
+.Über diese Aufgabe
 Sie können die Größe eines Volume ändern, wenn unter den folgenden Bedingungen genügend Speicherplatz auf dem Cluster vorhanden ist:
 
 * Normale Betriebsbedingungen.
@@ -167,6 +168,7 @@ Sie können einen Klon eines einzelnen Storage Volumes erstellen oder eine Grupp
 * Der verfügbare nicht bereitgestellte Speicherplatz muss der Volume-Größe entsprechen oder größer sein.
 
 
+.Über diese Aufgabe
 Das Cluster unterstützt bis zu zwei aktuell laufende Klonanforderungen pro Volume und bis zu 8 aktive Volume-Klonvorgänge gleichzeitig. Anforderungen, die über diese Grenzen hinausgehen, werden zur späteren Verarbeitung in die Warteschlange gestellt.
 
 Das Klonen von Volumes ist ein asynchroner Prozess. Die erforderliche Zeit hängt von der Größe des Klonens des Volumes und der aktuellen Cluster-Last ab.
@@ -225,6 +227,7 @@ Sie können einer Volume-Zugriffsgruppe ein einzelnes Volume oder eine Gruppe vo
 
 Ein oder mehrere Volumes können aus einem Element Storage-Cluster gelöscht werden.
 
+.Über diese Aufgabe
 Gelöschte Volumes werden nicht sofort vom System gelöscht, sie bleiben etwa acht Stunden lang verfügbar. Nach acht Stunden werden sie gereinigt und sind nicht mehr verfügbar. Wenn Sie ein Volume wiederherstellen, bevor das System es bereinigt, wird das Volume wieder online geschaltet und die iSCSI-Verbindungen werden wiederhergestellt.
 
 Wenn ein Volume, das zum Erstellen eines Snapshots verwendet wird, gelöscht wird, werden die zugehörigen Snapshots inaktiv. Wenn die gelöschten Quell-Volumes gelöscht werden, werden auch die zugehörigen inaktiven Snapshots aus dem System entfernt.

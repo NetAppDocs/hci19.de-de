@@ -18,7 +18,7 @@ Für ein Upgrade der Rancher Software können Sie die UI (HCC) oder DIE REST-API
 
 Upgrades sind für Komponenten anstelle eines kumulativen Pakets verfügbar. Daher sind einige Komponenten-Upgrades wie das Ubuntu OS in einer schnelleren Kadenz verfügbar. Upgrades wirken sich nur auf Ihre Rancher Server-Instanz und den Management-Cluster aus, auf dem Rancher Server bereitgestellt wird. Upgrades auf das Ubuntu OS des Management-Clusters sind nur für kritische Sicherheitspatches und führen kein Upgrade des Betriebssystems durch. Benutzer-Cluster können nicht von NetApp Hybrid Cloud Control aktualisiert werden.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Administratorrechte*: Sie haben Berechtigungen für den Storage Cluster Administrator, um das Upgrade durchzuführen.
 * *Management Services*: Sie haben Ihr Management Services Bundle auf die neueste Version aktualisiert.
 
@@ -46,10 +46,11 @@ NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates auf
 
 
 
+.Upgrade-Optionen
 Wählen Sie einen der folgenden Upgrade-Prozesse:
 
-*  NetApp Hybrid Cloud Control UI to upgrade a Rancher deployment
-*  NetApp Hybrid Cloud Control API to upgrade a Rancher deployment
+* <<Verwenden Sie die UI von NetApp Hybrid Cloud Control, um eine Rancher-Implementierung aufzurüsten>>
+* <<Mit der NetApp Hybrid Cloud Control API können Sie eine Rancher-Implementierung aktualisieren>>
 
 
 
@@ -63,7 +64,7 @@ Wählen Sie einen der folgenden Upgrade-Prozesse:
 * Sicherheitsupdates für Node OS
 
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Eine gute Internetverbindung. Upgrades von dunklen Standorten (Upgrades an einem Standort ohne externe Konnektivität) sind nicht verfügbar.
 
 
@@ -107,9 +108,9 @@ Mit APIs können Sie jede dieser Komponenten in Ihrer Rancher-Implementierung ak
 Sie können ein Automatisierungstool Ihrer Wahl verwenden, um die APIs oder DIE REST-API-UI auszuführen, die auf dem Management-Node verfügbar ist.
 
 .Optionen
-*  Rancher Server
-*  RKE
-*  node OS security updates
+* <<Upgrade Von Rancher Server>>
+* <<RKE aktualisieren>>
+* <<Wenden Sie Sicherheitsupdates des Node-Betriebssystems an>>
 +
 
 NOTE: Bei Node OS werden täglich unbeaufsichtigte Upgrades für Sicherheitspatches ausgeführt, der Node wird jedoch nicht automatisch neu gestartet. Durch das Anwenden von Upgrades werden Sie jeden Node neu booten, damit die Sicherheitsupdates wirksam werden.

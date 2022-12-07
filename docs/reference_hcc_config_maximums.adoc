@@ -15,4 +15,5 @@ NetApp Hybrid Cloud Control kommuniziert nicht nur über die von NetApp bereitge
 
 Wenn Sie diese getesteten Grenzwerte überschreiten, treten möglicherweise Probleme mit NetApp Hybrid Cloud Control auf, z. B. eine langsamere Benutzeroberfläche, API-Antworten oder Funktionen, die nicht verfügbar sind. Wenn Sie NetApp für Produkt-Support mit NetApp Hybrid Cloud Control in Umgebungen einsetzen, die über die Konfigurationsmaxima hinausgehen, wird NetApp Support bitten, dass Sie die Konfiguration innerhalb der dokumentierten Konfigurationsmaxima ändern.
 
+.Konfigurationsmaxima
 NetApp Hybrid Cloud Control unterstützt VMware vSphere Umgebungen mit bis zu 500 NetApp Computing-Nodes. Es unterstützt bis zu 20 NetApp Element Software basierte Storage Cluster mit 40 Storage Nodes pro Cluster.

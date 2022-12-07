@@ -28,8 +28,8 @@ Wenn sich Ihr Storage-Cluster in Element 12.3.1 befindet und die VVols Funktion 
 NetApp empfiehlt, gemischte Elementversionen in einem Cluster auszuführen, außer während der Dauer des Upgrades.
 
 ====
-* Der  HCI 1.9P1 Abschnitt beschreibt die neuen Funktionen und Updates in NetApp HCI Version 1.9P1.
-* Der  12.3.1 Abschnitt beschreibt neue Funktionen und Updates in NetApp Element 12.3.1.
+* Der <<NetApp HCI 1.9P1>> Abschnitt beschreibt die neuen Funktionen und Updates in NetApp HCI Version 1.9P1.
+* Der <<Element 12.3.1>> Abschnitt beschreibt neue Funktionen und Updates in NetApp Element 12.3.1.
 
 
 

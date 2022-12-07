@@ -17,7 +17,7 @@ keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, acc
 [role="lead"]
 Wenn DHCP im Netzwerk nicht verwendet wird, müssen Sie eine statische IPv4-Adresse auf der Bond1G-Schnittstelle eines der Storage-Nodes (auch bekannt als kontrollierende Storage-Node) festlegen, über die Sie auf die NetApp Deployment Engine zugreifen können. Die NetApp Deployment Engine auf dem steuernden Storage-Node erkennt und kommuniziert mit anderen Computing- und Storage-Nodes mithilfe von IPv4-Adressen, die auf den Bond10G-Schnittstellen aller Nodes automatisch konfiguriert wurden. Sie sollten diese Methode verwenden, es sei denn, Ihr Netzwerk hat spezielle Anforderungen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie oder Ihr Netzwerkadministrator haben die Aufgaben im Dokument Installations- und Setup-Anleitung ausgeführt.
 * Sie haben physischen Zugriff auf die NetApp HCI-Nodes.
 * Alle NetApp HCI-Nodes sind eingeschaltet.

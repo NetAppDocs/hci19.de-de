@@ -15,7 +15,7 @@ Nach dem Hinzufügen eines Speicher-Clusters können Sie die Cluster-Performance
 
 Ab Element 12.2 können Sie den verwenden link:concept_hci_storage_maintenance_mode.html["Wartungsmodus"] Funktionsoptionen zum Aktivieren und Deaktivieren des Wartungsmodus für Ihre Storage-Cluster-Nodes
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Clusteradministrator-Berechtigungen*: Sie haben Berechtigungen als Administrator auf dem link:concept_hci_clusters.html#authoritative-storage-clusters["Autorisierende Storage-Cluster"]. Das autoritäre Cluster ist das erste Cluster, das während der Systemeinrichtung zur Inventarisierung der Managementknoten hinzugefügt wird.
 * *Element Software*: Die NetApp Element Software 11.3 oder höher wird in Ihrer Speichercluster-Version ausgeführt.
 * *Management-Node*: Sie haben einen Management-Node mit Version 11.3 oder höher bereitgestellt.
@@ -23,11 +23,11 @@ Ab Element 12.2 können Sie den verwenden link:concept_hci_storage_maintenance_m
 
 
 .Optionen
-*  a storage cluster
-*  storage cluster status
-*  storage cluster credentials
-*  a storage cluster
-*  and disable maintenance mode
+* <<Fügen Sie einen Storage-Cluster hinzu>>
+* <<Bestätigen des Storage-Cluster-Status>>
+* <<Bearbeiten der Anmeldedaten für das Storage-Cluster>>
+* <<Entfernen eines Storage-Clusters>>
+* <<Aktivieren und deaktivieren Sie den Wartungsmodus>>
 
 
 
@@ -111,9 +111,9 @@ CAUTION: Durch Klicken auf *Ja* wird der Cluster aus der Installation entfernt.
 [discrete]
 == Aktivieren und deaktivieren Sie den Wartungsmodus
 
-Das link:concept_hci_storage_maintenance_mode.html["Wartungsmodus"] Optionen bieten die Möglichkeit ,Aktivieren Und ,Deaktivieren Wartungsmodus für einen Storage-Cluster-Node.
+Das link:concept_hci_storage_maintenance_mode.html["Wartungsmodus"] Optionen bieten die Möglichkeit <<enable_main_mode,Aktivieren>> Und <<disable_main_mode,Deaktivieren>> Wartungsmodus für einen Storage-Cluster-Node.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Element Software*: Die NetApp Element Software 12.2 oder höher wird in Ihrer Speichercluster-Version ausgeführt.
 * *Management-Node*: Sie haben einen Management-Node mit Version 12.2 oder höher bereitgestellt.
 * *Management Services*: Sie haben Ihr Management Services Bundle auf Version 2.19 oder höher aktualisiert.
@@ -122,7 +122,7 @@ Das link:concept_hci_storage_maintenance_mode.html["Wartungsmodus"] Optionen bie
 
 
 
-=== Aktivieren Sie den Wartungsmodus
+=== [[enable_main_Mode]]Wartungsmodus aktivieren
 
 Sie können das folgende Verfahren verwenden, um den Wartungsmodus für einen Storage-Cluster-Node zu aktivieren.
 
@@ -167,7 +167,7 @@ Nachdem *Aktivieren des Wartungsmodus* abgeschlossen ist, wird in der Spalte *Kn
 
 
 
-=== Deaktivieren des Wartungsmodus
+=== [[disable_main_Mode]]Wartungsmodus deaktivieren
 
 Nachdem ein Knoten erfolgreich in den Wartungsmodus versetzt wurde, steht für diesen Knoten die Aktion *Wartungsmodus deaktivieren* zur Verfügung. Aktionen auf den anderen Nodes sind erst verfügbar, wenn der Wartungsmodus auf dem Node, der gerade gewartet wird, erfolgreich deaktiviert wurde.
 

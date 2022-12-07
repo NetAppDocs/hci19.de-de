@@ -63,7 +63,7 @@ IMPORTANT: Das Plug-in ist nicht kompatibel mit Version 6.7 U2 Build 13007421 de
 
 --
 ====
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Admin-Berechtigungen*: Sie haben vCenter Administrator-Rollenberechtigungen, um ein Plug-in zu installieren.
 * *VSphere Upgrades*: Sie haben alle erforderlichen vCenter Upgrades vor dem Upgrade des NetApp Element Plug-ins für vCenter Server durchgeführt. Bei diesem Verfahren wird vorausgesetzt, dass vCenter Upgrades bereits abgeschlossen wurden.
 * *VCenter Server*: Ihr vCenter Plug-in Version 5.x oder 4.x ist mit einem vCenter Server registriert. Über das Registrierungsdienstprogramm (`https://[management node IP]:9443`Wählen Sie *Registrierungsstatus*, füllen Sie die erforderlichen Felder aus und wählen Sie *Prüfstatus* aus, um zu überprüfen, ob das vCenter Plug-in bereits registriert ist und die Versionsnummer der aktuellen Installation.

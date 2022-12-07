@@ -21,6 +21,7 @@ Zum Upgrade der Element Software auf dem Storage-Cluster ist kein Upgrade des Be
 
 NOTE: Das vCenter Plug-in 4.4 oder höher erfordert einen Management-Node 11.3 oder höher, der mit modularer Architektur erstellt wird und individuelle Services bietet.
 
+.Upgrade-Optionen
 Wählen Sie eine der folgenden Upgrade-Optionen für Management-Nodes:
 
 [NOTE]
@@ -36,11 +37,11 @@ Wählen Sie eine der folgenden Upgrade-Optionen für Management-Nodes:
 
 NOTE: Wenn Sie bei einem mit nde implementierten Management-Node 12.3 ein Upgrade ausführen, wird das Upgrade auf 12.3.x abgeschlossen. Beim Neustart kann es jedoch zu einem Fehler beim Upgrade kommen. Wenn dies geschieht, booten Sie den Management-Node neu, sodass 12.3.x korrekt angezeigt wird
 
-* Wenn Sie ein Upgrade von Management-Node 12.2 durchführen: a management node to version 12.3.x from 12.2
-* Wenn Sie ein Upgrade von Management-Node 12.0 durchführen: a management node to version 12.3.x from 12.0
-* Wenn Sie ein Upgrade von Management-Node 11.3, 11.5, 11.7 oder 11.8 durchführen: a management node to version 12.3.x from 11.3 through 11.8
-* Wenn Sie ein Upgrade von Management-Node 11.0 oder 11.1 durchführen: a management node to version 12.3.x from 11.1 or 11.0
-* Wenn Sie ein Upgrade von einem Management-Node Version 10.x durchführen: from management node version 10.x to 11.x
+* Wenn Sie ein Upgrade von Management-Node 12.2 durchführen:<<Aktualisieren eines Management-Node auf Version 12.3.x von 12.2>>
+* Wenn Sie ein Upgrade von Management-Node 12.0 durchführen:<<Aktualisieren eines Management-Node auf Version 12.3.x von 12.0>>
+* Wenn Sie ein Upgrade von Management-Node 11.3, 11.5, 11.7 oder 11.8 durchführen:<<Aktualisieren eines Management-Node auf Version 12.3.x von 11.3 bis 11.8>>
+* Wenn Sie ein Upgrade von Management-Node 11.0 oder 11.1 durchführen:<<Aktualisieren eines Management-Node auf Version 12.3.x von 11.1 oder 11.0>>
+* Wenn Sie ein Upgrade von einem Management-Node Version 10.x durchführen:<<Migration von Management-Node-Version 10.x zu 11.x>>
 
 
 Wählen Sie die folgende Option, wenn Sie *sequenziell* aktualisiert haben (1) die Version der Managementservices und (2) Ihre Element Speicherversion haben und Ihren vorhandenen Management-Node *beibehalten* möchten:
@@ -48,7 +49,7 @@ Wählen Sie die folgende Option, wenn Sie *sequenziell* aktualisiert haben (1) d
 
 NOTE: Wenn Sie Ihre Managementservices, gefolgt vom Element Storage, nicht nacheinander aktualisieren, können Sie die erneute Authentifizierung mit diesem Verfahren nicht neu konfigurieren. Befolgen Sie stattdessen das entsprechende Upgrade-Verfahren.
 
-* Wenn Sie den vorhandenen Management-Node beibehalten: authentication using the management node REST API
+* Wenn Sie den vorhandenen Management-Node beibehalten:<<Konfigurieren Sie die Authentifizierung mithilfe der REST-API des Management-Node neu>>
 
 
 
@@ -60,7 +61,7 @@ Sie können ein Upgrade des Management-Node von Version 12.2 auf Version 12.3.x 
 
 NOTE: Der Element 12.3.x-Management-Node ist ein optionales Upgrade. Bei bestehenden Implementierungen wird dieser Bedarf nicht benötigt.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Der RAM der Management-Node-VM ist 24 GB.
 * Der Management-Node, den Sie aktualisieren möchten, ist die Version 12.0 und verwendet IPv4-Netzwerke. Der Management-Node der Version 12.3.x unterstützt IPv6 nicht.
 +
@@ -153,7 +154,7 @@ Sie können ein Upgrade des Management-Node von Version 12.0 auf Version 12.3.x 
 
 NOTE: Der Element 12.3.x-Management-Node ist ein optionales Upgrade. Bei bestehenden Implementierungen wird dieser Bedarf nicht benötigt.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Der Management-Node, den Sie aktualisieren möchten, ist die Version 12.0 und verwendet IPv4-Netzwerke. Der Management-Node der Version 12.3.x unterstützt IPv6 nicht.
 +
 
@@ -252,7 +253,7 @@ Sie können ein Upgrade des Management-Node von Version 11.3, 11.5, 11.7 oder 11
 
 NOTE: Der Element 12.3.x-Management-Node ist ein optionales Upgrade. Bei bestehenden Implementierungen wird dieser Bedarf nicht benötigt.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Der Managementknoten, den Sie aktualisieren möchten, ist die Version 11.3, 11.5, 11.7 oder 11.8 und verwendet IPv4-Netzwerke. Der Management-Node der Version 12.3.x unterstützt IPv6 nicht.
 +
 
@@ -348,7 +349,7 @@ IMPORTANT: SSH-Funktion, die bietet link:task_mnode_enable_remote_support_connec
 
 Sie können ein Upgrade des Management-Node von 11.0 oder 11.1 auf Version 12.3.x durchführen, ohne eine neue Management Node Virtual Machine bereitstellen zu müssen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Storage-Nodes werden mit Element 11.3 oder höher ausgeführt.
 +
 

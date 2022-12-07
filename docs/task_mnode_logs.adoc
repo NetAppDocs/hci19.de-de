@@ -16,7 +16,7 @@ keywords: netapp, element, management node, management services, mnode, logs
 [role="lead"]
 Sie können mithilfe der REST API Protokolle von den Services abrufen, die auf dem Management-Node ausgeführt werden. Sie können Protokolle aus allen öffentlichen Diensten abrufen oder bestimmte Dienste angeben und Abfrageparameter verwenden, um die Rückgabeergebnisse besser zu definieren.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * In Ihrer Cluster-Version wird die NetApp Element Software 11.3 oder höher ausgeführt.
 * Sie haben einen Management-Node mit Version 11.3 oder höher implementiert.
 

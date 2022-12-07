@@ -18,7 +18,7 @@ Sie können NetApp Hybrid Cloud Control so konfigurieren, dass Assets von zwei o
 
 Sie sollten diesen Prozess nach der Erstinstallation verwenden, wenn Sie Assets für eine kürzlich skalierte Installation hinzufügen müssen oder wenn Ihre Konfiguration nicht automatisch neue Assets hinzugefügt wurde. Mithilfe dieser APIs können Sie Ressourcen hinzufügen, die zu Ihrer Installation hinzugefügt wurden.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * In Ihrer Cluster-Version wird die NetApp Element Software 11.3 oder höher ausgeführt.
 * Sie haben einen Management-Node mit Version 11.3 oder höher implementiert.
 

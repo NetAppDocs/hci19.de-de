@@ -22,13 +22,15 @@ NOTE: NetApp bietet die Ansible-Rolle zur Automatisierung von Computing-Node-Fir
 
 NOTE: Die Ansible-Rolle für Upgrades kann nur auf Computing-Nodes der NetApp HCI H-Serie ausgeführt werden. Sie können diese Rolle nicht für ein Upgrade von Computing-Nodes von Drittanbietern verwenden.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Vorbereitung und Voraussetzungen für Firmware-Upgrades*: Ihre NetApp HCI-Installation muss für das Firmware-Upgrade bereit sein, wie in der Anleitung für beschrieben link:task_hcc_upgrade_compute_node_firmware.html["Firmware-Upgrades werden durchgeführt"].
 * *Bereitschaft zur Durchführung der Automatisierung auf Ansible-Steuerungsknoten*: Ein physischer oder virtueller Server zur Ausführung der Firmware-Update-Automatisierung in Ansible.
 
 
+.Über diese Aufgabe
 In einer Produktionsumgebung sollten Computing-Nodes in einem Cluster einzeln oder nacheinander in einer NetApp HCI Installation aktualisiert werden. APIs in NetApp Hybrid Cloud Control koordinieren den allgemeinen Upgrade der Computing-Node-Firmware für einen einzelnen Computing-Node. Dazu gehören auch Zustandsprüfungen, Wartungsaufgaben von ESXi auf den Computing-Nodes und Neustart des Computing-Node zur Anwendung der Firmware-Upgrades. Die Ansible-Rolle bietet die Möglichkeit, das Firmware-Upgrade für eine Gruppe von Computing-Nodes oder ganzen Clustern zu orchestrieren.
 
+.Starten Sie mit der Firmware-Upgrade-Automatisierung
 Navigieren Sie zum, um zu beginnen https://github.com/NetApp-Automation/nar_compute_firmware_upgrade["NetApp Ansible Repository auf GitHub"^] Und laden Sie die herunter `nar_compute_nodes_firmware_upgrades` Rolle und Dokumentation:
 
 [discrete]

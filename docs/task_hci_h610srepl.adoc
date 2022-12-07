@@ -35,7 +35,7 @@ Beim Hinzufügen von Laufwerken zum Cluster sollten Sie folgende Best Practices 
 * Entfernen Sie alle Blocklaufwerke gleichzeitig aus einem einzelnen Node. Vergewissern Sie sich, dass die Blocksynchronisierung abgeschlossen ist, bevor Sie zum nächsten Node fahren.
 
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben den NetApp Support kontaktiert. Wenn Sie einen Ersatz bestellen, sollten Sie beim NetApp Support einen Case eröffnen.
 * Sie haben den Ersatzknoten erhalten.
 * Sie haben ein elektrostatisches Entladungsband (ESD) oder einen anderen antistatischen Schutz.
@@ -45,6 +45,7 @@ Beim Hinzufügen von Laufwerken zum Cluster sollten Sie folgende Best Practices 
 * Wenn ein DIMM ausgefallen ist, haben Sie die Laufwerke entfernt, bevor Sie den Node aus dem Cluster entfernen.
 
 
+.Über diese Aufgabe
 Alarme im VMware vSphere Web Client warnen Sie bei einem Host-Ausfall. Sie müssen die Seriennummer des ausgefallenen Hosts vom VMware vSphere Web Client mit der Seriennummer auf dem Aufkleber auf der Rückseite des Node übereinstimmen.
 
 .Schritte

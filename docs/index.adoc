@@ -21,7 +21,7 @@ NetApp HCI bietet Storage- und Computing-Ressourcen und kombiniert diese zu eine
 
 
 
-== Entdecken Sie, was neu ist
+== Entdecken Sie die Neuigkeiten
 
 * link:rn_whatsnew.html["Neuerungen in NetApp HCI"]
 * https://docs.netapp.com/us-en/element-software/concepts/concept_rn_whats_new_element.html["Neuerungen in der NetApp Element Software"^]

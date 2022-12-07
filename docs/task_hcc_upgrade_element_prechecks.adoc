@@ -16,7 +16,7 @@ keywords: netapp, storage prechecks, element upgrade, healthtools, sfupgradechec
 [role="lead"]
 Vor dem Upgrade von Element Storage müssen Sie Zustandsprüfungen durchführen, um sicherzustellen, dass alle Storage-Nodes im Cluster für das nächste Element Storage Upgrade bereit sind.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Management Services*: Sie haben das neueste Management Services Bundle (2.10.27 oder höher) aktualisiert.
 +
 
@@ -43,16 +43,17 @@ NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates auf
 
 
 
+.Optionen zur Zustandsprüfung
 Sie können Systemchecks mit der Benutzeroberfläche von NetApp Hybrid Cloud Control (HCC), der HCC API oder der HealthTools Suite durchführen:
 
-*  NetApp Hybrid Cloud Control to run Element storage health checks prior to upgrading storage (Bevorzugte Methode)
-*  API to run Element storage health checks prior to upgrading storage
-*  HealthTools to run Element storage health checks prior to upgrading storage
+* <<NetApp Hybrid Cloud Control bietet Zustandsüberprüfungen für Element Storage vor Storage-Upgrades>> (Bevorzugte Methode)
+* <<Nutzen Sie API zur Ausführung von Element Storage-Zustandsprüfungen vor einem Storage-Upgrade>>
+* <<Verwenden Sie HealthTools, um vor einem Storage-Upgrade Zustandsprüfungen für Element Storage auszuführen>>
 
 
 Weitere Informationen zu den vom Service ausgeführten Storage-Zustandsprüfungen:
 
-*  health checks made by the service
+* <<Storage-Systemprüfungen, die vom Service durchgeführt werden>>
 
 
 
@@ -223,6 +224,7 @@ Sie können überprüfen, ob das Storage-Cluster mit der bereit für ein Upgrade
 
 Wenn sich der Management-Node an einem dunklen Standort ohne externe Konnektivität befindet, muss die Upgrade-Readiness-Prüfung das `metadata.json` Datei, die Sie während heruntergeladen haben link:task_upgrade_element_latest_healthtools.html["HealthTools-Upgrades"] Erfolgreich ausgeführt.
 
+.Über diese Aufgabe
 In diesem Verfahren wird beschrieben, wie Sie Upgrade-Checks durchführen, die zu einem der folgenden Ergebnisse führen:
 
 * Ausführen des `sfupgradecheck` Der Befehl wird erfolgreich ausgeführt. Das Cluster ist bereit für ein Upgrade.

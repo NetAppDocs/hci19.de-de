@@ -17,13 +17,14 @@ keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, acc
 [role="lead"]
 Sie können auf allen NetApp HCI-Nodes manuell statische IPv4-Adressen den Bond1G- und Bond10G-Schnittstellen zuweisen, um auf die NetApp Deployment Engine zuzugreifen und NetApp HCI zu implementieren. Sie sollten diese Methode nur verwenden, wenn Ihr Netzwerk besondere Anforderungen hat.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie oder Ihr Netzwerkadministrator haben die Aufgaben im Dokument Installations- und Setup-Anleitung ausgeführt.
 * Sie haben physischen Zugriff auf die NetApp HCI-Nodes.
 * Alle NetApp HCI-Nodes sind eingeschaltet.
 * DHCP ist für die NetApp HCI-Netzwerke nicht aktiviert, und die NetApp HCI-Nodes haben keine IP-Adressen von DHCP-Servern erhalten. HINWEIS: Alle IP-Adressen, die Sie vor der Implementierung des Systems manuell mit der NetApp Deployment Engine zuweisen, sind temporär und können nicht wiederverwendet werden. Wenn Sie IP-Adressen manuell zuweisen möchten, müssen Sie einen zweiten permanenten Satz nicht verwendeter IP-Adressen festlegen, den Sie während der endgültigen Bereitstellung zuweisen können.
 
 
+.Über diese Aufgabe
 In dieser Konfiguration verwenden Computing- und Storage-Nodes statische IPv4-Adressen, um während der Implementierung mit anderen Nodes zu erkennen und zu kommunizieren. Diese Konfiguration wird nicht empfohlen.
 
 .Schritte

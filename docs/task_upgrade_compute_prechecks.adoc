@@ -16,7 +16,7 @@ keywords: netapp, compute prechecks, compute node upgrade, netapp hci
 [role="lead"]
 Vor dem Upgrade der Computing-Firmware müssen Sie Zustandsprüfungen durchführen, um sicherzustellen, dass alle Computing-Nodes im Cluster aktualisiert werden können. Zustandsprüfungen der Computing-Nodes können nur auf Computing-Clustern von einem oder mehreren gemanagten NetApp HCI Computing-Nodes ausgeführt werden.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Management Services*: Sie haben das neueste Management Services Bundle (2.11 oder höher) aktualisiert.
 * *Management Node*: Sie führen Management Node 11.3 oder höher aus.
 * *Element Software*: Auf Ihrem Storage Cluster wird die NetApp Element Software 11.3 oder höher ausgeführt.
@@ -39,15 +39,16 @@ NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates auf
 
 
 
+.Optionen zur Zustandsprüfung
 Mit der Benutzeroberfläche von NetApp Hybrid Cloud Control oder der NetApp Hybrid Cloud Control API lassen sich Systemchecks durchführen:
 
-*  NetApp Hybrid Cloud Control to run compute node health checks prior to upgrading firmware (Bevorzugte Methode)
-*  API to run compute node health checks prior to upgrading firmware
+* <<Nutzen Sie NetApp Hybrid Cloud Control, um vor einem Firmware-Upgrade Zustandsprüfungen der Computing-Nodes auszuführen>> (Bevorzugte Methode)
+* <<Verwenden Sie API zum Ausführen von Zustandsprüfungen des Computing-Nodes vor einem Firmware-Upgrade>>
 
 
 Weitere Informationen zu Zustandsprüfungen der Computing-Nodes, die vom Service ausgeführt werden:
 
-*  node health checks made by the service
+* <<Zustandsprüfungen des Computing-Node, die vom Service durchgeführt werden>>
 
 
 

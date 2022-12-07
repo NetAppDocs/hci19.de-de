@@ -16,6 +16,7 @@ keywords: netapp, hci, chassis replacement,2U chassis replacement, h-series
 [role="lead"]
 Wenn Ihr Gehäuse einen Lüfterausfall hat oder ein Stromausfall auftritt, sollten Sie ihn so schnell wie möglich austauschen. Die Schritte im Chassis-Austauschverfahren hängen von der NetApp HCI-Konfiguration und der Cluster-Kapazität ab. Hierfür sind sorgfältige Überlegungen und eine sorgfältige Planung erforderlich. Wenden Sie sich an den NetApp Support, um Anweisungen zu erhalten und ein Ersatzgehäuse zu bestellen.
 
+.Über diese Aufgabe
 Vor dem Austauschen des Gehäuses sollten Sie Folgendes berücksichtigen:
 
 * Verfügt Ihr Rack über zusätzlichen Platz für ein neues Chassis?
@@ -25,8 +26,9 @@ Vor dem Austauschen des Gehäuses sollten Sie Folgendes berücksichtigen:
 * Können Virtual Machines (VMs) und ESXi Cluster den Workload verarbeiten, wenn Sie die Computing-Nodes entfernen, die Teil des ausgefallenen Chassis sind?
 
 
-Wählen Sie eine der folgenden Optionen aus: the chassis when additional unused space is available in the rack
- the chassis when additional unused space is not available in the rack
+.Ersatzoptionen
+Wählen Sie eine der folgenden Optionen aus:<<Ersetzen Sie das Chassis, wenn im Rack zusätzlicher ungenutzter Speicherplatz verfügbar ist>>
+<<Ersetzen Sie das Chassis, wenn im Rack kein zusätzlicher ungenutzter Speicherplatz verfügbar ist>>
 
 
 
@@ -43,7 +45,7 @@ NOTE: Die Schritte zum Verschieben von Computing-Nodes unterscheiden sich von de
 
 Sie können das neue Chassis in den verfügbaren Rack-Platz installieren und die Nodes in es verschieben.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben ein elektrostatisches Entladungsband (ESD) oder einen anderen antistatischen Schutz.
 * Sie haben das Ersatzgehäuse.
 * Sie haben einen Aufzug oder zwei oder mehr Personen, um die Schritte durchzuführen.
@@ -172,6 +174,7 @@ NOTE: Es kann bis zu 2 Minuten dauern, bis der Knoten hinzugefügt wurde und unt
 
 Wenn Ihr Rack keinen zusätzlichen Platz bietet und kein Chassis in der Implementierung über keine ungenutzten Node-Steckplätze verfügt, sollten Sie herausfinden, was ggf. online bleiben kann, bevor Sie das Austauschverfahren durchführen.
 
+.Über diese Aufgabe
 Vor dem Austausch des Gehäuses sollten Sie die folgenden Punkte berücksichtigen:
 
 * Kann Ihr Storage-Cluster ohne die Storage-Nodes im ausgefallenen Chassis online bleiben? Wenn die Antwort Nein lautet, sollten Sie alle Nodes (sowohl Computing als auch Storage) in Ihrer NetApp HCI Implementierung herunterfahren. Wenn die Antwort Ja ist, können Sie nur die Storage-Nodes im ausgefallenen Chassis herunterfahren.
@@ -200,7 +203,7 @@ NOTE: Die Migrationsschritte finden Sie in der VMware Dokumentation.
 
 === Fahren Sie einen Storage-Node herunter
 
-Siehe Schritte  a storage node,Hier.
+Siehe Schritte <<move a storage node,Hier>>.
 
 
 

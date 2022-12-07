@@ -16,13 +16,14 @@ keywords: netapp, hci, psu, replace power supply, H410S, H610S, H410C, H610C, H6
 [role="lead"]
 Jedes Chassis besitzt zwei Netzteile für Redundanz bei der Stromversorgung. Wenn ein Netzteil defekt ist, sollten Sie es so schnell wie möglich austauschen, um sicherzustellen, dass das Gehäuse über eine redundante Stromquelle verfügt.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben festgestellt, dass das Netzteil defekt ist.
 * Sie haben ein Ersatznetzteil.
 * Sie haben überprüft, dass das zweite Netzteil in Betrieb ist.
 * Sie haben ein elektrostatisches Entladungsband (ESD) oder andere antistatische Vorsichtsmaßnahmen getroffen.
 
 
+.Über diese Aufgabe
 Das Ersatzverfahren gilt für die folgenden Node-Modelle:
 
 * Zwei Höheneinheiten (2 HE) mit vier Nodes NetApp HCI-Chassis

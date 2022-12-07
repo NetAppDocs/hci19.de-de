@@ -16,7 +16,7 @@ keywords: netapp, element, hcc, firmware, storage firmware
 [role="lead"]
 Ab Element 12.0 und den Managementservices Version 2.14 können Sie mithilfe der NetApp Hybrid Cloud Control UI und DER REST-API Firmware-reine Upgrades auf Ihren Storage-Nodes durchführen. Dieses Verfahren führt keine Upgrades für Element Software durch und ermöglicht ein Upgrade der Storage-Firmware außerhalb einer größeren Version.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Administratorrechte*: Sie haben Berechtigungen für den Storage Cluster Administrator, um das Upgrade durchzuführen.
 * *System Time SYNC*: Sie haben sichergestellt, dass die Systemzeit auf allen Knoten synchronisiert ist und NTP für den Speicher-Cluster und die Knoten korrekt konfiguriert ist. Jeder Node muss in der Web-UI pro Node mit einem DNS-Nameserver konfiguriert sein (`https://[IP address]:442`) Ohne ungelöste Cluster Fehler im Zusammenhang mit Zeitverzerrung.
 * *System-Ports*: Bei Upgrade-Nutzung von NetApp Hybrid Cloud Control haben Sie sichergestellt, dass die erforderlichen Ports geöffnet sind. Siehe link:hci_prereqs_required_network_ports.html["Netzwerkports"] Finden Sie weitere Informationen.
@@ -59,10 +59,11 @@ NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates auf
 
 
 
+.Upgrade-Optionen
 Wählen Sie eine der folgenden Upgrade-Optionen für die Speicher-Firmware:
 
-*  NetApp Hybrid Cloud Control UI to upgrade storage firmware
-*  NetApp Hybrid Cloud Control API to upgrade storage firmware
+* <<Verwenden Sie die NetApp Hybrid Cloud Control UI für ein Upgrade der Storage-Firmware>>
+* <<Verwenden Sie die NetApp Hybrid Cloud Control API für ein Upgrade der Storage-Firmware>>
 
 
 
@@ -71,6 +72,7 @@ Wählen Sie eine der folgenden Upgrade-Optionen für die Speicher-Firmware:
 
 Mit der NetApp Hybrid Cloud Control UI lässt sich die Firmware der Storage-Nodes in Ihrem Cluster aktualisieren.
 
+.Was Sie benötigen
 Wenn Ihr Management-Node nicht mit dem Internet verbunden ist, haben Sie den Zugriff https://mysupport.netapp.com/site/products/all/details/element-software/downloads-tab/download/62654/Storage_Firmware_Bundle["Laden Sie das Storage-Firmware-Paket für NetApp HCI Storage-Cluster herunter"^].
 
 
@@ -107,7 +109,7 @@ NOTE: Auf der Registerkarte *Storage* werden die Speichercluster aufgelistet, di
 
 
 
-TIP: Der *Upgrade-Status* ändert sich während des Upgrades, um den Status des Prozesses anzuzeigen. Es ändert sich auch in Reaktion auf Aktionen, die Sie ergreifen, z. B. die Unterbrechung des Upgrades oder wenn das Upgrade einen Fehler zurückgibt. Siehe  status changes.
+TIP: Der *Upgrade-Status* ändert sich während des Upgrades, um den Status des Prozesses anzuzeigen. Es ändert sich auch in Reaktion auf Aktionen, die Sie ergreifen, z. B. die Unterbrechung des Upgrades oder wenn das Upgrade einen Fehler zurückgibt. Siehe <<Statusänderungen des Upgrades>>.
 
 
 NOTE: Während das Upgrade läuft, können Sie die Seite verlassen und zu einem späteren Zeitpunkt zurückkehren, um den Fortschritt zu überwachen. Die Seite aktualisiert den Status und die aktuelle Version nicht dynamisch, wenn die Cluster-Zeile ausgeblendet ist. Die Cluster-Zeile muss erweitert werden, um die Tabelle zu aktualisieren, oder Sie können die Seite aktualisieren.
@@ -125,7 +127,7 @@ Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen i
 
 CAUTION: Der Datei-Upload geht verloren, wenn Sie vom Browser-Fenster wegnavigieren.
 
-Nach dem erfolgreichen Hochladen und Validierungen der Datei wird eine Meldung auf dem Bildschirm angezeigt. Die Validierung kann mehrere Minuten in Anspruch nehmen. Wenn Sie zu diesem Zeitpunkt vom Browser-Fenster weg navigieren, bleibt der Datei-Upload erhalten. Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist. Informationen zu den verschiedenen Änderungen des Aktualisierungsstatus finden Sie unter  status changes.
+Nach dem erfolgreichen Hochladen und Validierungen der Datei wird eine Meldung auf dem Bildschirm angezeigt. Die Validierung kann mehrere Minuten in Anspruch nehmen. Wenn Sie zu diesem Zeitpunkt vom Browser-Fenster weg navigieren, bleibt der Datei-Upload erhalten. Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist. Informationen zu den verschiedenen Änderungen des Aktualisierungsstatus finden Sie unter <<Statusänderungen des Upgrades>>.
 
 |===
 

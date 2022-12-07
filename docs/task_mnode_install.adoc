@@ -18,7 +18,7 @@ Sie können den Management-Node für Ihr Cluster, auf dem die NetApp Element Sof
 
 Dieses Handbuch richtet sich an NetApp HCI-Administratoren, die die NetApp Deployment Engine nicht zur Installation von Management-Nodes verwenden.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * In Ihrer Cluster-Version wird die NetApp Element Software 11.3 oder höher ausgeführt.
 * Ihre Installation verwendet IPv4. Der Management-Node 11.3 unterstützt IPv6 nicht.
 +
@@ -50,17 +50,18 @@ NOTE: Wenn IPv6 unterstützt werden soll, können Sie den Management-Node 11.1 v
 * (Management-Node 12.0 und höher mit Proxy-Server) Sie haben die Version 2.16 von NetApp Hybrid Cloud Control auf Managementservices aktualisiert, bevor Sie einen Proxy-Server konfigurieren.
 
 
+.Über diese Aufgabe
 Der Element 12.2 Management-Node ist ein optionales Upgrade. Bei bestehenden Implementierungen wird dieser Bedarf nicht benötigt.
 
 Bevor Sie dieses Verfahren befolgen, sollten Sie ein Verständnis von haben link:concept_hci_volumes.html#persistent-volumes["Persistente Volumes"] Und ob du sie nutzen willst oder nicht. Persistente Volumes sind optional, aber im Falle eines VM-Verlusts empfohlen für die Wiederherstellung von Daten aus der Management-Node-Konfiguration.
 
 .Schritte
-.  ISO or OVA and deploy the VM
-.  the management node admin and configure the network
-.  time sync
-.  up the management node
-.  controller assets
-.  compute node assets,(Nur NetApp HCI) Konfigurieren der Ressourcen der Computing-Nodes
+. <<Laden Sie ISO oder OVA herunter, und implementieren Sie die VM>>
+. <<Erstellen Sie den Management-Node-Administrator, und konfigurieren Sie das Netzwerk>>
+. <<Konfigurieren Sie die Zeitsynchronisierung>>
+. <<Richten Sie den Management-Node ein>>
+. <<Controller-Assets konfigurieren>>
+. <<Configure compute node assets,(Nur NetApp HCI) Konfigurieren der Ressourcen der Computing-Nodes>>
 
 
 
@@ -132,7 +133,7 @@ NOTE: Wenn Sie eine zusätzliche NIC benötigen, um den Speicherdatenverkehr zu 
 . Stellen Sie sicher, dass die Zeit zwischen dem Management-Node und dem Storage-Cluster mit NTP synchronisiert wird:
 +
 
-NOTE: Ab Element 12.3 werden die Teilschritte a bis (e) automatisch ausgeführt. Für Management-Node 12.3 fahren Sie mit fort ,Unterschritt (f) Um die Konfiguration der Zeitsynchronisation abzuschließen.
+NOTE: Ab Element 12.3 werden die Teilschritte a bis (e) automatisch ausgeführt. Für Management-Node 12.3 fahren Sie mit fort <<substep_f_install_config_time_sync,Unterschritt (f)>> Um die Konfiguration der Zeitsynchronisation abzuschließen.
 
 +
 .. Melden Sie sich über SSH oder die vom Hypervisor bereitgestellte Konsole beim Management-Node an.

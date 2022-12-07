@@ -16,7 +16,7 @@ keywords: netapp, hci, deployment, compatibility, nodes
 [role="lead"]
 NetApp HCI bietet eine Seite mit den Netzwerkeinstellungen mit mehreren Abschnitten zur Vereinfachung der Netzwerkkonfiguration. Sie können die einzelnen Abschnitte durchlaufen und Informationen eingeben oder IP-Adressen für Hosts und Nodes in jedem Netzwerk zuweisen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben folgende Informationen erhalten:
 +
 ** Das geplante Benennungspräfix für die Hosts und das Storage-Cluster
@@ -31,6 +31,7 @@ NetApp HCI bietet eine Seite mit den Netzwerkeinstellungen mit mehreren Abschnit
 * Sie haben überprüft, ob die Netzwerk-Switch-Konfiguration korrekt ist. Falsche Switch-Konfigurationen (z. B. falsche VLANs oder MTU-Größe) verursachen Implementierungsfehler.
 
 
+.Über diese Aufgabe
 Wenn Sie die Netzwerktopologie mit zwei Kabeln für Computing-Nodes ausgewählt haben, müssen Sie für vMotion und Storage-Netzwerke für alle Computing- und Storage-Nodes in der Implementierung VLAN-IDs verwenden (VLAN-IDs sind optional für die Management-Netzwerke). Beachten Sie, dass NetApp HCI die IP-Adressen validiert, die Sie während dieser Schritte eingeben, Sie können diese Validierung jedoch mit der Schaltfläche *Live-Netzwerkvalidierung IS* deaktivieren. NetApp HCI führt außerdem Prüfungen anderer Informationen durch, die Sie während dieser Schritte eingeben, z. B. um sicherzustellen, dass sich keine Subnetze überschneiden, sodass nicht mehreren Netzwerken VLAN-IDs zugewiesen werden und andere grundlegende Validierungen durchgeführt werden.
 
 
@@ -41,6 +42,7 @@ Wenn Sie einen Storage-Cluster mit zwei oder drei Nodes bereitstellen, können S
 
 NOTE: Auf den Seiten der IP-Adressenzuordnung wirken sich die im Modus *automatisch IP-Adressen zuweisen* eingegebenen Informationen nicht auf die im Modus *manuell zugewiesene IP-Adressen* eingegebenen Informationen aus und umgekehrt. Wenn Sie in beiden Modi IP-Adressen eingeben, verwendet NetApp HCI die IP-Adressinformationen in dem jeweils aktiven Modus, wenn Sie unten auf der Seite auf *Weiter* klicken.
 
+.Fehlerbehebung häufig auftretende Probleme
 NetApp HCI überprüft die auf diesen Seiten eingegebenen Informationen. Hier sind einige häufige Probleme und Problemumgehungen:
 
 |===
@@ -94,6 +96,7 @@ Auf der Seite *VLAN IDs* können Sie NetApp HCI-Netzwerken VLAN-IDs zuweisen. Si
 
 NOTE: Wenn Sie VLAN-IDs zuweisen, konfigurieren Sie VLAN-Tags, die NetApp HCI für den Netzwerkverkehr gelten. Sie müssen Ihr natives VLAN nicht als VLAN-ID eingeben. Um das native VLAN für ein Netzwerk zu verwenden, lassen Sie das entsprechende Feld leer.
 
+.Schritte
 Wählen Sie eine der folgenden Optionen:
 
 |===
@@ -123,6 +126,7 @@ Sowohl beim Computing-vMotion-Datenverkehr als auch beim iSCSI-Datenverkehr muss
 
 Auf der Seite *Verwaltung* können Sie festlegen, dass NetApp HCI auf Basis einer Start-IP-Adresse automatisch IP-Adressbereiche für die Verwaltungsnetzwerke füllt. Sie können auch alle IP-Adressdaten manuell eingeben.
 
+.Schritte
 Wählen Sie eine der folgenden Optionen:
 
 |===
@@ -158,6 +162,7 @@ NetApp HCI füllt automatisch die endenden IP-Adressen für jeden Host oder jede
 
 Auf der Seite *vMotion* können Sie festlegen, dass NetApp HCI die IP-Adressbereiche für das vMotion-Netzwerk automatisch auf Grundlage einer Start-IP-Adresse füllt. Alternativ können Sie alle IP-Adressdaten manuell eingeben.
 
+.Schritte
 Wählen Sie eine der folgenden Optionen:
 
 |===
@@ -192,6 +197,7 @@ NetApp HCI füllt automatisch die endenden IP-Adressen für jeden Host oder jede
 
 Auf der Seite *iSCSI* können Sie festlegen, dass NetApp HCI die IP-Adressbereiche für das iSCSI-Netzwerk auf Grundlage einer Start-IP-Adresse automatisch auffüllen lässt oder Sie können alle IP-Adressdaten manuell eingeben.
 
+.Schritte
 Wählen Sie eine der folgenden Optionen:
 
 |===
@@ -229,6 +235,7 @@ NetApp HCI füllt automatisch die endenden IP-Adressen für jeden Host oder jede
 
 Auf der Seite *Naming* können Sie festlegen, dass NetApp HCI den Cluster-Namen und die Namen der Nodes im Cluster automatisch auffüllen soll. Sie können aber auch festlegen, dass alle Namen des Clusters und der Nodes manuell eingegeben werden.
 
+.Schritte
 Wählen Sie eine der folgenden Optionen:
 
 |===

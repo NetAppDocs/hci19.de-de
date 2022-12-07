@@ -16,7 +16,7 @@ keywords: netapp, hci, HealthTools, cluster, element, H610S upgrade, hcc
 [role="lead"]
 Für ein Upgrade der NetApp Element Software können Sie die NetApp Hybrid Cloud Control UI, DIE REST-API oder die HealthTools Suite verwenden. Bestimmte Vorgänge werden bei einem Upgrade der Element Software unterdrückt, z. B. beim Hinzufügen und Entfernen von Nodes, beim Hinzufügen und Entfernen von Laufwerken sowie Befehle, die unter anderem mit Initiatoren, Volume-Zugriffsgruppen und virtuellen Netzwerken verbunden sind.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * *Administratorrechte*: Sie haben Berechtigungen für den Storage Cluster Administrator, um das Upgrade durchzuführen.
 * *Gültiger Upgrade-Pfad*: Sie haben die Upgrade-Pfadinformationen für die Element-Version, auf die Sie aktualisieren, überprüft und bestätigt, dass der Upgrade-Pfad gültig ist.https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Software/What_is_the_upgrade_matrix_for_storage_clusters_running_NetApp_Element_software%3F["NetApp KB: Upgrade-Matrix für Storage Cluster mit NetApp Element Software"^]
 * *System Time SYNC*: Sie haben sichergestellt, dass die Systemzeit auf allen Knoten synchronisiert ist und NTP für den Speicher-Cluster und die Knoten korrekt konfiguriert ist. Jeder Node muss in der Web-UI pro Node mit einem DNS-Nameserver konfiguriert sein (`https://[IP address]:442`) Ohne ungelöste Cluster Fehler im Zusammenhang mit Zeitverzerrung.
@@ -49,16 +49,17 @@ NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates auf
 
 
 
+.Upgrade-Optionen
 Wählen Sie eine der folgenden Upgrade-Optionen für Element Software:
 
-*  NetApp Hybrid Cloud Control UI to upgrade Element storage
-*  NetApp Hybrid Cloud Control API to upgrade Element storage
-*  Element software at connected sites using HealthTools
-*  Element software at dark sites using HealthTools
+* <<Verwendung der NetApp Hybrid Cloud Control UI für das Upgrade von Element Storage>>
+* <<Nutzen Sie die NetApp Hybrid Cloud Control API für das Upgrade von Element Storage>>
+* <<Aktualisieren der Element-Software an angeschlossenen Standorten mithilfe von HealthTools>>
+* <<Aktualisieren der Element-Software an dunklen Standorten mithilfe von HealthTools>>
 
 
 
-IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren und auf dem Node eine Version von Element vor 11.8 ausgeführt wird, müssen Sie zusätzliche Aktualisierungsschritte ( H610S storage nodes to Element 12.3.x (phase 2),Phase 2) Für jeden Storage-Knoten. Wenn Sie Element 11.8 oder höher ausführen, sind die zusätzlichen Aktualisierungsschritte (Phase 2) nicht erforderlich.
+IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren und auf dem Node eine Version von Element vor 11.8 ausgeführt wird, müssen Sie zusätzliche Aktualisierungsschritte (<<Aktualisieren der H610S Storage-Nodes auf Element 12.3.x (Phase 2),Phase 2>>) Für jeden Storage-Knoten. Wenn Sie Element 11.8 oder höher ausführen, sind die zusätzlichen Aktualisierungsschritte (Phase 2) nicht erforderlich.
 
 
 
@@ -66,6 +67,7 @@ IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren 
 
 Über die Benutzeroberfläche von NetApp Hybrid Cloud Control können Sie ein Storage-Cluster-Upgrade durchführen.
 
+.Was Sie benötigen
 Wenn Ihr Management-Node nicht mit dem Internet verbunden ist, haben Sie den heruntergeladen https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp HCI Softwarepaket für NetApp HCI Storage-Cluster"^].
 
 
@@ -100,7 +102,7 @@ Auf der Registerkarte *Storage* werden die Speichercluster aufgelistet, die Teil
 
 
 
-TIP: Der *Upgrade-Status* ändert sich während des Upgrades, um den Status des Prozesses anzuzeigen. Es ändert sich auch in Reaktion auf Aktionen, die Sie ergreifen, z. B. die Unterbrechung des Upgrades oder wenn das Upgrade einen Fehler zurückgibt. Siehe  status changes.
+TIP: Der *Upgrade-Status* ändert sich während des Upgrades, um den Status des Prozesses anzuzeigen. Es ändert sich auch in Reaktion auf Aktionen, die Sie ergreifen, z. B. die Unterbrechung des Upgrades oder wenn das Upgrade einen Fehler zurückgibt. Siehe <<Statusänderungen des Upgrades>>.
 
 
 NOTE: Während das Upgrade läuft, können Sie die Seite verlassen und zu einem späteren Zeitpunkt zurückkehren, um den Fortschritt zu überwachen. Die Seite aktualisiert den Status und die aktuelle Version nicht dynamisch, wenn die Cluster-Zeile ausgeblendet ist. Die Cluster-Zeile muss erweitert werden, um die Tabelle zu aktualisieren, oder Sie können die Seite aktualisieren.
@@ -127,7 +129,7 @@ Nach dem erfolgreichen Hochladen und Validierungen der Datei wird eine Meldung a
 .. Führen Sie die erforderlichen zusätzlichen Schritte (Phase 2) in der aus https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure["KB-Artikel"^], Und bestätigen Sie in der Benutzeroberfläche, dass Sie Phase 2 abgeschlossen haben.
 
 
-Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist. Informationen zu den verschiedenen Änderungen des Aktualisierungsstatus finden Sie unter  status changes.
+Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist. Informationen zu den verschiedenen Änderungen des Aktualisierungsstatus finden Sie unter <<Statusänderungen des Upgrades>>.
 
 |===
 
@@ -420,7 +422,7 @@ Die Antwort sollte den Status als angeben `initializing`:
 
 
 | Wenn Sie ein H610S Cluster mit einer Elementversion vor 11.8 aktualisieren, wird der Status angezeigt `finishedNeedsAck` Im Reaktionskörper. Für jeden H610S Storage-Node müssen Sie zusätzliche Upgrade-Schritte (Phase 2) durchführen.  a| 
-... Siehe  H610S storage nodes to Element 12.3.x or later (phase 2) Und schließen Sie den Prozess für jeden Node ab.
+... Siehe <<Upgrading H610S storage nodes to Element 12.3.x or later (phase 2)>> Und schließen Sie den Prozess für jeden Node ab.
 ... Bei Bedarf erneut authentifizieren und *PUT ​/Upgrades/{UpgradeId}* auswählen.
 ... Wählen Sie *Probieren Sie es aus*.
 ... Geben Sie die Upgrade-ID des vorherigen Schritts in *UpgradeId* ein.
@@ -633,7 +635,7 @@ Starting light cluster block service check
 
 
 
-IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren und auf dem Node eine Version von Element vor 11.8 ausgeführt wird, müssen Sie zusätzliche Aktualisierungsschritte ( H610S storage nodes to Element 12.3.x (phase 2),Phase 2) Für jeden Storage-Knoten. Wenn Sie Element 11.8 oder höher ausführen, sind die zusätzlichen Aktualisierungsschritte (Phase 2) nicht erforderlich.
+IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren und auf dem Node eine Version von Element vor 11.8 ausgeführt wird, müssen Sie zusätzliche Aktualisierungsschritte (<<Aktualisieren der H610S Storage-Nodes auf Element 12.3.x (Phase 2),Phase 2>>) Für jeden Storage-Knoten. Wenn Sie Element 11.8 oder höher ausführen, sind die zusätzlichen Aktualisierungsschritte (Phase 2) nicht erforderlich.
 
 
 
@@ -641,7 +643,7 @@ IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren 
 
 Sie können die HealthTools-Suite verwenden, um die NetApp Element-Software an einem dunklen Standort zu aktualisieren, der keine externe Verbindung hat.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 . Wechseln Sie zur NetApp HCI-Software https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["download-Seite"^].
 . Wählen Sie das richtige Software-Release aus, und laden Sie das neueste Speicher-Node-Image auf einen Computer herunter, der nicht der Management-Node ist.
 +
@@ -701,7 +703,7 @@ sfinstall -u admin 10.117.78.244 /tmp/solidfire-rtfi-11.3.0.345.iso --metadata=/
 
 
 
-IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren und auf dem Node eine Version von Element vor 11.8 ausgeführt wird, müssen Sie zusätzliche Aktualisierungsschritte ( H610S storage nodes to Element 12.3.x (phase 2),Phase 2) Für jeden Storage-Knoten. Wenn Sie Element 11.8 oder höher ausführen, sind die zusätzlichen Aktualisierungsschritte (Phase 2) nicht erforderlich.
+IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren und auf dem Node eine Version von Element vor 11.8 ausgeführt wird, müssen Sie zusätzliche Aktualisierungsschritte (<<Aktualisieren der H610S Storage-Nodes auf Element 12.3.x (Phase 2),Phase 2>>) Für jeden Storage-Knoten. Wenn Sie Element 11.8 oder höher ausführen, sind die zusätzlichen Aktualisierungsschritte (Phase 2) nicht erforderlich.
 
 
 

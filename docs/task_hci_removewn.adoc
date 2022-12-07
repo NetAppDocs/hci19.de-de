@@ -16,6 +16,7 @@ keywords: netapp, hci, witness nodes, two-node cluster, four-node cluster, compu
 [role="lead"]
 Nachdem Sie ein Storage-Cluster mit zwei Nodes auf vier oder mehr Nodes erweitert haben, können Sie das Paar Witness Nodes löschen, um Computing-Ressourcen in Ihrer NetApp HCI Installation freizumachen. Die Witness Nodes, die zuvor vom Storage-Cluster verwendet wurden, sind weiterhin als Standby Virtual Machines (VM) im vSphere Web Client sichtbar.
 
+.Über diese Aufgabe
 Witness-Nodes sind in Clustern mit mehr als vier Storage-Nodes nicht erforderlich. Dies ist eine optionale Vorgehensweise, wenn Sie CPU und Arbeitsspeicher freigeben möchten, nachdem Sie Ihr Cluster mit zwei Nodes auf vier oder mehr Nodes erweitert haben.
 
 

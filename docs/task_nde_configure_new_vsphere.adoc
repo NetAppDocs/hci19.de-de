@@ -17,6 +17,7 @@ keywords: netapp, hci, netapp deployment engine, deployment, vsphere
 [role="lead"]
 Sie können im Rahmen des NetApp HCI-Installationsprozesses eine neue vSphere Umgebung implementieren, indem Sie einige der Netzwerkinformationen bereitstellen, die vSphere verwenden sollte. Wenn Sie vSphere mit einer IP-Adresse konfigurieren, kann die Adresse nach der Installation nicht mehr geändert werden.
 
+.Was Sie benötigen
 Sie haben die Netzwerkinformationen für die geplante vSphere Umgebung erhalten.
 
 .Schritte

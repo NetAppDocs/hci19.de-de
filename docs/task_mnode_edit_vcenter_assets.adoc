@@ -50,7 +50,7 @@ Sie können vorhandene vCenter Controller, die beim Management-Node registriert 
 +
 Die API gibt eine Liste aller bekannten vCenter-Controller sowie die IP-Adresse, Controller-ID, Hostname und Benutzer-ID zurück, die für die Kommunikation mit jedem Controller verwendet wurden.
 
-. Wenn Sie den Verbindungsstatus eines bestimmten Controllers möchten, kopieren Sie die Controller-ID von `id` Feld dieses Controllers in der Zwischenablage und siehe  the status of an existing controller.
+. Wenn Sie den Verbindungsstatus eines bestimmten Controllers möchten, kopieren Sie die Controller-ID von `id` Feld dieses Controllers in der Zwischenablage und siehe <<Den Status eines vorhandenen Controllers anzeigen>>.
 
 
 

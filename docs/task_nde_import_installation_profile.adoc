@@ -16,6 +16,7 @@ keywords: netapp, hci, deployment, compatibility, nodes, installation, profile, 
 [role="lead"]
 Wenn Sie den NetApp erhalten haben https://configbuilder.netapp.com/["ConfigBuilder"^] Profilausgabe für Ihre Installation. Sie können sie während des NetApp HCI Installationsprozesses importieren, um die Felder in der NetApp Deployment Engine automatisch auszufüllen. Dies ist ein optionaler Schritt.
 
+.Über diese Aufgabe
 Wenn Sie ein Installationsprofil importieren, müssen Sie dennoch Anmeldedaten für NetApp HCI eingeben, um diese auf der Seite *Credentials* der NetApp Deployment Engine verwenden zu können.
 
 

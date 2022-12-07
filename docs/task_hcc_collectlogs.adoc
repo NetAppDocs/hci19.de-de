@@ -16,15 +16,16 @@ keywords: netapp, hci, logs, collection, troubleshooting, monitor
 [role="lead"]
 Bei Problemen mit der Installation von NetApp HCI oder SolidFire All-Flash-Storage können Sie Protokolle erfassen, die Sie an NetApp Support senden. So erhalten Sie eine Hilfe bei der Diagnose. Kunden können entweder NetApp Hybrid Cloud Control oder DIE REST-API verwenden, um Protokolle auf NetApp HCI oder Element Systemen zu erfassen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Stellen Sie sicher, dass auf Ihrer Speichercluster-Version die NetApp Element-Software 11.3 oder höher ausgeführt wird.
 * Stellen Sie sicher, dass Sie einen Management-Node mit Version 11.3 oder höher bereitgestellt haben.
 
 
+.Optionen für die Protokollerfassung
 Wählen Sie eine der folgenden Optionen:
 
-*  NetApp Hybrid Cloud Control to collect logs
-*  the REST API to collect logs
+* <<Verwenden Sie NetApp Hybrid Cloud Control zum Erfassen von Protokollen>>
+* <<VERWENDEN Sie die REST API zum Erfassen von Protokollen>>
 
 
 

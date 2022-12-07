@@ -17,6 +17,7 @@ keywords: netapp, hci, netapp deployment engine, deployment, vsphere
 [role="lead"]
 Wenn Sie Storage-Ressourcen für NetApp HCI ausschalten, müssen Sie den verwenden `Shutdown` Element API-Methode zum ordnungsgemäßen Anhalten der Storage-Nodes
 
+.Schritte
 Nachdem Sie die Computing-Ressourcen heruntergefahren haben, verwenden Sie einen Webbrowser, um alle Nodes des NetApp HCI Storage-Clusters abzuschalten.
 
 . Melden Sie sich beim Storage-Cluster an und vergewissern Sie sich, dass Sie mit dem richtigen MVIP verbunden sind.

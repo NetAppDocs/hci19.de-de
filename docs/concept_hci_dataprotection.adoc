@@ -18,12 +18,12 @@ Begriffe der NetApp HCI Datensicherung umfassen verschiedene Arten von Remote-Re
 
 Die NetApp HCI Datensicherung umfasst folgende Konzepte:
 
-*  replication types
-*  snapshots for data protection
-*  clones
-*  and restore process overview for SolidFire storage
-*  domains
-*  Helix high availability
+* <<Typen der Remote-Replizierung>>
+* <<Volume Snapshots zur Datensicherung>>
+* <<Volume-Klone>>
+* <<Backup- und Restore-Prozess – Übersicht für SolidFire Storage>>
+* <<Sicherungsdomänen>>
+* <<Hochverfügbarkeit mit Double Helix>>
 
 
 
@@ -32,9 +32,9 @@ Die NetApp HCI Datensicherung umfasst folgende Konzepte:
 
 Die Remote-Replikation von Daten kann folgende Formen annehmen:
 
-*  and asynchronous replication between clusters
-*  replication
-*  between Element and ONTAP clusters using SnapMirror
+* <<Synchrone und asynchrone Replizierung zwischen Clustern>>
+* <<Reine Snapshot Replizierung>>
+* <<Replizierung zwischen Element und ONTAP Clustern mit SnapMirror>>
 
 
 Siehe https://www.netapp.com/us/media/tr-4741.pdf["TR-4741: NetApp Element Software Remote Replication"^].

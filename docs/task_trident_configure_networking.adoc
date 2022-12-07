@@ -16,6 +16,7 @@ keywords: netapp, hci, netapp, networking, clusters, user, trident, rancher
 [role="lead"]
 Wenn in der NetApp HCI Umgebung keine Route zwischen den Management- und Storage-Netzwerken besteht und Sie Benutzer-Cluster implementieren, die Unterstützung für Trident benötigen, müssen Sie nach der Installation von Trident weitere Netzwerke für Benutzercluster konfigurieren. Für jedes Benutzer-Cluster müssen Sie die Kommunikation zwischen Management- und Storage-Netzwerken ermöglichen. Hierzu können Sie die Netzwerkkonfiguration für jeden Node im Benutzer-Cluster ändern.
 
+.Über diese Aufgabe
 Führen Sie diese allgemeinen Schritte aus, um die Netzwerkkonfiguration für jeden Node im Benutzer-Cluster zu ändern. Bei diesen Schritten wird davon ausgegangen, dass Sie das Benutzer-Cluster mit der Standard-Node-Vorlage erstellt haben, die mit Rancher auf NetApp HCI installiert ist.
 
 

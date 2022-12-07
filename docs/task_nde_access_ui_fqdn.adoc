@@ -18,7 +18,7 @@ Mit NetApp HCI mit Element Software 12.2 oder höher können Sie unter Verwendun
 
 Sie können jetzt über den vollständig qualifizierten Domänennamen (FQDN) auf Webschnittstellen des Speicherclusters zugreifen. Wenn Sie den FQDN für den Zugriff auf Webbenutzerschnittstellen wie die Element-Web-UI, die Benutzeroberfläche per Node oder die Management-Node-Benutzeroberfläche verwenden möchten, müssen Sie zuerst eine Speichercluster-Einstellung hinzufügen, um den vom Cluster verwendeten FQDN zu identifizieren. Auf diese Weise kann der Cluster eine Anmeldesitzung ordnungsgemäß umleiten und die Integration in externe Services wie Schlüsselmanager und Identitätsanbieter für die Multi-Faktor-Authentifizierung verbessern.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Diese Funktion erfordert Element 12.2 oder höher.
 * Für die Konfiguration dieser Funktion mit NetApp Hybrid Cloud Control REST-APIs sind Management-Services 2.15 oder höher erforderlich.
 * Für die Konfiguration dieser Funktion mit der NetApp Hybrid Cloud Control UI sind Management-Services ab 2.19 erforderlich.
@@ -28,11 +28,11 @@ Sie können jetzt über den vollständig qualifizierten Domänennamen (FQDN) auf
 
 Über NetApp Hybrid Cloud Control und DIE REST-API können Sie den FQDN-Webbenutzerzugriff konfigurieren oder entfernen. Sie können auch Fehler bei falsch konfigurierten FQDNs beheben.
 
-*  FQDN web UI access using NetApp Hybrid Cloud Control
-*  FQDN web UI access using the REST API
-*  FQDN web UI access using NetApp Hybrid Cloud Control
-*  FQDN web UI access using the REST API
-* 
+* <<Konfigurieren Sie den FQDN-Web-UI-Zugriff mit NetApp Hybrid Cloud Control>>
+* <<Konfigurieren Sie den FQDN-Webbenutzerzugriff mithilfe der REST-API>>
+* <<Entfernen Sie FQDN Web-UI-Zugriff mit NetApp Hybrid Cloud Control>>
+* <<Entfernen Sie den FQDN-Webbenutzerzugriff mithilfe der REST-API>>
+* <<Fehlerbehebung>>
 
 
 

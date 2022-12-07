@@ -19,7 +19,7 @@ Sie sollten einen Computing-Node ersetzen, wenn CPU-Fehler, andere Probleme mit 
 
 NOTE: Der Ersatzknoten sollte die gleiche Version von NetApp HCI Bootstrap OS haben wie die anderen Compute-Knoten in der NetApp HCI Installation.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben festgestellt, dass der Compute-Node ersetzt werden muss.
 * Sie verfügen über einen Ersatz-Computing-Node. Wenn Sie einen Ersatzknoten bestellen möchten, wenden Sie sich an den NetApp Support. Der Compute-Node wird mit installiertem Bootstrap-Betriebssystem an Sie geliefert. Knoten werden ab Werk mit der neuesten Version von Bootstrap OS ausgeliefert. Möglicherweise müssen Sie auf dem Knoten in den folgenden Szenarien den Prozess zur Rückkehr zum Werkabbild (RTFI) durchführen:
 +
@@ -31,6 +31,7 @@ NOTE: Der Ersatzknoten sollte die gleiche Version von NetApp HCI Bootstrap OS ha
 * Sie haben jedes Kabel gekennzeichnet, das mit dem Computing-Node verbunden ist.
 
 
+.Über diese Aufgabe
 Alarme im VMware vSphere Web Client warnen Sie bei einem Ausfall eines Knotens. Sie sollten die Seriennummer des ausgefallenen Knotens vom VMware vSphere Web Client mit der Seriennummer auf dem Aufkleber auf der Rückseite des Node übereinstimmen.
 
 Beim Austausch eines H410C Computing-Node sind folgende Punkte zu beachten:
@@ -39,15 +40,16 @@ Beim Austausch eines H410C Computing-Node sind folgende Punkte zu beachten:
 * Der Compute-Node H410C arbeitet nur mit Netzspannung (200-240 V AC). Sie sollten sicherstellen, dass die Stromanforderungen erfüllt sind, wenn Sie einem vorhandenen NetApp HCI-System H410C Nodes hinzufügen.
 
 
-Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahrens: to replace the compute node
- the compute node in the chassis
- the compute node asset in NetApp HCI 1.7 and later
- the compute node to the cluster
- Witness Nodes for two and three-node storage clusters
+.Schritte im Überblick
+Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahrens:<<Bereiten Sie den Austausch des Computing-Nodes vor>>
+<<Ersetzen Sie den Computing-Node im Chassis>>
+<<Entfernen Sie die Computing-Node-Ressource in NetApp HCI 1.7 und höher>>
+<<Fügen Sie den Computing-Node dem Cluster hinzu>>
+<<Implementieren Sie Witness-Nodes für Storage-Cluster mit zwei und drei Nodes neu>>
 
 Hier sind einige zusätzliche Aufgaben, die Sie möglicherweise durchführen müssen, wenn Ihr System die spezifischen Bedingungen hat, für die sie gelten:link:task_hci_removewn.html["Entfernen Sie Witness Nodes, um Computing-Ressourcen freizumachen"]
- the password if you received a replacement node with a non-standard BMC password
- the BMC firmware on your node
+<<Ändern Sie das Passwort, wenn Sie einen Ersatzknoten mit einem nicht standardmäßigen BMC-Passwort erhalten haben>>
+<<Aktualisieren Sie die BMC-Firmware auf Ihrem Node>>
 
 
 
@@ -178,7 +180,7 @@ Der Computing-Node sollte wieder dem Cluster hinzugefügt werden. Die Schritte h
 
 Sie können NetApp Hybrid Cloud Control nur verwenden, wenn Ihre NetApp HCI Installation unter Version 1.6P1 oder höher ausgeführt wird.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Stellen Sie sicher, dass der vSphere Instance NetApp HCI die Lizenzierung von vSphere Enterprise Plus nutzt, wenn Sie eine Implementierung mit Virtual Distributed Switches erweitern.
 * Stellen Sie sicher, dass für keine der in NetApp HCI verwendeten vCenter oder vSphere Instanzen abgelaufene Lizenzen vorhanden sind.
 * Stellen Sie sicher, dass Sie über freie und nicht genutzte IPv4-Adressen im gleichen Netzwerksegment wie vorhandene Knoten verfügen (jeder neue Node muss im gleichen Netzwerk wie die vorhandenen Knoten seines Typs installiert sein).
@@ -263,7 +265,7 @@ TIP: Bei einigen Computing-Nodes müssen Sie EVC möglicherweise auf der höchst
 
 Wenn Ihre NetApp HCI-Installation Version 1.4P2, 1.4 oder 1.3 ausführt, können Sie den Node mit der NetApp Deployment Engine dem Cluster hinzufügen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Stellen Sie sicher, dass der vSphere Instance NetApp HCI die Lizenzierung von vSphere Enterprise Plus nutzt, wenn Sie eine Implementierung mit Virtual Distributed Switches erweitern.
 * Stellen Sie sicher, dass für keine der in NetApp HCI verwendeten vCenter oder vSphere Instanzen abgelaufene Lizenzen vorhanden sind.
 * Stellen Sie sicher, dass Sie über freie und nicht genutzte IPv4-Adressen im gleichen Netzwerksegment wie vorhandene Knoten verfügen (jeder neue Node muss im gleichen Netzwerk wie die vorhandenen Knoten seines Typs installiert sein).
@@ -578,7 +580,7 @@ image::rescan.gif[Zeigt das Symbol für die erneute Überprüfung der Speicherad
 
 Nachdem Sie den ausgefallenen Computing-Node physisch ersetzt haben, sollten Sie die NetApp HCI Witness Node VM neu bereitstellen, wenn der ausgefallene Computing-Node den Witness Node hostet. Diese Anweisungen gelten nur für Computing-Nodes, die Teil einer NetApp HCI Installation mit zwei oder drei Storage-Clustern sind.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Stellen Sie die folgenden Informationen zusammen:
 +
 ** Cluster-Name aus dem Storage-Cluster
@@ -599,6 +601,7 @@ NOTE: Sie können den alten Witness Node nicht entfernen, wenn das Cluster nur z
 
 
 
+.Wann sollten Sie Witness Nodes neu bereitstellen?
 Sie sollten Witness Nodes in den folgenden Szenarien erneut bereitstellen:
 
 * Sie haben einen fehlgeschlagenen Computing-Node ersetzt, der Teil einer NetApp HCI Installation ist. Er verfügt über ein Storage-Cluster mit zwei oder drei Nodes und der ausgefallene Computing-Node hostet eine Witness-Node-VM.

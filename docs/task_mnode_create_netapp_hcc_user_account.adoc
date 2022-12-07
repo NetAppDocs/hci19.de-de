@@ -96,7 +96,7 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 +
 .. Wählen Sie `vsphere.local` Oder Ihre LDAP-Domäne
-.. Verwenden Sie die Suche, um den neuen Benutzer zu finden, den Sie in erstellt haben  up a new user account in vCenter.
+.. Verwenden Sie die Suche, um den neuen Benutzer zu finden, den Sie in erstellt haben <<Richten Sie ein neues Benutzerkonto in vCenter ein>>.
 .. Wählen Sie `NetApp Role`.
 +
 
@@ -124,7 +124,7 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 +
 .. Wählen Sie `vsphere.local` Oder Ihre LDAP-Domäne.
-.. Verwenden Sie die Suche, um den neuen HCC-Benutzer zu finden, den Sie in erstellt haben  up a new user account in vCenter.
+.. Verwenden Sie die Suche, um den neuen HCC-Benutzer zu finden, den Sie in erstellt haben <<Richten Sie ein neues Benutzerkonto in vCenter ein>>.
 .. Wählen Sie `ReadOnly role`.
 +
 
@@ -152,7 +152,7 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 +
 .. Wählen Sie `vsphere.local` Oder Ihre LDAP-Domäne.
-.. Verwenden Sie die Suche, um den neuen HCC-Benutzer zu finden, den Sie in erstellt haben  up a new user account in vCenter.
+.. Verwenden Sie die Suche, um den neuen HCC-Benutzer zu finden, den Sie in erstellt haben <<Richten Sie ein neues Benutzerkonto in vCenter ein>>.
 .. Wählen Sie `Administrator role`.
 .. Wählen Sie *auf Kinder übertragen*.
 
@@ -174,7 +174,7 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 +
 .. Wählen Sie `vsphere.local` Oder Ihre LDAP-Domäne.
-.. Verwenden Sie die Suche, um den neuen HCC-Benutzer zu finden, den Sie in erstellt haben  up a new user account in vCenter.
+.. Verwenden Sie die Suche, um den neuen HCC-Benutzer zu finden, den Sie in erstellt haben <<Richten Sie ein neues Benutzerkonto in vCenter ein>>.
 .. Wählen Sie `NetApp Role` Oder `Administrator`.
 .. Wählen Sie *auf Kinder übertragen*.
 
@@ -203,7 +203,7 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 +
 .. Wählen Sie `vsphere.local` Oder Ihre LDAP-Domäne.
-.. Verwenden Sie die Suche, um den neuen Benutzer zu finden, den Sie in erstellt haben  up a new user account in vCenter.
+.. Verwenden Sie die Suche, um den neuen Benutzer zu finden, den Sie in erstellt haben <<Richten Sie ein neues Benutzerkonto in vCenter ein>>.
 .. Wählen Sie `NetApp Role` Oder `Administrator`.
 
 
@@ -225,7 +225,7 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 +
 .. Wählen Sie `vsphere.local` Oder Ihre LDAP-Domäne.
-.. Verwenden Sie die Suche, um den neuen Benutzer zu finden, den Sie in erstellt haben  up a new user account in vCenter.
+.. Verwenden Sie die Suche, um den neuen Benutzer zu finden, den Sie in erstellt haben <<Richten Sie ein neues Benutzerkonto in vCenter ein>>.
 .. Wählen Sie `NetApp Role`.
 +
 
@@ -241,7 +241,7 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 +
 .. Wählen Sie `vsphere.local` Oder Ihre LDAP-Domäne.
-.. Verwenden Sie die Suche, um den neuen Benutzer zu finden, den Sie in erstellt haben  up a new user account in vCenter.
+.. Verwenden Sie die Suche, um den neuen Benutzer zu finden, den Sie in erstellt haben <<Richten Sie ein neues Benutzerkonto in vCenter ein>>.
 .. Wählen Sie `NetApp Role` Oder `Administrator`.
 .. Wählen Sie *auf Kinder übertragen*.
 
@@ -273,7 +273,7 @@ Wenn bereits ein Controller-Asset auf dem Management-Node vorhanden ist, führen
 
 == Fügen Sie dem Management-Node eine Ressource oder einen Computing-Node hinzu
 
-Wenn Sie nach der Installation manuell ein neues Asset oder einen Compute Node (und BMC-Ressourcen) hinzufügen müssen, verwenden Sie das neue HCC-Benutzerkonto, das Sie in erstellt haben  up a new user account in vCenter. Weitere Informationen finden Sie unter link:task_mnode_add_assets.html["Fügen Sie dem Management-Node Computing- und Controller-Ressourcen hinzu"].
+Wenn Sie nach der Installation manuell ein neues Asset oder einen Compute Node (und BMC-Ressourcen) hinzufügen müssen, verwenden Sie das neue HCC-Benutzerkonto, das Sie in erstellt haben <<Richten Sie ein neues Benutzerkonto in vCenter ein>>. Weitere Informationen finden Sie unter link:task_mnode_add_assets.html["Fügen Sie dem Management-Node Computing- und Controller-Ressourcen hinzu"].
 
 
 

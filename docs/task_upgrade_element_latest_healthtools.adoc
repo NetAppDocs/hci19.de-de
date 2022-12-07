@@ -19,7 +19,7 @@ Bevor Sie ein Element Storage-Upgrade von 11.1 oder früher beginnen, sollten Si
 
 IMPORTANT: Bei Element Software 12.3.2 handelt es sich um die endgültige Version, die auf NetApp HealthTools aktualisiert werden kann. Falls Sie Element Software 11.3 oder höher verwenden, sollten Sie zum Upgrade der Element Software NetApp Hybrid Cloud Control verwenden. Bei Element Versionen 11.1 oder einer älteren Version können Sie mithilfe von NetApp HealthTools ein Upgrade durchführen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie führen Management Node 11.0, 11.1 oder höher aus.
 * Sie haben Ihre Managementservices auf mindestens Version 2.1.326 aktualisiert.
 +
@@ -38,6 +38,7 @@ TIP: Sie können die lokal installierte Version von HealthTools überprüfen, in
 
 
 
+.Über diese Aufgabe
 Für die Befehle in der HealthTools Suite sind eskalierte Berechtigungen erforderlich. Beide Vorwort-Befehle mit `sudo` Oder eskalieren Sie Ihren Benutzer an Root-Rechte.
 
 

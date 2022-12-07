@@ -16,7 +16,7 @@ keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement
 [role="lead"]
 Bevor Sie einen Storage-Node ersetzen, der Teil eines Clusters mit zwei Nodes ist, sollten Sie zunächst einen dritten Storage-Node (der einen neuen Satz an IP-Adressen erfordert) hinzufügen, eine Synchronisierung durchführen und dann den fehlerhaften Node entfernen. Das Cluster bleibt im Status „beeinträchtigt“, bis ein Ersatz-Node dem Cluster hinzugefügt wird.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie verfügen über neue Management-IP- und Storage-IP-Adressen.
 * Sie haben überprüft, dass auf dem Cluster der angezeigt wird `ClusterCannotSync` Eine Meldung wird ausgegeben, nachdem der Node offline geschaltet wurde. So wird sichergestellt, dass sich das Cluster vollständig neu synchronisiert, wenn der neue Node wieder zum Cluster hinzugefügt wird. Diese Meldung wird ungefähr sechs Minuten nach dem Offline-Modus des Storage-Node angezeigt.
 * Sie haben den NetApp Support kontaktiert. Wenn Sie einen Ersatz bestellen, sollten Sie beim NetApp Support einen Case eröffnen.
@@ -24,6 +24,7 @@ Bevor Sie einen Storage-Node ersetzen, der Teil eines Clusters mit zwei Nodes is
 * Sie haben ein elektrostatisches Entladungsband (ESD) oder einen anderen antistatischen Schutz.
 
 
+.Über diese Aufgabe
 Alarme im VMware vSphere Web Client warnen Sie bei einem Host-Ausfall. Sie müssen die Seriennummer des ausgefallenen Hosts vom VMware vSphere Web Client mit der Seriennummer auf dem Aufkleber auf der Rückseite des Node übereinstimmen.
 
 .Schritte

@@ -23,7 +23,7 @@ Das herunterladbare BMC Update enthält BMC-Funktionserweiterungen und Fehlerbeh
 
 H610S BMC 3.84.07 enthält verschiedene Fehlerbehebungen und neue Funktionen. Diese Version bringt eine vor Ort aktualisierte BMC Firmware vor nachfolgenden Bundle-Versionen für Element Software und Storage Firmware, die ebenfalls die aktualisierte BMC Firmware für H610S Nodes enthalten wird.
 
-Dieses Firmware-Paket wird auf Element Versionen 11.8, 12.0 und 12.2 unterstützt. Sie können die H610S BMC-Firmware direkt Out-of-Band aktualisieren, und Upgrade-Anweisungen finden Sie in  BMC firmware on H610S nodes.
+Dieses Firmware-Paket wird auf Element Versionen 11.8, 12.0 und 12.2 unterstützt. Sie können die H610S BMC-Firmware direkt Out-of-Band aktualisieren, und Upgrade-Anweisungen finden Sie in <<Aktualisieren der BMC-Firmware auf H610S Nodes>>.
 
 
 
@@ -81,7 +81,7 @@ In dieser Version sind keine Probleme bekannt.
 
 Führen Sie die folgenden Schritte durch, um die BMC-Firmware-Version auf Ihren H610S-Knoten zu aktualisieren. Der Vorgang kann etwa 30 Minuten dauern.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben die Benachrichtigungen überprüft, indem Sie in der Weboberfläche der NetApp Element-Software auf *Berichterstellung* > *Warnungen* klicken, um sicherzustellen, dass keine Fehler auftreten.
 * Sie haben das BMC-Aktualisierungspaket heruntergeladen. Laden Sie das BMC-Aktualisierungspaket herunter https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/H610S_BMC_3.84["Hier"^].
 

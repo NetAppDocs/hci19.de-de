@@ -16,7 +16,7 @@ keywords: netapp, hci, api, REST, remove, compute, asset
 [role="lead"]
 Wenn ein Computing-Node physisch ersetzt oder aus dem NetApp HCI-Cluster entfernt werden muss, müssen die Computing-Node-Ressource mithilfe der Management-Node-APIs entfernt werden.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Im Storage Cluster wird die NetApp Element Software 11.3 oder höher ausgeführt.
 * Sie haben einen Management-Node mit Version 11.3 oder höher implementiert.
 

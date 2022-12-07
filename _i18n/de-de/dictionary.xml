@@ -5,7 +5,6 @@
   <block id="839ff18e4b338f808e22e4d0a4c70094" category="summary">Mit NetApp Hybrid Cloud Control lassen sich Protokolle bei der Installation von NetApp HCI oder Element erfassen, um die Fehlerbehebung zu unterstützen.</block>
   <block id="756909f99bc1a720d318a5f5b94eb094" category="doc">Sammelt Protokolle für die Fehlerbehebung</block>
   <block id="2a4218d09bfcf2b665c034eb84b5e91c" category="paragraph">Bei Problemen mit der Installation von NetApp HCI oder SolidFire All-Flash-Storage können Sie Protokolle erfassen, die Sie an NetApp Support senden. So erhalten Sie eine Hilfe bei der Diagnose. Kunden können entweder NetApp Hybrid Cloud Control oder DIE REST-API verwenden, um Protokolle auf NetApp HCI oder Element Systemen zu erfassen.</block>
-  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">Was Sie und#8217;ll benötigen</block>
   <block id="87fb74550f553d982b9df9219172dc1d" category="list-text">Stellen Sie sicher, dass auf Ihrer Speichercluster-Version die NetApp Element-Software 11.3 oder höher ausgeführt wird.</block>
   <block id="e72d6537f55d7c9c95fbd1b2e93acffc" category="list-text">Stellen Sie sicher, dass Sie einen Management-Node mit Version 11.3 oder höher bereitgestellt haben.</block>
   <block id="43623b24ff4be4e0e0174dccd5d4446a" category="paragraph">Wählen Sie eine der folgenden Optionen:</block>
@@ -174,7 +173,6 @@
   <block id="92f931e19caf8af4e3a31a82b06ccabd" category="summary">Hier finden Sie Links zu Versionshinweisen für die Firmware-Pakete, die Sie herunterladen und für NetApp HCI-Nodes anwenden können.</block>
   <block id="add6cf39bf48bd4bb95153935993051e" category="doc">Versionshinweise Zum Computing-Firmware-Bundle 2.27</block>
   <block id="ef1e8da076ed36db7d489060adff47fb" category="paragraph">Das herunterladbare Rechner-Firmware-Bundle enthält die neuesten BIOS- und BMC-Funktionserweiterungen, Bugfixes und Hardware-Support für alle unterstützten NetApp HCI-Compute-Nodes.</block>
-  <block id="5fef629b836b60819e0c0ce49cd2b9d7" category="section-title">Was ist neu</block>
   <block id="c62ad3aeec2c6f68d0d40bcb7b4da80e" category="paragraph">Version 2.27 enthält allgemeine Bugfixes.</block>
   <block id="692731d8e937243e33f91c14df51cf3f" category="section-title">Aktualisierte Firmware-Komponenten</block>
   <block id="0a07252a3e464951db5264e4d4279d52" category="paragraph">Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekomponenten. Aktualisierte Versionen in Bold:</block>
@@ -715,7 +713,6 @@
   <block id="0e68b38eaff7123dcc12ce395a147a48" category="summary">NetApp HCI bietet Storage- und Computing-Ressourcen und kombiniert diese zu einer VMware vSphere Umgebung mit den Funktionen der NetApp Element Software.</block>
   <block id="2bfee064de23abb29a29ad16b90c3080" category="doc">NetApp HCI-Konfiguration und -Management-Dokumentation</block>
   <block id="2d2319a467144bf3a0e5baabca9ea680" category="paragraph">Über die NetApp Hybrid Cloud Control Oberfläche können Sie Ihr System aktualisieren, erweitern und überwachen und NetApp HCI Ressourcen mit dem NetApp Element Plug-in für vCenter Server managen.</block>
-  <block id="1fde0727b387439572ade83eecff4f68" category="section-title">Entdecken Sie, was neu ist</block>
   <block id="6b51db420393cbff0d9f09dfeb229ecb" category="inline-link-macro">Neuerungen in NetApp HCI</block>
   <block id="6709fa8e92b382825b811cdae7781d0f" category="list-text"><block ref="6709fa8e92b382825b811cdae7781d0f" category="inline-link-macro-rx"></block></block>
   <block id="858ea7ae6467e65992f082751f2c1cdf" category="inline-link">Neuerungen in der NetApp Element Software</block>
@@ -2446,7 +2443,6 @@
   <block id="ae4ac9937fe2124bac1e8af524c0bdc6" category="list-text">Wählen Sie unter *Actions* die Option *Wartungsmodus aktivieren* aus.</block>
   <block id="b66e6d3d140b3a6b8af0112f6c915150" category="paragraph">Während *Wartungsmodus* aktiviert wird, sind Aktionen im Wartungsmodus für den ausgewählten Knoten und alle anderen Knoten im selben Cluster nicht verfügbar.</block>
   <block id="62ae267478305435d23b7df0f401bb38" category="paragraph">Nachdem *Aktivieren des Wartungsmodus* abgeschlossen ist, wird in der Spalte *Knotenstatus* ein Schraubenschlüsselsymbol und der Text „*Wartungsmodus*“ für den Knoten angezeigt, der sich im Wartungsmodus befindet.</block>
-  <block id="093586b1f3ef758c1cea8d476b072359" category="section-title">Deaktivieren des Wartungsmodus</block>
   <block id="a1572d68c738e66df4f2eba84768fe13" category="paragraph">Nachdem ein Knoten erfolgreich in den Wartungsmodus versetzt wurde, steht für diesen Knoten die Aktion *Wartungsmodus deaktivieren* zur Verfügung. Aktionen auf den anderen Nodes sind erst verfügbar, wenn der Wartungsmodus auf dem Node, der gerade gewartet wird, erfolgreich deaktiviert wurde.</block>
   <block id="6351ccc6ed60aa5dd025a0b847793a94" category="list-text">Wählen Sie für den Knoten im Wartungsmodus unter *Aktionen* die Option *Wartungsmodus deaktivieren* aus.</block>
   <block id="fc081ac4444d21e696896e77aedce790" category="paragraph">Während *Wartungsmodus* deaktiviert wird, sind Aktionen im Wartungsmodus für den ausgewählten Knoten und alle anderen Knoten im selben Cluster nicht verfügbar.</block>
@@ -4931,7 +4927,6 @@
   <block id="f4ad5fe6377e47eb0f1d3efd91917e13" category="section-title">Überprüfen Sie die Bereitstellung mit vCenter Server</block>
   <block id="6c8f5781f8959d00ff258798ba1d4a06" category="paragraph">Im vSphere-Client sehen Sie das Rancher Management Cluster, das die drei Virtual Machines umfasst.</block>
   <block id="6d5e0d8752a1244db9529c72a9402187" category="admonition">Nachdem Sie die Bereitstellung abgeschlossen haben, dürfen Sie die Konfiguration des virtuellen VM-Clusters des Rancher-Servers nicht ändern oder die virtuellen Maschinen entfernen. Rancher auf NetApp HCI setzt für den normalen Betrieb auf die bereitgestellte RKE-Management-Cluster-Konfiguration.</block>
-  <block id="3f297ef15cde0668e93b35f2752fd4fd" category="section-title">Was kommt als Nächstes?</block>
   <block id="9ce36cf8bc97284a665ac4d465211731" category="inline-link-macro">Aufgaben nach der Implementierung abschließen</block>
   <block id="0d15f5317410136724749d58832233cd" category="list-text"><block ref="0d15f5317410136724749d58832233cd" category="inline-link-macro-rx"></block></block>
   <block id="50488dc9ca0f950ef434f471ee1a1ea1" category="list-text"><block ref="50488dc9ca0f950ef434f471ee1a1ea1" category="inline-link-macro-rx"></block></block>
@@ -5791,7 +5786,6 @@
   <block id="ee04baa2ee228c73a80bcb76420c3f83" category="admonition">Um die Version zu überprüfen, melden Sie sich bei Ihrem Management-Node an, und zeigen Sie die Versionsnummer des Elements im Anmeldebanner an. Wenn Sie keine 11.3 haben, lesen Sie <block ref="298642ffea6db0968793883313b436ff" category="inline-link-macro-rx"></block>.</block>
   <block id="df3748edc080e7a8ed49863460584cdd" category="paragraph">Upgrades mit NetApp Hybrid Cloud Control sind in früheren Service-Bundle-Versionen nicht verfügbar.</block>
   <block id="ced99676ffdce11db0cf7ce2a4a812b8" category="list-text">Sie stellen sicher, dass die Systemzeit auf allen Knoten synchronisiert ist und dass NTP für den Speicher-Cluster und die Knoten korrekt konfiguriert ist. Jeder Node muss in der Web-UI pro Node mit einem DNS-Nameserver konfiguriert sein <block ref="eacc478b3484836aa839e1dec53ce433" prefix="(" category="inline-code"></block>) Ohne ungelöste Cluster Fehler im Zusammenhang mit Zeitverzerrung.</block>
-  <block id="6ea7f8d4483b20144d2c82f1ed99c07a" category="section-title">Systemaktualisierungssequenz</block>
   <block id="47f1925137d1bc975fa326ab8c3fdaba" category="paragraph">Sie können die folgende Sequenz verwenden, um Ihr NetApp HCI-System zu aktualisieren.</block>
   <block id="524813e84d210a04a3c005022becca08" category="inline-link-macro">Aktualisierung der Managementservices von Hybrid Cloud Control</block>
   <block id="c43409e402c491faff614694ff49b45b" category="list-text"><block ref="d96c5e393dc7f7cfcba5644a67a6ff8a" category="inline-link-macro-rx"></block>.</block>
@@ -6297,4 +6291,26 @@
   <block id="b8b146fd1e1ecdf074536a02bfe40871" category="list-text">(Für interne Server/dunkle Sites) je nach Element Plug-in für vCenter Version, eine benutzerdefinierte URL für die Plug-in-JSON-Datei oder Plug-in ZIP:</block>
   <block id="1993643c12bb4ee547f04d8d85f8c4bf" category="list-text">Ab dem Element Plug-in für vCenter Server 5.0 erscheint der NetApp Element Remote Plugin Extension Point:</block>
   <block id="1c63b3cd9a6d3bdf8b9b31aca68672d7" category="list-text">Bei Element Plug-in für vCenter Server 4.10 oder früher werden die Erweiterungspunkte für NetApp Element-Konfiguration und -Verwaltung angezeigt:</block>
+  <block id="d59db7846bd10b6d60d21543df9faa9e" category="list-title">Was Sie benötigen</block>
+  <block id="625cc9b8ccc34496dc2b3fcffb7e384a" category="paragraph-title">Schritte im Überblick</block>
+  <block id="6c7cffebdb1404e3fc10effbd8df3e0b" category="paragraph-title">Wann sollten Sie Witness Nodes neu bereitstellen?</block>
+  <block id="91770f038cd944a1d3b9b347edeb2b10" category="section-title">Was ist neu</block>
+  <block id="64916198004d1ee19b1b50002f51f1a8" category="paragraph-title">Upgrade-Optionen</block>
+  <block id="fde2050933cb4096508de5d1d771786e" category="paragraph-title">Ersatzoptionen</block>
+  <block id="8fe5279440ee3c239e840ed9b8e10ddd" category="list-text"><block ref="8fe5279440ee3c239e840ed9b8e10ddd" category="inline-link-macro-rx"></block></block>
+  <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">Wie es weiter geht</block>
+  <block id="e7be2be07c433bfd89cb0a290a7015a0" category="paragraph-title">Konfigurationsmaxima</block>
+  <block id="2cd70ba1e2d0b294626ea7f96d25a07f" category="paragraph-title">Optionen für die Protokollerfassung</block>
+  <block id="e5181fceb27eb67cd4791c26a3fa9076" category="paragraph-title">Starten Sie mit der Firmware-Upgrade-Automatisierung</block>
+  <block id="492e5546e60705134bff8d7f80511a8d" category="section-title">Entdecken Sie die Neuigkeiten</block>
+  <block id="6a31058d1e6208d43e0d620fb4953c23" category="paragraph-title">Optionen für das Storage Cluster Asset Management</block>
+  <block id="50f33d14f129e4548c1c270fd6725a78" category="paragraph-title">Konfigurationsoptionen</block>
+  <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">Nachdem Sie fertig sind</block>
+  <block id="891a52ee80600fd58bac60927df7a3a9" category="section-title">[[enable_main_Mode]]Wartungsmodus aktivieren</block>
+  <block id="27404255e546058b4a4837fb07e90bbf" category="section-title">[[disable_main_Mode]]Wartungsmodus deaktivieren</block>
+  <block id="a31b6eafc73ca0db90a0d96e6fb9dc93" category="paragraph-title">Optionen zur Zustandsprüfung</block>
+  <block id="df5820ca7f238b48987ff74db1271e4a" category="paragraph-title">Update-Optionen</block>
+  <block id="d0ce6a73cc0e7aedcf58ba0e0c96c737" category="paragraph-title">Fehlerbehebung häufig auftretende Probleme</block>
+  <block id="58eaebf972358f1cf03d386a4ade1a0f" category="section-title">Was kommt als Nächstes?</block>
+  <block id="18526b4be693f8e5ed12fb2721f65eea" category="section-title">[[sys_Upgrade_seq]]Systemaktualisierungssequenz</block>
 </blocks>

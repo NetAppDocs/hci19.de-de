@@ -16,7 +16,7 @@ keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S
 [role="lead"]
 Führen Sie die Best Practices und Schritte von NetApp durch, um einen fehlerhaften SN2000-Switch unterbrechungsfrei zu ersetzen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Stellen Sie sicher, dass Putty auf dem Laptop installiert ist und dass Sie die Ausgabe erfassen. In diesem Video erfahren Sie, wie Sie Putty konfigurieren, um die Ausgabesitzung zu erfassen.
 
 
@@ -43,17 +43,18 @@ image::sn2010_rear.png[SN2010 und SN2100 hinten,600,400]
 .SN2700-Schalter vorn und hinten
 image::SN2700.png[SN2700 vorne und hinten,600,400]
 
+.Über diese Aufgabe
 Führen Sie die Schritte in diesem Verfahren in der folgenden Reihenfolge aus. So wird sichergestellt, dass die Downtime minimal ist und der Ersatz-Switch vor dem Austausch des Switches vorkonfiguriert ist.
 
 
 NOTE: Wenden Sie sich an den NetApp Support, wenn Sie Hilfe benötigen.
 
-Hier eine Übersicht der Schritte im Verfahren: to replace the faulty switch
- the configuration file
- the faulty switch and install the replacement
- the operating system version on the switch
- the replacement switch
- the replacement
+Hier eine Übersicht der Schritte im Verfahren:<<Bereiten Sie den Austausch des fehlerhaften Schalters vor>>
+<<Erstellen Sie die Konfigurationsdatei>>
+<<Entfernen Sie den defekten Schalter, und setzen Sie den Austausch ein>>
+<<Überprüfen Sie die Betriebssystemversion auf dem Switch>>
+<<Konfigurieren Sie den Ersatzschalter>>
+<<Führen Sie den Austausch durch>>
 
 
 

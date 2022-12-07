@@ -57,6 +57,7 @@ Nach Abschluss der Implementierung werden die Computing-Nodes möglicherweise me
 
 
 
+.Nachdem Sie fertig sind
 Starten Sie die Verwendung von NetApp HCI, indem Sie *vSphere starten* wählen.
 
 [NOTE]

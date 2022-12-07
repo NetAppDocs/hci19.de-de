@@ -42,9 +42,9 @@ Jeder Virtual Machine werden alle Kubernetes-Rollen sowohl für die Kontrolleben
 
 == Schritte zur Bereitstellung eines Ranchers auf NetApp HCI
 
-*  the NetApp Hybrid Cloud Control
-*  Rancher on NetApp HCI
-*  your deployment by using vCenter Server
+* <<Rufen Sie die NetApp Hybrid Cloud Control auf>>
+* <<NetApp HCI-Ranking einsetzen>>
+* <<Überprüfen Sie die Bereitstellung mit vCenter Server>>
 
 
 

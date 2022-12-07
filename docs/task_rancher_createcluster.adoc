@@ -19,7 +19,7 @@ Nach der Rancher-Implementierung können Sie mit der Rancher UI Kubernetes-Benut
 
 TIP: Weitere Informationen über Anforderungen zum Erstellen von Clustern finden Sie im https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["Rancher-Dokumentation"^].
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben Rancher auf NetApp HCI installiert.
 * Sie verfügen über die erforderlichen statischen IP-Adressen. Jedes Benutzer-Cluster benötigt drei statische IP-Adressen.
 * Sie haben sich mit den im aufgeführten Anforderungen vertraut gemacht https://rancher.com/docs/rancher/v2.x/en/cluster-provisioning/["Rancher-Dokumentation"^].

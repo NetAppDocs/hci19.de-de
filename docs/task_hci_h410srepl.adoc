@@ -16,13 +16,14 @@ keywords: netapp, hci, SSDs, drives, replace drives, H410S, H610S
 [role="lead"]
 Sie sollten einen Storage-Node ersetzen, wenn ein dualer Inline-Speichermodul (DIMM) ausfällt, CPU-Fehler, Probleme mit der Radian-Karte oder andere Probleme mit dem Motherboard auftreten oder sich dieser nicht einschalten lässt. Warnmeldungen im VMware vSphere Web Client warnen Sie, wenn ein Speicherknoten fehlerhaft ist. Sie sollten die NetApp Element Software-UI verwenden, um die Seriennummer (Service-Tag) des ausgefallenen Nodes zu erhalten. Sie benötigen diese Informationen, um den fehlgeschlagenen Node im Chassis zu finden.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben festgestellt, dass der Storage-Node ersetzt werden muss.
 * Sie verfügen über einen Ersatz-Storage-Node.
 * Sie haben ein elektrostatisches Entladungsband (ESD) oder andere antistatische Vorsichtsmaßnahmen getroffen.
 * Sie haben jedes Kabel gekennzeichnet, das mit dem Speicher-Node verbunden ist.
 
 
+.Über diese Aufgabe
 Das Ersatzverfahren gilt für H410S Storage-Nodes in einem 2-HE-NetApp HCI-Chassis mit vier Nodes.
 
 Folgende Rückansicht eines Chassis mit vier Nodes mit H410S Nodes:
@@ -33,9 +34,10 @@ Hier ist die Vorderansicht eines Chassis mit vier Nodes mit H410S Nodes, in dem 
 
 image::h410s_ssd_bays.png[Zeigt die mit jedem Node in einem Chassis mit vier Nodes verbundenen Schächte mit H410S Nodes.]
 
-Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahrens: to replace the storage node
- the storage node in the chassis
- the storage node to the cluster
+.Schritte im Überblick
+Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahrens:<<Bereiten Sie den Austausch des Storage-Nodes vor>>
+<<Ersetzen Sie den Storage-Node im Chassis>>
+<<Fügen Sie den Storage-Node dem Cluster hinzu>>
 
 
 
@@ -123,7 +125,7 @@ TIP: Stellen Sie sicher, dass der Ersatz-Node auf die gleiche Weise wie die ande
 
 Sie sollten den Storage-Node wieder dem Cluster hinzufügen. Die Schritte hängen von der Version von NetApp HCI ab, die Sie ausführen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie verfügen über freie und nicht genutzte IPv4-Adressen im gleichen Netzwerksegment wie vorhandene Nodes (jeder neue Node muss im gleichen Netzwerk installiert sein wie vorhandene Knoten seines Typs).
 * Sie verfügen über einen der folgenden Typen von SolidFire Storage Cluster Accounts:
 +

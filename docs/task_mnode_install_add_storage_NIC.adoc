@@ -22,10 +22,11 @@ Wenn Sie eine zusätzliche NIC für den Speicher verwenden, können Sie SSH in d
 * Sie haben einen Management-Node 11.3 oder höher implementiert.
 
 
+.Konfigurationsoptionen
 Wählen Sie die für Ihre Umgebung relevante Option:
 
-*  a storage Network Interface Controller (NIC) for an untagged network interface
-*  a storage Network Interface Controller (NIC) for a tagged network interface
+* <<Konfigurieren Sie einen Speicher Network Interface Controller (NIC) für eine nicht getaggte Netzwerkschnittstelle>>
+* <<Konfigurieren Sie einen Speicher Network Interface Controller (NIC) für eine getaggte Netzwerkschnittstelle>>
 
 
 

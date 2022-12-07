@@ -34,8 +34,10 @@ Nachdem Sie bestätigt haben, dass Ihre Umgebung zur Unterstützung von NetApp H
 
 Das Dynamic Host Configuration Protocol (DHCP) ist standardmäßig für den IPMI-Port jedes NetApp HCI-Knotens aktiviert. Wenn Ihr IPMI-Netzwerk DHCP nicht verwendet, können Sie dem IPMI-Port manuell eine statische IPv4-Adresse zuweisen.
 
+.Bevor Sie beginnen
 Stellen Sie sicher, dass Sie über einen Switch oder einen Monitor und eine Tastatur verfügen, mit dem Sie auf das BIOS jedes Knotens zugreifen können.
 
+.Über diese Aufgabe
 Verwenden Sie die Pfeiltasten, um im BIOS zu navigieren. Wählen Sie eine Registerkarte oder Option, indem Sie auf drücken `Enter`. Gehen Sie zurück zu vorherigen Bildschirmen, indem Sie auf drücken `ESC`.
 
 .Schritte
@@ -62,6 +64,7 @@ Der IPMI-Port für diesen Node ist bereit zur Verwendung.
 
 Sie sollten das Standardpasswort für das IPMI-Administratorkonto auf jedem Computing- und Storage-Node ändern, sobald Sie den IPMI-Netzwerkport konfigurieren.
 
+.Bevor Sie beginnen
 Sie haben die IPMI-IP-Adresse für jeden Computing- und Storage-Node konfiguriert.
 
 .Schritte
@@ -82,6 +85,7 @@ Sie haben die IPMI-IP-Adresse für jeden Computing- und Storage-Node konfigurier
 
 Sie sollten das Standardpasswort für das IPMI-Administratorkonto auf jedem Computing- und Storage-Node ändern, sobald Sie den IPMI-Netzwerkport konfigurieren.
 
+.Bevor Sie beginnen
 Sie haben die IPMI-IP-Adresse für jeden Computing- und Storage-Node konfiguriert.
 
 .Schritte

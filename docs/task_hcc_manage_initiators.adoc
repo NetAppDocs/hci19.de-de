@@ -11,16 +11,16 @@ keywords: netapp, hci, initiator, storage, element, access group
 [role="lead"]
 Verwenden Sie können link:concept_hci_initiators.html["Initiatoren"] Für CHAP-basierten und nicht kontenbasierten Zugriff auf Volumes. Sie können Initiatoren erstellen und löschen und ihnen freundliche Alias geben, um die Administration und den Zugriff auf Volumes zu vereinfachen. Wenn Sie einer Volume-Zugriffsgruppe einen Initiator hinzufügen, ermöglicht dieser Initiator den Zugriff auf alle Volumes in der Gruppe.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben Cluster-Administrator-Anmeldedaten.
 * Sie haben Ihre Managementservices auf mindestens Version 2.17 aktualisiert. Das NetApp Hybrid Cloud Control Initiator-Management ist in früheren Service-Bundle-Versionen nicht verfügbar.
 
 
 .Optionen
-*  an initiator
-*  initiators to a volume access group
-*  an initiator alias
-*  initiators
+* <<Erstellen eines Initiators>>
+* <<Fügen Sie Initiatoren zu einer Volume-Zugriffsgruppe hinzu>>
+* <<Ändern eines Initiator-Alias>>
+* <<Löschen Sie Initiatoren>>
 
 
 
@@ -29,6 +29,7 @@ Verwenden Sie können link:concept_hci_initiators.html["Initiatoren"] Für CHAP-
 
 Sie können iSCSI- oder Fibre Channel-Initiatoren erstellen und diese optional Aliase zuweisen.
 
+.Über diese Aufgabe
 Das akzeptierte Format eines Initiator-IQN lautet `iqn.yyyy-mm` Wobei y und m Ziffern sind, gefolgt von Text, der nur Ziffern, Kleinbuchstaben, einen Punkt enthalten darf (`.`), Doppelpunkt (`:`) Oder Strich (`-`). Ein Beispiel für das Format:
 
 [listing]

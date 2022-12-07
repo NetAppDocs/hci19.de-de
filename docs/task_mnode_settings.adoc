@@ -11,9 +11,9 @@ keywords: netapp, management node ui, mnode ui, network settings, test network, 
 [role="lead"]
 Sie können die Einstellungen für das Management-Node-Netzwerk, das Cluster und das System ändern und testen.
 
-*  management node network settings
-*  management node cluster settings
-*  the management node settings
+* <<Aktualisieren der Netzwerkeinstellungen für den Management-Node>>
+* <<Aktualisiert die Cluster-Einstellungen des Management-Node>>
+* <<Testen Sie die Einstellungen für den Management-Node>>
 
 
 

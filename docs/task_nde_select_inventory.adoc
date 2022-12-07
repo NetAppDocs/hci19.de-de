@@ -16,6 +16,7 @@ keywords: netapp, hci, deployment, compatibility, nodes
 [role="lead"]
 Auf der Seite *Inventar* erkennt die NetApp Deployment Engine automatisch verfügbare Computing- und Storage-Nodes und ermöglicht es Ihnen, alle NetApp HCI-Ressourcen zur Implementierung auszuwählen und hinzuzufügen. Wenn ein Node die Implementierungsanforderungen nicht erfüllt, kann er nicht ausgewählt werden. Die Probleme werden als Fehler angezeigt. Sie können den Cursor über den Fehler in der Zeile des Knotens positionieren, um eine Erklärung anzuzeigen. Wenn Sie auf der Seite „Inventar“ den Node auswählen, der die NetApp Deployment Engine hostet, wird automatisch ausgewählt. Sie können die Auswahl nicht aufheben.
 
+.Was Sie benötigen
 Jumbo-Frames müssen aktiviert sein, um eine ordnungsgemäße Inventarerkennung zu gewährleisten. Wenn im Inventar keine Nodes oder nur eine Untermenge von Nodes angezeigt werden, überprüfen Sie, ob die für NetApp HCI Nodes verwendeten Switch Ports (alle SFP+/SFP28-Schnittstellen) mit Jumbo Frames konfiguriert sind.
 
 .Schritte

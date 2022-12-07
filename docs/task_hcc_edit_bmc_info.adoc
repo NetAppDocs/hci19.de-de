@@ -16,15 +16,17 @@ keywords: netapp, hci, BMC, connection, credentials, monitor
 [role="lead"]
 Sie können die Zugangsdaten für den Baseboard Management Controller (BMC) Administrator in NetApp Hybrid Cloud Control für jeden Ihrer Computing-Nodes ändern. Möglicherweise müssen Sie die Anmeldedaten vor dem Aktualisieren der BMC-Firmware ändern oder um eine zu beheben `Hardware ID not available` Oder `Unable to Detect` Der Fehler wird unter NetApp Hybrid Cloud Control gemeldet.
 
+.Was Sie benötigen
 Cluster-Administrator-Berechtigungen zum Ändern der BMC-Anmeldedaten.
 
 
 NOTE: Wenn Sie BMC-Anmeldedaten während einer Integritätsprüfung festlegen, kann es bis zu 2 Minuten dauern, bis die Änderung auf der Seite *Nodes* angezeigt wird.
 
+.Optionen
 Wählen Sie eine der folgenden Optionen, um BMC-Anmeldedaten zu ändern:
 
-*  NetApp Hybrid Cloud Control to edit BMC information
-*  the REST API to edit BMC information
+* <<Verwenden Sie NetApp Hybrid Cloud Control, um BMC-Informationen zu bearbeiten>>
+* <<VERWENDEN Sie die REST-API, um BMC-Informationen zu bearbeiten>>
 
 
 

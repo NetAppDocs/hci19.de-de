@@ -11,7 +11,7 @@ keywords: netapp, hci, on premise, cluster, element
 [role="lead"]
 Sie können neue Volume-Zugriffsgruppen erstellen, den Namen, zugehörige Initiatoren oder zugehörige Volumes von Zugriffsgruppen ändern oder vorhandene Volume-Zugriffsgruppen mithilfe von NetApp Hybrid Cloud Control löschen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Sie haben Administratoranmeldedaten für dieses NetApp HCI-System.
 * Sie haben Ihre Managementservices auf mindestens Version 2.15.28 aktualisiert. Das NetApp Hybrid Cloud Control Storage-Management ist in früheren Service-Bundle-Versionen nicht verfügbar.
 * Stellen Sie sicher, dass Sie über ein logisches Benennungsschema für Volume-Zugriffsgruppen verfügen.
