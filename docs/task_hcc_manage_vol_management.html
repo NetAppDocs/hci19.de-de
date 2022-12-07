@@ -2662,7 +2662,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 20:07:01 +0000">11/15/2022</time>
+    <time datetime="2022-12-07 15:27:45 +0000">12/07/2022</time>
     
   
 
@@ -2686,28 +2686,28 @@
 <div class="ulist">
 <ul>
 <li>
-<p>a volume</p>
+<p><a href="#erstellen-eines-volumes">Erstellen eines Volumes</a></p>
 </li>
 <li>
-<p>a QoS policy to a volume</p>
+<p><a href="#wenden-sie-eine-qos-richtlinie-auf-ein-volume-an">Wenden Sie eine QoS-Richtlinie auf ein Volume an</a></p>
 </li>
 <li>
-<p>a volume</p>
+<p><a href="#bearbeiten-sie-ein-volume">Bearbeiten Sie ein Volume</a></p>
 </li>
 <li>
-<p>volumes</p>
+<p><a href="#volumes-klonen">Volumes klonen</a></p>
 </li>
 <li>
-<p>volumes to a volume access group</p>
+<p><a href="#hinzufügen-von-volumes-zu-einer-volume-zugriffsgruppe">Hinzufügen von Volumes zu einer Volume-Zugriffsgruppe</a></p>
 </li>
 <li>
-<p>a volume</p>
+<p><a href="#löschen-sie-ein-volume">Löschen Sie ein Volume</a></p>
 </li>
 <li>
-<p>a deleted volume</p>
+<p><a href="#wiederherstellen-eines-gelöschten-volumes">Wiederherstellen eines gelöschten Volumes</a></p>
 </li>
 <li>
-<p>a deleted volume</p>
+<p><a href="#löschen-sie-ein-gelöschtes-volume">Löschen Sie ein gelöschtes Volume</a></p>
 </li>
 </ul>
 </div>
@@ -2808,7 +2808,7 @@ Wenn mehr als 50 Konten vorhanden sind, wird die Liste nicht angezeigt. Beginnen
 <h2 id="wenden-sie-eine-qos-richtlinie-auf-ein-volume-an">Wenden Sie eine QoS-Richtlinie auf ein Volume an</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Mithilfe von NetApp Hybrid Cloud Control können Sie eine QoS-Richtlinie auf vorhandene Storage-Volumes anwenden. Wenn Sie stattdessen benutzerdefinierte QoS-Werte für ein Volume festlegen müssen, ist dies möglich  a volume. Informationen zum Erstellen einer neuen QoS-Richtlinie finden Sie unter <a href="task_hcc_qos_policies.html" target="_blank" rel="noopener">"Erstellung und Management von QoS-Richtlinien für Volumes"</a>.</p>
+<p>Mithilfe von NetApp Hybrid Cloud Control können Sie eine QoS-Richtlinie auf vorhandene Storage-Volumes anwenden. Wenn Sie stattdessen benutzerdefinierte QoS-Werte für ein Volume festlegen müssen, ist dies möglich <a href="#bearbeiten-sie-ein-volume">Bearbeiten Sie ein Volume</a>. Informationen zum Erstellen einer neuen QoS-Richtlinie finden Sie unter <a href="task_hcc_qos_policies.html" target="_blank" rel="noopener">"Erstellung und Management von QoS-Richtlinien für Volumes"</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Schritte</div>
@@ -2854,6 +2854,7 @@ Wenn Sie QoS-Richtlinien für ein Volume verwenden, können Sie durch benutzerde
 <p>Mit NetApp Hybrid Cloud Control lassen sich Volume-Attribute wie QoS-Werte, Volume-Größe und die Maßeinheit bearbeiten, mit der Byte-Werte berechnet werden. Außerdem haben Sie die Möglichkeit, den Kontozugriff für die Replizierungsnutzung zu ändern oder den Zugriff auf das Volume zu beschränken.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Sie können die Größe eines Volume ändern, wenn unter den folgenden Bedingungen genügend Speicherplatz auf dem Cluster vorhanden ist:</p>
 </div>
 <div class="ulist">
@@ -3029,6 +3030,7 @@ Wenn Sie IOPS-Werte ändern, sollten Sie sich Dutzende oder Hunderte erhöhen. E
 </ul>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Das Cluster unterstützt bis zu zwei aktuell laufende Klonanforderungen pro Volume und bis zu 8 aktive Volume-Klonvorgänge gleichzeitig. Anforderungen, die über diese Grenzen hinausgehen, werden zur späteren Verarbeitung in die Warteschlange gestellt.</p>
 </div>
 <div class="paragraph">
@@ -3171,6 +3173,7 @@ Der Zeitaufwand zum Abschluss eines Klonvorgangs wird von der Volume-Größe und
 <p>Ein oder mehrere Volumes können aus einem Element Storage-Cluster gelöscht werden.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Gelöschte Volumes werden nicht sofort vom System gelöscht, sie bleiben etwa acht Stunden lang verfügbar. Nach acht Stunden werden sie gereinigt und sind nicht mehr verfügbar. Wenn Sie ein Volume wiederherstellen, bevor das System es bereinigt, wird das Volume wieder online geschaltet und die iSCSI-Verbindungen werden wiederhergestellt.</p>
 </div>
 <div class="paragraph">

@@ -2662,7 +2662,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 20:07:01 +0000">11/15/2022</time>
+    <time datetime="2022-12-07 15:27:45 +0000">12/07/2022</time>
     
   
 
@@ -2681,7 +2681,7 @@
 <p>Sie können eine neue OVA implementieren und ein Neuimplementierung-Skript ausführen, um Konfigurationsdaten aus einem zuvor installierten Management Node, auf dem Version 11.3 und höher ausgeführt wird, zu übertragen.</p>
 </div>
 <div class="ulist">
-<div class="title">Was Sie und#8217;ll benötigen</div>
+<div class="title">Was Sie benötigen</div>
 <ul>
 <li>
 <p>Auf dem vorherigen Management-Node wurde die NetApp Element Softwareversion 11.3 oder höher mit ausgeführt <a href="concept_hci_volumes.html#persistent-volumes">"Persistente Volumes"</a> Funktionalität eingebunden.</p>
@@ -2741,16 +2741,16 @@
 <div class="title">Schritte</div>
 <ol class="arabic">
 <li>
-<p>ISO or OVA and deploy the VM</p>
+<p><a href="#Laden Sie ISO oder OVA herunter">und implementieren Sie die VM</a></p>
 </li>
 <li>
-<p>the network</p>
+<p><a href="#konfigurieren-des-netzwerks">Konfigurieren des Netzwerks</a></p>
 </li>
 <li>
-<p>time sync</p>
+<p><a href="#konfigurieren-sie-die-zeitsynchronisierung">Konfigurieren Sie die Zeitsynchronisierung</a></p>
 </li>
 <li>
-<p>the management node</p>
+<p><a href="#konfigurieren-sie-den-management-node">Konfigurieren Sie den Management-Node</a></p>
 </li>
 </ol>
 </div>
@@ -2906,7 +2906,7 @@ Wenn Sie eine zusätzliche NIC benötigen, um den Speicherdatenverkehr zu isolie
 <img src="/us-en/hci19/images/note.svg" alt="Anmerkung">
 </td>
 <td class="content">
-Ab Element 12.3 werden die Teilschritte a bis (e) automatisch ausgeführt. Für Management-Node 12.3 fahren Sie mit fort ,Unterschritt (f) Um die Konfiguration der Zeitsynchronisation abzuschließen.
+Ab Element 12.3 werden die Teilschritte a bis (e) automatisch ausgeführt. Für Management-Node 12.3 fahren Sie mit fort <a href="#substep_f_recover_config_time_sync">Unterschritt (f)</a> Um die Konfiguration der Zeitsynchronisation abzuschließen.
 </td>
 </tr>
 </table>
@@ -3026,7 +3026,7 @@ Aktivieren Sie diese Option nicht, wenn Sie zukünftige Änderungen an der VM vo
 <img src="/us-en/hci19/images/note.svg" alt="Anmerkung">
 </td>
 <td class="content">
-Bearbeiten Sie NTP nicht, nachdem Sie die Konfiguration zur Zeitsynchronisation abgeschlossen haben, da es sich auf das NTP beim Ausführen des auswirkt ,Befehl „Neuimplementierung“ Auf dem Management-Node.
+Bearbeiten Sie NTP nicht, nachdem Sie die Konfiguration zur Zeitsynchronisation abgeschlossen haben, da es sich auf das NTP beim Ausführen des auswirkt <a href="#step_6_recover_mnode_redeploy">Befehl „Neuimplementierung“</a> Auf dem Management-Node.
 </td>
 </tr>
 </table>

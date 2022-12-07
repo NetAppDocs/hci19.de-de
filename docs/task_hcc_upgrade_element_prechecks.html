@@ -2662,7 +2662,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 20:07:01 +0000">11/15/2022</time>
+    <time datetime="2022-12-07 15:27:45 +0000">12/07/2022</time>
     
   
 
@@ -2678,7 +2678,7 @@
 <p>Vor dem Upgrade von Element Storage müssen Sie Zustandsprüfungen durchführen, um sicherzustellen, dass alle Storage-Nodes im Cluster für das nächste Element Storage Upgrade bereit sind.</p>
 </div>
 <div class="ulist">
-<div class="title">Was Sie und#8217;ll benötigen</div>
+<div class="title">Was Sie benötigen</div>
 <ul>
 <li>
 <p><strong>Management Services</strong>: Sie haben das neueste Management Services Bundle (2.10.27 oder höher) aktualisiert.</p>
@@ -2740,18 +2740,19 @@ Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates aufgezeic
 </ul>
 </div>
 <div class="paragraph">
+<div class="title">Optionen zur Zustandsprüfung</div>
 <p>Sie können Systemchecks mit der Benutzeroberfläche von NetApp Hybrid Cloud Control (HCC), der HCC API oder der HealthTools Suite durchführen:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>NetApp Hybrid Cloud Control to run Element storage health checks prior to upgrading storage (Bevorzugte Methode)</p>
+<p><a href="#netapp-hybrid-cloud-control-bietet-zustandsüberprüfungen-für-element-storage-vor-storage-upgrades">NetApp Hybrid Cloud Control bietet Zustandsüberprüfungen für Element Storage vor Storage-Upgrades</a> (Bevorzugte Methode)</p>
 </li>
 <li>
-<p>API to run Element storage health checks prior to upgrading storage</p>
+<p><a href="#nutzen-sie-api-zur-ausführung-von-element-storage-zustandsprüfungen-vor-einem-storage-upgrade">Nutzen Sie API zur Ausführung von Element Storage-Zustandsprüfungen vor einem Storage-Upgrade</a></p>
 </li>
 <li>
-<p>HealthTools to run Element storage health checks prior to upgrading storage</p>
+<p><a href="#Verwenden Sie HealthTools">um vor einem Storage-Upgrade Zustandsprüfungen für Element Storage auszuführen</a></p>
 </li>
 </ul>
 </div>
@@ -2761,7 +2762,7 @@ Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates aufgezeic
 <div class="ulist">
 <ul>
 <li>
-<p>health checks made by the service</p>
+<p><a href="#Storage-Systemprüfungen">die vom Service durchgeführt werden</a></p>
 </li>
 </ul>
 </div>
@@ -3061,6 +3062,7 @@ Verwenden Sie das nicht <code>"parent"</code> Der Wert in diesem Abschnitt, da d
 <p>Wenn sich der Management-Node an einem dunklen Standort ohne externe Konnektivität befindet, muss die Upgrade-Readiness-Prüfung das <code>metadata.json</code> Datei, die Sie während heruntergeladen haben <a href="task_upgrade_element_latest_healthtools.html">"HealthTools-Upgrades"</a> Erfolgreich ausgeführt.</p>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>In diesem Verfahren wird beschrieben, wie Sie Upgrade-Checks durchführen, die zu einem der folgenden Ergebnisse führen:</p>
 </div>
 <div class="ulist">
