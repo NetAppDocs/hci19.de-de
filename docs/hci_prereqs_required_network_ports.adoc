@@ -125,6 +125,9 @@ Software-Download:
 | Management-Node | BMC/IPMI für Computing-Node | 623 UDP | RMCP-Anschluss (Remote Management Control Protocol) Erforderlich für Upgrades der NetApp Hybrid Cloud Control Computing-Firmware 
 
 
+| Management-Node | BMC/IPMI für Storage-Node | 623 UDP | RMCP-Anschluss Dies ist erforderlich, um IPMI-fähige Systeme zu verwalten. 
+
+
 | Management-Node | VMware vCenter | 5988-5989 | HTTPS-Kommunikation mit NetApp Hybrid Cloud Control 
 
 
@@ -138,6 +141,9 @@ Software-Download:
 
 
 | SNMP-Server | MIP-Speicher-Node | 161 UDP | SNMP-Abfrage 
+
+
+| BMC/IPMI für Storage-Node | Management-Node | 623 UDP | RMCP-Anschluss Dies ist erforderlich, um IPMI-fähige Systeme zu verwalten. 
 
 
 | MIP-Speicher-Node | DNS-Server | 53 TCP/UDP | DNS-Suche 
