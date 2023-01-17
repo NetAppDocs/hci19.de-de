@@ -234,7 +234,7 @@ NOTE: Sie werden aufgefordert, Passwörter in einer sicheren Eingabeaufforderung
 +
 [listing]
 ----
-/sf/packages/mnode/redeploy-mnode --mnode_admin_user [username]
+sudo /sf/packages/mnode/redeploy-mnode --mnode_admin_user [username]
 ----
 +
 .. Ersetzen Sie den Wert in [ ]-Klammern (einschließlich der Klammern) durch den Benutzernamen für das Administratorkonto für den Managementknoten. Dies ist wahrscheinlich der Benutzername für das Benutzerkonto, mit dem Sie sich beim Management-Node anmelden.
