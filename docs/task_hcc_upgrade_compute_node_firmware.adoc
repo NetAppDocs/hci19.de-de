@@ -43,7 +43,7 @@ NOTE: H615C Computing Nodes müssen BMC-Firmware mit der Version 4.68 aktualisie
 
 +
 
-NOTE: Eine vollständige Matrix der Firmware und der Treiber-Firmware für Ihre Hardware finden Sie unter https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Diesen KB-Artikel"^] (anmeldung erforderlich).
+NOTE: Eine vollständige Matrix der Firmware und der Treiber-Firmware für Ihre Hardware finden Sie unter link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen"].
 
 * *BIOS-Startreihenfolge*: Ändern Sie die Startreihenfolge im BIOS-Setup für jeden Knoten manuell `USB CD/DVD` Wird in der Boot-Liste angezeigt. Siehe das link:https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Known_issues_and_workarounds_for_Compute_Node_upgrades#BootOrder["Artikel"^] Finden Sie weitere Informationen.
 * *BMC-Zugangsdaten*: Aktualisieren der Zugangsdaten NetApp Hybrid Cloud Control verwendet, um eine Verbindung zum BMC des Computing-Nodes herzustellen. Dazu wird entweder die NetApp Hybrid Cloud Control verwendet link:task_hcc_edit_bmc_info.html#use-netapp-hybrid-cloud-control-to-edit-bmc-information["UI"] Oder link:task_hcc_edit_bmc_info.html#use-the-rest-api-to-edit-bmc-information["API"]. Durch Aktualisieren der BMC-Informationen vor dem Upgrade wird der Bestand aktualisiert und sichergestellt, dass Management-Node-Services über alle Hardwareparameter informiert sind, die zum Abschluss des Upgrades erforderlich sind.

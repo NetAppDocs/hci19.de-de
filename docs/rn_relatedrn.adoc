@@ -78,6 +78,7 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 * link:rn_compute_firmware_2.76.html["Versionshinweise Zum Computing-Firmware-Bundle 2.76"]
 * link:rn_compute_firmware_2.27.html["Versionshinweise Zum Computing-Firmware-Bundle 2.27"]
 * link:rn_firmware_12.2.109.html["Versionshinweise Zum Computing-Firmware-Bundle 12.2.109"]
+* link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen"] _NEU_
 
 
 
@@ -89,4 +90,5 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 * link:rn_storage_firmware_2.76.html["Versionshinweise Zum Speicher-Firmware-Bundle 2.76"]
 * link:rn_storage_firmware_2.27.html["Versionshinweise Zum Speicher-Firmware-Bundle 2.27"]
 * link:rn_H610S_BMC_3.84.07.html["H610S BMC 3.84.07 – Versionshinweise"]
+* link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen"] _NEU_
 

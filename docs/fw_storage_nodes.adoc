@@ -1,0 +1,369 @@
+---
+sidebar: sidebar 
+permalink: docs/fw_storage_nodes.html 
+keywords: documentation, earlier, previous, versions 
+summary: Unterstützte Firmware- und Treiberversionen für Storage-Nodes 
+---
+= Storage-Nodes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:keywords: hci, earlier, documentation, versions
+
+
+[role="lead"]
+Die unterstützten Firmware-Versionen für H-Series und SolidFire Storage Nodes
+
+* <<H610S>>
+* <<H410S>>
+* <<sf_nodes,SF38410, SF19210, SF9605 UND SF4805>>
+
+
+
+
+== H610S
+
+*Modellnummer (Familienanteil):* H610S *volle Modellnummer:* H610S-1, H610S-1-NE, H610S-2, H610S-2-NE, H610S-4, H610S-4-NE UND H610S-2F
+
+
+
+=== Komponenten-Firmware, die von einem Storage Firmware Bundle verwaltet wird
+
+Während des Zeitrahmens von 11.x war die NetApp Element-Software die einzige Möglichkeit, Firmware freizugeben. Ab Element 12.0 wurde das Konzept eines *Storage Firmware Bundle* eingeführt und Firmware-Updates wurden nun durch ein unabhängig veröffentlichtes Speicher-Firmware-Bundle oder Speicher-Firmware-Bundle ermöglicht, das im Rahmen einer Element 12.x-Version enthalten ist.
+
+
+NOTE: Ein Bindestrich (*-*) in der folgenden Tabelle zeigt an, dass die jeweilige Hardware-Komponente IN diesem gegebenen Freigabefahrzeug NICHT unterstützt wurde.
+
+[cols="26*"]
+|===
+| Fahrzeug Lösen | Freigabedatum | BIOS | BMC | CPLD | 10/25-GbE-NIC CX4 | 10/25-GbE-NIC CX5 | Cache NVDIMM NVDIMM Modul Smart (Gen1) | Cache NVDIMM Energy Source (BPM) Smart (Gen1) | Cache NVDIMM NVDIMM Modul Smart (Gen2) | Cache NVDIMM Energiequelle (BPM) Smart (Gen2) | Cache NVDIMM NVDIMM Modul Micron (Gen1) | Cache NVDIMM Energiequelle (PGEM) Agigatech (Gen1) | Cache NVDIMM NVDIMM Modul Micron (Gen2) | Cache NVDIMM Energiequelle (PGEM) Agigatech (Gen2) | Cache NVDIMM Energiequelle (PGEM) Agigatech (Gen3) | Laufwerk Samsung PM963 (SED) | Laufwerk Samsung PM963 (N-SED) | Laufwerk Samsung PM983 (SED) | Laufwerk Samsung PM983 (N-SED) | Antrieb Kioxia CD5 (SED) | Antrieb Kioxia CD5 (N-SED) | Laufwerk CD5 (FIPS) | Laufwerk Samsung PM9A3 (SED) | Laufwerk SK Hynix PE8010 (SED) | Laufwerk SK Hynix PE8010 (N-SED) 
+
+
+| *Speicher-Firmware-Paket 2.164.0* | 10/20/2022 | 3B11 | 3.94.07 | 122 | 14.25.1020 | 16.32.1010 | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EA5900Q | 0109 | 0109 | 0108 | GDC5602Q | 11092A10 | 110B2A10 
+
+
+| *Speicher-Firmware-Paket 2.164.0 bis NetApp Element 12.7* | 10/20/2022 | 3B11 | 3.94.07 | 122 | 14.25.1020 | 16.32.1010 | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EA5900Q | 0109 | 0109 | 0108 | GDC5602Q | 11092A10 | 110B2A10 
+
+
+| *Speicher-Firmware-Paket 2.150.4* | 06/08/2022 | 3B11 | 3.94.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EA5900Q | 0109 | 0109 | 0108 | GDC5502Q | 11092A10 | 110B2A10 
+
+
+| *Speicher-Firmware-Paket 2.150.4 bis NetApp Element 12.5* | 06/08/2022 | 3B11 | 3.94.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EA5900Q | 0109 | 0109 | 0108 | GDC5502Q | 11092A10 | 110B2A10 
+
+
+| *Speicher-Firmware-Paket 2.146.2* | 02/22/2022 | 3B11 | 3.94.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.3 | 2.16 | CXV8202Q | CXV8501Q | EDA5602Q | EA5900Q | 0109 | 0109 | 0108 | GDC5502Q | 11092A10 | 110B2A10 
+
+
+| *Speicher-Firmware-Paket 2.99.4 bis NetApp Element 12.3* | 09/16/2021 | 3B06 | 3.91.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.1 | 2.16 | CXV8202Q | CXV8501Q | EDA5402Q | EDA5700Q | 0109 | 0109 | 0108 | - | - | - 
+
+
+| *Speicher-Firmware-Paket 2.99.4 bis NetApp Element 12.3.1.165* | 12/06/2021 | 3B06 | 3.91.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.1 | 2.16 | CXV8202Q | CXV8501Q | EDA5402Q | EDA5700Q | 0109 | 0109 | 0108 | - | - | - 
+
+
+| *Speicher-Firmware-Paket 2.99.2* | 12/06/2021 | 3B06 | 3.91.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.1 | 2.16 | CXV8202Q | CXV8501Q | EDA5402Q | EDA5700Q | 0109 | 0109 | 0108 | - | - | - 
+
+
+| *Speicher-Firmware-Paket 2.99.1 bis NetApp Element 12.3.1.103* | 09/16/2021 | 3B06 | 3.86.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.1 | 2.16 | CXV8202Q | CXV8501Q | EDA5402Q | EDA5700Q | 0109 | 0109 | 0108 | - | - | - 
+
+
+| *Speicher-Firmware-Paket 2.99 bis NetApp Element 12.3* | 04/15/2021 | 3B06 | 3.86.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.1 | 2.16 | CXV8202Q | CXV8501Q | EDA5402Q | EDA5700Q | 0109 | 0109 | 0108 | - | - | - 
+
+
+| *Speicher-Firmware-Paket 2.76.8* | 02/03/2021 | 3B06 | 3.86.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | - | - | - | CXV8202Q | CXV8501Q | EDA5402Q | EDA5700Q | 0109 | 0109 | 0108 | - | - | - 
+
+
+| *Speicher-Firmware-Paket 2.27.1* | 09/29/2020 | 3B03 | 3.84.07 | 122 | 14.02.1002 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | - | - | - | CXV8202Q | CXV8501Q | EA5302Q | EA5600Q | 0108 | 0108 | 0108 | - | - | - 
+
+
+| *Speicher-Firmware-Paket 2.76.8 bis NetApp Element 12.2.1* | 06/02/2021 | 3B06 | 3.86.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.1 | 2.16 | CXV8202Q | CXV8501Q | EDA5402Q | EDA5700Q | 0109 | 0109 | 0108 | - | - | - 
+
+
+| *Speicher-Firmware-Paket 2.21 bis NetApp Element 12.2* | 09/29/2020 | 3B03 | 3.84.07 | 122 | 14.22.1002 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | - | - | - | CXV8202Q | CXV8501Q | EA5302Q | EA5600Q | 0108 | 0108 | 0108 | - | - | - 
+
+
+| *Speicher-Firmware-Paket 2.76.8 bis NetApp Element 12.0.1* | 06/02/2021 | 3B06 | 3.86.07 | 122 | 14.25.1020 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | 1.10 | 3.1 | 2.16 | CXV8202Q | CXV8501Q | EDA5402Q | EDA5700Q | 0109 | 0109 | 0108 | - | - | - 
+
+
+| *Speicher-Firmware-Paket 1.2.17 bis NetApp Element 12.0* | 03/20/2020 | 3B03 | 3.78.07 | 122 | 14.22.1002 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | 0108 | 0108 | 0108 | - | - | - 
+
+
+| *NetApp Element 11.8* | 03/11/2020 | 3B03 | 3.78.07 | 122 | 14.22.1002 | - | 3.1 | 2.16 | 26,2C | 1.30 | 25,3C | 1.40 | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | 0108 | 0108 | 0107 | - | - | - 
+
+
+| *NetApp Element 11.7* | 11/21/2019 | 3A10 | 3.76.07 | 117 | 14.22.1002 | - | 2.C | 2.07 | 26,2C | 1.30 | 25,3C | 1.40 | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | 0108 | 0108 | 0107 | - | - | - 
+
+
+| *NetApp Element 11.5.1* | 02/20/2020 | 3A08 | 3.76.07 | 117 | 14.22.1002 | - | 2.C | 2.07 | 26,2C | 1.30 | 25,3C | 1.40 | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | 0108 | 0108 | 0107 | - | - | - 
+
+
+| *NetApp Element 11.5* | 09/26/2019 | 3A08 | 3.76.07 | 117 | 14.22.1002 | - | 2.C | 2.07 | 26,2C | 1.30 | - | - | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | - | - | 0107 | - | - | - 
+
+
+| *NetApp Element 11.3.2* | 02/19/2020 | 3A08 | 3.76.07 | 117 | 14.22.1002 | - | 2.C | 2.07 | 26,2C | 1.30 | 25,3C | 1.40 | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | 0108 | 0108 | - | - | - | - 
+
+
+| *NetApp Element 11.3.1* | 08/19/2019 | 3A08 | 3.76.07 | 117 | 14.22.1002 | - | 2.C | 2.07 | 26,2C | 1.30 | - | - | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | - | - | - | - | - | - 
+
+
+| *NetApp Element 11.1.1* | 02/19/2020 | 3A06 | 3.70.07 | 117 | 14.22.1002 | - | 2.C | 2.07 | 26,2C | 1.30 | 25,3C | 1.40 | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | 0108 | 0108 | - | - | - | - 
+
+
+| *NetApp Element 11.1* | 04/25/2019 | 3A06 | 3.70.07 | 117 | 14.22.1002 | - | 2.C | 2.07 | 26,2C | 1.30 | - | - | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | - | - | - | - | - | - 
+
+
+| *NetApp Element 11.0.2* | 02/19/2020 | 3A06 | 3.70.07 | 117 | 14.22.1002 | - | 2.C | 2.07 | 26,2C | 1.30 | 25,3C | 1.40 | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | 0108 | 0108 | - | - | - | - 
+
+
+| *NetApp Element 11* | 11/29/2018 | 3A06 | 3.70.07 | 117 | 14.22.1002 | - | 2.C | 2.07 | 26,2C | 1.30 | - | - | - | - | - | CXV8202Q | CXV8501Q | EDA5202Q | EA5200Q | - | - | - | - | - | - 
+|===
+
+
+=== Die Komponenten-Firmware wird nicht von einem Storage Firmware-Bundle gemanagt
+
+Die folgende Firmware wird nicht von einem Storage Firmware Bundle verwaltet:
+
+[cols="2*"]
+|===
+| Komponente | Aktuelle Version 
+
+
+| 1/10-/25-GbE-NIC | 3.2d 0x80000b4b 
+
+
+| Startgerät | M161225i 
+|===
+
+
+== H410S
+
+*Modellnummer (Familienanteil):* H410S *volle Modellnummern:* H410S-0, H410S-1, H410S-1-NE und H410S-2
+
+
+
+=== Komponenten-Firmware, die von einem Storage Firmware Bundle verwaltet wird
+
+Komponenten-Firmware, die von einem Storage Firmware Bundle verwaltet wird.
+
+[cols="12*"]
+|===
+| Fahrzeug Lösen | Freigabedatum | BIOS | BMC | 10/25-GbE-NIC SMCI Mellanox | Cache-NVDIMM RMS200 | Cache-NVDIMM RMS300 | Laufwerk Samsung PM863 (SED) | Laufwerk Samsung PM863 (N-SED) | Laufwerk Toshiba Hawk-4 (SED) | Laufwerk Toshiba Hawk-4 (N-SED) | Laufwerk Samsung PM883 (SED) 
+
+
+| *Speicher-Firmware-Paket 2.164.0* | 10/20/2022 | NAT3.4 | 6.98.00 | 14.25.1020 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
+
+
+| *Speicher-Firmware-Paket 2.164.0 bis NetApp Element 12.7* | 10/20/2022 | NAT3.4 | 6.98.00 | 14.25.1020 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
+
+
+| *Speicher-Firmware-Paket 2.150.4 bis NetApp Element 12.5* | 06/08/2022 | NAT3.4 | 6.98.00 | 14.25.1020 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
+
+
+| *Speicher-Firmware-Paket 2.99 bis NetApp Element 12.3* | 04/15/2021 | NA2.1 | 6.84.00 | 14.25.1020 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *Speicher-Firmware-Paket 2.76.8 bis NetApp Element 12.2.1* | 06/02/2021 | NA2.1 | 6.84.00 | 14.25.1020 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *Speicher-Firmware-Paket 1.2.17 bis NetApp Element 12.0* | 03/20/2020 | NA2.1 | 3.25 | 14.21.1000 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.8.2* | 02/22/2022 | NA2.1 | 3.25 | 14.21.1000 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.8.1* | 06/02/2021 | NA2.1 | 3.25 | 14.21.1000 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.8* | 03/11/2020 | NA2.1 | 3.25 | 14.21.1000 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.7* | 11/21/2019 | NA2.1 | 3.25 | 14.21.1000 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.5.1* | 02/19/2020 | NA2.1 | 3.25 | 14.21.1000 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.5* | 09/26/2019 | NA2.1 | 3.25 | 14.21.1000 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.3.2* | 02/19/2020 | NA2.1 | 3.25 | 14.21.1000 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.3.1* | 08/19/2019 | NA2.1 | 3.25 | 14.21.1000 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.1.1* | 02/19/2020 | NA2.1 | 3.25 | 14.17.2020 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.1* | 04/25/2019 | NA2.1 | 3.25 | 14.17.2020 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.0.2* | 02/19/2020 | NA2.1 | 3.25 | 14.17.2020 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *NetApp Element 11.0* | 11/29/2018 | NA2.1 | 3.25 | 14.17.2020 | Ae3b8cc | - | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+|===
+
+
+=== Die Komponenten-Firmware wird nicht von einem Storage Firmware-Bundle gemanagt
+
+Die folgende Firmware wird nicht von einem Storage Firmware Bundle verwaltet:
+
+[cols="2*"]
+|===
+| Komponente | Aktuelle Version 
+
+
+| CPLD | 01.A1.06 
+
+
+| SAS-Adapter | 16.00.01.00 
+
+
+| Mikrocontroller-Einheit (MCU) | 1.18 
+
+
+| SIOM 1/10-GbE-NIC | 1.93 
+
+
+| Stromversorgung | 1.3 
+
+
+| Boot-Gerät SSDSCKJB240G7 | N2010121 
+
+
+| Boot-Gerät MTFDDAV240TCB1AR | DOMU037 
+|===
+
+
+== [[sf_Nodes]]SF38410, SF19210, SF9605 und SF4805
+
+*Volle Modellnummern:* SF38410, SF19210, SF9605 und SF4805
+
+
+
+=== Komponenten-Firmware, die von einem Storage Firmware Bundle verwaltet wird
+
+Während des Zeitrahmens von 11.x war die NetApp Element-Software die einzige Möglichkeit, Firmware freizugeben. Ab Element 12.0 wurde das Konzept eines *Storage Firmware Bundle* eingeführt und Firmware-Updates wurden nun durch ein unabhängig veröffentlichtes Speicher-Firmware-Bundle oder Speicher-Firmware-Bundle ermöglicht, das im Rahmen einer Element 12.x-Version enthalten ist.
+
+
+NOTE: Ein Bindestrich (*-*) in der folgenden Tabelle zeigt an, dass die jeweilige Hardware-Komponente IN diesem gegebenen Freigabefahrzeug NICHT unterstützt wurde.
+
+[cols="10*"]
+|===
+| Fahrzeug Lösen | Freigabedatum | NIC | CACHE NVDIMM RMS200 (RMS200) | CACHE NVDIMM RMS200 (RMS300) | Laufwerk Samsung PM863 (SED) | Laufwerk Samsung PM863 (N-SED) | Laufwerk Toshiba Hawk-4 (SED) | Laufwerk Toshiba Hawk-4 (N-SED) | Laufwerk Samsung PM883 (SED) 
+
+
+| *Speicher-Firmware-Paket 2.164.0* | 10/20/2022 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
+
+
+| *Speicher-Firmware-Paket 2.164.0 bis NetApp Element 12.7* | 10/20/2022 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
+
+
+| *Speicher-Firmware-Paket 2.150.4* | 06/08/2022 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
+
+
+| *Speicher-Firmware-Paket 2.150.4 bis NetApp Element 12.5* | 06/08/2022 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
+
+
+| *Speicher-Firmware-Paket 2.146.2* | 02/22/2022 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
+
+
+| *Speicher-Firmware-Paket 2.99.4 bis NetApp Element 12.3* | 09/16/2021 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *Speicher-Firmware-Paket 2.99.4 bis NetApp Element 12.3.1.165* | 12/06/2021 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *Speicher-Firmware-Paket 2.99.2* | 08/03/2021 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *Speicher-Firmware-Paket 2.99.1 bis NetApp Element 12.3.1.103* | 09/16/2021 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *Speicher-Firmware-Paket 2.99 bis NetApp Element 12.3* | 04/15/2021 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *Speicher-Firmware-Paket 2.76.8* | 02/03/2021 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *Speicher-Firmware-Paket 2.27.1* | 09/29/2020 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *Speicher-Firmware-Paket 2.76.8 bis NetApp Element 12.2.1* | 06/02/2021 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *Speicher-Firmware-Paket 2.21 bis NetApp Element 12.2* | 09/29/2020 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *Speicher-Firmware-Paket 2.76.8 bis NetApp Element 12.0.1* | 06/02/2021 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7904Q 
+
+
+| *Speicher-Firmware-Paket 1.2.17 bis NetApp Element 12.0* | 03/20/2020 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.8.2* | 02/22/2022 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.8.1* | 06/02/2021 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.8* | 03/11/2020 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.7* | 11/21/2019 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.5.1* | 02/19/2020 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.5* | 09/26/2019 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.3.2* | 02/19/2020 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.3.1* | 08/19/2019 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.1.1* | 02/19/2020 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.1* | 04/25/2019 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11.0.2* | 02/19/2020 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+
+
+| *NetApp Element 11* | 11/29/2018 | 7.10.18 | Ae3b8cc | - | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7104Q 
+|===
+
+
+=== Die Komponenten-Firmware wird nicht von einem Storage Firmware-Bundle gemanagt
+
+Die folgende Firmware wird nicht von einem Storage Firmware Bundle verwaltet:
+
+[cols="2*"]
+|===
+| Komponente | Aktuelle Version 
+
+
+| BIOS | 2.8.0 
+
+
+| IDRAC | 2.75.75.75 
+
+
+| Identitätsmodul | N41WC 1.02 
+
+
+| SAS-Adapter | 16.00.01.00 
+
+
+| Stromversorgung | 1.3 
+
+
+| Boot-Gerät | M161225i 
+|===

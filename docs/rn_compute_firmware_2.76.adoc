@@ -120,5 +120,5 @@ image::bol_list_bugs_found.png[Versionshinweise für Storage-Firmware-Bundles]
 [discrete]
 == Weitere Informationen
 
-* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Firmware_and_driver_versions_in_NetApp_HCI_and_NetApp_Element_software["Firmware- und Treiberversionen in NetApp HCI- und NetApp Element-Software"^]
+* link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen für NetApp HCI und Firmware-Versionen für NetApp HCI Storage Nodes"]
 

@@ -387,6 +387,8 @@ homepage:
     links:
     - title: Produktübersicht
       url: "/docs/concept_hci_product_overview.html"
+    - title: Unterstützte Firmware- und ESXi-Treiberversionen
+      url: docs/firmware_driver_versions.html
     - title: Versionshinweise
       url: "/docs/rn_relatedrn.html"
     - title: Was ist neu
