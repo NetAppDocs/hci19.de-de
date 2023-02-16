@@ -5,29 +5,49 @@ summary: Mithilfe der REST API-Benutzeroberfläche müssen Sie die Hardware-Tag-
 keywords: netapp, management node, rest api, hci, hardware tag 
 ---
 = So finden Sie ein Hardware-Tag für einen Compute-Node
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
 
 
 [role="lead"]
 Mithilfe der REST API-Benutzeroberfläche müssen Sie die Hardware-Tag-Nummer zur Konfiguration der Managementknoten hinzufügen.
 
-In diesem Abschnitt erfahren Sie, wie Sie die Hardware-Tag-Nummer für Ihren Compute-Node finden.
+[role="tabbed-block"]
+====
+.VMware vSphere 8.0 und 7.0
+--
+Suchen Sie in VMware vSphere Web Client 8.0 und 7.0 das Hardware-Tag für einen Computing-Knoten.
+
+.Schritte
+. Wählen Sie den Host im vSphere Web Client Navigator aus.
+. Wählen Sie die Registerkarte *Konfigurieren* aus.
+. Wählen Sie in der Seitenleiste die Option *Hardware* > *Übersicht*. Überprüfen Sie, ob die Hardware-Tag-Nummer im aufgeführt ist `System` Tabelle:
++
+image:../media/hw_tag_70.PNG["Screenshot der Systemtabelle"]
+
+. Kopieren und speichern Sie den Wert für *Tag*.
+. xref:task_mnode_add_assets.adoc[Fügen Sie Ihre Computing- und Controller-Ressourcen dem Management-Node hinzu].
+
+
+--
+.VMware vSphere 6.7 und 6.5
+--
+Suchen Sie in VMware vSphere Web Client 6.7 und 6.5 das Hardware-Tag für einen Computing-Knoten.
 
 .Schritte
 . Wählen Sie den Host im vSphere Web Client Navigator aus.
 . Wählen Sie die Registerkarte *Monitor* aus und wählen Sie *Hardwarezustand*.
-. Abhängig von der Version von vSphere, die Sie ausführen, können Sie das Hardware-Tag an einem der folgenden Orte auf dem Bildschirm * Hardware Health* finden.
+. Überprüfen Sie, ob das Tag mit dem BIOS-Hersteller und der Modellnummer aufgelistet ist.
 +
-** Überprüfen Sie, ob das Tag mit dem BIOS-Hersteller und der Modellnummer aufgelistet ist.
-+
-image:../media/hw_tag_67.PNG["Hardwarezustand"]
+image:../media/hw_tag_67.PNG["Screenshot der Systemtabelle"]
 
-** Wählen Sie die Registerkarte *Konfigurieren* aus. Wählen Sie in der Seitenleiste die Option *Hardware* und *Übersicht* aus. Überprüfen Sie, ob die Hardware-Tag-Nummer im aufgeführt ist `System` Tabelle:
-+
-image:../media/hw_tag_70.PNG["Hardwarezustand"]
+. Kopieren und speichern Sie den Wert für *Tag*.
+. xref:task_mnode_add_assets.adoc[Fügen Sie Ihre Computing- und Controller-Ressourcen dem Management-Node hinzu].
 
 
-
-. Kopieren und speichern Sie den Wert für `Tag`.
-. Informationen zum Hinzufügen der Computing-Node-Ressource zum Management-Node finden Sie unter xref:task_mnode_add_assets.adoc[Fügen Sie dem Management-Node Computing- und Controller-Ressourcen hinzu].
-
+--
+====
