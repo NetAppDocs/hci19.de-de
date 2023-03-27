@@ -17,22 +17,6 @@ keywords: netapp, hci, ports, tcp, udp
 [role="lead"]
 Unter Umständen müssen Sie die folgenden Ports über die Edge-Firewall Ihres Datacenters zulassen, damit Sie das System Remote managen, Clients außerhalb Ihres Datacenters eine Verbindung zu Ressourcen herstellen und sicherstellen können, dass interne Services ordnungsgemäß funktionieren. Einige dieser Ports, URLs oder IP-Adressen sind je nach Nutzung des Systems möglicherweise nicht erforderlich. Wenn nicht anders angegeben, sind alle Ports TCP.
 
-[NOTE]
-====
-Die Web-UI und die API von NetApp Hybrid Cloud Control laden Softwarepakete aus dem Online-Software-Repository von NetApp herunter. Aus diesem Grund können einige URLs oder IP-Adressen auf der Grundlage des Inhaltszustellungsnetzwerks auf andere URLs oder IP-Adressen auflösen. Wenn möglich, sollten Sie mit einem Netzwerktechniker zusammenarbeiten, um diese URLs oder IP-Adressen den Firewall-Regeln hinzuzufügen. Gehen Sie dazu wie folgt vor:
-
-.Schritte
-. Verwenden Sie die Wget- oder Curl-Dienstprogramme, um auf eine URL zuzugreifen (z. B. support-sg-nawest.netapp.com).
-. Überprüfen Sie die Konnektivität, wie im folgenden Beispiel gezeigt:
-+
-image::network_ports.PNG[Überprüfen Sie die Anschlusskonnektivität]
-
-. Empfangen Sie einen fehlgeschlagene Zugriffe auf die URL (anders als support-sg-nawest.netapp.com).
-. Bearbeiten Sie die Firewall-Regeln, um die neue URL zuzulassen.
-. Wiederholen Sie die obigen Schritte, bis der Zugriffsversuch erfolgreich war.
-
-
-====
 Die folgenden Abkürzungen werden in der Tabelle verwendet:
 
 * MIP: Management-IP-Adresse, eine Adresse pro Node
@@ -99,21 +83,6 @@ Alle Ports in der Tabelle sind TCP, wenn nicht anders angegeben.
 
 
 | Management-Node | `monitoring.solidfire.com` | 443 | Berichterstellung für den Storage-Cluster an Active IQ 
-
-
-| Management-Node  a| 
-Benachrichtigung über neue Version:
-
-* `https://support.netapp.com/aods/`
-
-
-Software-Download:
-
-* `https://support-sg-emea.netapp.com`
-* `https://support-sg-naeast.netapp.com`
-* `https://support-sg-nawest.netapp.com`
-
-| 443 | Service-Upgrades für Management-Nodes 
 
 
 | Management-Node | Storage Cluster MVIP | 443 | UI- und API-Zugriff auf Upgrades von Storage-Node und Element Software 

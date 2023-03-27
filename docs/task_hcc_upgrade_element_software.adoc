@@ -41,10 +41,6 @@ https://<ManagementNodeIP>
 .. Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des Storage-Cluster-Administrators bereitstellen.
 .. Wählen Sie *Upgrade* oben rechts auf der Schnittstelle aus.
 .. Die EULA erscheint. Scrollen Sie nach unten, wählen Sie *Ich akzeptiere aktuelle und alle zukünftigen Updates* und wählen Sie *Speichern*.
-+
-
-NOTE: Wenn Sie die EULA akzeptieren, wird sie für alle zukünftigen Updates aufgezeichnet und die automatische Download-Funktion ist aktiviert. Der Kunde erhält Aktualisierungen zu NetApp Software Updates und Upgrades, die nach eigenem Ermessen und nach eigenem Ermessen installiert werden können. Sie können die Funktion zum automatischen Download deaktivieren, indem Sie die Netzwerkverbindung zum NetApp Online-Software-Repository deaktivieren.
-
 
 
 
@@ -66,9 +62,6 @@ IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren 
 == Verwendung der NetApp Hybrid Cloud Control UI für das Upgrade von Element Storage
 
 Über die Benutzeroberfläche von NetApp Hybrid Cloud Control können Sie ein Storage-Cluster-Upgrade durchführen.
-
-.Was Sie benötigen
-Wenn Ihr Management-Node nicht mit dem Internet verbunden ist, haben Sie den heruntergeladen https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp HCI Softwarepaket für NetApp HCI Storage-Cluster"^].
 
 
 CAUTION: Informationen zu potenziellen Problemen beim Upgrade von Storage-Clustern mit NetApp Hybrid Cloud Control und den zugehörigen Workarounds finden Sie im https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Potential_issues_and_workarounds_when_running_storage_upgrades_using_NetApp_Hybrid_Cloud_Control["KB-Artikel"^].
@@ -96,30 +89,29 @@ Auf der Registerkarte *Storage* werden die Speichercluster aufgelistet, die Teil
 | Option | Schritte 
 
 
-| Der Management-Node verfügt über externe Konnektivität.  a| 
-.. Wählen Sie den Dropdown-Pfeil neben dem Cluster aus, das Sie aktualisieren möchten, und wählen Sie aus den Upgrade-Versionen aus, die auf der Registerkarte *Element* verfügbar sind.
-.. Wählen Sie *Upgrade Starten*.
-
-
-
-TIP: Der *Upgrade-Status* ändert sich während des Upgrades, um den Status des Prozesses anzuzeigen. Es ändert sich auch in Reaktion auf Aktionen, die Sie ergreifen, z. B. die Unterbrechung des Upgrades oder wenn das Upgrade einen Fehler zurückgibt. Siehe <<Statusänderungen des Upgrades>>.
-
-
-NOTE: Während das Upgrade läuft, können Sie die Seite verlassen und zu einem späteren Zeitpunkt zurückkehren, um den Fortschritt zu überwachen. Die Seite aktualisiert den Status und die aktuelle Version nicht dynamisch, wenn die Cluster-Zeile ausgeblendet ist. Die Cluster-Zeile muss erweitert werden, um die Tabelle zu aktualisieren, oder Sie können die Seite aktualisieren.
-
-Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist.
-
-
-
-| Ihr Management Node befindet sich an einem dunklen Standort ohne externe Konnektivität.  a| 
+| Alle Cluster laufen mit Element 11.8 und höher  a| 
 .. Wählen Sie *Durchsuchen*, um das heruntergeladene Aktualisierungspaket hochzuladen.
 .. Warten Sie, bis der Upload abgeschlossen ist. In einer Statusleiste wird der Status des Uploads angezeigt.
-
-
++
 
 CAUTION: Der Datei-Upload geht verloren, wenn Sie vom Browser-Fenster wegnavigieren.
 
++
 Nach dem erfolgreichen Hochladen und Validierungen der Datei wird eine Meldung auf dem Bildschirm angezeigt. Die Validierung kann mehrere Minuten in Anspruch nehmen. Wenn Sie zu diesem Zeitpunkt vom Browser-Fenster weg navigieren, bleibt der Datei-Upload erhalten.
+
+.. Wählen Sie *Upgrade Starten*.
++
+
+TIP: Der *Upgrade-Status* ändert sich während des Upgrades, um den Status des Prozesses anzuzeigen. Es ändert sich auch in Reaktion auf Aktionen, die Sie ergreifen, z. B. die Unterbrechung des Upgrades oder wenn das Upgrade einen Fehler zurückgibt. Siehe <<Statusänderungen des Upgrades>>.
+
++
+
+NOTE: Während das Upgrade läuft, können Sie die Seite verlassen und zu einem späteren Zeitpunkt zurückkehren, um den Fortschritt zu überwachen. Die Seite aktualisiert den Status und die aktuelle Version nicht dynamisch, wenn die Cluster-Zeile ausgeblendet ist. Die Cluster-Zeile muss erweitert werden, um die Tabelle zu aktualisieren, oder Sie können die Seite aktualisieren.
+
++
+Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen ist.
+
+
 
 
 
@@ -163,9 +155,6 @@ Hier sind die verschiedenen Status, in denen die Spalte *Upgrade Status* in der 
 | Fehler | Während des Upgrades ist ein Fehler aufgetreten. Sie können das Fehlerprotokoll herunterladen und an den NetApp Support senden. Nachdem Sie den Fehler behoben haben, können Sie zur Seite zurückkehren und *Fortsetzen* wählen. Wenn Sie das Upgrade fortsetzen, geht die Statusleiste einige Minuten lang zurück, während das System die Zustandsprüfung ausführt und den aktuellen Status des Upgrades überprüft. 
 
 
-| Erkennung nicht möglich | NetApp Hybrid Cloud Control zeigt diesen Status anstelle von *verfügbaren Versionen* an, wenn keine externe Verbindung zum Online-Software-Repository vorhanden ist. Wenn Sie über externe Konnektivität verfügen, diese Meldung jedoch immer noch sehen, überprüfen Sie Ihr link:task_mnode_configure_proxy_server.html["Proxy-Konfiguration"]. 
-
-
 | Füllen Sie das Follow-up aus | Nur für H610S Nodes, die ein Upgrade von Element Version vor 11.8 durchführen. Nachdem Phase 1 des Upgrade-Vorgangs abgeschlossen ist, werden Sie in diesem Zustand aufgefordert, Phase 2 des Upgrades auszuführen (siehe https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/H_Series/NetApp_H610S_storage_node_power_off_and_on_procedure["KB-Artikel"^]). Nachdem Sie Phase 2 abgeschlossen und bestätigt haben, dass Sie den Vorgang abgeschlossen haben, ändert sich der Status auf *bis Datum*. 
 |===
 
@@ -175,87 +164,41 @@ Hier sind die verschiedenen Status, in denen die Spalte *Upgrade Status* in der 
 Mit APIs können Storage-Nodes in einem Cluster auf die neueste Element Softwareversion aktualisiert werden. Sie können ein Automatisierungstool Ihrer Wahl zum Ausführen der APIs verwenden. Der hier dokumentierte API-Workflow nutzt die REST-API-UI, die am Management-Node verfügbar ist.
 
 .Schritte
-. Führen Sie je nach Verbindung einen der folgenden Schritte aus:
+. Laden Sie das Storage-Upgrade-Paket auf ein Gerät herunter, auf das der Management-Node zugreifen kann. Gehen Sie zur NetApp HCI Software https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["download-Seite"^] Und laden Sie das neueste Storage-Node-Image herunter.
+. Laden Sie das Storage-Upgrade-Paket auf den Management-Node hoch:
 +
-[cols="2*"]
-|===
-| Option | Schritte 
-
-
-| Der Management-Node verfügt über externe Konnektivität.  a| 
-.. Überprüfen Sie die Repository-Verbindung:
-+
-... Öffnen Sie die REST-API-UI für den Management-Node:
+.. Öffnen Sie die REST-API-UI für den Management-Node:
 +
 [listing]
 ----
 https://<ManagementNodeIP>/package-repository/1/
 ----
-... Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
+.. Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
 +
-.... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
-.... Geben Sie die Client-ID als ein `mnode-client`.
-.... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
-.... Schließen Sie das Autorisierungsfenster.
+... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
+... Geben Sie die Client-ID als ein `mnode-client`.
+... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
+... Schließen Sie das Autorisierungsfenster.
 
 
-... Wählen Sie in DER REST-API-UI *GET ​/packages​/Remote-repository​/Connection* aus.
-... Wählen Sie *Probieren Sie es aus*.
-... Wählen Sie *Ausführen*.
-... Wenn Code 200 zurückgegeben wird, fahren Sie mit dem nächsten Schritt fort. Wenn keine Verbindung zum Remote-Repository besteht, stellen Sie die Verbindung her, oder verwenden Sie die Option „Dark Site“.
+.. Wählen Sie in DER REST API-Benutzeroberfläche *POST /Packages* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Wählen Sie *Durchsuchen* und wählen Sie das Aktualisierungspaket aus.
+.. Wählen Sie *Ausführen*, um den Upload zu initiieren.
+.. Kopieren Sie die Paket-ID aus der Antwort, und speichern Sie sie (`"id"`) Für den Einsatz in einem späteren Schritt.
 
 
-.. Suchen Sie die Aktualisierungspaket-ID:
+. Überprüfen Sie den Status des Uploads.
 +
-... Wählen Sie in DER REST API-Benutzeroberfläche *GET /Packages* aus.
-... Wählen Sie *Probieren Sie es aus*.
-... Wählen Sie *Ausführen*.
-... Kopieren Sie die Paket-ID aus der Antwort, und speichern Sie sie in einem späteren Schritt.
-
-
-
-
-
-
-| Ihr Management Node befindet sich an einem dunklen Standort ohne externe Konnektivität.  a| 
-.. Laden Sie das Storage-Upgrade-Paket auf ein Gerät herunter, auf das der Management-Node zugreifen kann. Gehen Sie zur NetApp HCI Software https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["download-Seite"^] Und laden Sie das neueste Storage-Node-Image herunter.
-.. Laden Sie das Storage-Upgrade-Paket auf den Management-Node hoch:
-+
-... Öffnen Sie die REST-API-UI für den Management-Node:
-+
-[listing]
-----
-https://<ManagementNodeIP>/package-repository/1/
-----
-... Wählen Sie *autorisieren* aus, und füllen Sie Folgendes aus:
-+
-.... Geben Sie den Benutzernamen und das Passwort für den Cluster ein.
-.... Geben Sie die Client-ID als ein `mnode-client`.
-.... Wählen Sie *autorisieren*, um eine Sitzung zu starten.
-.... Schließen Sie das Autorisierungsfenster.
-
-
-... Wählen Sie in DER REST API-Benutzeroberfläche *POST /Packages* aus.
-... Wählen Sie *Probieren Sie es aus*.
-... Wählen Sie *Durchsuchen* und wählen Sie das Aktualisierungspaket aus.
-... Wählen Sie *Ausführen*, um den Upload zu initiieren.
-... Kopieren Sie die Paket-ID aus der Antwort, und speichern Sie sie (`"id"`) Für den Einsatz in einem späteren Schritt.
-
-
-.. Überprüfen Sie den Status des Uploads.
-+
-... Wählen Sie in DER REST-API-Benutzeroberfläche *GET​ /packages​/{id}​/Status* aus.
-... Wählen Sie *Probieren Sie es aus*.
-... Geben Sie die Paket-ID ein, die Sie im vorherigen Schritt in *id* kopiert haben.
-... Wählen Sie *Ausführen*, um die Statusanforderung zu initiieren.
+.. Wählen Sie in DER REST-API-Benutzeroberfläche *GET​ /packages​/{id}​/Status* aus.
+.. Wählen Sie *Probieren Sie es aus*.
+.. Geben Sie die Paket-ID ein, die Sie im vorherigen Schritt in *id* kopiert haben.
+.. Wählen Sie *Ausführen*, um die Statusanforderung zu initiieren.
 +
 Die Antwort zeigt an `state` Als `SUCCESS` Nach Abschluss.
 
 
 
-
-
-|===
 . Suchen Sie die Storage Cluster ID:
 +
 .. Öffnen Sie die REST-API-UI für den Management-Node:

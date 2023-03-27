@@ -67,6 +67,7 @@ In den Benachrichtigungsdateien finden Sie Informationen zu Urheberrechten und L
 * link:../media/storage_firmware_bundle_2.27_notices.pdf["Hinweis zum Storage Firmware Bundle 2.27"^]
 * link:../media/compute_iso_notice.pdf["Hinweis zur ISO für die Rechner-Firmware"^]
 * link:../media/H610S_BMC_notice.pdf["Hinweis für H610S BMC"^]
+* link:../media/mgmt_svcs_2.23_notice.pdf["Hinweis zu Managementservices 2.23.64 (NetApp Element-Plug-in für VMware vCenter Server 5.1.12)"^]
 * link:../media/mgmt_svcs_2.22_notice.pdf["Hinweis zu Managementservices 2.22.7 (NetApp Element-Plug-in für vCenter Server 5.0.37)"^]
 * link:../media/mgmt_svcs_2.21_notice.pdf["Hinweis zu Managementservices 2.21.61 (NetApp Element-Plug-in für vCenter Server 4.10.12)"^]
 * link:../media/2.20_notice.pdf["Hinweis zu Managementservices 2.20.69 (NetApp Element-Plug-in für vCenter Server 4.9.14)"^]

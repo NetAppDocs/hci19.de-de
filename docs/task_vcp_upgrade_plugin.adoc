@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: docs/task_vcp_upgrade_plugin.html 
 summary: Bei einem Upgrade des NetApp HCI Systems können Sie ein Upgrade des Element Plug-ins für vCenter Server durchführen. 
-keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 5.0 
+keywords: netapp, vcp, vCenter plug-in, upgrade, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10, 5.0, 5.1 
 ---
 = Aktualisieren Sie das Element Plug-in für vCenter Server
 :hardbreaks:
@@ -21,15 +21,15 @@ Sie können die Plug-in-Registrierung auf der vCenter Server Virtual Appliance (
 Dieses Upgrade-Verfahren umfasst die folgenden Upgrade-Szenarien.
 
 
-NOTE: Die Management Services 2.22.7 umfassen das NetApp Element-Plug-in für vCenter Server 5.0, das das Remote-Plug-in enthält. Wenn Sie das Element Plug-in verwenden, sollten Sie ein Upgrade auf Version 5.0 durchführen, um die VMware Direktive zu erfüllen, die Unterstützung für lokale Plug-ins überflüssig macht. https://kb.vmware.com/s/article/87880["Weitere Informationen ."^]. Wenn Sie das Plug-in nicht verwenden, ist dies eine optionale Aktualisierung.
+NOTE: Management Services 2.22.7 enthält Element Plug-in für vCenter Server 5.0, das das Remote-Plug-in enthält. Wenn Sie das Element-Plug-in verwenden, sollten Sie ein Upgrade auf die Managementservices 2.22.7 oder höher durchführen, um die VMware-Direktive zu erfüllen, die die Unterstützung für lokale Plug-ins überflüssig macht. https://kb.vmware.com/s/article/87880["Weitere Informationen ."^].
 
 [role="tabbed-block"]
 ====
 .Element Plug-in für vCenter 5.0 und höher
 --
-Beginnend mit dem Element Plug-in für vCenter Server 5.0 umfasst dieses Upgrade-Verfahren die folgenden Upgrade-Szenarien:
+Dieses Upgrade-Verfahren umfasst die folgenden Upgrade-Szenarien:
 
-* Sie führen ein Upgrade auf Element Plug-in für vCenter Server 5.0 durch.
+* Sie führen ein Upgrade auf Element Plug-in für vCenter Server 5.1 oder 5.0 durch.
 * Sie aktualisieren gerade auf einen 8.0 oder 7.0 HTML5 vSphere Web Client.
 
 
@@ -37,12 +37,12 @@ Beginnend mit dem Element Plug-in für vCenter Server 5.0 umfasst dieses Upgrade
 IMPORTANT: Das Element Plug-in für vCenter 5.0 und höher ist nicht mit vCenter Server 6.7 und 6.5 kompatibel.
 
 
-NOTE: Bei einem Upgrade von Element Plug-in für vCenter Server 4.x auf 5.0 gehen die mit dem Plug-in konfigurierten Cluster verloren, da die Daten nicht von einer vCenter Instanz in ein Remote-Plug-in kopiert werden können. Sie müssen die Cluster dem Remote-Plug-in erneut hinzufügen. Dies ist eine einmalige Aktivität beim Upgrade von einem lokalen Plug-in auf ein Remote-Plug-in.
+NOTE: Wenn Sie von Element Plug-in für vCenter Server 4.x auf 5.x aktualisieren, gehen die bereits mit dem Plug-in konfigurierten Cluster verloren, da die Daten nicht von einer vCenter-Instanz in ein Remote-Plug-in kopiert werden können. Sie müssen die Cluster dem Remote-Plug-in erneut hinzufügen. Dies ist eine einmalige Aktivität beim Upgrade von einem lokalen Plug-in auf ein Remote-Plug-in.
 
 --
 .Element Plug-in für vCenter 4.10 und früher
 --
-Bei Element Plug-in für vCenter Server 4.10 oder früher umfasst dieses Upgrade-Verfahren die folgenden Upgrade-Szenarien:
+Dieses Upgrade-Verfahren umfasst die folgenden Upgrade-Szenarien:
 
 * Sie aktualisieren gerade auf Element Plug-in für VMware vCenter Server 4.10, 4.9, 4.8, 4.7, 4.6 4.5, oder 4.4.
 * Sie aktualisieren gerade auf einen 7.0, 6.7 oder 6.5 HTML5 vSphere Web Client.
@@ -91,7 +91,7 @@ image::vcp_registration_utility_ui_qossioc.png[Zeigt die Benutzeroberfläche des
 
 . Wählen Sie *vCenter Plug-in Registrierung*.
 +
-** Die Seite vCenter Plug-in-Registrierung für Element Plug-in für vCenter Server 5.0:
+** Die vCenter Plug-in-Registrierungsseite für Element Plug-in für vCenter Server 5.x:
 +
 image::vcp_remote_plugin_registration_ui.png[Zeigt die Benutzeroberfläche des Registrierungsprogramms für ein Remote-Plug-in]
 
@@ -141,7 +141,7 @@ NOTE: Durch diese Aktion wird eine neue Datenbank erstellt und die Installation 
 +
 ** Ab dem Element Plug-in für vCenter Server 5.0 erscheint der NetApp Element Remote Plugin Extension Point:
 +
-image::vcp_remote_plugin_icons_home_page.png[Zeigt den Plug-in-Erweiterungspunkt nach einem erfolgreichen Upgrade oder einer erfolgreichen Installation für Element Plug-in 5.10 oder höher]
+image::vcp_remote_plugin_icons_home_page.png[Zeigt den Plug-in-Erweiterungspunkt nach einem erfolgreichen Upgrade oder einer erfolgreichen Installation für Element Plug-in 5.0 oder höher]
 
 ** Bei Element Plug-in für vCenter Server 4.10 oder früher werden die Erweiterungspunkte für NetApp Element-Konfiguration und -Verwaltung angezeigt:
 +
@@ -164,8 +164,8 @@ Die folgenden Versionsdetails bzw. Details zu einer neueren Version sollten ange
 +
 [listing]
 ----
-NetApp Element Plug-in Version: 5.0
-NetApp Element Plug-in Build Number: 37
+NetApp Element Plug-in Version: 5.1
+NetApp Element Plug-in Build Number: 12
 ----
 
 

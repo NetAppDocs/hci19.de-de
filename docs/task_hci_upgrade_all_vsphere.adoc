@@ -23,7 +23,7 @@ Wenn Sie die VMware vSphere Komponenten Ihrer NetApp HCI Installation aktualisie
 +
 [IMPORTANT]
 ====
-Sie sollten ein Upgrade auf das NetApp Element-Plug-in für vCenter Server 5.0 durchführen, um das Plug-in mit VMware vCenter 7.0 Update 3 bereitzustellen, ohne dass ein Workaround bereitgestellt werden muss.
+Sie sollten ein Upgrade auf das NetApp Element Plug-in für vCenter Server 5.0 oder höher durchführen, damit Sie das Plug-in mit VMware vCenter 7.0 Update 3 bereitstellen können, ohne eine Problemumgehung anwenden zu müssen.
 
 Mit dem Element Plug-in für vCenter Server 4.x kann das Plug-in 4.x bei einem Upgrade auf VMware vCenter Server 7.0 Update 3 nicht bereitgestellt werden. Informationen zur Lösung dieses Problems mit Spring Framework 4 finden Sie unter https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["Diesen KB-Artikel"^].
 
