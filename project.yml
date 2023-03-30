@@ -198,6 +198,8 @@ sidebar:
           url: "/docs/task_mnode_recover.html"
       - title: Greifen Sie auf den Management-Node zu
         url: "/docs/task_mnode_access_ui.html"
+      - title: Ändern Sie das Standard-SSL-Zertifikat für den Management-Node
+        url: "/mnode/reference_change_mnode_default_ssl_certificate.html"
       - title: Arbeiten Sie mit der Management-Node-UI
         entries:
         - title: Übersicht über die Management-Node-UI

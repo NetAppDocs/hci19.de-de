@@ -32,6 +32,11 @@ Zugriff auf den Management-Node:
 * link:task_mnode_access_ui.html["Zugriff auf den Management-Node (UI oder REST-API)"]
 
 
+Ändern Sie das Standard-SSL-Zertifikat:
+
+* link:reference_change_mnode_default_ssl_certificate.html["Ändern Sie das Standard-SSL-Zertifikat für den Management-Node"]
+
+
 Führen Sie Aufgaben mit der Management-Node-UI durch:
 
 * link:task_mnode_work_overview_UI.html["Übersicht über die Management-Node-UI"]
