@@ -98,9 +98,6 @@ Wenn der Cluster aktuell ist und/oder keine Upgrade-Pakete verfügbar sind, werd
 . Wählen Sie den Dropdown-Pfeil neben dem Cluster aus, das Sie aktualisieren möchten.
 . Wählen Sie *Durchsuchen*, um das heruntergeladene Aktualisierungspaket hochzuladen.
 . Warten Sie, bis der Upload abgeschlossen ist. In einer Statusleiste wird der Status des Uploads angezeigt.
-. Wählen Sie den Dropdown-Pfeil neben dem Cluster aus, das Sie aktualisieren möchten.
-. Wählen Sie *Durchsuchen*, um das heruntergeladene Aktualisierungspaket hochzuladen.
-. Warten Sie, bis der Upload abgeschlossen ist. In einer Statusleiste wird der Status des Uploads angezeigt.
 +
 
 CAUTION: Der Datei-Upload geht verloren, wenn Sie vom Browser-Fenster wegnavigieren.
