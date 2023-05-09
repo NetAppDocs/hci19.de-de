@@ -51,7 +51,7 @@ Aufgaben, die Sie mit REST-APIs durchführen können:
 [discrete]
 == Weitere Informationen
 
-* link:task_mnode_access.html["Greifen Sie auf den Management-Node zu"]
+* link:task_mnode_access_ui.html["Greifen Sie auf den Management-Node zu"]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 

@@ -36,4 +36,4 @@ Wenden Sie sich an den NetApp Support, um weitere Informationen zur Verwendung b
 
 == Weitere Informationen
 
-link:api/index.html["Storage-Management mit der Element API"]
+https://docs.netapp.com/us-en/element-software/api/index.html["Storage-Management mit der Element API"^]

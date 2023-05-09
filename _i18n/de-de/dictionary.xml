@@ -309,7 +309,6 @@
   <block id="eddbea64540d3f03b2661d8ecd4ac2a7" category="list-text">SetProtectionDomainLayout - ermöglicht die Zuweisung einer benutzerdefinierten Schutzdomäne zu jedem Knoten.</block>
   <block id="03540783615c6f29364ad461ea3aa641" category="paragraph">Wenden Sie sich an den NetApp Support, um weitere Informationen zur Verwendung benutzerdefinierter Sicherungsdomänen zu erhalten.</block>
   <block id="afc48abd77915d4342bb6d52750ca477" category="inline-link-macro">Storage-Management mit der Element API</block>
-  <block id="8e078db9f02bd406ca631ba2825dd629" category="paragraph"><block ref="8e078db9f02bd406ca631ba2825dd629" category="inline-link-macro-rx"></block></block>
   <block id="89363695961f98be6b89a6302cd4ef63" category="summary">Dokumentation für vorherige Versionen von NetApp HCI steht zur Verfügung, falls Sie nicht die neueste Version verwenden.</block>
   <block id="ef8931a2533213c6835fb82c00d4530f" category="doc">Frühere Versionen der NetApp HCI-Dokumentation</block>
   <block id="4336bdc5b50c875535491122c69b4f8c" category="inline-link">NetApp HCI 1.8P1</block>
@@ -576,7 +575,6 @@
   <block id="a5790b06c6321c773eca064d8f8b323a" category="inline-link-macro">Abrufen von Protokollen von Managementservices</block>
   <block id="b8ce529cfc2b9255a783e211ddb57996" category="list-text"><block ref="b8ce529cfc2b9255a783e211ddb57996" category="inline-link-macro-rx"></block></block>
   <block id="bedaabaebe9b97823d2e349034a8c29e" category="inline-link-macro">Greifen Sie auf den Management-Node zu</block>
-  <block id="d422fe7cf0f32ce6c7b8426538c06795" category="list-text"><block ref="d422fe7cf0f32ce6c7b8426538c06795" category="inline-link-macro-rx"></block></block>
   <block id="90b4a60ee12c80d43561f8e47500518d" category="summary">Aktivieren Sie die Trident Unterstützung für Benutzer-Cluster.</block>
   <block id="ff69880721696a1f0fe83133aeb7ee4a" category="doc">Aktivieren Sie die Trident Unterstützung für Benutzer-Cluster</block>
   <block id="257f5c6e45162a51cd731b00f02571b3" category="paragraph">Wenn in der NetApp HCI Umgebung keine Route zwischen den Management- und Storage-Netzwerken besteht und Sie Benutzer-Cluster implementieren, die Unterstützung für Trident benötigen, müssen Sie nach der Installation von Trident weitere Netzwerke für Benutzercluster konfigurieren. Für jedes Benutzer-Cluster müssen Sie die Kommunikation zwischen Management- und Storage-Netzwerken ermöglichen. Hierzu können Sie die Netzwerkkonfiguration für jeden Node im Benutzer-Cluster ändern.</block>
@@ -608,7 +606,6 @@
   <block id="6f5983880dad4e85e696acaacf3a185b" category="paragraph">Wenn die Funktion persistenter Volumes während der Installation oder eines Upgrades aktiviert ist, erstellt automatisch mehrere Volumes mit NetApp-HCI – Pre-Pend auf den Namen des zugewiesenen Clusters. Diese Volumes können, wie jedes softwarebasierte Element Volume, je nach Ihren Vorliebe und Installation über die Web-UI in Element Software, das NetApp Element Plug-in für vCenter Server oder die API angezeigt werden. Persistente Volumes müssen mit einer iSCSI-Verbindung zum Management-Node in Betrieb sein, um die aktuellen Konfigurationsdaten beizubehalten, die für eine Recovery verwendet werden können.</block>
   <block id="055a5661c230e542ad2a37a3d951d4fd" category="admonition">Persistente Volumes, die mit Managementservices verbunden sind, werden bei der Installation oder bei einem Upgrade einem neuen Konto erstellt und zugewiesen. Wenn Sie persistente Volumes verwenden, ändern oder löschen Sie die Volumes oder ihr zugehörigem Konto nicht</block>
   <block id="e2439a8512b353f75391ba9c346bc84d" category="inline-link-macro">Volumes managen</block>
-  <block id="9e69e35241eb196e84b4b8c5230c84b9" category="list-text"><block ref="9e69e35241eb196e84b4b8c5230c84b9" category="inline-link-macro-rx"></block></block>
   <block id="e4c0dc0176dda3b4da6aef23b6489dad" category="summary">Sie können ein fehlerhaftes Dual Inline Memory Module (DIMM) in NetApp HCI-Computing-Nodes ersetzen, anstatt den gesamten Node zu ersetzen.</block>
   <block id="f5bee34d8efcc268df11e9b404d64ab4" category="doc">DIMMs in Computing-Nodes ersetzen</block>
   <block id="db5eb84117d06047c97c9a0191b5fffe" category="inline-link">Unterstützung</block>
@@ -4209,8 +4206,6 @@
   <block id="85dcef363aee58216fb5391e1fe35922" category="list-text"><block ref="85dcef363aee58216fb5391e1fe35922" category="inline-link-rx"></block></block>
   <block id="da3eb0bd8c882a21931739ac39ce915a" category="inline-link">Dokumentation zum NetApp Element-Plug-in für vCenter Server</block>
   <block id="412377cf78b07a27c835e112fdfa7507" category="list-text"><block ref="412377cf78b07a27c835e112fdfa7507" category="inline-link-rx"></block></block>
-  <block id="1f9e8829ba3f07efa25b77f1eb0d6c07" category="inline-link">NetApp Configuration Advisor</block>
-  <block id="d1ba909955f7a2392ac07c215865424a" category="list-text"><block ref="8eb8242e05dec3c7873bd909a6d9def7" category="inline-link-rx"></block> 5.8.1 oder höher zur Netzwerkvalidierung</block>
   <block id="451ea6f06481d8471ac166075c39c8cd" category="summary">Sie können den Management-Node (mNode) verwenden, um Systemdienste zu verwenden, Cluster-Assets und -Einstellungen zu managen, Systemtests und Dienstprogramme auszuführen, Active IQ für das System-Monitoring zu konfigurieren und den NetApp Support-Zugriff zur Fehlerbehebung zu aktivieren.</block>
   <block id="e9065488ba04db892848ac25fd8592aa" category="admonition">Als Best Practice wird nur ein Management Node mit einer VMware vCenter Instanz verknüpft, sodass nicht dieselben Storage- und Computing-Ressourcen oder vCenter Instanzen in mehreren Management Nodes definiert werden müssen.</block>
   <block id="cbd3ec19d301a96c2ad3c73557cee800" category="paragraph">Für Cluster mit Element Softwareversion 11.3 oder höher können Sie mit dem Management-Node über eine von zwei Schnittstellen arbeiten:</block>
@@ -5063,7 +5058,6 @@
   <block id="fc6261a1be6f27091e994d8c8b075b29" category="summary">Bei einem Upgrade des NetApp HCI Systems können Sie ein Upgrade des Element Plug-ins für vCenter Server durchführen.</block>
   <block id="9b50fd8de96fcf38bc35a026df14fbc4" category="paragraph">Bei bestehenden vSphere Umgebungen mit einem registrierten NetApp Element Plug-in für VMware vCenter Server können Sie Ihre Plug-in-Registrierung aktualisieren, nachdem Sie das Management-Services-Paket, das den Plug-in-Service enthält, aktualisiert haben.</block>
   <block id="e6c04958395a323ddbc02c929b4dfdf0" category="paragraph">Sie können die Plug-in-Registrierung auf der vCenter Server Virtual Appliance (vCSA) oder Windows mithilfe des Registrierungsprogramms aktualisieren. Sie müssen Ihre Registrierung für das vCenter Plug-in auf jedem vCenter Server ändern, auf dem Sie das Plug-in verwenden müssen.</block>
-  <block id="56f4bca23bb3dd45148dc7171511b7e5" category="paragraph">Dieses Upgrade-Verfahren umfasst die folgenden Upgrade-Szenarien.</block>
   <block id="04e630ae5e9700f09b6ca3715246283d" category="open-title">Element Plug-in für vCenter 5.0 und höher</block>
   <block id="61517793d4523320c7cd75e303ad36ff" category="list-text">Sie aktualisieren gerade auf einen 8.0 oder 7.0 HTML5 vSphere Web Client.</block>
   <block id="787e0e54cc17d9dd6bbd7cf4c4fbc14d" category="admonition">Das Element Plug-in für vCenter 5.0 und höher ist nicht mit vCenter Server 6.7 und 6.5 kompatibel.</block>
@@ -5383,7 +5377,6 @@
   <block id="a4da6a7298a51c03437fe8215d4cd7dc" category="admonition">Persistente Volumes, die mit Managementservices verbunden sind, werden einem neuen Konto bei der Installation oder bei einem Upgrade zugewiesen. Wenn Sie persistente Volumes verwenden, ändern oder löschen Sie die Volumes oder ihr zugehörigem Konto nicht. Wenn Sie diese Konten löschen, können Sie den Management-Node nicht mehr verwenden.</block>
   <block id="b12641981b1007fecfaf498bd16ae5d5" category="list-text">Erweitern Sie in der Spalte *Aktionen* in der Tabelle das Menü für das Konto und wählen Sie *Löschen*.</block>
   <block id="1326a41ad4b26f3395b0f54dd9172b2b" category="inline-link-macro">Informationen zu Accounts</block>
-  <block id="469d7f183f29ad292b8937af8903b1dc" category="list-text"><block ref="469d7f183f29ad292b8937af8903b1dc" category="inline-link-macro-rx"></block></block>
   <block id="7e5784de66821e5068bc24c9a5c6d1d6" category="inline-link">Arbeiten Sie mit Benutzerkonten</block>
   <block id="9197cc48c8ddd2d400f10cc220189fb2" category="list-text"><block ref="9197cc48c8ddd2d400f10cc220189fb2" category="inline-link-rx"></block></block>
   <block id="b5990d43163ed035a4b57530a83f5ff2" category="doc">Aufgaben nach der Implementierung</block>
@@ -5746,7 +5739,6 @@
   <block id="5a5285cbae65a3a4e6d2325887861e01" category="inline-link-macro">Automatisieren Sie Upgrades Ihrer Computing-Firmware mit Ansible</block>
   <block id="7cb9171d2e41fd487907a91fb38fae31" category="list-text"><block ref="9c1d2a43cd65a3c0eacb2a0469676bce" category="inline-link-macro-rx"></block> Oder <block ref="ea7bc6be827f510faa492af963f76183" category="inline-link-macro-rx"></block>.</block>
   <block id="0c44c4e22a7e5a446ab9db51be083194" category="inline-link">Upgrade eines NetApp SolidFire All-Flash-Storage-Systems</block>
-  <block id="0a9bb27e26601025f1f2f83ed531e6f2" category="list-text"><block ref="0a9bb27e26601025f1f2f83ed531e6f2" category="inline-link-rx"></block></block>
   <block id="1533f0b23943ba93541a36f85fbb28a0" category="summary">Sie können Cluster-Supportpakete erstellen oder löschen, die Node-Konfigurationseinstellungen zurücksetzen oder das Netzwerk neu starten.</block>
   <block id="38b54f4ae3e42110e03c18e4b1aa6835" category="doc">Führen Sie Systemdienstprogramme vom Management-Node aus</block>
   <block id="8fb520f010ef7c328d358e91edcd7812" category="paragraph">Sie können die UI pro Node für den Management-Node verwenden, um Cluster-Supportpakete zu erstellen oder zu löschen, die Node-Konfigurationseinstellungen zurückzusetzen oder das Netzwerk neu zu starten.</block>
@@ -6536,4 +6528,12 @@
   <block id="e3b4df69e2fe4e8545e5e0240eada6a2" category="list-text"><block ref="e3b4df69e2fe4e8545e5e0240eada6a2" category="inline-link-rx"></block></block>
   <block id="631923a687ff82d68973d99b95597b47" category="inline-link">Seite „SolidFire und Element Ressourcen“</block>
   <block id="238c5b123e3473c57e2925edccb205c2" category="list-text"><block ref="238c5b123e3473c57e2925edccb205c2" category="inline-link-rx"></block></block>
+  <block id="bc2a79198b157bed1c1eaa43da985e00" category="cell">* Compute Firmware Bundle 2.174.0*</block>
+  <block id="def5f641ad1584ffe19a578902c863ee" category="cell">04/12/2023</block>
+  <block id="0b67b64b71fa04f23305e691b81ba252" category="cell">07.02.00</block>
+  <block id="ba3433b658d56109d8826f49ee0a8064" category="list-text"><block ref="ba3433b658d56109d8826f49ee0a8064" category="inline-link-rx"></block></block>
+  <block id="d5147898f653b5500d1ba07c4204c743" category="list-text"><block ref="9d6606ad3ff5278801234da0e6746362" category="inline-link-rx"></block> 5.8.1 oder höher zur Netzwerkvalidierung</block>
+  <block id="c411aac8cf32395c454762934e85315b" category="list-text"><block ref="c411aac8cf32395c454762934e85315b" category="inline-link-macro-rx"></block></block>
+  <block id="3f8636b2ed4be15cc908d52557ffc327" category="list-text"><block ref="3f8636b2ed4be15cc908d52557ffc327" category="inline-link-macro-rx"></block></block>
+  <block id="78997922bf48b612914b49bc22e40752" category="paragraph"><block ref="78997922bf48b612914b49bc22e40752" category="inline-link-rx"></block></block>
 </blocks>

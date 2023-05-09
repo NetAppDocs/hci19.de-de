@@ -79,5 +79,5 @@ NOTE: Zum Upgrade der Element Software auf dem Storage-Cluster ist kein Upgrade 
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-* https://docs.netapp.com/us-en/element-software/upgrade/task_sf_upgrade_all.html["Upgrade eines NetApp SolidFire All-Flash-Storage-Systems"^]
+* https://docs.netapp.com/us-en/element-software/upgrade/concept_element_upgrade_overview.html["Upgrade eines NetApp SolidFire All-Flash-Storage-Systems"^]
 
