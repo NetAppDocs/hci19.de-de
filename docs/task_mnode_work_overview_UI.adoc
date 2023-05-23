@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: docs/task_mnode_work_overview_UI.html 
-summary: 'Mit der Management-Node-UI (https://<mNodeIP>:442)[], Sie können Änderungen an Netzwerk- und Cluster-Einstellungen vornehmen, Systemtests ausführen oder Systemdienstprogramme verwenden.' 
+summary: Mit der Management-Node-UI , Sie können Änderungen an Netzwerk- und Cluster-Einstellungen vornehmen, Systemtests ausführen oder Systemdienstprogramme verwenden. 
 keywords: 'netapp, management node ui, mnode ui, :442, element' 
 ---
 = Übersicht über die Management-Node-UI
