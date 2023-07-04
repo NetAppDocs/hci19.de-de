@@ -404,10 +404,198 @@ NOTE: Das Passwort sollte mit den Parametern übereinstimmen, die Sie bei der Ei
 .. Wählen Sie *Ja*, um die Änderungen anzuwenden.
 
 
-. Fügen Sie den Node (Host) zum Cluster hinzu und konfigurieren Sie das Netzwerk, so dass der Node mit den anderen Nodes im Cluster synchronisiert wird:
+. Konfigurieren Sie das Netzwerk so, dass der Node mit den anderen Nodes im Cluster synchronisiert wird:
 +
+[role="tabbed-block"]
+====
+.Element Plug-in für vCenter 5.0 und höher
+--
+Ab dem Element Plug-in für vCenter 5.0 fügen Sie den Node (Host) zum Datacenter hinzu.
+
+.. Wählen Sie im VMware vSphere Web Client *Inventar > Hosts und Cluster* aus.
+.. Klicken Sie mit der rechten Maustaste auf das Rechenzentrum, und wählen Sie *Host hinzufügen*.
++
+Der Assistent führt Sie durch das Hinzufügen des Hosts.
+
++
+
+NOTE: Wenn Sie zur Eingabe des Benutzernamens und des Passworts aufgefordert werden, verwenden Sie die folgenden Anmeldedaten: Benutzername: Root Passwort: Das Passwort, das Sie bei der Einrichtung von NetApp HCI in der NetApp Deployment Engine konfiguriert haben
+
++
+Es kann ein paar Minuten dauern, bis der Node dem Cluster hinzugefügt wurde. Nach Abschluss des Prozesses wird der neu hinzugefügte Node unter dem Cluster aufgeführt.
+
+.. Wählen Sie den Knoten aus, und wählen Sie dann *Configure > Networking > Virtual Switches* aus, und führen Sie die folgenden Schritte aus:
++
+... Erweitern Sie *vSwitch0*.
+... Wählen Sie in der angezeigten Grafik das VM-Netzwerk aus image:three_horizontal_dots.PNG["Menüsymbol"] Symbol gefolgt von *Entfernen*.
++
+image::h410c-esxi-vm.PNG[Zeigt den Bildschirm zum Entfernen der VM an.]
+
+... Bestätigen Sie die Aktion.
+... Wählen Sie im vSwitch0-Header *EDIT* aus.
+... Wählen Sie im Fenster vSwitch0 - Einstellungen bearbeiten die Option *Teaming und Failover* aus.
+... Stellen Sie sicher, dass vmnic3 unter Standby-Adapter aufgeführt ist, und wählen Sie *OK*.
+
+
+.. Wählen Sie in der angezeigten Grafik das Managementnetzwerk aus image:three_horizontal_dots.PNG["Menüsymbol"] Symbol gefolgt von *Einstellungen bearbeiten*.
++
+image::h410c-esxi-mgmt-network.PNG[Zeigt den Bildschirm zum Bearbeiten des Verwaltungsnetzwerks an.]
+
++
+... Wählen Sie im Fenster Verwaltungsnetzwerk - Einstellungen bearbeiten die Option *Teaming und Failover* aus.
+... Stellen Sie sicher, dass vmnic3 unter Standby-Adapter aufgeführt ist, und wählen Sie *OK*.
+
+
+.. Wählen Sie im vSwitch0-Header *Add Networking* aus, und geben Sie die folgenden Details in das angezeigte Fenster ein:
++
+... Wählen Sie für den Verbindungstyp *Virtuelle Maschine Portgruppe für einen Standard-Switch* aus, und wählen Sie *Weiter*.
+... Wählen Sie für das Zielgerät *Neuer Standardschalter* und wählen Sie *Weiter*.
+... Verschieben Sie unter Create a Standard Switch die Optionen vmnic0 und vmnic4 in Active Adapter, und wählen Sie *Next* aus.
+... Überprüfen Sie unter Verbindungseinstellungen, ob das VM-Netzwerk die Netzwerkbezeichnung ist, und geben Sie bei Bedarf die VLAN-ID ein.
+... Wählen Sie *Weiter*.
+... Überprüfen Sie den Bildschirm bereit zur Fertigstellung, und wählen Sie *Fertig stellen*.
+
+
+.. Erweitern Sie vSwitch1 und wählen Sie *EDIT*, um die Einstellungen wie folgt zu bearbeiten:
++
+... Stellen Sie unter Eigenschaften die MTU auf 9000 ein, und wählen Sie *OK*.
+
+
+.. Wählen Sie in der angezeigten Grafik das VM-Netzwerk aus image:three_horizontal_dots.PNG["Menüsymbol"] Symbol gefolgt von *Bearbeiten*.
++
+... Wählen Sie *Sicherheit* aus, und wählen Sie die folgenden Optionen aus:
++
+image::vswitch1_vcp_50.PNG[Zeigt die Sicherheitsauswahl für das VM-Netzwerk an.]
+
+... Wählen Sie *Teaming und Failover*, und aktivieren Sie das Kontrollkästchen *Override*.
+... Versetzen Sie vmnic0 in den Standby-Adapter.
+... Wählen Sie *OK*.
+
+
+.. Wählen Sie im vSwitch1-Header *ADD NETWORKING* aus und geben Sie im Fenster Add Networking folgende Details ein:
++
+... Wählen Sie für den Verbindungstyp *VMkernel Netzwerkadapter* aus, und wählen Sie *Weiter*.
+... Wählen Sie für das Zielgerät die Option, um einen vorhandenen Standard-Switch zu verwenden, navigieren Sie zu vSwitch1, und wählen Sie *Weiter* aus.
+... Verschieben Sie unter Create a Standard Switch die Optionen vmnic1 und vmnic5 in Active Adapter, und wählen Sie *Next* aus.
+... Ändern Sie unter Port-Eigenschaften das Netzwerketikett in vMotion, aktivieren Sie unter Enable Services das Kontrollkästchen für vMotion Traffic und wählen Sie *Next* aus.
+... Geben Sie unter IPv4-Einstellungen die IPv4-Informationen ein, und wählen Sie *Weiter*.
+... Wenn Sie bereit sind, fortzufahren, wählen Sie *Fertig stellen*.
+
+
+.. Wählen Sie in der angezeigten Grafik die Option vMotion aus image:three_horizontal_dots.PNG["Menüsymbol"] Symbol gefolgt von *Bearbeiten*.
++
+... Wählen Sie *Sicherheit* aus, und wählen Sie die folgenden Optionen aus:
++
+image::vmotion_vcp_50.PNG[Zeigt die Sicherheitsauswahl für vMotion an.]
+
+... Wählen Sie *Teaming und Failover*, und aktivieren Sie das Kontrollkästchen *Override*.
+... Versetzen Sie vmnic4 in den Standby-Adapter.
+... Wählen Sie *OK*.
+
+
+.. Wählen Sie im vSwitch1-Header *ADD NETWORKING* aus und geben Sie im Fenster Add Networking folgende Details ein:
++
+... Wählen Sie für den Verbindungstyp *VMkernel Netzwerkadapter* aus, und wählen Sie *Weiter*.
+... Wählen Sie für das Zielgerät *Neuer Standardschalter* und wählen Sie *Weiter*.
+... Verschieben Sie unter Create a Standard Switch die Optionen vmnic1 und vmnic5 in Active Adapter, und wählen Sie *Next* aus.
+... Ändern Sie unter Port-Eigenschaften das Netzwerketikett in iSCSI-B, und wählen Sie *Weiter*.
+... Geben Sie unter IPv4-Einstellungen die IPv4-Informationen ein, und wählen Sie *Weiter*.
+... Wenn Sie bereit sind, fortzufahren, wählen Sie *Fertig stellen*.
+
+
+.. Erweitern Sie *vSwitch2*, und wählen Sie *EDIT*:
++
+... Stellen Sie unter Eigenschaften die MTU auf 9000 ein, und wählen Sie *OK*.
+
+
+.. Wählen Sie in der angezeigten Grafik iSCSI-B aus image:three_horizontal_dots.PNG["Menüsymbol"] Symbol gefolgt von *Bearbeiten*.
++
+... Wählen Sie *Sicherheit* aus, und wählen Sie die folgenden Optionen aus:
++
+image::iscsi-b-vcp-50.PNG[Zeigt die Sicherheitsauswahl für das iSCSI-B-Netzwerk an.]
+
+... Wählen Sie *Teaming und Failover*, und aktivieren Sie das Kontrollkästchen *Override*.
+... Verschieben Sie vmnic1 auf nicht verwendete Adapter.
+... Wählen Sie *OK*.
+
+
+.. Wählen Sie im vSwitch1-Header *ADD NETWORKING* aus und geben Sie im Fenster Add Networking folgende Details ein:
++
+... Wählen Sie für den Verbindungstyp *VMkernel Netzwerkadapter* aus, und wählen Sie *Weiter*.
+... Wählen Sie für das Zielgerät die Option, um einen vorhandenen Standard-Switch zu verwenden, navigieren Sie zu vSwitch2, und wählen Sie *Weiter* aus.
+... Ändern Sie unter Port-Eigenschaften die Netzwerkbezeichnung auf iSCSI-A und wählen Sie *Next* aus.
+... Geben Sie unter IPv4-Einstellungen die IPv4-Informationen ein, und wählen Sie *Weiter*.
+... Wenn Sie bereit sind, fortzufahren, wählen Sie *Fertig stellen*.
+
+
+.. Wählen Sie in der angezeigten Grafik iSCSI-A aus image:three_horizontal_dots.PNG["Menüsymbol"] Symbol gefolgt von *Bearbeiten*.
++
+... Wählen Sie *Sicherheit* aus, und wählen Sie die folgenden Optionen aus:
++
+image::iscsi-a-vcp-50.PNG[Zeigt die Sicherheitsauswahl für das iSCSI-A-Netzwerk an.]
+
+... Wählen Sie *Teaming und Failover*, und aktivieren Sie das Kontrollkästchen *Override*.
+... Bewegen Sie vmnic5 mit dem Pfeilsymbol in nicht verwendete Adapter.
+... Wählen Sie *OK*.
+
+
+.. Wenn der neu hinzugefügte Knoten ausgewählt ist und die Registerkarte Konfigurieren geöffnet ist, wählen Sie *Speicher > Speicheradapter* aus, und führen Sie die folgenden Schritte aus:
++
+... Wählen Sie die Liste *SOFTWARE-ADAPTER hinzufügen* aus.
+... Wählen Sie *Add iSCSI Adapter* aus, und wählen Sie *OK* aus.
+... Wählen Sie unter Speicheradapter den iSCSI-Adapter aus
+... Kopieren Sie unter Eigenschaften > Allgemein den iSCSI-Namen.
++
+image::iscsi-adapter-name-vcp-50.PNG[Zeigt die IQN-Zeichenfolge des iSCSI-Adapters an.]
+
++
+
+NOTE: Sie benötigen den iSCSI-Namen beim Erstellen des Initiators.
+
+
+
+.. Führen Sie im NetApp SolidFire vCenter Plug-in folgende Schritte aus:
++
+... Wählen Sie die Zielinstanz aus.
+... Wählen Sie *Management*.
+... Wählen Sie das Ziel-Cluster aus.
+... Wählen Sie *Verwaltung > Initiatoren*.
+... Wählen Sie *Initiator Erstellen*.
+... Geben Sie die zuvor kopierte IQN-Adresse im Feld IQN/WWPN ein.
+... Wählen Sie *OK*.
+... Wählen Sie den neuen Initiator aus.
+... Wählen Sie *Actions list > Bulk Actions* aus, und wählen Sie *Add to Access Group* aus.
+... Wählen Sie die Zielzugriffsgruppe aus, und wählen Sie *Hinzufügen*.
+
+
+.. Wählen Sie im VMware vSphere Web Client unter Storage Adapter den iSCSI-Adapter aus, und führen Sie die folgenden Schritte aus:
++
+... Wählen Sie *Dynamic Discovery > Add*.
+... Geben Sie die SVIP-IP-Adresse in das Feld iSCSI-Server ein.
++
+
+NOTE: Um die SVIP-IP-Adresse zu erhalten, wählen Sie *NetApp Element-Verwaltung* und kopieren Sie die SVIP-IP-Adresse. Behalten Sie die Standard-Portnummer wie lautet bei. Es sollte 3260 sein.
+
+... Wählen Sie *OK*.
+... Wählen Sie *Network Port Binding*, und wählen Sie *ADD*.
+... Wählen Sie iSCSI-A und iSCSI-B und dann *OK* aus
+... Wählen Sie *ADAPTER ERNEUT SCANNEN*.
+... Wählen Sie *SPEICHER ERNEUT SCANNEN*. Suchen Sie nach neuen VMFS-Volumes, und wählen Sie *OK*.
+... Überprüfen Sie nach Abschluss der erneuten Überprüfung, ob die Volumes im Cluster und die Datastores auf dem neuen Compute-Node (Host) sichtbar sind.
+
+
+
+
+--
+.Element Plug-in für vCenter 4.10 und früher
+--
+Fügen Sie für Element Plug-in für vCenter 4.10 und früher den Node (Host) zum Cluster hinzu.
+
 .. Wählen Sie im VMware vSphere Web Client *Hosts und Cluster* aus.
-.. Klicken Sie mit der rechten Maustaste auf den Cluster, dem Sie den Knoten hinzufügen möchten, und wählen Sie *Host hinzufügen*. Der Assistent führt Sie durch das Hinzufügen des Hosts.
+.. Klicken Sie mit der rechten Maustaste auf den Cluster, dem Sie den Knoten hinzufügen möchten, und wählen Sie *Host hinzufügen*.
++
+Der Assistent führt Sie durch das Hinzufügen des Hosts.
+
 +
 
 NOTE: Wenn Sie zur Eingabe des Benutzernamens und des Passworts aufgefordert werden, verwenden Sie die folgenden Anmeldedaten: Benutzername: Root Passwort: Das Passwort, das Sie bei der Einrichtung von NetApp HCI in der NetApp Deployment Engine konfiguriert haben
@@ -572,6 +760,8 @@ image::rescan.gif[Zeigt das Symbol für die erneute Überprüfung der Speicherad
 
 
 
+--
+====
 
 
 
