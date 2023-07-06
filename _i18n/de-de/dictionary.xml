@@ -2148,7 +2148,6 @@
 <block ref="85d7ff8f1e3fd6efa440dcd74d3d3e02" category="inline-xref-macro-rx"></block>
 <block ref="74302f10271a48c9df46742d43d08db8" category="inline-xref-macro-rx"></block></block>
   <block id="d7f6ba0367c50b236e879580284dfabe" category="section-title">Bereiten Sie den Austausch des Node vor</block>
-  <block id="15e52a108fb327eeb4e05584634031a8" category="paragraph">Bevor Sie den Node ersetzen, sollten Sie die auf dem Node gehosteten Virtual Machines (VMs) auf einen verfügbaren Host migrieren und den Node aus dem Cluster entfernen. Sie sollten Details zum Node, z. B. Seriennummer und Netzwerkinformationen, erhalten.</block>
   <block id="d8d7c90a9eba54aa51121a64132d7c53" category="list-text">Führen Sie im VMware vSphere Web Client die Schritte durch, um die VMs auf einen anderen verfügbaren Host zu migrieren.</block>
   <block id="ec222debbf462515211b8a9dbc83ea5a" category="list-text">Wählen Sie den fehlgeschlagenen Knoten aus, und wählen Sie *Monitor &gt; Hardwarestatus &gt; Sensoren*.</block>
   <block id="b3cead0e8121cac5eaa77199cb96bf4b" category="list-text">Notieren Sie sich die Seriennummer des ausgefallenen Nodes. Der folgende Screenshot ist nur ein Beispiel:</block>
@@ -6586,4 +6585,5 @@
   <block id="bc1db729f0157876d24fd3c55560294c" category="list-text">Überprüfen Sie nach Abschluss der erneuten Überprüfung, ob die Volumes im Cluster und die Datastores auf dem neuen Compute-Node (Host) sichtbar sind.</block>
   <block id="f096b63658cb95d8f43a07e2d68c70b3" category="paragraph">Fügen Sie für Element Plug-in für vCenter 4.10 und früher den Node (Host) zum Cluster hinzu.</block>
   <block id="fc4dbbaeabdf5700f373a65d12b45108" category="list-text">Klicken Sie mit der rechten Maustaste auf den Cluster, dem Sie den Knoten hinzufügen möchten, und wählen Sie *Host hinzufügen*.</block>
+  <block id="a4b367d6a2f57fe52d770b2264b7d2d8" category="paragraph">Bevor Sie den Node ersetzen, sollten Sie die auf dem Node gehosteten Virtual Machines (VMs) auf einen verfügbaren Host migrieren und den Node aus dem Cluster entfernen. Sie sollten Details zum Node, z. B. die Seriennummer und Netzwerkinformationen, aufzeichnen. Das Migrieren der VMs und das Aufzeichnen der Node-Details gilt auch bei Komponentenausfällen, bei denen der Node noch online ist und funktioniert, z. B. bei einem DIMM-Fehler (Dual Inline Memory Module).</block>
 </blocks>

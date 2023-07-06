@@ -39,10 +39,7 @@ Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahren
 
 == Bereiten Sie den Austausch des Node vor
 
-Bevor Sie den Node ersetzen, sollten Sie die auf dem Node gehosteten Virtual Machines (VMs) auf einen verfügbaren Host migrieren und den Node aus dem Cluster entfernen. Sie sollten Details zum Node, z. B. Seriennummer und Netzwerkinformationen, erhalten.
-
-
-NOTE: Beim Ausfall von Komponenten, wenn der Node beispielsweise weiterhin online ist und funktioniert, sollten Sie die Laufwerke aus dem Cluster entfernen, bevor Sie den ausgefallenen Node entfernen.
+Bevor Sie den Node ersetzen, sollten Sie die auf dem Node gehosteten Virtual Machines (VMs) auf einen verfügbaren Host migrieren und den Node aus dem Cluster entfernen. Sie sollten Details zum Node, z. B. die Seriennummer und Netzwerkinformationen, aufzeichnen. Das Migrieren der VMs und das Aufzeichnen der Node-Details gilt auch bei Komponentenausfällen, bei denen der Node noch online ist und funktioniert, z. B. bei einem DIMM-Fehler (Dual Inline Memory Module).
 
 .Schritte
 . Führen Sie im VMware vSphere Web Client die Schritte durch, um die VMs auf einen anderen verfügbaren Host zu migrieren.
