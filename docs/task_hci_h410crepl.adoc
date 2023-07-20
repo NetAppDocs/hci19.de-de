@@ -198,7 +198,11 @@ https://<ManagementNodeIP>
 ----
 . Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
 . Wählen Sie im Fenster Installation erweitern die Option *erweitern*.
-. Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des NetApp HCI Storage-Cluster-Administrators bereitstellen.
+. Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des Administrators für das lokale NetApp HCI-Storage-Cluster angeben.
++
+
+NOTE: Sie können sich nicht mit den Anmeldeinformationen für das Lightweight Directory Access Protocol anmelden.
+
 . Wählen Sie auf der Willkommensseite *Ja* aus.
 . Führen Sie auf der Seite Endbenutzer-Lizenz die folgenden Aktionen durch:
 +
@@ -276,7 +280,11 @@ Wenn Ihre NetApp HCI-Installation Version 1.4P2, 1.4 oder 1.3 ausführt, können
 .Schritte
 . Navigieren Sie zu der Management-IP-Adresse eines der vorhandenen Storage-Nodes:
 `http://<storage_node_management_IP_address>/`
-. Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des NetApp HCI Storage-Cluster-Administrators bereitstellen.
+. Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des Administrators für das lokale NetApp HCI-Storage-Cluster angeben.
++
+
+NOTE: Sie können sich nicht mit den Anmeldeinformationen für das Lightweight Directory Access Protocol anmelden.
+
 . Wählen Sie *Erweitern Sie Ihre Installation*.
 . Wählen Sie auf der Willkommensseite *Ja* aus.
 . Führen Sie auf der Seite Endbenutzer-Lizenz die folgenden Aktionen durch:

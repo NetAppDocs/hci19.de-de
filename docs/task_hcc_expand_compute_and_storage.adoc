@@ -55,7 +55,11 @@ https://<ManagementNodeIP>
 +
 Der Browser öffnet die NetApp Deployment Engine.
 
-. Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des NetApp HCI Storage-Cluster-Administrators bereitstellen.
+. Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des Administrators für das lokale NetApp HCI-Storage-Cluster angeben.
++
+
+NOTE: Sie können sich nicht mit den Anmeldeinformationen für das Lightweight Directory Access Protocol anmelden.
+
 . Klicken Sie auf der Seite *Willkommen* auf *Ja* und klicken Sie auf *Weiter*.
 . Lesen Sie auf der Seite *Endbenutzer-Lizenz* die VMware Endbenutzer-Lizenzvereinbarung und klicken Sie auf *Ich akzeptiere*, um die Bedingungen zu akzeptieren und klicken Sie auf *Weiter*.
 . Führen Sie auf der Seite *vCenter* die folgenden Schritte aus:
