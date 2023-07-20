@@ -235,9 +235,6 @@ NOTE: Ein Bindestrich (*-*) in der folgenden Tabelle zeigt an, dass die jeweilig
 | Fahrzeug Lösen | Freigabedatum | NIC | CACHE NVDIMM RMS200 (RMS200) | CACHE NVDIMM RMS200 (RMS300) | Laufwerk Samsung PM863 (SED) | Laufwerk Samsung PM863 (N-SED) | Laufwerk Toshiba Hawk-4 (SED) | Laufwerk Toshiba Hawk-4 (N-SED) | Laufwerk Samsung PM883 (SED) 
 
 
-| *Speicher-Firmware-Paket 2.164.0* | 10/20/2022 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
-
-
 | *Speicher-Firmware-Paket 2.146.2* | 02/22/2022 | 7.10.18 | Ae3b8cc | 7d8422bc | GXT5404Q | GXT5103Q | 8ENP7101 | 8ENP6101 | HXT7A04Q 
 
 
