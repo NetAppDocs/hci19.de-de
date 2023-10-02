@@ -59,7 +59,8 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 
 == NetApp Element Plug-in für vCenter Server
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2885734["Versionshinweise zu vCenter Plug-in 5.1"^] _NEU_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2886272["Versionshinweise zu vCenter Plug-in 5.2"^] _NEU_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2885734["Versionshinweise zu vCenter Plug-in 5.1"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2884992["VCenter Plug-in 5.0 – Versionshinweise"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["VCenter Plug-in 4.10 – Versionshinweise"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["VCenter Plug-in 4.9 – Versionshinweise"^]
@@ -79,7 +80,7 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 * link:rn_compute_firmware_2.76.html["Versionshinweise Zum Computing-Firmware-Bundle 2.76"]
 * link:rn_compute_firmware_2.27.html["Versionshinweise Zum Computing-Firmware-Bundle 2.27"]
 * link:rn_firmware_12.2.109.html["Versionshinweise Zum Computing-Firmware-Bundle 12.2.109"]
-* link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen"] _NEU_
+* link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen"]
 
 
 
@@ -91,5 +92,5 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 * link:rn_storage_firmware_2.76.html["Versionshinweise Zum Speicher-Firmware-Bundle 2.76"]
 * link:rn_storage_firmware_2.27.html["Versionshinweise Zum Speicher-Firmware-Bundle 2.27"]
 * link:rn_H610S_BMC_3.84.07.html["H610S BMC 3.84.07 – Versionshinweise"]
-* link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen"] _NEU_
+* link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen"]
 
