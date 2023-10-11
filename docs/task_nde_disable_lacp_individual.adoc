@@ -4,7 +4,7 @@ permalink: docs/task_nde_disable_lacp_individual.html
 summary: 'Erfahren Sie, wie Sie den deaktivieren `lacp-individual` Befehl auf konfigurierten Switches, nachdem Sie NetApp HCI implementiert haben.' 
 keywords: netapp, hci, deployment, review, deploy 
 ---
-= Deaktivieren sie den lacp-Individual-Befehl an konfigurierten Switches
+= Deaktivieren Sie den Befehl „lacp-individual“ bei konfigurierten Switches
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
