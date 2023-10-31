@@ -15,7 +15,9 @@ keywords: netapp, hci, ports, tcp, udp
 
 
 [role="lead"]
-Unter Umständen müssen Sie die folgenden Ports über die Edge-Firewall Ihres Datacenters zulassen, damit Sie das System Remote managen, Clients außerhalb Ihres Datacenters eine Verbindung zu Ressourcen herstellen und sicherstellen können, dass interne Services ordnungsgemäß funktionieren. Einige dieser Ports, URLs oder IP-Adressen sind je nach Nutzung des Systems möglicherweise nicht erforderlich. Wenn nicht anders angegeben, sind alle Ports TCP.
+Möglicherweise müssen Sie die folgenden Ports durch die Edge-Firewall Ihres Datacenters zulassen, damit Sie das System Remote managen, Clients außerhalb Ihres Datacenters die Verbindung zu Ressourcen ermöglichen und sicherstellen können, dass die internen Services ordnungsgemäß funktionieren. Einige dieser Ports, URLs oder IP-Adressen sind je nach Nutzung des Systems möglicherweise nicht erforderlich.
+
+Alle Ports sind TCP, sofern nicht anders angegeben, und alle TCP-Ports müssen die Dreiwege-Handshake-Kommunikation zwischen dem NetApp-Supportserver, dem Verwaltungsknoten und den Knoten unterstützen, auf denen die Element-Software ausgeführt wird. Beispielsweise kommuniziert der Host auf einem Management-Knoten über TCP-Port 443 mit dem Host auf einem Speicher-Cluster-MVIP-Ziel, und der Ziel-Host kommuniziert über einen beliebigen Port zurück zum Quellhost.
 
 Die folgenden Abkürzungen werden in der Tabelle verwendet:
 
@@ -24,8 +26,6 @@ Die folgenden Abkürzungen werden in der Tabelle verwendet:
 * MVIP: Management der virtuellen IP-Adresse
 * SVIP: Virtuelle Speicher-IP-Adresse
 
-
-Alle Ports in der Tabelle sind TCP, wenn nicht anders angegeben.
 
 |===
 | Quelle | Ziel | Port | Beschreibung 

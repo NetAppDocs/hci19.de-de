@@ -1004,13 +1004,11 @@
   <block id="6d8cb4a54a58f9923479d4340b28d71c" category="floating-title">Weitere Informationen</block>
   <block id="8838c26820c2bdc7ab11f616de8739d6" category="summary">Von NetApp HCI verwendete TCP- und UDP-Ports.</block>
   <block id="7375651611f00991b648b4a9ae04736e" category="doc">Anforderungen an Netzwerk-Ports</block>
-  <block id="ba05be2241c302ce19b7534dcd611775" category="paragraph">Unter Umständen müssen Sie die folgenden Ports über die Edge-Firewall Ihres Datacenters zulassen, damit Sie das System Remote managen, Clients außerhalb Ihres Datacenters eine Verbindung zu Ressourcen herstellen und sicherstellen können, dass interne Services ordnungsgemäß funktionieren. Einige dieser Ports, URLs oder IP-Adressen sind je nach Nutzung des Systems möglicherweise nicht erforderlich. Wenn nicht anders angegeben, sind alle Ports TCP.</block>
   <block id="15a1051d03ca55ab79226f44fa683bbe" category="paragraph">Die folgenden Abkürzungen werden in der Tabelle verwendet:</block>
   <block id="60175d30ed8f8459b2f835b923bb4ee5" category="list-text">MIP: Management-IP-Adresse, eine Adresse pro Node</block>
   <block id="b41c14a062a4854e04d459016f1eae73" category="list-text">SIP: Speicher-IP-Adresse, eine Adresse pro Knoten</block>
   <block id="416d6ad49d8853217a6bb321dc6df5aa" category="list-text">MVIP: Management der virtuellen IP-Adresse</block>
   <block id="c51558c5b0e3376ab979005c0eadcc9e" category="list-text">SVIP: Virtuelle Speicher-IP-Adresse</block>
-  <block id="96d2b8e68e9f540a05073cf66ebfb8fb" category="paragraph">Alle Ports in der Tabelle sind TCP, wenn nicht anders angegeben.</block>
   <block id="f31bbdd1b3e85bccd652680e16935819" category="cell">Quelle</block>
   <block id="12007e1d59f4d09c87dbe2c438256244" category="cell">Ziel</block>
   <block id="60aaf44d4b562252c04db7f98497e9aa" category="cell">Port</block>
@@ -2913,7 +2911,6 @@
   <block id="07eca6a24ab16b00e6321c01370da80b" category="cell">Prüfung_ausstehend_Knoten</block>
   <block id="030ad8adc15b38e3dbe32fa700ac2d65" category="cell">Stellt sicher, dass keine ausstehenden Nodes im Cluster vorhanden sind.</block>
   <block id="38d2bb23849f828628a170b7814a5b48" category="summary">Erfahren Sie, wie Sie den deaktivieren<block ref="3c813d45ec0c25beb8854c718e01d2d6" prefix=" " category="inline-code"></block> Befehl auf konfigurierten Switches, nachdem Sie NetApp HCI implementiert haben.</block>
-  <block id="f51859c5296df69766701d38fc7c8859" category="doc">Deaktivieren sie den lacp-Individual-Befehl an konfigurierten Switches</block>
   <block id="8b8fcd904806ca441f07a09ee921db7c" category="paragraph">Standardmäßig ist der Mellanox-Switch vorhanden<block ref="3c813d45ec0c25beb8854c718e01d2d6" prefix=" " category="inline-code"></block> Befehl und Cisco Switch<block ref="4a00365b8de9edd749d6f2ef23017ee8" prefix=" " category="inline-code"></block> Befehl bleibt nach der Implementierung konfiguriert. Dieser Befehl ist nach der Installation nicht erforderlich. Wenn er weiterhin konfiguriert bleibt, kann er bei der Fehlerbehebung oder beim Neustart eines Switch zu Problemen mit dem Volume-Zugriff führen. Nach der Implementierung sollten die Mellanox-Switch- und Cisco-Switch-Konfiguration überprüft und die entfernt werden<block ref="3c813d45ec0c25beb8854c718e01d2d6" prefix=" " category="inline-code"></block> Oder<block ref="4a00365b8de9edd749d6f2ef23017ee8" prefix=" " category="inline-code"></block> Befehl.</block>
   <block id="7230032f9e3f3d80f5d464534044fa7e" category="list-text">Öffnen Sie mithilfe von SSH eine Sitzung für den Switch.</block>
   <block id="ea81d6b9aaa9ef63fd80d7044e4a7dae" category="list-text">Zeigt die laufende Konfiguration an:</block>
@@ -6112,7 +6109,6 @@
   <block id="ea32544c4914661e6b948f2891dd6a83" category="list-text">Geben Sie in der Nutzlast die erforderlichen Nutzlastwerte ein, die auf der Registerkarte „Modell“ definiert sind. Eingabe<block ref="b0429e6f6291e7688c57a970fe0a03bc" prefix=" " category="inline-code"></block> Als<block ref="599dcce2998a6b40b1e38e8c6006cb0a" prefix=" " category="inline-code"></block> Und geben Sie die Hardware-Tag-Nummer ein, die Sie während eines vorherigen Schritts für gespeichert haben<block ref="881962cb2470d984f65313a8e4ceec64" prefix=" " category="inline-code"></block>.</block>
   <block id="891d7cb5314c1395a5f98467dc959053" category="inline-link-macro">Konfigurieren Sie eine Speicher-NIC</block>
   <block id="a5dabe6d3aebca1d4cd3dc7d091f22a0" category="list-text"><block ref="a5dabe6d3aebca1d4cd3dc7d091f22a0" category="inline-link-macro-rx"></block></block>
-  <block id="baac2557431cefc749efdd1d5a826b20" category="sidebar">NetApp HCI 1.9-Dokumentation</block>
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">Versionshinweise</block>
   <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">Konzepte</block>
   <block id="4b983fff716674f120176e09551dd445" category="sidebar">Produktübersicht</block>
@@ -6577,4 +6573,6 @@
   <block id="4718467fa890cd0dcf159b3d461cedbe" category="list-text"><block ref="6bd87cf3d55c2ead3ab585e965bea4db" category="inline-link-rx"></block> _NEU_</block>
   <block id="410ecb079e286058eeb2bc6b56d9379c" category="list-text"><block ref="410ecb079e286058eeb2bc6b56d9379c" category="inline-link-rx"></block></block>
   <block id="732713df3c4c58fb19fab37e747f6f0d" category="list-text"><block ref="732713df3c4c58fb19fab37e747f6f0d" category="inline-link-macro-rx"></block></block>
+  <block id="7149d03eb62017e7cc5192a67ff56c1c" category="paragraph">Möglicherweise müssen Sie die folgenden Ports durch die Edge-Firewall Ihres Datacenters zulassen, damit Sie das System Remote managen, Clients außerhalb Ihres Datacenters die Verbindung zu Ressourcen ermöglichen und sicherstellen können, dass die internen Services ordnungsgemäß funktionieren. Einige dieser Ports, URLs oder IP-Adressen sind je nach Nutzung des Systems möglicherweise nicht erforderlich.</block>
+  <block id="331d6d490990c63b2cee0dc04fe2589b" category="paragraph">Alle Ports sind TCP, sofern nicht anders angegeben, und alle TCP-Ports müssen die Dreiwege-Handshake-Kommunikation zwischen dem NetApp-Supportserver, dem Verwaltungsknoten und den Knoten unterstützen, auf denen die Element-Software ausgeführt wird. Beispielsweise kommuniziert der Host auf einem Management-Knoten über TCP-Port 443 mit dem Host auf einem Speicher-Cluster-MVIP-Ziel, und der Ziel-Host kommuniziert über einen beliebigen Port zurück zum Quellhost.</block>
 </blocks>
