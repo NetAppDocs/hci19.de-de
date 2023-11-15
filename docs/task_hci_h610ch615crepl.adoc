@@ -16,9 +16,13 @@ keywords: netapp, hci, H610C, H615C, chassis replacement, node replacement
 [role="lead"]
 Sie sollten ein Chassis ersetzen, um Computing-Node-Ausfälle im Zusammenhang mit der CPU, der Hauptplatine zu reparieren oder wenn es nicht eingeschaltet wird. Wenn ein defektes DIMM auf dem H610C-Rechenknoten vorhanden ist, auf dem NetApp HCI Bootstrap OS Version 1.6 oder höher ausgeführt wird, können Sie das DIMM austauschen und müssen das Gehäuse nicht ersetzen. Für H615C Nodes müssen Sie das Chassis nicht ersetzen, wenn ein DIMM ausfällt. Sie können nur das ausgefallene DIMM ersetzen.
 
+[NOTE]
+====
+Für H610C und H615C werden die Begriffe „Node“ und „Chassis“ austauschbar verwendet, da sich der Node und das Chassis nicht durch separate Komponenten unterscheiden.
 
-NOTE: Für H610C und H615C werden die Begriffe „Node“ und „Chassis“ austauschbar verwendet, da sich der Node und das Chassis nicht durch separate Komponenten unterscheiden.
+NetApp empfiehlt die Verwendung der NetApp Deployment Engine, um einen Compute-Node als Ersatz hinzuzufügen. Wenn Sie mit der Installation der NetApp-Bereitstellungsmodul für ESXi nicht fortfahren können, lesen Sie den Artikel der NetApp-Wissensdatenbank https://kb.netapp.com/Legacy/NetApp_HCI/OS/How_to_install_ESXi_on_NetApp_HCI_compute_node_manually["Manuelles Installieren von ESXi auf dem NetApp HCI Computing-Node"^].
 
+====
 .Was Sie benötigen
 * Sie haben überprüft, ob der Node ausgefallen ist.
 * Sie verfügen über ein Ersatzgehäuse. Wenn Sie ein Ersatzteil bestellen möchten, wenden Sie sich bitte an den NetApp Support.
@@ -29,15 +33,9 @@ NOTE: Für H610C und H615C werden die Begriffe „Node“ und „Chassis“ aust
 .Über diese Aufgabe
 Alarme im VMware vSphere Web Client warnen Sie bei einem Host-Ausfall. Sie müssen die Seriennummer des ausgefallenen Hosts vom VMware vSphere Web Client mit der Seriennummer auf dem Aufkleber auf der Rückseite des Node übereinstimmen.
 
-.Schritte im Überblick
-Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahrens:<<Bereiten Sie den Austausch des Node vor>>
-<<Ersetzen Sie den Node>>
-<<Fügen Sie den Node dem Cluster hinzu>>
-<<Installieren Sie die GPU-Treiber>>
 
 
-
-== Bereiten Sie den Austausch des Node vor
+== Schritt 1: Bereiten Sie vor, den Knoten zu ersetzen
 
 Bevor Sie den Node ersetzen, sollten Sie die auf dem Node gehosteten Virtual Machines (VMs) auf einen verfügbaren Host migrieren und den Node aus dem Cluster entfernen. Sie sollten Details zum Node, z. B. die Seriennummer und Netzwerkinformationen, aufzeichnen. Das Migrieren der VMs und das Aufzeichnen der Node-Details gilt auch bei Komponentenausfällen, bei denen der Node noch online ist und funktioniert, z. B. bei einem DIMM-Fehler (Dual Inline Memory Module).
 
@@ -63,7 +61,7 @@ Sie benötigen die Seriennummer zum Identifizieren des Chassis, indem Sie der Nu
 
 
 
-== Ersetzen Sie den Node
+== Schritt 2: Ersetzen Sie den Knoten
 
 Nachdem Sie den ausgefallenen Node aus dem Cluster entfernt haben, können Sie das ausgefallene Chassis entfernen und das Ersatzgehäuse installieren.
 
@@ -96,7 +94,7 @@ CAUTION: Wenn die Luftströmungsöffnungen an der Rückseite des Gehäuses durch
 
 
 
-== Fügen Sie den Node dem Cluster hinzu
+== Schritt 3: Fügen Sie den Knoten zum Cluster hinzu
 
 Sie sollten NetApp HCI so konfigurieren, dass der neue Compute-Node verwendet wird.
 
@@ -115,7 +113,10 @@ Sie sollten NetApp HCI so konfigurieren, dass der neue Compute-Node verwendet wi
 https://<ManagementNodeIP>
 ----
 . Melden Sie sich bei NetApp Hybrid Cloud Control an, indem Sie die Anmeldedaten des NetApp HCI-Storage-Cluster-Administrators bereitstellen.
-. Wählen Sie im Fenster Installation erweitern die Option *erweitern*. Der Browser öffnet die NetApp Deployment Engine.
+. Wählen Sie im Fenster Installation erweitern die Option *erweitern*.
++
+Der Browser öffnet die NetApp Deployment Engine.
+
 . Melden Sie sich bei der NetApp Deployment Engine an, indem Sie die Anmeldedaten des Administrators für das lokale NetApp HCI-Storage-Cluster angeben.
 +
 
@@ -183,14 +184,17 @@ TIP: Bei einigen Computing-Nodes müssen Sie EVC möglicherweise auf der höchst
 
 
 
-== Installieren Sie die GPU-Treiber
+== Schritt 4: Installieren Sie die GPU-Treiber
 
 Compute-Nodes mit NVIDIA-GPUs (Graphics Processing Units) wie der H610C Node müssen die in VMware ESXi installierten NVIDIA-Softwaretreiber installiert sein, damit sie von der höheren Rechenleistung profitieren können. Um die GPU-Treiber zu installieren, muss der Compute-Node über eine GPU-Karte verfügen.
 
 .Schritte
 . Öffnen Sie einen Browser, und navigieren Sie zum NVIDIA Lizenzportal unter folgender URL:
 `https://nvid.nvidia.com/dashboard/`
-. Laden Sie je nach Umgebung eines der folgenden Treiberpakete auf Ihren Computer herunter:
+. Laden Sie die Treiberpaketversion je nach Umgebung auf Ihren Computer herunter.
++
+Das folgende Beispiel zeigt die Treiberpaketversion für vSphere 6.0, 6.5 und 6.7:
+
 +
 [cols="2*"]
 |===
@@ -212,7 +216,10 @@ NVIDIA-GRID-vSphere-6.7-410.92-410.91-412.16.zip
 
 |===
 . Extrahieren Sie das Treiberpaket auf Ihrem Computer. Die resultierende .VIB-Datei ist die unkomprimierte Treiberdatei.
-. Kopieren Sie die .VIB-Treiberdatei von Ihrem Computer auf ESXi, die auf dem Computing-Knoten ausgeführt wird. Die folgenden Beispielbefehle für jede Version gehen davon aus, dass sich der Treiber im Verzeichnis US-Dollar HOME/NVIDIA/ESX6.x/ auf dem Management-Host befindet. Das SCP Utility ist in den meisten Linux Distributionen jederzeit verfügbar oder als Download-Dienstprogramm für alle Windows Versionen erhältlich:
+. Kopieren Sie die .VIB-Treiberdatei von Ihrem Computer auf ESXi, die auf dem Computing-Knoten ausgeführt wird. Das Secure Copy Protocol (SCP)-Dienstprogramm ist in den meisten Linux-Distributionen verfügbar oder als herunterladbares Dienstprogramm für alle Windows-Versionen verfügbar.
++
+Im folgenden Beispiel werden die Befehle für ESXi 6.0, 6.5 und 6.7 angezeigt. Die Befehle setzen voraus, dass sich der Treiber im Verzeichnis US-Dollar HOME/NVIDIA/ESX6.x/ auf dem Management-Host befindet:
+
 +
 [cols="2*"]
 |===

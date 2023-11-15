@@ -16,9 +16,13 @@ keywords: netapp, hci, H410C nodes, replacement, node replacement
 [role="lead"]
 Sie sollten einen Computing-Node ersetzen, wenn CPU-Fehler, andere Probleme mit der Hauptplatine auftreten oder der Computer nicht eingeschaltet wird. Die Anweisungen gelten für die Nodes H410C. Wenn Sie einen H410C Compute-Node besitzen, auf dem NetApp HCI Bootstrap OS Version 1.6P1 oder höher ausgeführt wird, müssen Sie den Node nicht ersetzen, wenn das Speicher-DIMM ausfällt. Sie müssen nur das ausgefallene DIMM ersetzen. Wenn die DIMMs im Knoten nicht ausgefallen sind, können Sie sie im Ersatzknoten verwenden.
 
+[NOTE]
+====
+Der Ersatzknoten sollte die gleiche Version von NetApp HCI Bootstrap OS haben wie die anderen Compute-Knoten in der NetApp HCI Installation.
 
-NOTE: Der Ersatzknoten sollte die gleiche Version von NetApp HCI Bootstrap OS haben wie die anderen Compute-Knoten in der NetApp HCI Installation.
+NetApp empfiehlt die Verwendung der NetApp Deployment Engine, um einen Compute-Node als Ersatz hinzuzufügen. Wenn Sie mit der Installation der NetApp-Bereitstellungsmodul für ESXi nicht fortfahren können, lesen Sie den Artikel der NetApp-Wissensdatenbank https://kb.netapp.com/Legacy/NetApp_HCI/OS/How_to_install_ESXi_on_NetApp_HCI_compute_node_manually["Manuelles Installieren von ESXi auf dem NetApp HCI Computing-Node"^].
 
+====
 .Was Sie benötigen
 * Sie haben festgestellt, dass der Compute-Node ersetzt werden muss.
 * Sie verfügen über einen Ersatz-Computing-Node. Wenn Sie einen Ersatzknoten bestellen möchten, wenden Sie sich an den NetApp Support. Der Compute-Node wird mit installiertem Bootstrap-Betriebssystem an Sie geliefert. Knoten werden ab Werk mit der neuesten Version von Bootstrap OS ausgeliefert. Möglicherweise müssen Sie auf dem Knoten in den folgenden Szenarien den Prozess zur Rückkehr zum Werkabbild (RTFI) durchführen:
@@ -41,19 +45,23 @@ Beim Austausch eines H410C Computing-Node sind folgende Punkte zu beachten:
 
 
 .Schritte im Überblick
-Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahrens:<<Bereiten Sie den Austausch des Computing-Nodes vor>>
-<<Ersetzen Sie den Computing-Node im Chassis>>
-<<Entfernen Sie die Computing-Node-Ressource in NetApp HCI 1.7 und höher>>
-<<Fügen Sie den Computing-Node dem Cluster hinzu>>
-<<Implementieren Sie Witness-Nodes für Storage-Cluster mit zwei und drei Nodes neu>>
+Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahrens:
+<<Schritt 1: Bereiten Sie vor, den Compute-Node zu ersetzen>>
+<<Schritt 2: Ersetzen Sie den Compute-Node im Chassis>>
+<<Schritt 3: Entfernen Sie die Compute-Node-Ressource in NetApp HCI 1.7 und höher>>
+<<Schritt 4: Fügen Sie den Compute-Node zum Cluster hinzu>>
+<<Schritt 5: Neuimplementierung von Witness Nodes für Storage-Cluster mit zwei und drei Nodes>>
 
-Hier sind einige zusätzliche Aufgaben, die Sie möglicherweise durchführen müssen, wenn Ihr System die spezifischen Bedingungen hat, für die sie gelten:link:task_hci_removewn.html["Entfernen Sie Witness Nodes, um Computing-Ressourcen freizumachen"]
-<<Ändern Sie das Passwort, wenn Sie einen Ersatzknoten mit einem nicht standardmäßigen BMC-Passwort erhalten haben>>
-<<Aktualisieren Sie die BMC-Firmware auf Ihrem Node>>
+Hier sind einige zusätzliche Aufgaben, die Sie möglicherweise durchführen müssen, wenn Ihr System die spezifischen Bedingungen hat, für die sie gelten:
+
+* link:task_hci_removewn.html["Entfernen Sie Witness Nodes, um Computing-Ressourcen freizumachen"]
+* <<Ändern Sie das Passwort, wenn Sie einen Ersatzknoten mit einem nicht standardmäßigen BMC-Passwort erhalten haben>>
+* <<Aktualisieren Sie die BMC-Firmware auf Ihrem Node>>
 
 
 
-== Bereiten Sie den Austausch des Computing-Nodes vor
+
+== Schritt 1: Bereiten Sie vor, den Compute-Node zu ersetzen
 
 Sie sollten die auf dem Node gehosteten Virtual Machines (VMs) zu einem verfügbaren Host migrieren und den ausgefallenen Node aus dem Cluster entfernen. Sie sollten Details zum ausgefallenen Node, z. B. Seriennummer und Netzwerkinformationen, abrufen.
 
@@ -93,7 +101,7 @@ NOTE: Die Migrationsschritte finden Sie in der VMware Dokumentation.
 
 
 
-== Ersetzen Sie den Computing-Node im Chassis
+== Schritt 2: Ersetzen Sie den Compute-Node im Chassis
 
 Nachdem Sie den ausgefallenen Node aus dem Cluster entfernt haben, können Sie den Node aus dem Chassis entfernen und den Ersatz-Node installieren.
 
@@ -140,7 +148,7 @@ TIP: Stellen Sie sicher, dass der Ersatz-Node auf die gleiche Weise wie die ande
 
 
 
-== Entfernen Sie die Computing-Node-Ressource in NetApp HCI 1.7 und höher
+== Schritt 3: Entfernen Sie die Compute-Node-Ressource in NetApp HCI 1.7 und höher
 
 In NetApp HCI 1.7 und höher sollte nach dem physischen Austausch des Nodes die Computing-Node-Ressource über die Management-Node-APIs entfernt werden. Zur Verwendung VON REST-APIs muss auf Ihrem Storage-Cluster NetApp Element Software 11.5 oder höher ausgeführt werden. Sie sollten einen Management-Node mit Version 11.5 oder höher implementiert haben.
 
@@ -170,7 +178,7 @@ NOTE: Wenn Sie die bekommen `Auth Error TypeError: Failed to fetch` Fehlermeldun
 
 
 
-== Fügen Sie den Computing-Node dem Cluster hinzu
+== Schritt 4: Fügen Sie den Compute-Node zum Cluster hinzu
 
 Der Computing-Node sollte wieder dem Cluster hinzugefügt werden. Die Schritte hängen von der Version von NetApp HCI ab, die Sie ausführen.
 
@@ -774,7 +782,7 @@ image::rescan.gif[Zeigt das Symbol für die erneute Überprüfung der Speicherad
 
 
 
-== Implementieren Sie Witness-Nodes für Storage-Cluster mit zwei und drei Nodes neu
+== Schritt 5: Neuimplementierung von Witness Nodes für Storage-Cluster mit zwei und drei Nodes
 
 Nachdem Sie den ausgefallenen Computing-Node physisch ersetzt haben, sollten Sie die NetApp HCI Witness Node VM neu bereitstellen, wenn der ausgefallene Computing-Node den Witness Node hostet. Diese Anweisungen gelten nur für Computing-Nodes, die Teil einer NetApp HCI Installation mit zwei oder drei Storage-Clustern sind.
 
