@@ -6575,4 +6575,6 @@
   <block id="527e6719cbc58f7527999477eaac0dd2" category="section-title">Schritt 3: Entfernen Sie die Compute-Node-Ressource in NetApp HCI 1.7 und höher</block>
   <block id="714f787cf5a78abe3413cd3fa33c6c6b" category="section-title">Schritt 4: Fügen Sie den Compute-Node zum Cluster hinzu</block>
   <block id="4b07d1c342b03364f7120990720b53ef" category="section-title">Schritt 5: Neuimplementierung von Witness Nodes für Storage-Cluster mit zwei und drei Nodes</block>
+  <block id="df0f8acf74958be223bdd3dabcce5038" category="inline-link">SolidFire- und HCI-Upgrades können nicht gestartet werden, da Fehler beim Hochladen der Upgradepakete aufgetreten ist</block>
+  <block id="b9bbae8efe5c0f15ffba3f05d619b861" category="admonition">Ab dem 2023. November können Sie ein Komponenten-Upgrade nicht mit NetApp Hybrid Cloud Control oder REST API starten, da die (privaten und öffentlichen) Signaturschlüsselzertifikate am 5. November 2023 abgelaufen sind. Sie können dieses Problem beheben, indem Sie die im Knowledge Base-Artikel dokumentierte Problemumgehung befolgen<block ref="43e83b9864cac922c7475bad0e74a40f" category="inline-link-rx"></block>.</block>
 </blocks>

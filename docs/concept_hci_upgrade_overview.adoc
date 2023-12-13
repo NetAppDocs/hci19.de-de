@@ -18,6 +18,9 @@ Sie können das NetApp HCI System nach der Implementierung durch das sequenziell
 
 Zu diesen Komponenten gehören Management-Services, HealthTools, NetApp Hybrid Cloud Control, Element Software, Management-Node, Computing-Firmware, Computing-Treiber, Und das Element Plug-in für vCenter Server.​
 
+
+NOTE: Ab dem 2023. November können Sie ein Komponenten-Upgrade nicht mit NetApp Hybrid Cloud Control oder REST API starten, da die (privaten und öffentlichen) Signaturschlüsselzertifikate am 5. November 2023 abgelaufen sind. Sie können dieses Problem beheben, indem Sie die im Knowledge Base-Artikel dokumentierte Problemumgehung befolgen https://kb.netapp.com/onprem/solidfire/Element_OS/SolidFire_and_HCI_upgrades_unable_to_start_due_to_upgrade_package_upload_error["SolidFire- und HCI-Upgrades können nicht gestartet werden, da Fehler beim Hochladen der Upgradepakete aufgetreten ist"^].
+
 Der <<sys_upgrade_seq,Systemaktualisierungssequenz>> Inhalt beschreibt die Aufgaben, die zum Abschluss eines NetApp HCI-Systemupgrades erforderlich sind. Idealerweise führen Sie diese Verfahren als Teil der größeren Upgrade-Sequenz und nicht isoliert durch. Wenn ein komponentenbasiertes Upgrade oder eine Aktualisierung erforderlich ist, lesen Sie die Verfahrensvoraussetzungen, um sicherzustellen, dass zusätzliche Komplexität bewältigt wird.
 
 Der xref:task_hci_upgrade_all_vsphere.adoc[VSphere-Upgrade-Sequenz] Der Inhalt des Element Plug-ins für vCenter Server enthält zusätzliche Schritte vor und nach dem Upgrade, die zur Neuinstallation des Element Plug-ins für vCenter Server erforderlich sind.
