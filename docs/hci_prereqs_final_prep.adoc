@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: docs/hci_prereqs_final_prep.html 
 summary: Informieren Sie sich über die abschließenden Vorbereitungen und die entsprechende Konfiguration, die Sie vor der Bereitstellung von NetApp HCI abgeschlossen haben. 
-keywords: netapp, hci, final preparations, requirements 
+keywords: netapp, hci, final preparations, requirements, IPMI 
 ---
 = Konfigurieren Sie IPMI für jeden Node
 :hardbreaks:
@@ -11,7 +11,6 @@ keywords: netapp, hci, final preparations, requirements
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:keywords: netapp, hci, final preparations, IPMI
 
 
 [role="lead"]

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: docs/concept_nde_access_overview.html 
 summary: Greifen Sie je nach Umgebung auf die NetApp Deployment Engine zu, bevor Sie NetApp HCI mit einer der verschiedenen Methoden implementieren. 
-keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access 
+keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, access, vcp, element, management services, firmware 
 ---
 = Übersicht über die Zugriffsoptionen der NetApp Deployment Engine
 :hardbreaks:
@@ -11,7 +11,6 @@ keywords: netapp, hci, netapp deployment engine, deployment, engine, deploy, acc
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:keywords: hci, release notes, vcp, element, management services, firmware
 
 
 [role="lead"]
