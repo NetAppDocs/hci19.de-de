@@ -27,7 +27,7 @@ NOTE: Management Services 2.22.7 enthält Element Plug-in für vCenter Server 5.
 --
 Dieses Upgrade-Verfahren umfasst die folgenden Upgrade-Szenarien:
 
-* Sie führen ein Upgrade auf Element Plug-in für vCenter Server 5.2, 5.1 oder 5.0 durch.
+* Sie führen ein Upgrade auf Element Plug-in für vCenter Server 5.3, 5.2, 5.1 oder 5.0 durch.
 * Sie aktualisieren gerade auf einen 8.0 oder 7.0 HTML5 vSphere Web Client.
 
 
@@ -162,8 +162,8 @@ Die folgenden Versionsdetails bzw. Details zu einer neueren Version sollten ange
 +
 [listing]
 ----
-NetApp Element Plug-in Version: 5.2
-NetApp Element Plug-in Build Number: 12
+NetApp Element Plug-in Version: 5.3
+NetApp Element Plug-in Build Number: 9
 ----
 
 
