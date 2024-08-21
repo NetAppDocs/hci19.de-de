@@ -30,7 +30,7 @@ Mit dem Element Plug-in für vCenter Server 4.x kann das Plug-in 4.x bei einem U
 ====
 +
 
-NOTE: Bei der Aktualisierung von ESXi für Computing-Nodes für ein https://www.netapp.com/us/media/tr-4823.pdf["Cluster mit zwei Nodes"^], Aktualisieren Sie nur einen Computing-Knoten gleichzeitig, damit nur ein Zeuge-Knoten vorübergehend nicht verfügbar ist und Cluster-Quorum aufrechterhalten werden kann.
+NOTE: Wenn Sie ESXi für Compute-Nodes für einen https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["Cluster mit zwei Nodes"^] aktualisieren, aktualisieren Sie jeweils nur einen Compute-Node, sodass nur ein Witness-Node vorübergehend nicht verfügbar ist und das Cluster-Quorum beibehalten werden kann.
 
 . https://docs.netapp.com/us-en/vcp/vcp_task_getstarted.html#register-the-plug-in-with-vcenter["Registrieren"^] Das Element Plug-in für vCenter Server erneut mit vCenter.
 . https://docs.netapp.com/us-en/vcp/vcp_task_getstarted.html#add-storage-clusters-for-use-with-the-plug-in["Fügen Sie Cluster hinzu"^] Verwenden des Plug-ins.
@@ -44,5 +44,5 @@ NOTE: Bei der Aktualisierung von ESXi für Computing-Nodes für ein https://www.
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-* https://www.netapp.com/us/media/tr-4823.pdf["Technischer Bericht: NetApp HCI Two-Node Storage Cluster"^]
+* https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["Technischer Bericht: NetApp HCI Two-Node Storage Cluster"^]
 

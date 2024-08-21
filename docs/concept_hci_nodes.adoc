@@ -61,7 +61,7 @@ NOTE: In einem Storage-Cluster mit zwei Nodes werden mindestens zwei Witness-Nod
 
 == Weitere Informationen
 
-* https://www.netapp.com/us/media/tr-4823.pdf["NetApp HCI Storage Cluster mit zwei Nodes – TR-4823"^]
+* https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["NetApp HCI Storage Cluster mit zwei Nodes – TR-4823"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
 * http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
 

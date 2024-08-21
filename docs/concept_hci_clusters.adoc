@@ -87,7 +87,7 @@ Die Erweiterung von zwei Storage-Nodes auf drei Storage-Nodes erhöht die Ausfal
 
 == Weitere Informationen
 
-* https://www.netapp.com/us/media/tr-4823.pdf["NetApp HCI Storage Cluster mit zwei Nodes – TR-4823"^]
+* https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["NetApp HCI Storage Cluster mit zwei Nodes – TR-4823"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
 * http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
 

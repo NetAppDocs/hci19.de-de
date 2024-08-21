@@ -52,8 +52,8 @@ Für die Verbindung zu allen NetApp HCI-Netzwerken verwendet dieses Setup zwei N
 Lesen Sie diese Ressourcen:
 
 * Verwenden Sie das Arbeitsbuch zur Ermittlung der NetApp HCI-Installation_, um Ihr Netzwerk vor der Installation zu konfigurieren.
-* Einzelheiten und andere unterstützte Konfigurationen finden Sie unter https://www.netapp.com/us/media/tr-4820.pdf["_TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke_"^] Und das https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["_Installations- und Setup-Anleitung für NetApp HCI_"^].
-* Informationen zu NetApp HCI-Konfigurationen mit weniger als vier Storage-Nodes finden Sie unter https://www.netapp.com/us/media/tr-4823.pdf["_TR-4823: NetApp HCI 2-Node Storage Cluster_"^].
+* Weitere Informationen und andere unterstützte Konfigurationen finden Sie unter https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["_TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke_"^] und https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["_Installations- und Setup-Anleitung für NetApp HCI_"^] .
+* Informationen zu NetApp HCI-Konfigurationen, die kleiner als vier Storage-Nodes sind, finden Sie unter https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["_TR-4823: NetApp HCI 2-Node Storage Cluster_"^].
 * Weitere Informationen zum Konfigurieren von Link Aggregation Control Protocol (LACP) auf den für jeden Storage-Node verwendeten Switch-Ports finden Sie unter link:hci_prereqs_LACP_configuration.html["Konfigurieren Sie LCAP für optimale Storage-Performance"].
 
 
@@ -276,7 +276,7 @@ Die Benutzeroberfläche von NetApp Hybrid Cloud Control wird angezeigt.
 
 * https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
 * link:../media/hseries-isi.pdf["NetApp HCI Installations- und Setup-Anleitung"^]
-* https://www.netapp.com/us/media/tr-4820.pdf["TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke"^]
+* https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke"^]
 * https://docs.netapp.com/us-en/vcp/index.html["Dokumentation zum NetApp Element-Plug-in für vCenter Server"^]
 * https://mysupport.netapp.com/site/tools/tool-eula/5ddb829ebd393e00015179b2["NetApp Configuration Advisor"^] 5.8.1 oder höher zur Netzwerkvalidierung
 * https://docs.netapp.com/us-en/solidfire-active-iq/index.html["NetApp SolidFire Active IQ Dokumentation"^]
