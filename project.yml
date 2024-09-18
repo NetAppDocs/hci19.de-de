@@ -14,7 +14,7 @@ settings:
     url: "/hci"
   - version-number: '1.8'
     url: "/hci18"
-  langs: de-de,us-en,ja-jp,ko-kr,zh-cn,zh-tw,es-es,fr-fr,it-it
+  langs: de-de,us-en,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
   - title: NetApp HCI-Dokumentation 1.9
