@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blocks>
   <block id="db035ffffac30b1a95fd497625c55167" category="summary">Weitere Informationen erhalten Sie unter NetApp HCI Dokumentation zum Konfigurations- und Management sowie Informationen zu NetApp HCI Lösungen.</block>
-  <block id="ad0a505756223d68dc11afeae3459351" category="doc">NetApp HCI-Dokumentation</block>
   <block id="839ff18e4b338f808e22e4d0a4c70094" category="summary">Mit NetApp Hybrid Cloud Control lassen sich Protokolle bei der Installation von NetApp HCI oder Element erfassen, um die Fehlerbehebung zu unterstützen.</block>
   <block id="756909f99bc1a720d318a5f5b94eb094" category="doc">Sammelt Protokolle für die Fehlerbehebung</block>
   <block id="2a4218d09bfcf2b665c034eb84b5e91c" category="paragraph">Bei Problemen mit der Installation von NetApp HCI oder SolidFire All-Flash-Storage können Sie Protokolle erfassen, die Sie an NetApp Support senden. So erhalten Sie eine Hilfe bei der Diagnose. Kunden können entweder NetApp Hybrid Cloud Control oder DIE REST-API verwenden, um Protokolle auf NetApp HCI oder Element Systemen zu erfassen.</block>
@@ -6582,4 +6581,5 @@
   <block id="a5f38386dcceecb027de7fd15fcc6aa4" category="list-text"><block ref="a5f38386dcceecb027de7fd15fcc6aa4" category="inline-link-rx"></block></block>
   <block id="0287de700b52d79d64e09aca72f4850b" category="admonition">Wenn Sie ESXi für Compute-Nodes für einen<block ref="d6b7667dc675e8798d67d09fb8931bb2" category="inline-link-rx"></block> aktualisieren, aktualisieren Sie jeweils nur einen Compute-Node, sodass nur ein Witness-Node vorübergehend nicht verfügbar ist und das Cluster-Quorum beibehalten werden kann.</block>
   <block id="a2f9c1250a16a7514c9d6b0865b7bf42" category="list-text"><block ref="a2f9c1250a16a7514c9d6b0865b7bf42" category="inline-link-rx"></block></block>
+  <block id="846572971d410f1d04ff53e7bfc8a84b" category="sidebar">NetApp HCI-Dokumentation 1.9</block>
 </blocks>
