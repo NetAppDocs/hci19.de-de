@@ -418,10 +418,10 @@ Installieren Sie die GPU-Treiber in ESXi für jeden installierten H610C Node und
 
 Wenn Ihr H615C Node GPUs in ihm hat, installieren Sie GPU-Treiber in ESXi für jeden installierten H615C Node und validieren Sie seine Funktionalität.
 
-[discrete]
+
+
 == Weitere Informationen
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
 * https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["_TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke_"^]
 * https://mysupport.netapp.com/site/tools["NetApp Configuration Advisor"^] 5.8.1 oder höher zur Netzwerkvalidierung

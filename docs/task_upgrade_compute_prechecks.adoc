@@ -281,9 +281,8 @@ Wenn die Zustandsprüfung ohne Probleme abgeschlossen wurde, weist der Antwortco
 
 | Wie lautet der Status der Witness Nodes im Cluster? Der Witness Node ist auf diesem ESXi Host betriebsbereit, und der alternative Witness Node wird auf einem anderen ESXi Host ausgeführt. | Knoten | Ein Witness-Node wird lokal auf diesem ESXi-Host ausgeführt. Wenn Sie bereit sind, ein Upgrade für diesen ESXi-Host durchzuführen, fahren Sie den Witness-Node nur auf diesem ESXi-Host herunter, und führen Sie die Integritätsprüfung erneut aus. *Ein Witness Node muss jederzeit in der HCI-Installation laufen*. | https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/How_to_resolve_witness_node_issues_prior_to_upgrading_compute_nodes["Siehe diesen KB"^] 
 |===
-[discrete]
+
+
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

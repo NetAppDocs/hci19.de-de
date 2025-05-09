@@ -43,6 +43,5 @@ NOTE: Wenn Sie ESXi für Compute-Nodes für einen https://www.netapp.com/pdf.htm
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 * https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["Technischer Bericht: NetApp HCI Two-Node Storage Cluster"^]
 

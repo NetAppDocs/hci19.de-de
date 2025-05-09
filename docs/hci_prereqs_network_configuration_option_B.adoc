@@ -71,9 +71,8 @@ Mit den folgenden Beispielbefehlen können Sie alle Switch-Ports konfigurieren, 
 
 NOTE: Einige Switches erfordern möglicherweise die Einbeziehung des nativen VLANs in die Liste zulässiger VLANs. Informationen zu Ihrem spezifischen Switch-Modell und der Software-Version finden Sie in der Dokumentation.
 
-[discrete]
+
+
 == Weitere Informationen
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

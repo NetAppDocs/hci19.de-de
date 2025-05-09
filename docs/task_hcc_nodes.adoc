@@ -66,9 +66,8 @@ TIP: Informationen zur Anzahl der Storage- und Computing-Ressourcen finden Sie i
 
 NOTE: Zum Management eines Computing-Node in NetApp Hybrid Cloud Control sind einige Voraussetzungen erforderlich https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/How_to_set_up_compute_node_management_in_NetApp_Hybrid_Cloud_Control["Fügen Sie den Computing-Node zu einem vCenter-Host-Cluster hinzu"^].
 
-[discrete]
+
+
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

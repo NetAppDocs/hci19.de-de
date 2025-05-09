@@ -415,9 +415,8 @@ Bei den Storage-Zustandsprüfungen werden die folgenden Prüfungen pro Cluster d
 
 | Prüfung_ausstehend_Knoten | Cluster | Stellt sicher, dass keine ausstehenden Nodes im Cluster vorhanden sind. 
 |===
-[discrete]
+
+
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

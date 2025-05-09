@@ -16,9 +16,8 @@ keywords: netapp, hci, element, storage, protection domains
 [role="lead"]
 Die NetApp Element Software unterstützt link:concept_hci_dataprotection.html#protection-domains["Sicherungsdomänen"] Funktionalität optimiert das Datenlayout auf Storage-Nodes für eine optimale Datenverfügbarkeit. Um diese Funktion einzusetzen, sollten Sie die Storage-Kapazität gleichmäßig auf drei oder mehr NetApp H-Series Chassis verteilen, um die Storage-Zuverlässigkeit zu optimieren. In diesem Szenario aktiviert der Storage Cluster automatisch die Sicherungsdomänen.
 
-[discrete]
+
+
 == Weitere Informationen
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

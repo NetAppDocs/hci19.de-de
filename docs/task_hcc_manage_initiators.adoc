@@ -128,11 +128,11 @@ Sie können einen oder mehrere Initiatoren löschen. Wenn Sie einen Initiator l�
 
 
 
-[discrete]
+
+
 == Weitere Informationen
 
 * link:concept_hci_initiators.html["Weitere Informationen zu Initiatoren"]
 * link:concept_hci_volume_access_groups.html["Erfahren Sie mehr über Volume Access Groups"]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 

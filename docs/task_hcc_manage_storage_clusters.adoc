@@ -195,6 +195,4 @@ Falls beim Aktivieren oder Deaktivieren des Wartungsmodus Fehler auftreten, wird
 
 == Weitere Informationen
 
-* link:task_mnode_manage_storage_cluster_assets.html["Erstellen und Managen von Storage-Cluster-Assets"]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-
+link:task_mnode_manage_storage_cluster_assets.html["Erstellen und Managen von Storage-Cluster-Assets"]

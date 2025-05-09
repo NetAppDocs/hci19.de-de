@@ -32,9 +32,3 @@ In einer Produktionsumgebung sollten Computing-Nodes in einem Cluster einzeln od
 
 .Starten Sie mit der Firmware-Upgrade-Automatisierung
 Navigieren Sie zum, um zu beginnen https://github.com/NetApp-Automation/nar_compute_firmware_upgrade["NetApp Ansible Repository auf GitHub"^] Und laden Sie die herunter `nar_compute_nodes_firmware_upgrades` Rolle und Dokumentation:
-
-[discrete]
-== Weitere Informationen
-
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-

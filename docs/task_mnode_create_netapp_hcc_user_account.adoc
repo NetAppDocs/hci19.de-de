@@ -279,6 +279,4 @@ Wenn Sie nach der Installation manuell ein neues Asset oder einen Compute Node (
 
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

@@ -132,10 +132,10 @@ NOTE: Wenn Sie ein Storage-Cluster mit zwei Nodes auf vier oder mehr erweitert h
 
 
 
-[discrete]
+
+
 == Weitere Informationen
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["Installations- und Setup-Anleitung für NetApp HCI Computing- und Storage-Nodes"^]
 * https://kb.vmware.com/s/article/1003212["VMware Knowledge Base: Unterstützung für vMotion Compatibility (EVC)-Prozessoren"^]

@@ -329,9 +329,8 @@ NOTE: Bei Node OS werden täglich unbeaufsichtigte Upgrades für Sicherheitspatc
 
 Das Upgrade wurde erfolgreich abgeschlossen, wenn der abgeschlossen wurde `PercentComplete` Zeigt an `100` Und `results` Gibt die aktualisierte Versionsnummer an.
 
-[discrete]
+
+
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

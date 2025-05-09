@@ -77,10 +77,10 @@ NOTE: Zum Upgrade der Element Software auf dem Storage-Cluster ist kein Upgrade 
 . link:task_hcc_upgrade_compute_node_firmware.html["Aktualisieren Sie die Computing-Node-Firmware mit NetApp Hybrid Cloud Control"] Oder link:task_hcc_upgrade_compute_firmware_ansible.html["Automatisieren Sie Upgrades Ihrer Computing-Firmware mit Ansible"].
 
 
-[discrete]
+
+
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 * https://docs.netapp.com/us-en/element-software/upgrade/concept_element_upgrade_overview.html["Upgrade eines NetApp SolidFire All-Flash-Storage-Systems"^]
 

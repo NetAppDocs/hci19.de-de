@@ -73,11 +73,11 @@ Sie können eine Volume-Zugriffsgruppe mithilfe von NetApp Hybrid Cloud Control 
 . Bestätigen Sie den Löschvorgang, indem Sie *Ja* auswählen.
 
 
-[discrete]
+
+
 == Weitere Informationen
 
 * link:concept_hci_volume_access_groups.html["Erfahren Sie mehr über Volume Access Groups"]
 * link:task_hcc_manage_initiators.html#add-initiators-to-a-volume-access-group["Hinzufügen eines Initiators zu einer Volume-Zugriffsgruppe"]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 

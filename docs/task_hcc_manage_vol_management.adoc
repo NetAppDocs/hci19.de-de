@@ -283,11 +283,11 @@ Nach dem Löschen von Storage Volumes bleiben diese für ungefähr acht Stunden 
 . Bestätigen Sie den Vorgang, indem Sie *Ja* wählen.
 
 
-[discrete]
+
+
 == Weitere Informationen
 
 * link:concept_hci_volumes.html["Informationen zu Volumes"]
 * https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 

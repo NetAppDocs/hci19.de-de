@@ -19,9 +19,3 @@ Mit NetApp HCI Lösungen erreichen Sie eine skalierbare Performance mit mehreren
 Mit NetApp HCI können Sie Cloud-Services sowohl über diverse Public-Cloud-Provider als auch vor Ort bereitstellen. Mithilfe von NetApp HCI lassen sich Services ähnlich wie bei einem Cloud-Provider implementieren – komplett ohne Einbeziehung DER IT in einen Self-Service-Modus.
 
 Weitere Informationen zu NetApp HCI Lösungen finden Sie im https://docs.netapp.com/us-en/hci-solutions/index.html["Dokumentation der NetApp HCI-Lösungen"^].
-
-[discrete]
-== Weitere Informationen
-
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
-

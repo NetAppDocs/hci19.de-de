@@ -18,10 +18,10 @@ Aufgaben, die Sie mit der Management-Node-UI durchführen können:
 * link:task_mnode_run_system_utilities.html["Führen Sie Systemdienstprogramme vom Management-Node aus"]
 
 
-[discrete]
+
+
 == Weitere Informationen
 
 * link:task_mnode_access_ui.html["Greifen Sie auf den Management-Node zu"]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 

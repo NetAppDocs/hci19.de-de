@@ -60,10 +60,10 @@ image::mnode_swagger_ui.png[REST-API-UI für den Management-Node]
 . Klicken Sie auf *autorisieren* oder auf ein Schlosssymbol und geben Sie Cluster Admin-Anmeldeinformationen ein, um APIs zu verwenden.
 
 
-[discrete]
+
+
 == Weitere Informationen
 
 * link:task_mnode_enable_activeIQ.html["Active IQ- und NetApp HCI-Monitoring aktivieren"]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 

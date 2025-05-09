@@ -177,10 +177,10 @@ Beispiel für Nutzlast:
 ----
 
 
-[discrete]
+
+
 == Weitere Informationen
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Known_issues_and_workarounds_for_Compute_Node_upgrades["Bekannte Probleme und Behelfslösungen für Computing-Node-Upgrades"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 

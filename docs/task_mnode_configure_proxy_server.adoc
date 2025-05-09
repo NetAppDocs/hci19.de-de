@@ -61,9 +61,8 @@ Der Proxy-Benutzername, das Proxy-Passwort und der SSH-Port sind optional und so
 
 NOTE: Je nach Umgebung müssen Sie möglicherweise Ihren Management Node neu booten.
 
-[discrete]
+
+
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

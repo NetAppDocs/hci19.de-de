@@ -128,9 +128,8 @@ NOTE: Stellen Sie sicher, dass Sie das Kontrollkästchen * Alle Konfiguration be
 . Führen Sie dieses Verfahren für die übrigen H610S Storage-Nodes im Cluster durch.
 
 
-[discrete]
+
+
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

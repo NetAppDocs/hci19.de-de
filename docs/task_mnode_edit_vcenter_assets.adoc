@@ -96,10 +96,10 @@ Die API gibt aktualisierte Controller-Informationen zurück.
 
 
 
-[discrete]
+
+
 == Weitere Informationen
 
 * link:task_mnode_add_assets.html["Fügen Sie dem Management-Node Computing- und Controller-Ressourcen hinzu"]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 

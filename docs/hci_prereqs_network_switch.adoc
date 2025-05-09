@@ -52,9 +52,8 @@ NetApp HCI verfügt über folgende Switch-Anforderungen:
 
 Alle NetApp HCI-Nodes bieten zusätzliche Out-of-Band-Managementfunktionen über einen dedizierten Management-Port. NETAPP H300S, H300E, H500S, H500E, H700S Die Nodes H700E und H410C ermöglichen darüber hinaus den IPMI-Zugriff über Port A. Als Best Practice wird empfohlen, das Remote-Management von NetApp HCI durch die Konfiguration von Out-of-Band-Management für alle Nodes in der Umgebung zu vereinfachen.
 
-[discrete]
+
+
 == Weitere Informationen
 
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
-* https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-
+https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

@@ -79,11 +79,11 @@ Volume-spezifische Konten gelten nur für den Storage Cluster, auf dem sie erste
 
 Volume-Konten werden in der Tabelle „NetApp Hybrid Cloud Control Volumes“ gemanagt.
 
-[discrete]
+
+
 == Weitere Informationen
 
 * link:task_hcc_manage_accounts.html["Benutzerkonten verwalten"]
 * link:concept_hci_clusters.html["Informationen zu Clustern"]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
 

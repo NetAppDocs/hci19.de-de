@@ -100,10 +100,10 @@ Sie haben die IPMI-IP-Adresse für jeden Computing- und Storage-Node konfigurier
 . Wiederholen Sie dieses Verfahren für alle anderen NetApp HCI H610C, H615C oder H610S Nodes mit Standard-IPMI-Passwörtern.
 
 
-[discrete]
+
+
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/solidfire-active-iq/index.html["NetApp SolidFire Active IQ Dokumentation"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 

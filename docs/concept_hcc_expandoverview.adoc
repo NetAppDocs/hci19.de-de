@@ -36,12 +36,12 @@ In den folgenden Situationen müssen Sie möglicherweise EVC-Einstellungen im vS
 
 NOTE: Wenn Sie NetApp HCI Computing- oder Storage-Ressourcen in der NetApp Deployment Engine erweitern, sollten Sie eine Verbindung mit der vCenter Instanz herstellen, die Ihre vorhandenen NetApp HCI Computing-Nodes managt.
 
-[discrete]
+
+
 == Weitere Informationen
 
 * link:task_hcc_expand_compute.html["Erweitern Sie die NetApp HCI Computing-Ressourcen"]
 * link:task_hcc_expand_storage.html["Erweitern Sie NetApp HCI Storage-Ressourcen"]
 * link:task_hcc_expand_compute_and_storage.html["Erweitern Sie gleichzeitig NetApp HCI Storage- und Computing-Ressourcen"]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Ressourcen-Seite zu NetApp HCI"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
 

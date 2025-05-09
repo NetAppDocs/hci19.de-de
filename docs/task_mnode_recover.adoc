@@ -251,10 +251,10 @@ NOTE: Sie können den Benutzernamen hinzufügen oder dem Skript erlauben, Sie zu
 
 IMPORTANT: SSH-Funktion, die bietet link:task_mnode_enable_remote_support_connections.html["Zugriff auf Session-Session (Remote Support Tunnel) durch NetApp Support"] Ist auf Management-Nodes mit Management-Services 2.18 und höher standardmäßig deaktiviert. Wenn Sie zuvor die SSH-Funktion auf dem Management-Node aktiviert hatten, müssen Sie möglicherweise auch link:task_mnode_ssh_management.html["Deaktivieren Sie SSH erneut"] Auf dem wiederhergestellten Management-Node.
 
-[discrete]
+
+
 == Weitere Informationen
 
 * link:concept_hci_volumes.html#persistent-volumes["Persistente Volumes"]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/hybrid-cloud/hci-documentation/["Seite „NetApp HCI Ressourcen“"^]
 
