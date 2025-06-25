@@ -1,6 +1,6 @@
 ---
 settings:
-  name: HCI
+  name: NetApp HCI
   downlevel: true
   internal:
     pdf_enabled: true
@@ -17,7 +17,7 @@ settings:
   langs: de-de,us-en,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: NetApp HCI-Dokumentation 1.9
+  - title: NetApp HCI 1.9-Dokumentation
     url: "/index.html"
   - title: NetApp HCI Lösungen
     url: "/docs/hci_solutions_index.html"
@@ -390,4 +390,4 @@ sidebar:
   - title: Frühere Versionen
     url: "/docs/reference_earlier_versions.html"
   - title: Rechtliche Hinweise
-    url: "/docs/reference_notices_hci.html"
+    url: "/legal-notices.html"
