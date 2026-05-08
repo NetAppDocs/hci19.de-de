@@ -19,8 +19,6 @@ sidebar:
   entries:
   - title: NetApp HCI 1.9-Dokumentation
     url: "/index.html"
-  - title: NetApp HCI Lösungen
-    url: "/docs/hci_solutions_index.html"
   - title: Versionshinweise
     entries:
     - title: Neuerungen in NetApp HCI
