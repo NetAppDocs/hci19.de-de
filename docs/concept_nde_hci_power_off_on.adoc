@@ -42,6 +42,7 @@ Im Folgenden finden Sie eine Übersicht über die Aufgaben, die Sie zum Einschal
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen für NetApp HCI und Firmware-Versionen für NetApp HCI Storage Nodes"]

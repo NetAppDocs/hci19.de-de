@@ -58,6 +58,7 @@ Hier eine Übersicht der Schritte im Verfahren:<<Bereiten Sie den Austausch des 
 
 
 
+[[prepare-to-replace-the-faulty-switch]]
 == Bereiten Sie den Austausch des fehlerhaften Schalters vor
 
 Führen Sie die folgenden Schritte aus, bevor Sie den defekten Schalter austauschen.
@@ -77,6 +78,7 @@ Führen Sie die folgenden Schritte aus, bevor Sie den defekten Schalter austausc
 
 
 
+[[create-the-configuration-file]]
 == Erstellen Sie die Konfigurationsdatei
 
 Sie können einen Switch mit den von Ihnen erstellten Konfigurationsdateien konfigurieren. Wählen Sie eine der folgenden Optionen, um die Konfigurationsdatei für den Switch zu erstellen.
@@ -157,6 +159,7 @@ no interface mgmt0 dhcp
 |===
 
 
+[[remove-the-faulty-switch-and-install-the-replacement]]
 == Entfernen Sie den defekten Schalter, und setzen Sie den Austausch ein
 
 Führen Sie die Schritte aus, um den fehlerhaften Schalter zu entfernen und den Austausch zu installieren.
@@ -177,6 +180,7 @@ NOTE: Der Schalter schaltet sich automatisch ein, wenn die Wechselstromversorgun
 
 
 
+[[verify-the-operating-system-version-on-the-switch]]
 == Überprüfen Sie die Betriebssystemversion auf dem Switch
 
 Überprüfen Sie die Version der Betriebssystemsoftware auf dem Switch. Die Version auf dem fehlerhaften Schalter und der gesunde Schalter sollten übereinstimmen.
@@ -210,14 +214,15 @@ System memory:     3525 MB used / 3840 MB free / 7365 MB total
 Swap:              0 MB used / 0 MB free / 0 MB total
 
 ----
-. Wenn die Versionen nicht übereinstimmen, sollten Sie das Betriebssystem aktualisieren. Siehe link:https://community.mellanox.com/s/article/howto-upgrade-switch-os-software-on-mellanox-switch-systems["Mellanox Software-Upgrade-Leitfaden"^] Entsprechende Details.
+. Wenn die Versionen nicht übereinstimmen, sollte das Betriebssystem aktualisiert werden. Siehe den Link:Siehe das link:https://community.mellanox.com/s/article/howto-upgrade-switch-os-software-on-mellanox-switch-systems["Mellanox Software-Upgrade-Leitfaden"^] für Details.
 
 
 
 
+[[configure-the-replacement-switch]]
 == Konfigurieren Sie den Ersatzschalter
 
-Führen Sie die Schritte zur Konfiguration des Ersatzschalters durch. Siehe link:https://docs.mellanox.com/display/MLNXOSv381000/Configuration+Management["Mellanox-Konfigurationsmanagement"^] Entsprechende Details.
+Führen Sie die Schritte zur Konfiguration des Ersatzschalters durch. Siehe Link:Siehe link:https://docs.mellanox.com/display/MLNXOSv381000/Configuration+Management["Mellanox-Konfigurationsmanagement"^] für Details.
 
 .Schritte
 . Wählen Sie eine der Optionen aus, die für Sie gilt:
@@ -275,6 +280,7 @@ NOTE: Ein Neustart ist nicht erforderlich, wenn Sie die Textdatei anwenden.
 |===
 
 
+[[complete-the-replacement]]
 == Führen Sie den Austausch durch
 
 Führen Sie die Schritte durch, um den Ersatzvorgang abzuschließen.
@@ -288,8 +294,8 @@ Führen Sie die Schritte durch, um den Ersatzvorgang abzuschließen.
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
 

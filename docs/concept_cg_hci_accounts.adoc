@@ -18,6 +18,7 @@ Um auf Storage-Ressourcen in Ihrem System zuzugreifen, müssen Sie Benutzerkonte
 
 
 
+[[user-account-management]]
 == Benutzerkontenverwaltung
 
 Über Benutzerkonten werden der Zugriff auf die Storage-Ressourcen in einem softwarebasierten Netzwerk von NetApp Element gesteuert. Mindestens ein Benutzerkonto ist erforderlich, bevor ein Volume erstellt werden kann.
@@ -40,6 +41,7 @@ Mit NetApp Hybrid Cloud Control lassen sich folgende Account-Typen erstellen und
 
 
 
+[[storage-cluster-administrator-accounts]]
 == Konten für Storage-Cluster-Administratoren
 
 In einem Storage-Cluster mit NetApp Element Software können zwei Arten von Administratorkonten vorhanden sein:
@@ -55,6 +57,7 @@ Sie können Cluster-Administratorkonten verwalten, indem Sie Cluster-Administrat
 
 
 
+[[authoritative-user-accounts]]
 == Autoritäre Benutzerkonten
 
 Autorisierte Benutzerkonten können sich gegen alle Storage-Ressourcen authentifizieren, die mit der NetApp Hybrid Cloud Control Instanz der Nodes und Cluster verbunden sind. Mit diesem Konto können Sie Volumes, Konten, Zugriffsgruppen und mehr über alle Cluster hinweg verwalten.
@@ -73,6 +76,7 @@ Viele NetApp Hybrid Cloud Control Funktionen funktionieren zwar mit mehreren Sto
 
 
 
+[[volume-accounts]]
 == Volume-Konten
 
 Volume-spezifische Konten gelten nur für den Storage Cluster, auf dem sie erstellt wurden. Mit diesen Konten können Sie Berechtigungen für bestimmte Volumes im Netzwerk festlegen, haben aber keine Auswirkungen außerhalb dieser Volumes.
@@ -81,6 +85,7 @@ Volume-Konten werden in der Tabelle „NetApp Hybrid Cloud Control Volumes“ ge
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:task_hcc_manage_accounts.html["Benutzerkonten verwalten"]

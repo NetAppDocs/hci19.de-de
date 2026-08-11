@@ -24,6 +24,7 @@ NOTE: Rancher Support ist nicht in Ihrer NetApp Support Edge Vereinbarung enthal
 
 
 
+[[what-happens-when-you-deploy-rancher-on-netapp-hci]]
 == Was passiert, wenn Sie Rancher auf NetApp HCI implementieren?
 
 Die Implementierung umfasst folgende Schritte, die jeweils weiter beschrieben werden:
@@ -40,6 +41,7 @@ Jeder Virtual Machine werden alle Kubernetes-Rollen sowohl für die Kontrolleben
 
 
 
+[[steps-to-deploy-rancher-on-netapp-hci]]
 == Schritte zur Bereitstellung eines Ranchers auf NetApp HCI
 
 * <<Rufen Sie die NetApp Hybrid Cloud Control auf>>
@@ -49,6 +51,7 @@ Jeder Virtual Machine werden alle Kubernetes-Rollen sowohl für die Kontrolleben
 
 
 
+[[access-the-netapp-hybrid-cloud-control]]
 === Rufen Sie die NetApp Hybrid Cloud Control auf
 
 Um mit der Implementierung zu beginnen, rufen Sie NetApp Hybrid Cloud Control auf.
@@ -67,6 +70,7 @@ Die Benutzeroberfläche von NetApp Hybrid Cloud Control wird angezeigt.
 
 
 
+[[deploy-rancher-on-netapp-hci]]
 === NetApp HCI-Ranking einsetzen
 
 . Klicken Sie in der Hybrid Cloud Control links unten in der Navigationsleiste auf das Symbol *Rancher*.
@@ -132,6 +136,7 @@ image::rancher_deploy_complete_url.png[Abschluss der Rancher-Bereitstellung und 
 
 
 
+[[verify-your-deployment-by-using-vcenter-server]]
 === Überprüfen Sie die Bereitstellung mit vCenter Server
 
 Im vSphere-Client sehen Sie das Rancher Management Cluster, das die drei Virtual Machines umfasst.
@@ -141,6 +146,7 @@ IMPORTANT: Nachdem Sie die Bereitstellung abgeschlossen haben, dürfen Sie die K
 
 
 
+[[whats-next]]
 == Was kommt als Nächstes?
 
 Nach der Bereitstellung können Sie Folgendes tun:

@@ -18,12 +18,14 @@ Das herunterladbare Rechner-Firmware-Bundle enthält die neuesten BIOS- und BMC-
 
 
 
+[[whats-new]]
 == Was ist neu
 
 Version 2.27 enthält allgemeine Bugfixes.
 
 
 
+[[updated-firmware-components]]
 === Aktualisierte Firmware-Komponenten
 
 Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekomponenten. Aktualisierte Versionen in Bold:
@@ -42,6 +44,7 @@ Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekom
 |===
 
 
+[[changes-in-firmware-components]]
 === Änderungen in den Firmware-Komponenten
 
 Im Folgenden finden Sie Details zu den Verbesserungen und Änderungen, die in jeder neuen Firmware-Komponente enthalten sind:
@@ -87,6 +90,7 @@ Im Folgenden finden Sie Details zu den Verbesserungen und Änderungen, die in je
 |===
 
 
+[[mellanox-nic-firmware-driver-compatibility]]
 === Kompatibilität mit Mellanox NIC-Firmware-Treibern
 
 Die aktualisierten Mellanox-Firmware-Versionen 14.25.1020 und 14.24.1000 sind nur mit den folgenden Versionen des VMware ESXi-Treibers kompatibel:
@@ -104,6 +108,7 @@ Während NetApp Deployment Engine 1.8P1 keine ESXi Version 7.0 implementiert, wi
 
 
 
+[[download-compute-firmware-bundle-2-27]]
 == Computing Firmware Bundle 2.27 Herunterladen
 
 Zum Herunterladen des Computing-Firmware-Pakets gehen Sie zu https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab/download/62542/Compute_Firmware_Bundle["NetApp HCI Computing Firmware-Bundle"^] Seite.
@@ -112,6 +117,7 @@ Besuchen Sie link:task_hcc_upgrade_compute_node_firmware.html#use-the-baseboard-
 
 
 
+[[resolved-issues]]
 == Behobene Probleme
 
 Die folgenden Probleme wurden in diesem Release behoben.
@@ -130,6 +136,7 @@ Die folgenden Probleme wurden in diesem Release behoben.
 |===
 
 
+[[known-issues]]
 == Bekannte Probleme
 
 Im Folgenden sind bekannte Probleme in dieser Version aufgeführt, die in einigen Umgebungen möglicherweise den täglichen Betrieb beeinträchtigen könnten.

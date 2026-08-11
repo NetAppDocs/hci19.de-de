@@ -117,8 +117,8 @@ esxcli system maintenanceMode set --enable false
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
 

@@ -23,12 +23,14 @@ Die unterstützten Firmware-Versionen für H-Series und SolidFire Storage Nodes
 
 
 
+[[h610s]]
 == H610S
 
 *Modellnummer (Familienanteil):* H610S *volle Modellnummer:* H610S-1, H610S-1-NE, H610S-2, H610S-2-NE, H610S-4, H610S-4-NE UND H610S-2F
 
 
 
+[[component-firmware-managed-by-a-storage-firmware-bundle]]
 === Komponenten-Firmware, die von einem Storage Firmware Bundle verwaltet wird
 
 Während des Zeitrahmens von 11.x war die NetApp Element-Software die einzige Möglichkeit, Firmware freizugeben. Ab Element 12.0 wurde das Konzept eines *Storage Firmware Bundle* eingeführt und Firmware-Updates wurden nun durch ein unabhängig veröffentlichtes Speicher-Firmware-Bundle oder Speicher-Firmware-Bundle ermöglicht, das im Rahmen einer Element 12.x-Version enthalten ist.
@@ -108,6 +110,7 @@ NOTE: Ein Bindestrich (*-*) in der folgenden Tabelle zeigt an, dass die jeweilig
 |===
 
 
+[[component-firmware-not-managed-by-a-storage-firmware-bundle]]
 === Die Komponenten-Firmware wird nicht von einem Storage Firmware-Bundle gemanagt
 
 Die folgende Firmware wird nicht von einem Storage Firmware Bundle verwaltet:
@@ -124,12 +127,14 @@ Die folgende Firmware wird nicht von einem Storage Firmware Bundle verwaltet:
 |===
 
 
+[[h410s]]
 == H410S
 
 *Modellnummer (Familienanteil):* H410S *volle Modellnummern:* H410S-0, H410S-1, H410S-1-NE und H410S-2
 
 
 
+[[component-firmware-managed-by-a-storage-firmware-bundle]]
 === Komponenten-Firmware, die von einem Storage Firmware Bundle verwaltet wird
 
 Komponenten-Firmware, die von einem Storage Firmware Bundle verwaltet wird.
@@ -185,6 +190,7 @@ Komponenten-Firmware, die von einem Storage Firmware Bundle verwaltet wird.
 |===
 
 
+[[component-firmware-not-managed-by-a-storage-firmware-bundle]]
 === Die Komponenten-Firmware wird nicht von einem Storage Firmware-Bundle gemanagt
 
 Die folgende Firmware wird nicht von einem Storage Firmware Bundle verwaltet:
@@ -216,12 +222,14 @@ Die folgende Firmware wird nicht von einem Storage Firmware Bundle verwaltet:
 |===
 
 
+[[sfnodessf38410-sf19210-sf9605-and-sf4805]]
 == [[sf_Nodes]]SF38410, SF19210, SF9605 und SF4805
 
 *Volle Modellnummern:* SF38410, SF19210, SF9605 und SF4805
 
 
 
+[[component-firmware-managed-by-a-storage-firmware-bundle]]
 === Komponenten-Firmware, die von einem Storage Firmware Bundle verwaltet wird
 
 Während des Zeitrahmens von 11.x war die NetApp Element-Software die einzige Möglichkeit, Firmware freizugeben. Ab Element 12.0 wurde das Konzept eines *Storage Firmware Bundle* eingeführt und Firmware-Updates wurden nun durch ein unabhängig veröffentlichtes Speicher-Firmware-Bundle oder Speicher-Firmware-Bundle ermöglicht, das im Rahmen einer Element 12.x-Version enthalten ist.
@@ -307,6 +315,7 @@ NOTE: Ein Bindestrich (*-*) in der folgenden Tabelle zeigt an, dass die jeweilig
 |===
 
 
+[[component-firmware-not-managed-by-a-storage-firmware-bundle]]
 === Die Komponenten-Firmware wird nicht von einem Storage Firmware-Bundle gemanagt
 
 Die folgende Firmware wird nicht von einem Storage Firmware Bundle verwaltet:

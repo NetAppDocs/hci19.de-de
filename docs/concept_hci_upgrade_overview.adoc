@@ -40,6 +40,7 @@ Upgrades mit NetApp Hybrid Cloud Control sind in früheren Service-Bundle-Versio
 
 
 
+[[sysupgradeseqsystem-upgrade-sequence]]
 == [[sys_Upgrade_seq]]Systemaktualisierungssequenz
 
 Sie können die folgende Sequenz verwenden, um Ihr NetApp HCI-System zu aktualisieren.
@@ -79,6 +80,7 @@ NOTE: Zum Upgrade der Element Software auf dem Storage-Cluster ist kein Upgrade 
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

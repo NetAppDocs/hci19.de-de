@@ -18,12 +18,14 @@ Ab Element 12.0 und den Managementservices Version 2.14 können Sie mithilfe der
 
 
 
+[[whats-new]]
 == Was ist neu
 
 Das Storage-Firmware-Bundle Version 2.99.2 enthält verschiedene Fehlerbehebungen und neue Funktionen, einschließlich Schwachstellenkorrekturen. Sie können die Speicher-Firmware mithilfe der Anweisungen in aktualisieren link:task_hcc_upgrade_storage_firmware.html["Firmware für Storage-Upgrades"].
 
 
 
+[[updated-firmware-components]]
 === Aktualisierte Firmware-Komponenten
 
 Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekomponenten. Aktualisierte Versionen in Bold:
@@ -99,6 +101,7 @@ Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekom
 |===
 
 
+[[changes-in-storage-firmware-components]]
 == Änderungen in den Komponenten der Speicher-Firmware
 
 |===
@@ -114,12 +117,14 @@ Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekom
 |===
 
 
+[[resolved-and-known-issues]]
 == Gelöste und bekannte Probleme
 
 Siehe https://mysupport.netapp.com/site/bugs-online/product["Bugs Online Tool"^] Für Details zu Problemen, die behoben wurden, und für neue Probleme.
 
 
 
+[[accessing-the-bugs-online-tool]]
 === Zugriff auf das Bugs Online-Tool
 
 . Navigieren Sie zum  https://mysupport.netapp.com/site/bugs-online/product["Bugs Online Tool"^] Und wählen Sie in der Dropdown-Liste * Element Software* aus:
@@ -138,12 +143,14 @@ image::bol_list_bugs_found.png[Versionshinweise für Storage-Firmware-Bundles]
 
 
 
+[[resolved-security-vulnerabilities]]
 == Sicherheitsschwachstellen wurden behoben
 
 Im Folgenden sind Sicherheitslücken aufgeführt, die in dieser Version behoben wurden:
 
 
 
+[[h610s-bmc-3-91-07]]
 === H610S BMC 3.91.07
 
 * CVE-2019-20636
@@ -153,6 +160,7 @@ Im Folgenden sind Sicherheitslücken aufgeführt, die in dieser Version behoben 
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/hci/index.jsp["NetApp HCI Documentation Center"^]

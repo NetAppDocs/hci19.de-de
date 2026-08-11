@@ -33,12 +33,14 @@ Diese NetApp HCC-Rolle beschränkt Ihre Management-Node-Services-Ansicht auf rei
 
 
 
+[[create-a-new-netapp-hcc-role]]
 == Erstellen einer neuen NetApp HCC-Rolle
 
 Richten Sie in vCenter ein neues Benutzerkonto ein, erstellen Sie eine NetApp HCC-Rolle und weisen Sie dann die Benutzerberechtigungen zu.
 
 
 
+[[set-up-a-new-user-account-in-vcenter]]
 === Richten Sie ein neues Benutzerkonto in vCenter ein
 
 Führen Sie folgende Schritte aus, um ein neues Benutzerkonto in vCenter einzurichten:
@@ -54,6 +56,7 @@ Führen Sie folgende Schritte aus, um ein neues Benutzerkonto in vCenter einzuri
 
 
 
+[[create-a-new-netapp-hcc-role-in-vcenter]]
 === Neue NetApp HCC-Rolle in vCenter erstellen
 
 Führen Sie folgende Schritte aus, um eine neue NetApp HCC-Rolle in vCenter zu erstellen:
@@ -69,6 +72,7 @@ Führen Sie folgende Schritte aus, um eine neue NetApp HCC-Rolle in vCenter zu e
 
 
 
+[[assign-user-permissions-to-vcenter]]
 === Weisen Sie vCenter Benutzerberechtigungen zu
 
 Führen Sie die folgenden Schritte aus, um die Benutzerberechtigungen der neuen NetApp HCC-Rolle in vCenter zuzuweisen.
@@ -111,6 +115,7 @@ image::mnode_new_HCC_role_vcenter.PNG[Zeigt das Fenster Berechtigung hinzufügen
 
 
 
+[[assign-user-permissions-to-the-datacenter]]
 === Weisen Sie dem Rechenzentrum Benutzerberechtigungen zu
 
 Führen Sie die folgenden Schritte aus, um dem Rechenzentrum in vCenter die Benutzerberechtigungen zuzuweisen.
@@ -136,6 +141,7 @@ IMPORTANT: Do * NOT* select *propagieren auf Kinder*.
 
 
 
+[[assign-user-permissions-to-netapp-hci-datastores]]
 === Weisen Sie NetApp HCI-Datastores Benutzerberechtigungen zu
 
 Führen Sie die folgenden Schritte aus, um den NetApp HCI-Datastores in vCenter die Benutzerberechtigungen zuzuweisen.
@@ -161,6 +167,7 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 
 
+[[assign-user-permissions-to-a-netapp-host-cluster]]
 === Weisen Sie einem NetApp Host-Cluster Benutzerberechtigungen zu
 
 Führen Sie die folgenden Schritte durch, um die Benutzerberechtigungen einem NetApp Host-Cluster in vCenter zuzuweisen.
@@ -183,12 +190,14 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 
 
+[[netapp-esxi-host-configurations]]
 == NetApp ESXi Hostkonfigurationen
 
 Bei NetApp ESXi Hostkonfigurationen sollten Sie das von der nde erstellte Benutzerkonto auf die neue NetApp HCC-Rolle aktualisieren.
 
 
 
+[[netapp-esxi-host-does-not-exist-in-a-vcenter-host-cluster]]
 === Der NetApp ESXi-Host ist nicht in einem vCenter-Host-Cluster vorhanden
 
 Wenn der NetApp ESXi-Host nicht in einem vCenter-Host-Cluster vorhanden ist, können Sie das folgende Verfahren verwenden, um die NetApp HCC-Rolle und Benutzerberechtigungen in vCenter zuzuweisen.
@@ -212,6 +221,7 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 
 
+[[netapp-esxi-host-exists-in-a-vcenter-host-cluster]]
 === Der NetApp ESXi-Host ist in einem vCenter-Host-Cluster vorhanden
 
 Wenn ein NetApp ESXi Host innerhalb eines vCenter Host Clusters mit ESXi Hosts anderer Anbieter vorhanden ist, können Sie im folgenden Verfahren die NetApp HCC-Rolle und die Benutzerberechtigungen in vCenter zuweisen.
@@ -251,6 +261,7 @@ Fügen Sie im Fenster *Berechtigung hinzufügen* folgende Details hinzu:
 
 
 
+[[controller-asset-already-exists-on-the-management-node]]
 == Die Controller-Ressource ist bereits auf dem Management-Node vorhanden
 
 Wenn bereits ein Controller-Asset auf dem Management-Node vorhanden ist, führen Sie die folgenden Schritte aus, um den Controller mithilfe von zu konfigurieren `PUT /assets /{asset_id} /controllers /{controller_id}`.
@@ -271,12 +282,14 @@ Wenn bereits ein Controller-Asset auf dem Management-Node vorhanden ist, führen
 
 
 
+[[add-an-asset-or-a-compute-node-to-the-management-node]]
 == Fügen Sie dem Management-Node eine Ressource oder einen Computing-Node hinzu
 
 Wenn Sie nach der Installation manuell ein neues Asset oder einen Compute Node (und BMC-Ressourcen) hinzufügen müssen, verwenden Sie das neue HCC-Benutzerkonto, das Sie in erstellt haben <<Richten Sie ein neues Benutzerkonto in vCenter ein>>. Weitere Informationen finden Sie unter link:task_mnode_add_assets.html["Fügen Sie dem Management-Node Computing- und Controller-Ressourcen hinzu"].
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

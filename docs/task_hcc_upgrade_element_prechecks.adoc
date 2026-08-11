@@ -54,6 +54,7 @@ Weitere Informationen zu den vom Service ausgeführten Storage-Zustandsprüfunge
 
 
 
+[[use-netapp-hybrid-cloud-control-to-run-element-storage-health-checks-prior-to-upgrading-storage]]
 == NetApp Hybrid Cloud Control bietet Zustandsüberprüfungen für Element Storage vor Storage-Upgrades
 
 Mithilfe von NetApp Hybrid Cloud Control (HCC) können Sie überprüfen, ob ein Storage-Cluster für ein Upgrade bereit ist.
@@ -83,6 +84,7 @@ Nachdem die Integritätsprüfung ohne Fehler abgeschlossen wurde, kann das Stora
 
 
 
+[[use-api-to-run-element-storage-health-checks-prior-to-upgrading-storage]]
 == Nutzen Sie API zur Ausführung von Element Storage-Zustandsprüfungen vor einem Storage-Upgrade
 
 Mithilfe DER REST-API können Sie überprüfen, ob ein Storage-Cluster aktualisiert werden kann. Bei der Zustandsprüfung werden keine Hindernisse für Upgrades beseitigt, z. B. ausstehende Nodes, Probleme mit Festplattenspeicher und Cluster-Fehler.
@@ -214,6 +216,7 @@ Wenn alle Zustandsprüfungen erfolgreich sind, ähnelt die Rückkehr dem folgend
 
 
 
+[[use-healthtools-to-run-element-storage-health-checks-prior-to-upgrading-storage]]
 == Verwenden Sie HealthTools, um vor einem Storage-Upgrade Zustandsprüfungen für Element Storage auszuführen
 
 Sie können überprüfen, ob das Storage-Cluster mit der bereit für ein Upgrade ist `sfupgradecheck` Befehl. Mit diesem Befehl werden Informationen, z. B. ausstehende Nodes, Speicherplatz- und Cluster-Fehler, überprüft.
@@ -283,6 +286,7 @@ Node ID: 2 Upload speed: 85038.75 KBs/sec
 
 
 
+[[your-cluster-is-not-upgrade-ready]]
 === Das Cluster ist nicht bereit für ein Upgrade
 
 Wenn eine Fehlermeldung zu einer der Zustandsprüfungen angezeigt wird, führen Sie die folgenden Schritte aus:
@@ -333,6 +337,7 @@ In diesem Beispiel ist der Speicherplatz in Node 1 knapp. Weitere Informationen 
 
 
 
+[[healthtools-is-out-of-date]]
 === HealthTools ist veraltet
 
 Wenn eine Fehlermeldung angezeigt wird, dass HealthTools nicht die neueste Version ist, befolgen Sie die folgenden Anweisungen:
@@ -355,6 +360,7 @@ Or rerun with the -n option
 
 
 
+[[your-management-node-is-on-a-dark-site]]
 === Der Management-Node befindet sich an einem dunklen Standort
 
 . Überprüfen Sie die Meldung, und beachten Sie, dass die Upgrade-Prüfung fehlschlägt:
@@ -384,6 +390,7 @@ sfupgradecheck -u <cluster-user-name> -p <cluster-password> MVIP
 
 
 
+[[storage-health-checks-made-by-the-service]]
 == Storage-Systemprüfungen, die vom Service durchgeführt werden
 
 Bei den Storage-Zustandsprüfungen werden die folgenden Prüfungen pro Cluster durchgeführt.
@@ -417,6 +424,7 @@ Bei den Storage-Zustandsprüfungen werden die folgenden Prüfungen pro Cluster d
 |===
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

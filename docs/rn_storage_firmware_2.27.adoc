@@ -21,12 +21,14 @@ IMPORTANT: Bei H610S Storage-Nodes mit Element Softwareversion 12.0 sollten Sie 
 
 
 
+[[whats-new]]
 == Was ist neu
 
 Das Storage-Firmware-Bundle Version 2.27 enthält verschiedene Fehlerbehebungen und neue Funktionen, einschließlich Schwachstellenkorrekturen. Sie können die Speicher-Firmware mithilfe der Anweisungen in aktualisieren link:task_hcc_upgrade_storage_firmware.html["Firmware für Storage-Upgrades"].
 
 
 
+[[updated-firmware-components]]
 === Aktualisierte Firmware-Komponenten
 
 Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekomponenten. Aktualisierte Versionen in Bold:
@@ -102,6 +104,7 @@ Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekom
 |===
 
 
+[[new-bmc-features]]
 == Neue BMC-Funktionen
 
 Im Folgenden finden Sie die neuen BMC Funktionen und Änderungen, die in dieser Version enthalten sind:
@@ -116,6 +119,7 @@ Im Folgenden finden Sie die neuen BMC Funktionen und Änderungen, die in dieser 
 
 
 
+[[resolved-issues]]
 == Behobene Probleme
 
 In diesem Release wurden folgende Probleme behoben:
@@ -146,12 +150,14 @@ In diesem Release wurden folgende Probleme behoben:
 |===
 
 
+[[resolved-security-vulnerabilities]]
 == Sicherheitsschwachstellen wurden behoben
 
 Im Folgenden sind Sicherheitslücken aufgeführt, die in dieser Version behoben wurden:
 
 
 
+[[h410s-bmc-6-84-00]]
 === H410S BMC 6.84.00
 
 * CVE-2019-16649
@@ -161,6 +167,7 @@ Im Folgenden sind Sicherheitslücken aufgeführt, die in dieser Version behoben 
 
 
 
+[[h610s-bmc-3-84-07]]
 === H610S BMC 3.84.07
 
 * CVE-2019-1552
@@ -180,12 +187,14 @@ Im Folgenden sind Sicherheitslücken aufgeführt, die in dieser Version behoben 
 
 
 
+[[known-issues]]
 == Bekannte Probleme
 
 In dieser Version sind keine Probleme bekannt.
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

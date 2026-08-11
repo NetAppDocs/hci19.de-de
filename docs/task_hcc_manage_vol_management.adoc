@@ -27,6 +27,7 @@ Folgende Möglichkeiten zum Managen von Volumes in NetApp Hybrid Cloud Control:
 
 
 
+[[create-a-volume]]
 == Erstellen eines Volumes
 
 Mit NetApp Hybrid Cloud Control können Sie ein Storage-Volume erstellen.
@@ -69,6 +70,7 @@ Volumes mit einem IOPS-Wert von max oder Burst über 20,000 IOPS erfordern mögl
 
 
 
+[[apply-a-qos-policy-to-a-volume]]
 == Wenden Sie eine QoS-Richtlinie auf ein Volume an
 
 Mithilfe von NetApp Hybrid Cloud Control können Sie eine QoS-Richtlinie auf vorhandene Storage-Volumes anwenden. Wenn Sie stattdessen benutzerdefinierte QoS-Werte für ein Volume festlegen müssen, ist dies möglich <<Bearbeiten Sie ein Volume>>. Informationen zum Erstellen einer neuen QoS-Richtlinie finden Sie unter link:task_hcc_qos_policies.html["Erstellung und Management von QoS-Richtlinien für Volumes"^].
@@ -88,6 +90,7 @@ NOTE: Wenn Sie QoS-Richtlinien für ein Volume verwenden, können Sie durch benu
 
 
 
+[[edit-a-volume]]
 == Bearbeiten Sie ein Volume
 
 Mit NetApp Hybrid Cloud Control lassen sich Volume-Attribute wie QoS-Werte, Volume-Größe und die Maßeinheit bearbeiten, mit der Byte-Werte berechnet werden. Außerdem haben Sie die Möglichkeit, den Kontozugriff für die Replizierungsnutzung zu ändern oder den Zugriff auf das Volume zu beschränken.
@@ -157,6 +160,7 @@ TIP: Wenn Sie IOPS-Werte ändern, sollten Sie sich Dutzende oder Hunderte erhöh
 
 
 
+[[clone-volumes]]
 == Volumes klonen
 
 Sie können einen Klon eines einzelnen Storage Volumes erstellen oder eine Gruppe von Volumes klonen, um eine zeitpunktgenaue Kopie der Daten zu erstellen. Wenn Sie ein Volume klonen, erstellt das System einen Snapshot des Volume und erstellt dann eine Kopie der Daten, auf die der Snapshot verweist.
@@ -207,6 +211,7 @@ NOTE: Der Zeitaufwand zum Abschluss eines Klonvorgangs wird von der Volume-Grö�
 
 
 
+[[add-volumes-to-a-volume-access-group]]
 == Hinzufügen von Volumes zu einer Volume-Zugriffsgruppe
 
 Sie können einer Volume-Zugriffsgruppe ein einzelnes Volume oder eine Gruppe von Volumes hinzufügen.
@@ -223,6 +228,7 @@ Sie können einer Volume-Zugriffsgruppe ein einzelnes Volume oder eine Gruppe vo
 
 
 
+[[delete-a-volume]]
 == Löschen Sie ein Volume
 
 Ein oder mehrere Volumes können aus einem Element Storage-Cluster gelöscht werden.
@@ -246,6 +252,7 @@ IMPORTANT: Persistente Volumes, die mit Managementservices verbunden sind, werde
 
 
 
+[[restore-a-deleted-volume]]
 == Wiederherstellen eines gelöschten Volumes
 
 Nach dem Löschen eines Storage Volume können Sie ihn weiterhin wiederherstellen, falls dies vor acht Stunden nach dem Löschen erfolgt.
@@ -263,6 +270,7 @@ Gelöschte Volumes werden nicht sofort vom System gelöscht, sie bleiben etwa ac
 
 
 
+[[purge-a-deleted-volume]]
 == Löschen Sie ein gelöschtes Volume
 
 Nach dem Löschen von Storage Volumes bleiben diese für ungefähr acht Stunden verfügbar. Nach acht Stunden werden sie automatisch gereinigt und sind nicht mehr verfügbar. Wenn Sie die acht Stunden nicht warten möchten, können Sie sie löschen
@@ -285,6 +293,7 @@ Nach dem Löschen von Storage Volumes bleiben diese für ungefähr acht Stunden 
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:concept_hci_volumes.html["Informationen zu Volumes"]

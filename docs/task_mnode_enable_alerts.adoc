@@ -25,6 +25,7 @@ Die NetApp HCI-Alarmüberwachung leitet Warnungen des NetApp HCI Storage-Cluster
 
 
 
+[[alert-monitoring-options]]
 == Optionen für die Überwachung von Warnmeldungen
 
 [cols="2*"]
@@ -77,6 +78,7 @@ NOTE: Wenn Sie die *Send Data to AIQ* Option mithilfe der NetApp Deployment Engi
 |===
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

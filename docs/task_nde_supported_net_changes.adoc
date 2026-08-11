@@ -26,6 +26,7 @@ Nach der Implementierung des Systems können Sie je nach Ihren Netzwerkanforderu
 
 
 
+[[h300e-h500e-h700e-and-h410c-compute-nodes]]
 == Die Compute-Nodes H300E, H500E, H700E und H410C
 
 NetApp HCI erwartet die folgende Netzwerkkonfiguration für die Nodes H300E, H500E, H700E und H410C.
@@ -83,6 +84,7 @@ Die folgende Konfiguration umfasst zwei Schnittstellen. Diese Konfiguration wird
 |===
 
 
+[[h610c-compute-nodes]]
 == H610C Compute-Nodes
 
 NetApp HCI erwartet die folgende Netzwerkkonfiguration für H610C Nodes.
@@ -109,6 +111,7 @@ NOTE: Die Ports A und B werden auf dem H610C nicht verwendet.
 |===
 
 
+[[h615c-compute-nodes]]
 == H615C Computing-Nodes
 
 NetApp HCI erwartet die folgende Netzwerkkonfiguration für H615C Nodes.
@@ -132,9 +135,9 @@ Diese Konfiguration wird nur unterstützt, wenn sie mit VMware vSphere Distribut
 |===
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
 

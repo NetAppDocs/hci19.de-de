@@ -91,6 +91,7 @@ NOTE: Wenn Sie ein Storage-Cluster mit zwei Nodes auf vier oder mehr erweitert h
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

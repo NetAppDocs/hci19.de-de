@@ -18,6 +18,7 @@ Nachdem die NetApp HCI Hardware im Rack montiert, verkabelt und hochgefahren wur
 
 
 
+[[prerequisites]]
 == Voraussetzungen
 
 Nachdem Sie bestätigt haben, dass Ihre Umgebung zur Unterstützung von NetApp HCI bereit ist und potenzielle Probleme beheben kann, müssen Sie vor der Implementierung einige abschließende Aufgaben erledigen.
@@ -29,6 +30,7 @@ Nachdem Sie bestätigt haben, dass Ihre Umgebung zur Unterstützung von NetApp H
 
 
 
+[[manually-assign-the-ipmi-port-ip-address]]
 == Weisen Sie die IP-Adresse des IPMI-Ports manuell zu
 
 Das Dynamic Host Configuration Protocol (DHCP) ist standardmäßig für den IPMI-Port jedes NetApp HCI-Knotens aktiviert. Wenn Ihr IPMI-Netzwerk DHCP nicht verwendet, können Sie dem IPMI-Port manuell eine statische IPv4-Adresse zuweisen.
@@ -59,6 +61,7 @@ Der IPMI-Port für diesen Node ist bereit zur Verwendung.
 
 
 
+[[change-the-default-ipmi-password-for-h410c-and-h410s-nodes]]
 == Ändern Sie das Standard-IPMI-Passwort für die Nodes H410C und H410S
 
 Sie sollten das Standardpasswort für das IPMI-Administratorkonto auf jedem Computing- und Storage-Node ändern, sobald Sie den IPMI-Netzwerkport konfigurieren.
@@ -80,6 +83,7 @@ Sie haben die IPMI-IP-Adresse für jeden Computing- und Storage-Node konfigurier
 
 
 
+[[change-the-default-ipmi-password-for-h610c-h615c-and-h610s-nodes]]
 == Ändern des Standard-IPMI-Passworts für H610C, H615C und H610S Nodes
 
 Sie sollten das Standardpasswort für das IPMI-Administratorkonto auf jedem Computing- und Storage-Node ändern, sobald Sie den IPMI-Netzwerkport konfigurieren.
@@ -102,6 +106,7 @@ Sie haben die IPMI-IP-Adresse für jeden Computing- und Storage-Node konfigurier
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/solidfire-active-iq/index.html["NetApp SolidFire Active IQ Dokumentation"^]

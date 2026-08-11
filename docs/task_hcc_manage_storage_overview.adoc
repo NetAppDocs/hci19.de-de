@@ -21,6 +21,7 @@ Mit NetApp HCI lassen sich diese Storage-Ressourcen mithilfe von NetApp Hybrid C
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

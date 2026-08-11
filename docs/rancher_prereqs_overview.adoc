@@ -21,6 +21,7 @@ NOTE: Wenn Sie versehentlich Rancher auf NetApp HCI mit falschen Informationen b
 
 
 
+[[node-requirements]]
 == Node-Anforderungen erfüllt
 
 * Vergewissern Sie sich, dass Ihr NetApp HCI System mindestens drei Computing-Nodes aufweist. Dies ist für volle Ausfallsicherheit erforderlich. Rancher auf NetApp HCI wird nicht auf reine Storage-Konfigurationen unterstützt.
@@ -30,6 +31,7 @@ NOTE: Wenn Sie versehentlich Rancher auf NetApp HCI mit falschen Informationen b
 
 
 
+[[node-details]]
 === Details zu den Nodes
 
 Rancher auf NetApp HCI implementiert ein Management-Cluster mit drei Nodes.
@@ -45,6 +47,7 @@ Alle Nodes weisen die folgenden Merkmale auf:
 |===
 
 
+[[network-requirements]]
 == Netzwerkanforderungen
 
 * Stellen Sie sicher, dass das Netzwerk, das Sie für die Bereitstellung des Rancher auf dem NetApp HCI-Management-Cluster planen, über eine Route zum Management-Node-Managementnetzwerk verfügt.
@@ -68,6 +71,7 @@ Alle Nodes weisen die folgenden Merkmale auf:
 
 
 
+[[vmware-vsphere-requirements]]
 == Anforderungen für VMware vSphere
 
 * Stellen Sie sicher, dass die VMware vSphere Instanz, die Sie verwenden, Version 6.5, 6.7 oder 7.0 ist.
@@ -76,6 +80,7 @@ Alle Nodes weisen die folgenden Merkmale auf:
 
 
 
+[[deployment-considerations]]
 == Implementierungsüberlegungen
 
 Bitte beachten Sie die folgenden Punkte:
@@ -94,6 +99,7 @@ TIP: Rancher auf NetApp HCI ist nicht resistent gegen Node-Ausfälle, es sei den
 
 
 
+[[types-of-deployments]]
 === Implementierungsarten
 
 Sie können NetApp HCI auf folgende Weise implementieren:
@@ -118,6 +124,7 @@ Für Produktionsumgebungen empfehlen wir die Verwendung von L4-Load-Balancing od
 
 
 
+[[rancher-fqdn]]
 === Rancher FQDN
 
 Für die Installation ist eine Rancher-URL erforderlich, die den vollständig qualifizierten Domänennamen (FQDN) des Hosts enthält, auf dem die Rancher-UI nach Abschluss der Installation bereitgestellt wird.
@@ -128,12 +135,14 @@ Für Produktionsimplementierungen ist ein FQDN erforderlich, der für die Load-B
 
 
 
+[[required-ports]]
 == Erforderliche Ports
 
 Stellen Sie sicher, dass die Liste der Ports im Abschnitt „Ports für Rancher-Server-Knoten auf RKE“ im Abschnitt *Rancher-Knoten* des Beamten angezeigt wird https://rancher.com/docs/rancher/v2.x/en/installation/requirements/ports/#ports-for-rancher-server-nodes-on-rke["Rancher-Dokumentation"^] Sind in Ihrer Firewall-Konfiguration auf und von den Knoten mit Rancher Server offen.
 
 
 
+[[required-urls]]
 == Erforderliche URLs
 
 Die folgenden URLs sollten über die Hosts zugänglich sein, auf denen sich die Rancher-Steuerebene befindet:

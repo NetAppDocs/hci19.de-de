@@ -30,12 +30,14 @@ Hier eine Übersicht über das Verfahren:
 
 
 
+[[prepare-for-installation]]
 == Installation vorbereiten
 
 Bevor Sie mit der Installation beginnen, füllen Sie die Checkliste zur Bestandsaufnahme zum _NetApp HCI Installation Discovery Workbook_ aus, die Sie vor dem Erhalt der Hardware erhalten haben.
 
 
 
+[[prepare-the-network-and-installation-sites]]
 === Bereiten Sie das Netzwerk und die Installationsstandorte vor
 
 Es folgt eine vereinfachte Installation der NetApp HCI-Netzwerktopologie:
@@ -52,7 +54,7 @@ Für die Verbindung zu allen NetApp HCI-Netzwerken verwendet dieses Setup zwei N
 Lesen Sie diese Ressourcen:
 
 * Verwenden Sie das Arbeitsbuch zur Ermittlung der NetApp HCI-Installation_, um Ihr Netzwerk vor der Installation zu konfigurieren.
-* Weitere Informationen und andere unterstützte Konfigurationen finden Sie unter https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["_TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke_"^] und https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["_Installations- und Setup-Anleitung für NetApp HCI_"^] .
+* Weitere Informationen und andere unterstützte Konfigurationen finden Sie unter  https://www.netapp.com/pdf.html?item=/media/9413-tr4820.pdf["_TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke_"^] und der  https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["_Installations- und Setup-Anleitung für NetApp HCI_"^].
 * Informationen zu NetApp HCI-Konfigurationen, die kleiner als vier Storage-Nodes sind, finden Sie unter https://www.netapp.com/pdf.html?item=/media/9489-tr-4823.pdf["_TR-4823: NetApp HCI 2-Node Storage Cluster_"^].
 * Weitere Informationen zum Konfigurieren von Link Aggregation Control Protocol (LACP) auf den für jeden Storage-Node verwendeten Switch-Ports finden Sie unter link:hci_prereqs_LACP_configuration.html["Konfigurieren Sie LCAP für optimale Storage-Performance"].
 
@@ -63,6 +65,7 @@ Dieser Modus erfordert vSphere Distributed Switches (VdS), für die eine Lizenzi
 
 
 
+[[networking-requirements-before-you-begin]]
 === Netzwerkanforderungen bevor Sie beginnen
 
 Hier sind die wichtigsten Voraussetzungen.
@@ -83,6 +86,7 @@ NOTE: Während des nde-Prozesses werden allen Nodes permanente IP-Adressen zugew
 
 
 
+[[validate-network-readiness-with-netapp-active-iq-config-advisor]]
 == Validieren der Netzwerkbereitschaft mit NetApp Active IQ Config Advisor
 
 Installieren Sie NetApp Active IQ Config Advisor 5.8.1 oder höher, um die Netzwerkbereitschaft für NetApp HCI zu gewährleisten. Dieses Netzwerkvalidierungs-Tool befindet sich in einem anderen Tool link:https://mysupport.netapp.com/site/tools/tool-eula/5ddb829ebd393e00015179b2["NetApp Support Tools"^]. Mit diesem Tool können Sie Konnektivität, VLAN-IDs, Anforderungen an die IP-Adresse, Switch-Konnektivität und vieles mehr validieren.
@@ -91,12 +95,14 @@ Weitere Informationen finden Sie unter link:hci_prereqs_task_validate_config_adv
 
 
 
+[[work-with-your-netapp-team]]
 == Arbeiten Sie mit Ihrem NetApp Team zusammen
 
 Ihr NetApp Team überprüft mithilfe des NetApp Active IQ Config Advisor-Berichts und des _Discovery Workbook_, ob Ihre Netzwerkumgebung bereit ist.
 
 
 
+[[install-netapp-hci-hardware]]
 == Installieren Sie die NetApp HCI Hardware
 
 NetApp HCI kann in unterschiedlichen Konfigurationen installiert werden:
@@ -123,18 +129,21 @@ CAUTION: Weitere Informationen zu Vorsichtsmaßnahmen und Einzelheiten finden Si
 
 
 
+[[complete-optional-tasks-after-installing-hardware]]
 == Führen Sie nach dem Installieren der Hardware optionale Aufgaben aus
 
 Nach der Installation der NetApp HCI Hardware sollten Sie einige optionale, jedoch empfohlene Aufgaben ausführen.
 
 
 
+[[manage-storage-capacity-across-all-chassis]]
 === Management von Storage-Kapazität über das gesamte Chassis hinweg
 
 Stellen Sie sicher, dass die Storage-Kapazität gleichmäßig auf alle Chassis mit Storage-Nodes verteilt wird.
 
 
 
+[[configure-ipmi-for-each-node]]
 === Konfigurieren Sie IPMI für jeden Node
 
 Nachdem die NetApp HCI Hardware im Rack montiert, verkabelt und hochgefahren wurde, können Sie für jeden Node den IPMI-Zugriff (Intelligent Platform Management Interface) konfigurieren. Weisen Sie jedem IPMI-Port eine IP-Adresse zu und ändern Sie das Standard-IPMI-Kennwort des Administrators, sobald Sie Remote-IPMI-Zugriff auf den Node haben.
@@ -143,12 +152,14 @@ Siehe link:hci_prereqs_final_prep.html["Konfigurieren Sie IPMI"].
 
 
 
+[[deploy-netapp-hci-using-the-netapp-deployment-engine-nde]]
 == Implementierung von NetApp HCI mit der NetApp Deployment Engine (nde)
 
 Die nde Benutzeroberfläche ist die Software-Wizard-Schnittstelle, die zur Installation von NetApp HCI verwendet wird.
 
 
 
+[[launch-the-nde-ui]]
 === Starten Sie die nde UI
 
 NetApp HCI verwendet eine IPv4-Adresse des Storage-Node-Managementnetzwerks zum ersten Zugriff auf die nde. Als Best Practice wird empfohlen, eine Verbindung vom ersten Storage Node herzustellen.
@@ -171,6 +182,7 @@ Weitere Informationen finden Sie unter link:concept_nde_access_overview.html["_Z
 
 
 
+[[deploy-netapp-hci-with-the-nde-ui]]
 === Implementieren Sie NetApp HCI mit der nde-UI
 
 . Akzeptieren Sie in der nde die Voraussetzungen, prüfen Sie die Nutzung von Active IQ und akzeptieren Sie Lizenzvereinbarungen.
@@ -212,6 +224,7 @@ NOTE: Die Implementierung dauert etwa 45 Minuten.
 
 
 
+[[verify-the-installation-using-the-vsphere-web-client]]
 === Überprüfen Sie die Installation mithilfe des vSphere Web Client
 
 . Starten Sie den vSphere Web Client und melden Sie sich mit den während der nde Verwendung angegebenen Anmeldeinformationen an.
@@ -234,6 +247,7 @@ Sie müssen anhängen `@vsphere.local` Dem Benutzernamen.
 
 
 
+[[manage-netapp-hci-using-the-vcenter-plug-in]]
 == Managen Sie NetApp HCI mit dem vCenter Plug-in
 
 Nach der Installation von NetApp HCI können Sie Cluster, Volumes, Datastores, Protokolle, Zugriffsgruppen konfigurieren. Initiatoren und Quality of Service (QoS)-Richtlinien mithilfe des NetApp Element Plug-ins für vCenter Server.
@@ -244,6 +258,7 @@ image::vcp_shortcuts_page.png[Seite „vSphere Client Shortcuts“]
 
 
 
+[[monitor-or-upgrade-netapp-hci-with-the-hybrid-cloud-control]]
 == Monitoring oder Upgrade von NetApp HCI mit der Hybrid Cloud Control
 
 Sie können das System optional mit NetApp HCI Hybrid Cloud Control überwachen, aktualisieren oder erweitern.
@@ -273,6 +288,7 @@ Die Benutzeroberfläche von NetApp Hybrid Cloud Control wird angezeigt.
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:../media/hseries-isi.pdf["NetApp HCI Installations- und Setup-Anleitung"^]

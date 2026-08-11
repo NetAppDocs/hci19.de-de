@@ -32,6 +32,7 @@ Wählen Sie eine der folgenden Optionen aus:<<Ersetzen Sie das Chassis, wenn im 
 
 
 
+[[replace-the-chassis-when-additional-unused-space-is-available-in-the-rack]]
 == Ersetzen Sie das Chassis, wenn im Rack zusätzlicher ungenutzter Speicherplatz verfügbar ist
 
 Wenn Ihr Rack über zusätzlichen Platz verfügt, können Sie das neue Chassis installieren und Nodes nacheinander zum neuen Chassis verschieben. Wenn eines der installierten Chassis nicht genutzte Node-Steckplätze aufweist, können Sie die Nodes nacheinander vom ausgefallenen Chassis in die nicht verwendeten Steckplätze verschieben und das ausgefallene Chassis entfernen. Stellen Sie vor der Durchführung des Verfahrens sicher, dass die Kabellängen ausreichend sind und Switch-Ports verfügbar sind.
@@ -41,6 +42,7 @@ NOTE: Die Schritte zum Verschieben von Computing-Nodes unterscheiden sich von de
 
 
 
+[[install-the-new-chassis]]
 === Installieren Sie das neue Gehäuse
 
 Sie können das neue Chassis in den verfügbaren Rack-Platz installieren und die Nodes in es verschieben.
@@ -66,6 +68,7 @@ TIP: Beim Einbau des Chassis immer genügend Arbeitskraft oder einen Aufzug verw
 
 
 
+[[move-a-compute-node]]
 === Verschieben eines Computing-Node
 
 Bevor Sie einen Computing-Node in das neue Gehäuse oder ein vorhandenes Gehäuse mit zusätzlichen nicht verwendeten Steckplätzen verschieben, sollten Sie die Virtual Machines (VMs) migrieren, den Node ordnungsgemäß herunterfahren und die im Node eingesetzten Kabel kennzeichnen.
@@ -105,7 +108,8 @@ CAUTION: Stellen Sie sicher, dass Sie die Kabel nicht in die Anschlüsse zwingen
 
 
 
-=== Verschieben eines Storage-Nodes
+[[first-stepmove-a-storage-node]]
+=== [[erster Schritt]]Einen Speicherknoten verschieben
 
 Bevor Sie die Storage-Nodes in das neue Chassis verschieben, sollten Sie die Laufwerke entfernen, die Nodes ordnungsgemäß herunterfahren und alle Komponenten kennzeichnen.
 
@@ -170,6 +174,7 @@ NOTE: Es kann bis zu 2 Minuten dauern, bis der Knoten hinzugefügt wurde und unt
 
 
 
+[[replace-the-chassis-when-additional-unused-space-is-not-available-in-the-rack]]
 == Ersetzen Sie das Chassis, wenn im Rack kein zusätzlicher ungenutzter Speicherplatz verfügbar ist
 
 Wenn Ihr Rack keinen zusätzlichen Platz bietet und kein Chassis in der Implementierung über keine ungenutzten Node-Steckplätze verfügt, sollten Sie herausfinden, was ggf. online bleiben kann, bevor Sie das Austauschverfahren durchführen.
@@ -183,6 +188,7 @@ Vor dem Austausch des Gehäuses sollten Sie die folgenden Punkte berücksichtige
 
 
 
+[[shut-down-a-compute-node]]
 === Fahren Sie einen Computing-Node herunter
 
 Bevor Sie den Computing-Node zum neuen Chassis verschieben, sollten Sie die VMs migrieren, ihn korrekt herunterfahren und die Kabel, die im Node eingesetzt wurden, kennzeichnen.
@@ -201,12 +207,14 @@ NOTE: Die Migrationsschritte finden Sie in der VMware Dokumentation.
 
 
 
+[[shut-down-a-storage-node]]
 === Fahren Sie einen Storage-Node herunter
 
-Siehe Schritte <<move a storage node,Hier>>.
+Die einzelnen Schritte sind unter <<first-step,Hier>> aufgeführt.
 
 
 
+[[remove-the-node]]
 === Entfernen des Node
 
 Sie sollten sicherstellen, dass Sie den Knoten vorsichtig aus dem Gehäuse entfernen und alle Komponenten kennzeichnen. Die zum physischen Entfernen des Node erforderlichen Schritte sind sowohl für die Storage- als auch für die Computing-Nodes identisch. Entfernen Sie für einen Storage-Node das Laufwerk, bevor Sie den Node entfernen.
@@ -231,6 +239,7 @@ Sie sollten sicherstellen, dass Sie den Knoten vorsichtig aus dem Gehäuse entfe
 
 
 
+[[replace-the-chassis]]
 === Ersetzen Sie das Gehäuse
 
 Wenn kein zusätzlicher Speicherplatz im Rack vorhanden ist, sollten Sie das ausgefallene Chassis deinstallieren und durch das neue Gehäuse ersetzen.
@@ -295,8 +304,8 @@ NOTE: Es kann bis zu 2 Minuten dauern, bis der Knoten hinzugefügt wurde und unt
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
 

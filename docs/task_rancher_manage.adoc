@@ -18,6 +18,7 @@ Nach der Bereitstellung von Rancher auf NetApp HCI können Sie die URLs und den 
 
 
 
+[[identify-rancher-server-cluster-urls-and-status]]
 == Identifizieren Sie die URLs und den Status der Rancher-Server-Cluster
 
 Sie können die Cluster-URLs des Rancher-Servers identifizieren und den Serverstatus ermitteln.

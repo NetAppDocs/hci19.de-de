@@ -18,6 +18,7 @@ Bei der Auswahl von Nodes für Ihre Implementierung gelten einige Einschränkung
 
 
 
+[[storage-node-compatibility]]
 == Kompatibilität von Storage-Nodes
 
 NetApp HCI unterstützt Storage-Nodes und -Laufwerke mit SED (Self-Encrypting Drive) und FIPS 140-2-2-Laufwerksverschlüsselung. Bei der Implementierung oder Erweiterung von NetApp HCI können Sie Nodes mit unterschiedlichen Verschlüsselungsstufen kombinieren. NetApp HCI unterstützt jedoch in dieser Situation nur die grundlegendste Form der Verschlüsselung. Wenn beispielsweise ein Storage-Node gemischt wird, der für FIPS-Verschlüsselung geeignet ist und Nodes nur die SED-Verschlüsselung unterstützen, wird bei dieser Konfiguration die SED-Verschlüsselung unterstützt, die FIPS-Laufwerksverschlüsselung ist jedoch nicht.
@@ -37,6 +38,7 @@ NOTE: Bei Storage-Cluster mit zwei Nodes sind die Storage-Node-Typen auf Nodes m
 
 
 
+[[compute-node-compatibility]]
 == Kompatibilität von Computing-Nodes
 
 Computing-Nodes müssen die folgenden Anforderungen erfüllen, um als Inventar ausgewählt werden zu können:
@@ -50,6 +52,7 @@ Computing-Nodes müssen die folgenden Anforderungen erfüllen, um als Inventar a
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

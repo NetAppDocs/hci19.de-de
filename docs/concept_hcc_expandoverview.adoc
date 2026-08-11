@@ -38,6 +38,7 @@ NOTE: Wenn Sie NetApp HCI Computing- oder Storage-Ressourcen in der NetApp Deplo
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:task_hcc_expand_compute.html["Erweitern Sie die NetApp HCI Computing-Ressourcen"]

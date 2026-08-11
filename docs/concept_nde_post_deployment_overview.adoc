@@ -28,8 +28,8 @@ Je nach Ihrer Auswahl während des Implementierungsprozesses müssen Sie einige 
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 

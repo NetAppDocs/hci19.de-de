@@ -59,6 +59,7 @@ IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren 
 
 
 
+[[use-netapp-hybrid-cloud-control-ui-to-upgrade-element-storage]]
 == Verwendung der NetApp Hybrid Cloud Control UI für das Upgrade von Element Storage
 
 Über die Benutzeroberfläche von NetApp Hybrid Cloud Control können Sie ein Storage-Cluster-Upgrade durchführen.
@@ -128,6 +129,7 @@ Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen i
 
 
 
+[[upgrade-status-changes]]
 === Statusänderungen des Upgrades
 
 Hier sind die verschiedenen Status, in denen die Spalte *Upgrade Status* in der UI vor, während und nach dem Upgrade-Prozess angezeigt wird:
@@ -159,6 +161,7 @@ Hier sind die verschiedenen Status, in denen die Spalte *Upgrade Status* in der 
 |===
 
 
+[[use-netapp-hybrid-cloud-control-api-to-upgrade-element-storage]]
 == Nutzen Sie die NetApp Hybrid Cloud Control API für das Upgrade von Element Storage
 
 Mit APIs können Storage-Nodes in einem Cluster auf die neueste Element Softwareversion aktualisiert werden. Sie können ein Automatisierungstool Ihrer Wahl zum Ausführen der APIs verwenden. Der hier dokumentierte API-Workflow nutzt die REST-API-UI, die am Management-Node verfügbar ist.
@@ -394,6 +397,7 @@ Das Upgrade wurde erfolgreich abgeschlossen, wenn der abgeschlossen wurde `perce
 
 
 
+[[what-happens-if-an-upgrade-fails-using-netapp-hybrid-cloud-control]]
 == Was geschieht bei einem Upgrade mit NetApp Hybrid Cloud Control
 
 Wenn während eines Upgrades ein Laufwerk oder ein Node ausfällt, zeigt die Element-UI Clusterfehler an. Der Upgrade-Prozess setzt nicht auf den nächsten Node fort und wartet auf die Behebung der Cluster-Fehler. Die Fortschrittsleiste in der UI zeigt an, dass das Upgrade auf die Behebung der Cluster-Fehler wartet. In dieser Phase funktioniert die Auswahl von *Pause* in der Benutzeroberfläche nicht, da das Upgrade wartet, bis der Cluster wieder gesund ist. Sie müssen NetApp Support beauftragen, die Fehleruntersuchung zu unterstützen.
@@ -410,6 +414,7 @@ CAUTION: Wenn das Cluster-Upgrade abgebrochen wird, während ein Node aktualisie
 
 
 
+[[upgrade-element-software-at-connected-sites-using-healthtools]]
 == Aktualisieren der Element-Software an angeschlossenen Standorten mithilfe von HealthTools
 
 .Schritte
@@ -582,6 +587,7 @@ IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren 
 
 
 
+[[upgrade-element-software-at-dark-sites-using-healthtools]]
 == Aktualisieren der Element-Software an dunklen Standorten mithilfe von HealthTools
 
 Sie können die HealthTools-Suite verwenden, um die NetApp Element-Software an einem dunklen Standort zu aktualisieren, der keine externe Verbindung hat.
@@ -650,6 +656,7 @@ IMPORTANT: Wenn Sie einen Node der H610S-Serie auf Element 12.3.x aktualisieren 
 
 
 
+[[what-happens-if-an-upgrade-fails-using-healthtools]]
 == Was passiert, wenn ein Upgrade mit HealthTools fehlschlägt
 
 Falls das Software-Upgrade fehlschlägt, können Sie das Upgrade unterbrechen.
@@ -678,6 +685,7 @@ NOTE: Wenn das Cluster-Upgrade abgebrochen wird, während ein Node aktualisiert 
 
 
 
+[[upgrading-h610s-storage-nodes-to-element-12-3-x-phase-2]]
 == Aktualisieren der H610S Storage-Nodes auf Element 12.3.x (Phase 2)
 
 Wenn Sie einen Node der H610S Serie auf Element 12.3.x aktualisieren und auf dem Node eine Version von Element vor 11.8 ausgeführt wird, umfasst der Upgrade-Prozess zwei Phasen.
@@ -709,6 +717,7 @@ NOTE: Wenn der Cluster auch keine H610S-Nodes aufweist, sind diese Nodes ohne H6
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

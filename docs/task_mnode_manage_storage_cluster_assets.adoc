@@ -32,6 +32,7 @@ Wählen Sie eine der folgenden Optionen:
 
 
 
+[[retrieve-the-installation-id-and-cluster-id-of-a-storage-cluster-asset]]
 == Rufen Sie die Installations-ID und die Cluster-ID einer Storage-Cluster-Ressource ab
 
 Sie können die REST API verwenden, um die Installations-ID und die ID des Storage-Clusters zu erhalten. Sie benötigen die Installations-ID, um eine neue Storage Cluster-Ressource hinzuzufügen, und die Cluster-ID, um eine bestimmte Storage-Cluster-Ressource zu ändern oder zu löschen.
@@ -98,6 +99,7 @@ Die API gibt eine Liste aller bekannten Storage-Cluster in dieser Installation z
 
 
 
+[[add-a-new-storage-cluster-asset]]
 == Fügen Sie eine neue Storage-Cluster-Ressource hinzu
 
 Mithilfe der REST API können Sie dem Management-Node-Bestand eine oder mehrere neue Storage-Cluster-Ressourcen hinzufügen. Wenn Sie eine neue Storage-Cluster-Ressource hinzufügen, wird diese automatisch beim Management-Node registriert.
@@ -163,6 +165,7 @@ Die API gibt ein Objekt mit Informationen über die neu hinzugefügte Storage-Cl
 
 
 
+[[edit-the-stored-credentials-for-a-storage-cluster-asset]]
 == Bearbeiten Sie die gespeicherten Anmeldedaten für eine Storage-Cluster-Ressource
 
 Sie können die gespeicherten Anmeldeinformationen bearbeiten, die der Management-Node zur Anmeldung bei einem Storage-Cluster verwendet. Der von Ihnen gewählte Benutzer muss über einen Cluster-Admin-Zugriff verfügen.
@@ -212,6 +215,7 @@ https://<ManagementNodeIP>/storage/1/
 
 
 
+[[delete-a-storage-cluster-asset]]
 == Löschen einer Speichercluster-Ressource
 
 Sie können eine Storage-Cluster-Ressource löschen, wenn das Storage-Cluster nicht mehr in Betrieb ist. Wenn Sie eine Storage-Cluster-Ressource entfernen, wird diese automatisch vom Management-Node registriert.
@@ -245,6 +249,7 @@ Bei Erfolg gibt die API eine leere Antwort zurück.
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:concept_hci_clusters.html#authoritative-storage-clusters["Autorisierende Cluster"]

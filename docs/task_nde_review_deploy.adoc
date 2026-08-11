@@ -69,9 +69,9 @@ Starten Sie die Verwendung von NetApp HCI, indem Sie *vSphere starten* wählen.
 ====
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
 

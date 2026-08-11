@@ -19,6 +19,7 @@ Sie können neue Volume-Zugriffsgruppen erstellen, den Namen, zugehörige Initia
 
 
 
+[[add-a-volume-access-group]]
 == Fügen Sie eine Zugriffsgruppe für Volumes hinzu
 
 Mit NetApp Hybrid Cloud Control können Sie einem Storage-Cluster eine Volume-Zugriffsgruppe hinzufügen.
@@ -40,6 +41,7 @@ Wenn Sie einen Initiator der Volume-Zugriffsgruppe zuordnen, kann dieser Initiat
 
 
 
+[[edit-a-volume-access-group]]
 == Bearbeiten Sie eine Zugriffsgruppe für Volumes
 
 Sie können die Eigenschaften einer vorhandenen Volume-Zugriffsgruppe mit NetApp Hybrid Cloud Control bearbeiten. Sie können den Namen, zugeordnete Initiatoren oder zugehörige Volumes einer Zugriffsgruppe ändern.
@@ -58,6 +60,7 @@ Sie können die Eigenschaften einer vorhandenen Volume-Zugriffsgruppe mit NetApp
 
 
 
+[[delete-a-volume-access-group]]
 == Löschen Sie eine Zugriffsgruppe für Volumes
 
 Sie können eine Volume-Zugriffsgruppe mithilfe von NetApp Hybrid Cloud Control entfernen und gleichzeitig die mit dieser Zugriffsgruppe verknüpften Initiatoren aus dem System entfernen.
@@ -75,6 +78,7 @@ Sie können eine Volume-Zugriffsgruppe mithilfe von NetApp Hybrid Cloud Control 
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:concept_hci_volume_access_groups.html["Erfahren Sie mehr über Volume Access Groups"]

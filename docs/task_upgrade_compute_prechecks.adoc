@@ -49,6 +49,7 @@ Weitere Informationen zu Zustandsprüfungen der Computing-Nodes, die vom Service
 
 
 
+[[use-netapp-hybrid-cloud-control-to-run-compute-node-health-checks-prior-to-upgrading-firmware]]
 == Nutzen Sie NetApp Hybrid Cloud Control, um vor einem Firmware-Upgrade Zustandsprüfungen der Computing-Nodes auszuführen
 
 Mithilfe von NetApp Hybrid Cloud Control kann sichergestellt werden, dass ein Computing-Node für ein Firmware-Upgrade bereit ist.
@@ -81,6 +82,7 @@ Nachdem die Integritätsprüfung ohne Fehler abgeschlossen wurde, können die Co
 
 
 
+[[use-api-to-run-compute-node-health-checks-prior-to-upgrading-firmware]]
 == Verwenden Sie API zum Ausführen von Zustandsprüfungen des Computing-Nodes vor einem Firmware-Upgrade
 
 Mithilfe DER REST-API können Sie überprüfen, ob die Computing-Nodes in einem Cluster aktualisiert werden können. Bei der Integritätsprüfung werden keine Hindernisse für das Upgrade beseitigt, z. B. Probleme mit ESXi Hosts oder andere Probleme mit vSphere. Daher müssen Sie für jedes Computing-Cluster in Ihrer Umgebung Zustandsprüfungen der Computing-Nodes durchführen.
@@ -214,6 +216,7 @@ Wenn die Zustandsprüfung ohne Probleme abgeschlossen wurde, weist der Antwortco
 
 
 
+[[compute-node-health-checks-made-by-the-service]]
 == Zustandsprüfungen des Computing-Node, die vom Service durchgeführt werden
 
 Überprüfungen des Rechenstzustands, ob sie durch NetApp Hybrid Cloud Control oder API-Methoden durchgeführt werden, führen folgende Prüfungen pro Node durch. Je nach Umgebung können einige dieser Prüfungen übersprungen werden. Sie sollten die Integritätsprüfungen erneut durchführen, nachdem Sie erkannte Probleme behoben haben.
@@ -283,6 +286,7 @@ Wenn die Zustandsprüfung ohne Probleme abgeschlossen wurde, weist der Antwortco
 |===
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

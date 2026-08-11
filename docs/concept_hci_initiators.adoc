@@ -18,6 +18,7 @@ Initiatoren ermöglichen den Zugriff auf externe Clients auf Volumes in einem Cl
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:task_hcc_manage_initiators.html["Verwalten von Initiatoren"]

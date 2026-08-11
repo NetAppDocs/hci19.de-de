@@ -28,6 +28,7 @@ Die NetApp HCI Datensicherung umfasst folgende Konzepte:
 
 
 
+[[remote-replication-types]]
 == Typen der Remote-Replizierung
 
 Die Remote-Replikation von Daten kann folgende Formen annehmen:
@@ -37,10 +38,11 @@ Die Remote-Replikation von Daten kann folgende Formen annehmen:
 * <<Replizierung zwischen Element und ONTAP Clustern mit SnapMirror>>
 
 
-Siehe https://www.netapp.com/pdf.html?item=/media/10607-tr4741pdf.pdf["TR-4741: NetApp Element Software Remote Replication"^].
+Siehe  https://www.netapp.com/pdf.html?item=/media/10607-tr4741.pdf["TR-4741: NetApp Element Software Remote Replication"^].
 
 
 
+[[synchronous-and-asynchronous-replication-between-clusters]]
 === Synchrone und asynchrone Replizierung zwischen Clustern
 
 Für Cluster mit NetApp Element Software ermöglicht Echtzeitreplizierung die schnelle Erstellung von Remote-Kopien von Volume-Daten.
@@ -75,6 +77,7 @@ Asynchrone Replizierung eignet sich für die folgenden Situationen:
 
 
 
+[[snapshot-only-replication]]
 === Reine Snapshot Replizierung
 
 Bei der Datensicherung nur mit Snapshots werden geänderte Daten zu einem bestimmten Zeitpunkt in ein Remote-Cluster repliziert. Es werden nur die Snapshots repliziert, die auf dem Quellcluster erstellt wurden. Aktive Schreibvorgänge vom Quell-Volume sind nicht.
@@ -85,6 +88,7 @@ Die Snapshot Replizierung hat keine Auswirkungen auf die asynchrone oder synchro
 
 
 
+[[replication-between-element-and-ontap-clusters-using-snapmirror]]
 === Replizierung zwischen Element und ONTAP Clustern mit SnapMirror
 
 Mit der NetApp SnapMirror Technologie können Snapshots repliziert werden, die mit NetApp Element Software für Disaster Recovery-Zwecke in ONTAP erstellt wurden. In einer SnapMirror Beziehung stellt Element einen Endpunkt dar, und ONTAP ist der andere.
@@ -103,6 +107,7 @@ Nach der Aktivierung von SnapMirror können Sie SnapMirror Beziehungen über die
 
 
 
+[[volume-snapshots-for-data-protection]]
 == Volume Snapshots zur Datensicherung
 
 Ein Volume Snapshot ist eine zeitpunktgenaue Kopie eines Volumes, mit der Sie später ein Volume auf diesen speziellen Zeitpunkt wiederherstellen können.
@@ -117,6 +122,7 @@ Sie können einen Snapshot eines einzelnen Volumes oder mehrerer zur Datensicher
 
 
 
+[[volume-clones]]
 == Volume-Klone
 
 Ein Klon eines einzelnen oder mehrerer Volumes ist eine zeitpunktgenaue Kopie der Daten. Wenn Sie ein Volume klonen, erstellt das System einen Snapshot des Volume und erstellt dann eine Kopie der Daten, auf die der Snapshot verweist.
@@ -127,6 +133,7 @@ Das Cluster unterstützt bis zu zwei aktuell laufende Klonanforderungen pro Volu
 
 
 
+[[backup-and-restore-process-overview-for-solidfire-storage]]
 == Backup- und Restore-Prozess – Übersicht für SolidFire Storage
 
 Backups und Restores von Volumes mit anderen SolidFire Storage-Systemen sowie in sekundären Objektspeichern mit Amazon S3 oder OpenStack Swift möglich.
@@ -142,6 +149,7 @@ Wenn Sie Volumes aus OpenStack Swift oder Amazon S3 wiederherstellen, benötigen
 
 
 
+[[protection-domains]]
 == Sicherungsdomänen
 
 Eine Sicherungsdomäne ist ein Node oder eine Gruppe von Nodes, die so gruppiert werden, dass ein Teil oder sogar alle Knoten ausfallen könnten, ohne dass die Datenverfügbarkeit beeinträchtigt wird. Sicherungsdomänen ermöglichen die automatische Selbstreparatur eines Storage-Clusters beim Verlust eines Chassis (Chassis-Affinität) oder einer gesamten Domäne (Chassis-Gruppe).
@@ -167,12 +175,14 @@ Sie können ein benutzerdefiniertes Schutz-Domain-Layout definieren, in dem jede
 
 
 
+[[double-helix-high-availability]]
 == Hochverfügbarkeit mit Double Helix
 
 Die Double Helix Datensicherung ist eine Replizierungsmethode, die mindestens zwei redundante Datenkopien auf alle Laufwerke innerhalb eines Systems verteilt. Der Ansatz „RAID-less“ ermöglicht es einem System, mehrere gleichzeitige Ausfälle auf allen Ebenen des Storage-Systems zu absorbieren und schnell zu reparieren.
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

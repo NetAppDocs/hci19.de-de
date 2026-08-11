@@ -88,8 +88,8 @@ TIP: Die Netzteil-LEDs leuchten, wenn das Gleichstromnetzteil online geschaltet 
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
 

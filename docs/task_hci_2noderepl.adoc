@@ -50,6 +50,7 @@ NOTE: Entfernen Sie jetzt nicht den Node aus dem Cluster.
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * http://docs.netapp.com/hci/index.jsp["NetApp HCI Documentation Center"^]

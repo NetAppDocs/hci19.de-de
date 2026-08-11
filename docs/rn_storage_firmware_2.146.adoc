@@ -18,12 +18,14 @@ Ab Element 12.0 und den Managementservices Version 2.14 können Sie mithilfe der
 
 
 
+[[whats-new]]
 == Was ist neu
 
 Das Storage-Firmware-Bundle Version 2.146 enthält verschiedene Fehlerbehebungen und neue Funktionen, einschließlich Schwachstellenkorrekturen. Sie können die Speicher-Firmware mithilfe der Anweisungen in aktualisieren link:task_hcc_upgrade_storage_firmware.html["Firmware für Storage-Upgrades"].
 
 
 
+[[updated-firmware-components]]
 === Aktualisierte Firmware-Komponenten
 
 Dieses Firmware-Paket enthält die folgenden Firmware-Versionen für Hardwarekomponenten. Aktualisierte Versionen in Bold:
@@ -180,6 +182,7 @@ NOTE: In der folgenden Tabelle sind die unterstützten Komponenten-Firmware-Vers
 |===
 
 
+[[changes-in-storage-firmware-components]]
 == Änderungen an Komponenten der Speicher-Firmware
 
 |===
@@ -217,12 +220,14 @@ NOTE: In der folgenden Tabelle sind die unterstützten Komponenten-Firmware-Vers
 |===
 
 
+[[resolved-and-known-issues]]
 == Gelöste und bekannte Probleme
 
 Siehe https://mysupport.netapp.com/site/bugs-online/product["Bugs Online Tool"^] Für Details zu Problemen, die behoben wurden, und für neue Probleme.
 
 
 
+[[accessing-the-bugs-online-tool]]
 === Zugriff auf das Bugs Online-Tool
 
 . Navigieren Sie zum  https://mysupport.netapp.com/site/bugs-online/product["Bugs Online Tool"^] Und wählen Sie in der Dropdown-Liste * Element Software* aus:
@@ -241,6 +246,7 @@ image::bol_list_bugs_found.png[Versionshinweise für Storage-Firmware-Bundles]
 
 
 
+[[resolved-security-vulnerabilities]]
 == Sicherheitsschwachstellen wurden behoben
 
 Im Folgenden sind Sicherheitslücken aufgeführt, die in dieser Version behoben wurden:
@@ -258,6 +264,7 @@ Im Folgenden sind Sicherheitslücken aufgeführt, die in dieser Version behoben 
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/hci/index.jsp["NetApp HCI Documentation Center"^]

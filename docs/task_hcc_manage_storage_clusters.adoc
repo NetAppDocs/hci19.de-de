@@ -32,6 +32,7 @@ Ab Element 12.2 können Sie den verwenden link:concept_hci_storage_maintenance_m
 
 
 
+[[add-a-storage-cluster]]
 == Fügen Sie einen Storage-Cluster hinzu
 
 Mit NetApp Hybrid Cloud Control können Sie dem Inventory der Management-Node-Ressourcen ein Storage-Cluster hinzufügen. Auf diese Weise können Sie den Cluster mithilfe der HCC-Benutzeroberfläche verwalten und überwachen.
@@ -61,6 +62,7 @@ NOTE: Nachdem Sie das Storage-Cluster hinzugefügt haben, kann der Cluster-Besta
 
 
 
+[[confirm-storage-cluster-status]]
 == Bestätigen des Storage-Cluster-Status
 
 Über die Benutzeroberfläche von NetApp Hybrid Cloud Control können Sie den Verbindungsstatus von Storage-Cluster-Ressourcen überwachen.
@@ -74,6 +76,7 @@ NOTE: Nachdem Sie das Storage-Cluster hinzugefügt haben, kann der Cluster-Besta
 
 
 
+[[edit-storage-cluster-credentials]]
 == Bearbeiten der Anmeldedaten für das Storage-Cluster
 
 Der Benutzername und das Passwort des Storage-Clusters können Sie über die Benutzeroberfläche von NetApp Hybrid Cloud Control bearbeiten.
@@ -89,6 +92,7 @@ Der Benutzername und das Passwort des Storage-Clusters können Sie über die Ben
 
 
 
+[[remove-a-storage-cluster]]
 == Entfernen eines Storage-Clusters
 
 Durch Entfernen eines Storage-Clusters aus NetApp Hybrid Cloud Control wird das Cluster aus der Inventar des Management-Node entfernt. Nachdem Sie ein Storage-Cluster entfernt haben, kann der Cluster nicht mehr von HCC gemanagt werden. Sie können ihn nur aufrufen, indem Sie direkt zur Management-IP-Adresse navigieren.
@@ -122,6 +126,7 @@ Das link:concept_hci_storage_maintenance_mode.html["Wartungsmodus"] Optionen bie
 
 
 
+[[enablemainmodeenable-maintenance-mode]]
 === [[enable_main_Mode]]Wartungsmodus aktivieren
 
 Sie können das folgende Verfahren verwenden, um den Wartungsmodus für einen Storage-Cluster-Node zu aktivieren.
@@ -167,6 +172,7 @@ Nachdem *Aktivieren des Wartungsmodus* abgeschlossen ist, wird in der Spalte *Kn
 
 
 
+[[disablemainmodedisable-maintenance-mode]]
 === [[disable_main_Mode]]Wartungsmodus deaktivieren
 
 Nachdem ein Knoten erfolgreich in den Wartungsmodus versetzt wurde, steht für diesen Knoten die Aktion *Wartungsmodus deaktivieren* zur Verfügung. Aktionen auf den anderen Nodes sind erst verfügbar, wenn der Wartungsmodus auf dem Node, der gerade gewartet wird, erfolgreich deaktiviert wurde.
@@ -187,12 +193,14 @@ NOTE: Wenn sich ein Node im Wartungsmodus befindet, werden keine neuen Daten akz
 
 
 
+[[troubleshoot]]
 === Fehlerbehebung
 
 Falls beim Aktivieren oder Deaktivieren des Wartungsmodus Fehler auftreten, wird oben in der Node-Tabelle ein Banner-Fehler angezeigt. Für weitere Informationen über den Fehler können Sie den auf dem Banner bereitgestellten Link *Details anzeigen* wählen, um zu zeigen, was die API zurückgibt.
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 link:task_mnode_manage_storage_cluster_assets.html["Erstellen und Managen von Storage-Cluster-Assets"]

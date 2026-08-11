@@ -18,6 +18,7 @@ Sie können die Einstellungen für das Management-Node-Netzwerk, das Cluster und
 
 
 
+[[update-management-node-network-settings]]
 == Aktualisieren der Netzwerkeinstellungen für den Management-Node
 
 Auf der Registerkarte „Netzwerkeinstellungen“ der Benutzeroberfläche für Management-Node pro Node können Sie die Felder für die Netzwerkschnittstelle des Managementknoten ändern.
@@ -61,6 +62,7 @@ IMPORTANT: Die IPv6-Optionen werden für Version 11.3 oder höher des Management
 
 
 
+[[update-management-node-cluster-settings]]
 == Aktualisiert die Cluster-Einstellungen des Management-Node
 
 Auf der Registerkarte Cluster-Einstellungen der Benutzeroberfläche pro Node für den Managementknoten können Sie die Felder für die Cluster-Schnittstelle ändern, wenn sich der Status eines Node im Status „verfügbar“, „Ausstehend“, „Pendingaktiv“ und „aktiv“ befindet.
@@ -78,6 +80,7 @@ Auf der Registerkarte Cluster-Einstellungen der Benutzeroberfläche pro Node fü
 
 
 
+[[test-the-management-node-settings]]
 == Testen Sie die Einstellungen für den Management-Node
 
 Nachdem Sie die Einstellungen für das Änderungsmanagement und das Netzwerk für den Management-Node geändert und die Änderungen übernommen haben, können Sie Tests durchführen, um die durchgeführten Änderungen zu validieren.
@@ -104,6 +107,7 @@ Nachdem Sie die Einstellungen für das Änderungsmanagement und das Netzwerk fü
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

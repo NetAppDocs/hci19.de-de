@@ -88,6 +88,7 @@ Wählen Sie die Option aus, die für Ihr Upgrade-Szenario relevant ist:
 
 
 
+[[use-netapp-hybrid-cloud-control-ui-to-upgrade-a-compute-node]]
 == Verwenden Sie die UI von NetApp Hybrid Cloud Control zum Upgrade eines Computing-Node
 
 Ab den Management Services 2.14 können Sie über die Benutzeroberfläche von NetApp Hybrid Cloud Control ein Computing-Node aktualisieren. Sie müssen in der Liste der Nodes den Node auswählen, der aktualisiert werden soll. Auf der Registerkarte *Aktuelle Versionen* werden die aktuellen Firmware-Versionen angezeigt und auf der Registerkarte *vorgeschlagene Versionen* werden ggf. die verfügbaren Upgrade-Versionen angezeigt.
@@ -160,6 +161,7 @@ TIP: Wenn während des Upgrades ein Fehler auftritt, wird der Node durch NetApp 
 
 
 
+[[upgrade-status-changes]]
 === Statusänderungen des Upgrades
 
 Hier sind die verschiedenen Status, die die UI vor, während und nach dem Upgrade-Prozess anzeigt:
@@ -188,6 +190,7 @@ Hier sind die verschiedenen Status, die die UI vor, während und nach dem Upgrad
 |===
 
 
+[[use-netapp-hybrid-cloud-control-api-to-upgrade-a-compute-node]]
 == Computing-Node mit der NetApp Hybrid Cloud Control API aktualisieren
 
 Mithilfe von APIs können Sie jeden Computing-Node in einem Cluster auf die neueste Firmware-Version aktualisieren. Sie können ein Automatisierungstool Ihrer Wahl zum Ausführen der APIs verwenden. Der hier dokumentierte API-Workflow nutzt die REST-API-UI, die am Management-Node verfügbar ist.
@@ -401,6 +404,8 @@ https://<ManagementNodeIP>/hardware/2/
 
 
 
+[[use-a-usb-drive-imaged-with-the-latest-compute-firmware-bundle]]
+[[manual_method_USB]]
 == Verwenden Sie ein USB-Laufwerk, das mit dem neuesten Firmware-Bundle abgebildet ist
 
 Sie können ein USB-Laufwerk mit dem neuesten Compute-Firmware-Bundle anschließen, das auf einen USB-Port des Computing-Node heruntergeladen wurde. Alternativ zur Verwendung der in diesem Verfahren beschriebenen USB-Stick-Methode können Sie das Rechner-Firmware-Bundle mit der Option *Virtual CD/DVD* in der virtuellen Konsole in der BMC-Schnittstelle (Baseboard Management Controller) auf dem Rechner-Knoten montieren. Die BMC-Methode dauert erheblich länger als die USB-Stick-Methode. Stellen Sie sicher, dass Ihre Workstation oder Ihr Server über die erforderliche Netzwerkbandbreite verfügt und dass Ihre Browsersitzung mit dem BMC nicht ausläuft.
@@ -434,6 +439,8 @@ Nachdem die Firmware-Aktualisierung abgeschlossen und der Node neu gebootet wurd
 
 
 
+[[use-the-baseboard-management-controller-bmc-user-interface-ui]]
+[[manual_method_BMC]]
 == Verwendung der Benutzeroberfläche (UI) des Baseboard Management Controller (BMC)
 
 Sie müssen die sequenziellen Schritte durchführen, um das Computing-Firmware-Bundle zu laden und den Node auf das Computing-Firmware-Bundle neu zu booten, um sicherzustellen, dass das Upgrade erfolgreich abgeschlossen wurde. Das Paket der Rechner-Firmware sollte sich auf dem System oder der virtuellen Maschine (VM) befinden, die den Webbrowser hostet. Überprüfen Sie, ob Sie das Paket der Computing-Firmware heruntergeladen haben, bevor Sie den Prozess starten.
@@ -450,6 +457,7 @@ NOTE: Über die BMC-UI dauert das Upgrade etwa 25 bis 30 Minuten.
 
 
 
+[[upgrade-firmware-on-h410c-and-h300eh500eh700e-nodes]]
 === Firmware-Upgrade auf den Nodes H410C und H300E/H500E/H700E
 
 Wenn der Node Teil eines Clusters ist, müssen Sie den Node vor dem Upgrade in den Wartungsmodus versetzen und nach dem Upgrade den Wartungsmodus nicht mehr aktivieren.
@@ -514,6 +522,7 @@ NOTE: Die aktualisierte Version wird in der BIOS-Version erst angezeigt, wenn de
 
 
 
+[[upgrade-firmware-on-h610ch615c-nodes]]
 === Firmware auf H610C/H615C Nodes aktualisieren
 
 Die Schritte hängen davon ab, ob der Node Standalone oder Teil eines Clusters ist. Der Vorgang dauert etwa 25 Minuten und beinhaltet das Ausschalten des Node, das Hochladen des Bundle der Datenverarbeitungs-Firmware, das Flashen der Geräte und das Einschalten des Node nach dem Upgrade.
@@ -565,6 +574,7 @@ CAUTION: Während des Einschaltvorgangs etwa fünf Minuten lang zeigt die KVM-Ko
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

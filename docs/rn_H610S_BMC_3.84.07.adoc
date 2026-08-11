@@ -18,6 +18,7 @@ Das herunterladbare BMC Update enthält BMC-Funktionserweiterungen und Fehlerbeh
 
 
 
+[[whats-new]]
 == Was ist neu
 
 H610S BMC 3.84.07 enthält verschiedene Fehlerbehebungen und neue Funktionen. Diese Version bringt eine vor Ort aktualisierte BMC Firmware vor nachfolgenden Bundle-Versionen für Element Software und Storage Firmware, die ebenfalls die aktualisierte BMC Firmware für H610S Nodes enthalten wird.
@@ -26,6 +27,7 @@ Dieses Firmware-Paket wird auf Element Versionen 11.8, 12.0 und 12.2 unterstütz
 
 
 
+[[new-features]]
 == Neue Funktionen
 
 Diese Version enthält folgende neue Funktionen und Änderungen:
@@ -40,6 +42,7 @@ Diese Version enthält folgende neue Funktionen und Änderungen:
 
 
 
+[[resolved-issues]]
 == Behobene Probleme
 
 In diesem Release wurden folgende Probleme behoben:
@@ -70,12 +73,14 @@ In diesem Release wurden folgende Probleme behoben:
 |===
 
 
+[[known-issues]]
 == Bekannte Probleme
 
 In dieser Version sind keine Probleme bekannt.
 
 
 
+[[upgrading-bmc-firmware-on-h610s-nodes]]
 == Aktualisieren der BMC-Firmware auf H610S Nodes
 
 Führen Sie die folgenden Schritte durch, um die BMC-Firmware-Version auf Ihren H610S-Knoten zu aktualisieren. Der Vorgang kann etwa 30 Minuten dauern.
@@ -130,6 +135,7 @@ NOTE: Stellen Sie sicher, dass Sie das Kontrollkästchen * Alle Konfiguration be
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

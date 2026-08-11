@@ -56,11 +56,12 @@ Hier sind einige zusätzliche Aufgaben, die Sie möglicherweise durchführen mü
 
 * link:task_hci_removewn.html["Entfernen Sie Witness Nodes, um Computing-Ressourcen freizumachen"]
 * <<Ändern Sie das Passwort, wenn Sie einen Ersatzknoten mit einem nicht standardmäßigen BMC-Passwort erhalten haben>>
-* <<Aktualisieren Sie die BMC-Firmware auf Ihrem Node>>
+* link:task_hcc_upgrade_compute_node_firmware.html["Aktualisieren Sie die BMC-Firmware auf Ihrem Node"]
 
 
 
 
+[[step-1-prepare-to-replace-the-compute-node]]
 == Schritt 1: Bereiten Sie vor, den Compute-Node zu ersetzen
 
 Sie sollten die auf dem Node gehosteten Virtual Machines (VMs) zu einem verfügbaren Host migrieren und den ausgefallenen Node aus dem Cluster entfernen. Sie sollten Details zum ausgefallenen Node, z. B. Seriennummer und Netzwerkinformationen, abrufen.
@@ -101,6 +102,7 @@ NOTE: Die Migrationsschritte finden Sie in der VMware Dokumentation.
 
 
 
+[[step-2-replace-the-compute-node-in-the-chassis]]
 == Schritt 2: Ersetzen Sie den Compute-Node im Chassis
 
 Nachdem Sie den ausgefallenen Node aus dem Cluster entfernt haben, können Sie den Node aus dem Chassis entfernen und den Ersatz-Node installieren.
@@ -148,6 +150,7 @@ TIP: Stellen Sie sicher, dass der Ersatz-Node auf die gleiche Weise wie die ande
 
 
 
+[[step-3-remove-the-compute-node-asset-in-netapp-hci-1-7-and-later]]
 == Schritt 3: Entfernen Sie die Compute-Node-Ressource in NetApp HCI 1.7 und höher
 
 In NetApp HCI 1.7 und höher sollte nach dem physischen Austausch des Nodes die Computing-Node-Ressource über die Management-Node-APIs entfernt werden. Zur Verwendung VON REST-APIs muss auf Ihrem Storage-Cluster NetApp Element Software 11.5 oder höher ausgeführt werden. Sie sollten einen Management-Node mit Version 11.5 oder höher implementiert haben.
@@ -178,12 +181,14 @@ NOTE: Wenn Sie die bekommen `Auth Error TypeError: Failed to fetch` Fehlermeldun
 
 
 
+[[step-4-add-the-compute-node-to-the-cluster]]
 == Schritt 4: Fügen Sie den Compute-Node zum Cluster hinzu
 
 Der Computing-Node sollte wieder dem Cluster hinzugefügt werden. Die Schritte hängen von der Version von NetApp HCI ab, die Sie ausführen.
 
 
 
+[[netapp-hci-1-6p1-and-later]]
 === NetApp HCI 1.6P1 und höher
 
 Sie können NetApp Hybrid Cloud Control nur verwenden, wenn Ihre NetApp HCI Installation unter Version 1.6P1 oder höher ausgeführt wird.
@@ -273,6 +278,7 @@ TIP: Bei einigen Computing-Nodes müssen Sie EVC möglicherweise auf der höchst
 
 
 
+[[netapp-hci-1-4-p2-1-4-and-1-3]]
 === NetApp HCI 1.4 P2, 1.4 und 1.3
 
 Wenn Ihre NetApp HCI-Installation Version 1.4P2, 1.4 oder 1.3 ausführt, können Sie den Node mit der NetApp Deployment Engine dem Cluster hinzufügen.
@@ -351,6 +357,7 @@ TIP: Bei einigen Computing-Nodes müssen Sie EVC möglicherweise auf der höchst
 
 
 
+[[netapp-hci-1-2-1-1-and-1-0]]
 === NetApp HCI 1.2, 1.1 und 1.0
 
 Nachdem der Node physisch ersetzt wurde, sollten Sie ihn zurück zum VMware ESXi Cluster hinzufügen und verschiedene Netzwerkkonfigurationen durchführen, damit Sie alle verfügbaren Funktionen nutzen können.
@@ -782,6 +789,7 @@ image::rescan.gif[Zeigt das Symbol für die erneute Überprüfung der Speicherad
 
 
 
+[[step-5-redeploy-witness-nodes-for-two-and-three-node-storage-clusters]]
 == Schritt 5: Neuimplementierung von Witness Nodes für Storage-Cluster mit zwei und drei Nodes
 
 Nachdem Sie den ausgefallenen Computing-Node physisch ersetzt haben, sollten Sie die NetApp HCI Witness Node VM neu bereitstellen, wenn der ausgefallene Computing-Node den Witness Node hostet. Diese Anweisungen gelten nur für Computing-Nodes, die Teil einer NetApp HCI Installation mit zwei oder drei Storage-Clustern sind.
@@ -901,6 +909,7 @@ NOTE: Wenn die MTU nicht festgelegt ist, bevor Sie den Witness Node zum Cluster 
 
 
 
+[[change-the-password-if-you-received-a-replacement-node-with-a-non-standard-bmc-password]]
 == Ändern Sie das Passwort, wenn Sie einen Ersatzknoten mit einem nicht standardmäßigen BMC-Passwort erhalten haben
 
 Einige Austauschknoten können mit nicht standardmäßigen Passwörtern für die Baseboard Management Controller (BMC) Benutzeroberfläche geliefert werden. Wenn Sie einen Ersatzknoten mit einem nicht standardmäßigen BMC-Passwort erhalten, sollten Sie das Passwort auf den Standard „ADMIN“ ändern.
@@ -923,6 +932,7 @@ image::bmc pw sticker.png[Zeigt die Rückseite des Nodes mit dem Aufkleber unter
 
 
 
+[[upgrade-the-bmc-firmware-on-your-node]]
 == Aktualisieren Sie die BMC-Firmware auf Ihrem Node
 
 Nach dem Austausch des Computing-Node müssen Sie eventuell die Firmware-Version aktualisieren. Sie können die neueste Firmware-Datei aus dem Dropdown-Menü auf der herunterladen link:https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp Support Site (Anmeldung erforderlich)"^].
@@ -949,8 +959,8 @@ image::h410c-bmc3.png[Zeigt den Bildschirm Firmware-Aktualisierung in der BMC-Be
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
 

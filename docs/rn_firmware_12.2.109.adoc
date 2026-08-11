@@ -18,6 +18,7 @@ Das herunterladbare Rechner-Firmware-Bundle enthält die neuesten BIOS- und BMC-
 
 
 
+[[whats-new]]
 == Was ist neu
 
 Version 12.2.109 bietet BMC-Unterstützung für die DMTF Redfish APIs, die zukünftige Funktionalität von NetApp Hybrid Cloud Control ermöglicht. Die Firmware-Aktualisierungen enthalten auch allgemeine Bugfixes und beheben Speicherprobleme. Die BMC-Updates für die Computing-Nodes H300E, H500E und H700E beheben verschiedene Sicherheitslücken, einschließlich CVE-2019-16649, CVE-2019-16650 und CVE-2019-6260.
@@ -42,6 +43,7 @@ Besuchen Sie link:task_hcc_upgrade_compute_node_firmware.html#use-the-baseboard-
 
 
 
+[[resolved-issues]]
 == Behobene Probleme
 
 Die folgenden Probleme wurden in diesem Release behoben.
@@ -63,6 +65,7 @@ Die folgenden Probleme wurden in diesem Release behoben.
 |===
 
 
+[[known-issues]]
 == Bekannte Probleme
 
 Im Folgenden sind bekannte Probleme in dieser Version aufgeführt, die in einigen Umgebungen möglicherweise den täglichen Betrieb beeinträchtigen könnten.

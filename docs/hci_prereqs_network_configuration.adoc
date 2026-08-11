@@ -18,6 +18,7 @@ NetApp HCI kann mehrere verschiedene Netzwerkverkabelungen und VLAN-Konfiguratio
 
 
 
+[[required-network-segments]]
 == Erforderliche Netzwerksegmente
 
 NetApp HCI erfordert mindestens drei Netzwerksegmente: Management-, Storage- und Virtualisierungsverkehr (einschließlich Virtual Machines und VMware vMotion Traffic). Ebenso lässt sich der Datenverkehr von Virtual Machines und vMotion trennen. Diese Netzwerksegmente bestehen in der Regel als logisch getrennte VLANs in der NetApp HCI-Netzwerkinfrastruktur.
@@ -48,6 +49,7 @@ NOTE: Sie konfigurieren Virtual-Machine-Netzwerke mit vCenter. Das standardmäß
 
 
 
+[[network-configuration-and-cabling-options]]
 == Netzwerkkonfiguration und Verkabelung
 
 Sie können eine Netzwerkkonfiguration mit zwei Kabeln für die Compute-Nodes H410C verwenden und so die Kabelführung vereinfachen. Diese Konfiguration verwendet zwei SFP+/SFP28 Schnittstellen sowie eine optionale (aber empfohlene) RJ45-Schnittstelle für IPMI-Kommunikation. Diese Nodes können auch eine sechs-Kabel-Konfiguration mit zwei RJ45- und vier SFP28/SFP+-Schnittstellen verwenden.
@@ -90,6 +92,7 @@ Wenn die NetApp Deployment Engine ausfällt, weil Ihr Netzwerk keine Jumbo Frame
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

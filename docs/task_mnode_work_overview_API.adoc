@@ -20,6 +20,7 @@ Aufgaben, die Sie mit REST-APIs durchführen können:
 
 
 
+[[authorization]]
 == Autorisierung
 
 * link:task_mnode_api_get_authorizationtouse.html["Autorisierung zur Verwendung VON REST-APIs"]
@@ -27,6 +28,7 @@ Aufgaben, die Sie mit REST-APIs durchführen können:
 
 
 
+[[asset-configuration]]
 == Konfiguration der Ressourcen
 
 * link:task_mnode_enable_activeIQ.html["Active IQ- und NetApp HCI-Monitoring aktivieren"]
@@ -38,18 +40,19 @@ Aufgaben, die Sie mit REST-APIs durchführen können:
 
 
 
+[[asset-management]]
 == Asset Management
 
 * link:task_mnode_edit_vcenter_assets.html["Vorhandene Controller-Assets können angezeigt oder bearbeitet werden"]
 * link:task_mnode_manage_storage_cluster_assets.html["Erstellen und Managen von Storage-Cluster-Assets"]
-* link:task_mnode_remove_assets.html["Entfernen Sie ein Asset vom Management-Node"]
-* link:task_hcc_collectlogs.html#use-the-rest-api-to-collect-netapp-hci-logs["VERWENDEN Sie die REST API, um NetApp HCI-Protokolle zu sammeln"]
+* link:task_mnode_remove_assets.html["Entfernen Sie ein Asset vom Management-Node"] *link:task_hcc_collectlogs.html#use-the-rest-api-to-collect-logs["VERWENDEN Sie die REST API zum Erfassen von Protokollen"]
 * link:task_mnode_api_find_mgmt_svcs_version.html["Überprüfen Sie die Betriebssystem- und Servicestversionen der Management-Nodes"]
 * link:task_mnode_logs.html["Abrufen von Protokollen von Managementservices"]
 
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:task_mnode_access_ui.html["Greifen Sie auf den Management-Node zu"]

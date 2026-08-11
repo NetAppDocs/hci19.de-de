@@ -18,6 +18,7 @@ Bevor Sie die NetApp HCI Hardware in Racks und die Installation von NetApp HCI d
 
 
 
+[[install-active-iq-config-advisor]]
 == Installation von Active IQ Config Advisor
 
 Laden Sie Active IQ Config Advisor auf einem PC mit Zugriff auf die NetApp HCI-Netzwerke herunter, und installieren Sie sie.
@@ -43,6 +44,7 @@ Nach kurzer Verzögerung öffnet sich die Active IQ Config Advisor-Benutzeroberf
 
 
 
+[[use-active-iq-config-advisor]]
 == Verwenden Sie Active IQ Config Advisor
 
 Active IQ Config Advisor wird in einem Browser-Fenster ausgeführt, sammelt Informationen über Ihr Netzwerk und Ihre Umgebung und erstellt einen Bericht, mit dem Sie sämtliche Netzwerk- oder Konfigurationsprobleme, die die NetApp HCI-Implementierung beeinträchtigen könnten, beheben können.
@@ -125,6 +127,7 @@ NOTE: Die Dokumente zu PDF und Microsoft Word enthalten Informationen zur Switch
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

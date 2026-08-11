@@ -28,6 +28,7 @@ Sie können die Versionsnummern des Management-Node-Betriebssystems, des Managem
 
 
 
+[[api-commands]]
 == API-Befehle
 
 * Hier erhalten Sie Versionsinformationen zum Management-Node OS, zum Management-Services-Bundle und zum Management-Node-API-Service (mNode-API), der auf dem Management-Node ausgeführt wird:
@@ -50,6 +51,7 @@ NOTE: Ihr könnt den Träger finden `${TOKEN}` Wird von dem API-Befehl verwendet
 
 
 
+[[rest-api-ui-steps]]
 == SCHRITTE DER REST API-UI
 
 . Rufen Sie die REST-API-UI für den Service auf, indem Sie die Management-Node-IP-Adresse, gefolgt von, eingeben `/mnode/`:
@@ -87,6 +89,7 @@ Die Dienste, die auf dem Management-Knoten ausgeführt werden, werden im Respons
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

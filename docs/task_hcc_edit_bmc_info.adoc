@@ -31,6 +31,7 @@ Wählen Sie eine der folgenden Optionen, um BMC-Anmeldedaten zu ändern:
 
 
 
+[[use-netapp-hybrid-cloud-control-to-edit-bmc-information]]
 == Verwenden Sie NetApp Hybrid Cloud Control, um BMC-Informationen zu bearbeiten
 
 Sie können die gespeicherten BMC-Anmeldedaten über das NetApp Hybrid Cloud Control Dashboard bearbeiten.
@@ -63,6 +64,7 @@ NOTE: Durch Aktualisieren der BMC-Informationen wird die Bestandsaufnahme aktual
 
 
 
+[[use-the-rest-api-to-edit-bmc-information]]
 == VERWENDEN Sie die REST-API, um BMC-Informationen zu bearbeiten
 
 Die gespeicherten BMC-Anmeldedaten können mit der NetApp Hybrid Cloud Control REST-API bearbeitet werden.
@@ -179,6 +181,7 @@ Beispiel für Nutzlast:
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/Known_issues_and_workarounds_for_Compute_Node_upgrades["Bekannte Probleme und Behelfslösungen für Computing-Node-Upgrades"^]

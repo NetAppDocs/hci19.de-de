@@ -88,7 +88,6 @@
   <block id="1f970ad168b614af403c08ae0addec4a" category="list-text">Wenn Sie Teil einer Cloud Central Federated Organisation sind, geben Sie Ihre E-Mail ein und werden dann zum Login des Unternehmens weitergeleitet.</block>
   <block id="bbc54dfaf6ea7409b8769581c153632e" category="list-text">Wählen Sie aus anderen Cloud Central Produkten *Produkte* &gt; *NetApp Fabric Orchestrator* aus.</block>
   <block id="49fc376ed35249f3841846ede4dab884" category="inline-link">NetApp Cloud Central</block>
-  <block id="24d234fce5b4e0608a37069ac65a0027" category="list-text"><block ref="24d234fce5b4e0608a37069ac65a0027" category="inline-link-rx"></block></block>
   <block id="6d0eb695a99109617b806676e9610075" category="inline-link">NetApp Cloud-Dokumentation</block>
   <block id="3b4b536e5eddf372cafd89d843b3e90f" category="list-text"><block ref="3b4b536e5eddf372cafd89d843b3e90f" category="inline-link-rx"></block></block>
   <block id="9e5edd6ddd42c15545ab7c5457536fc9" category="summary">Mit NetApp Hybrid Cloud Control können Sie Komponenten Ihrer Rancher-Implementierung auf NetApp HCI aktualisieren, die Sie zuvor mithilfe von HCC installiert haben.</block>
@@ -562,9 +561,6 @@
   <block id="177512b9add0b40c38dad61838bf7d79" category="section-title">Asset Management</block>
   <block id="e578d1edd1f3c874d49e1c9e76becbbc" category="list-text"><block ref="e578d1edd1f3c874d49e1c9e76becbbc" category="inline-link-macro-rx"></block></block>
   <block id="3c8b658e38118e37eeb646cdf47b7056" category="inline-link-macro">Entfernen Sie ein Asset vom Management-Node</block>
-  <block id="a3a21bb5101c6a20e1c58197e7443000" category="list-text"><block ref="a3a21bb5101c6a20e1c58197e7443000" category="inline-link-macro-rx"></block></block>
-  <block id="1e553ee8b0d8322a51109417a46f73e3" category="inline-link-macro">VERWENDEN Sie die REST API, um NetApp HCI-Protokolle zu sammeln</block>
-  <block id="091d9ffd182526624821c249c3335c90" category="list-text"><block ref="091d9ffd182526624821c249c3335c90" category="inline-link-macro-rx"></block></block>
   <block id="29938f46373e7c8bf7adb5248272e85d" category="inline-link-macro">Überprüfen Sie die Betriebssystem- und Servicestversionen der Management-Nodes</block>
   <block id="c9676e9b030c94e7e828a060b343f3db" category="list-text"><block ref="c9676e9b030c94e7e828a060b343f3db" category="inline-link-macro-rx"></block></block>
   <block id="a5790b06c6321c773eca064d8f8b323a" category="inline-link-macro">Abrufen von Protokollen von Managementservices</block>
@@ -604,7 +600,6 @@
   <block id="e4c0dc0176dda3b4da6aef23b6489dad" category="summary">Sie können ein fehlerhaftes Dual Inline Memory Module (DIMM) in NetApp HCI-Computing-Nodes ersetzen, anstatt den gesamten Node zu ersetzen.</block>
   <block id="f5bee34d8efcc268df11e9b404d64ab4" category="doc">DIMMs in Computing-Nodes ersetzen</block>
   <block id="db5eb84117d06047c97c9a0191b5fffe" category="inline-link">Unterstützung</block>
-  <block id="0d4b8eddcdeb5a25195c2e6412a8f38e" category="list-text">Bevor Sie mit diesem Verfahren beginnen, sollten Sie den NetApp Support kontaktieren und ein Ersatzteil erhalten haben. Bei der Installation des Ersatzes ist der Support beteiligt. Falls Sie dies noch nicht getan haben, wenden Sie sich an<block ref="98d845834ac9e1a9127f330339ecea9b" category="inline-link-rx"></block>.</block>
   <block id="02483916c2b8b4e2157a6b33019e9b14" category="list-text">Geplante Systemausfallzeiten sind geplant, da der Node heruntergefahren oder aus- und wieder eingeschaltet und der Node im NetApp Safe Mode gebootet werden muss, um auf die Terminal User Interface (TUI) zuzugreifen.</block>
   <block id="137e2bc9c60fafbc63a75788202d131e" category="paragraph">Dieses Verfahren gilt für die folgenden Computing-Node-Modelle:</block>
   <block id="b68f21bcf771598bcab68314acc4bae1" category="list-text">H410C Nodes Ein H410C Node wird in ein 2-HE-NetApp HCI-Chassis eingesetzt.</block>
@@ -3551,7 +3546,6 @@
   <block id="f748be22a637481aae225cff9280e791" category="list-text">*Initiatoren*: Sie können den iSCSI-Initiator IQN oder Fibre Channel-WWPNs für das Volume sehen. Jeder IQN, der einer Zugriffsgruppe hinzugefügt wird, kann auf jedes Volume in der Gruppe zugreifen, ohne dass eine CHAP-Authentifizierung erforderlich ist. Jeder zu einer Zugriffsgruppe hinzugefügte WWPN ermöglicht den Fibre-Channel-Netzwerkzugriff auf Volumes in der Zugriffsgruppe.</block>
   <block id="c2fb1f46e0a1dd8e660dc2cf928cf263" category="list-text">*QoS-Richtlinien*: Sie sehen die QoS-Richtlinie, die auf das Volume angewendet wird. Eine QoS-Richtlinie wendet standardisierte Einstellungen für IOPS-Minimum, IOPS-Maximum und IOPS-Burst auf mehrere Volumes an.</block>
   <block id="a9664f2c069d2936e0d10e7ef1bdf822" category="inline-link-macro">Performance- und QoS-Richtlinien</block>
-  <block id="a1fbdd995fe1c1ccce6635a976aff3a7" category="paragraph">Siehe Informationen zu <block ref="c41e4fefd5b14d95ad96eb2c4a1441c5" category="inline-link-macro-rx"></block>.</block>
   <block id="3500be2d6452b665360ea9b308c6c109" category="inline-link">SolidFire- und Element-Dokumentation</block>
   <block id="06ace0d3bf47e1a95240223bce9b2125" category="list-text"><block ref="06ace0d3bf47e1a95240223bce9b2125" category="inline-link-rx"></block></block>
   <block id="4450b162e96bbeac31070837c662a915" category="summary">Erfahren Sie mehr über die Anforderungen an die NetApp HCI-Netzwerkkabel.</block>
@@ -3784,7 +3778,6 @@
   <block id="7053a770bcaf6591077ecf55c1f2c0a4" category="admonition">Stellen Sie sicher, dass Sie die Kabel nicht in die Anschlüsse zwingen. Kabel, Ports oder beides können beschädigt werden.</block>
   <block id="95697567af66baab5ea5d98383e97223" category="list-text">Vergewissern Sie sich, dass der Compute-Node (Host) im ESXi-Cluster im VMware vSphere Web Client aufgeführt ist.</block>
   <block id="7d9e1a16a83e11a28fef50d0acce5b90" category="list-text">Führen Sie diese Schritte für alle Computing-Nodes im ausgefallenen Chassis aus.</block>
-  <block id="27e786eaf760a6ac90357b58cb90a1be" category="section-title">Verschieben eines Storage-Nodes</block>
   <block id="2066ccb4f8458a45a23a14ac7e916781" category="paragraph">Bevor Sie die Storage-Nodes in das neue Chassis verschieben, sollten Sie die Laufwerke entfernen, die Nodes ordnungsgemäß herunterfahren und alle Komponenten kennzeichnen.</block>
   <block id="12f93d59a7efc0b0e1679f799784e614" category="list-text">Geben Sie den Node an, den Sie entfernen möchten:</block>
   <block id="0ef3b9d5d5c8d8652d5a032119943380" category="list-text">Notieren Sie sich die Seriennummer des Node vom Aufkleber auf der Rückseite des Node.</block>
@@ -3821,7 +3814,6 @@
   <block id="8296d229fd443d148456ff7747462250" category="section-title">Fahren Sie einen Computing-Node herunter</block>
   <block id="02fb7ecfe6b7cdd3f0889b302095f20d" category="paragraph">Bevor Sie den Computing-Node zum neuen Chassis verschieben, sollten Sie die VMs migrieren, ihn korrekt herunterfahren und die Kabel, die im Node eingesetzt wurden, kennzeichnen.</block>
   <block id="76e494e8b99069a5520668a0aa993a90" category="section-title">Fahren Sie einen Storage-Node herunter</block>
-  <block id="bfeb80f39c9dc994b57028cbb053580d" category="paragraph">Siehe Schritte <block ref="df6122283c464ca330404dd105a96891" category="inline-xref-macro-rx"></block>.</block>
   <block id="af112ce9016255d25cbd51eddef8373d" category="section-title">Entfernen des Node</block>
   <block id="9b73926922f6e997518f2dfce7bd6925" category="paragraph">Sie sollten sicherstellen, dass Sie den Knoten vorsichtig aus dem Gehäuse entfernen und alle Komponenten kennzeichnen. Die zum physischen Entfernen des Node erforderlichen Schritte sind sowohl für die Storage- als auch für die Computing-Nodes identisch. Entfernen Sie für einen Storage-Node das Laufwerk, bevor Sie den Node entfernen.</block>
   <block id="3fd7949e55587bdd1d74571734c6fb7b" category="list-text">Entfernen Sie bei einem Storage-Node die Laufwerke wie folgt vom Node im Chassis:</block>
@@ -5206,7 +5198,6 @@
   <block id="5713fd020209c4c609f636c33df03095" category="list-text">Überprüfen Sie in vSphere das<block ref="31aa78e37f0aeb3e8c9c5025431be8f0" prefix=" " category="inline-code"></block> Das Kontrollkästchen ist in den VM-Optionen nicht aktiviert.</block>
   <block id="29c3f66306d4b9c80ad86deebb2fabcf" category="admonition">Aktivieren Sie diese Option nicht, wenn Sie zukünftige Änderungen an der VM vornehmen.</block>
   <block id="2402451989cd172cbc3b634b598a7bf7" category="inline-xref">Befehl „Neuimplementierung“</block>
-  <block id="f495ed37a1bc23c35eb85ae7536b34f8" category="admonition">Bearbeiten Sie NTP nicht, nachdem Sie die Konfiguration zur Zeitsynchronisation abgeschlossen haben, da es sich auf das NTP beim Ausführen des auswirkt <block ref="09beec75f3bf74c9ec51917f2b1066ff" category="inline-xref-macro-rx"></block> Auf dem Management-Node.</block>
   <block id="7392304f705f94f7fdf38ce147ecf186" category="section-title">Konfigurieren Sie den Management-Node</block>
   <block id="0b3f4aef2ecb931e35307de851e91051" category="list-text">Erstellen eines temporären Zielverzeichnisses für den Inhalt des Management Services-Pakets:</block>
   <block id="17bf7b0a6d680e443bce8aac9131892f" category="list-text">Laden Sie das Management-Services-Bundle (Version 2.15.28 oder höher) herunter, das zuvor auf dem vorhandenen Management-Node installiert wurde, und speichern Sie es im<block ref="cdf5057722b0d52a226f03b062c5ea77" prefix=" " category="inline-code"></block> Verzeichnis.</block>
@@ -5217,7 +5208,6 @@
   <block id="4c7c8af8d2f636be58c2cffb73df599e" category="inline-link-macro">Konfiguration von NTP-Servern</block>
   <block id="5a9bea8b6ec6d8a6393b9b55bc00d11e" category="list-text">*[mvip IP-Adresse]*: Die Management-virtuelle IP-Adresse des Storage-Clusters. Konfigurieren Sie den Management-Node mit demselben Storage-Cluster, das Sie während verwendet haben <block ref="27a45bb138de34c76f63ba91c24ab011" category="inline-link-macro-rx"></block>.</block>
   <block id="8ff5d9c0aeeb77f5fe74a3ab2ad278f5" category="list-text">*[Kontoname des persistenten Volumes]*: Der Name des Kontos, der mit allen persistenten Volumes in diesem Speicher-Cluster verknüpft ist.</block>
-  <block id="869a9eef63e18fff462d7fb6eae2eb50" category="list-text">Konfigurieren und Ausführen des Befehls „Management Node Neuimplementierung“, um eine Verbindung zu persistenten Volumes zu herstellen, die im Cluster gehostet werden, und um Services mit früheren Management-Node-Konfigurationsdaten zu starten:</block>
   <block id="58df37229524fed632f3c53880c146c3" category="admonition">Sie werden aufgefordert, Passwörter in einer sicheren Eingabeaufforderung einzugeben. Wenn sich Ihr Cluster hinter einem Proxy-Server befindet, müssen Sie die Proxy-Einstellungen konfigurieren, damit Sie ein öffentliches Netzwerk erreichen können.</block>
   <block id="acdd886bc4045222b632b7cf0f124f21" category="list-text">Ersetzen Sie den Wert in [ ]-Klammern (einschließlich der Klammern) durch den Benutzernamen für das Administratorkonto für den Managementknoten. Dies ist wahrscheinlich der Benutzername für das Benutzerkonto, mit dem Sie sich beim Management-Node anmelden.</block>
   <block id="447a2c77b25a29c4b95502c7ce068a00" category="admonition">Sie können den Benutzernamen hinzufügen oder dem Skript erlauben, Sie zur Eingabe der Informationen zu auffordern.</block>
@@ -5796,10 +5786,8 @@
   <block id="563e6cdf27a660354fb10da02cd00379" category="list-text">Wechseln Sie in den Konfigurationsmodus.</block>
   <block id="0e3562675515d1e106de5db7f8ba0789" category="list-text">Führen Sie die aus<block ref="48f6d03db0af7dafae461857e48942d9" prefix=" " category="inline-code"></block> Befehl. Das folgende Beispiel zeigt:</block>
   <block id="e49dde0c9484b0d16dbf41d8bd5e9232" category="inline-link-macro">Mellanox Software-Upgrade-Leitfaden</block>
-  <block id="02b59f4918a38aa67041aa6ce96452c5" category="list-text">Wenn die Versionen nicht übereinstimmen, sollten Sie das Betriebssystem aktualisieren. Siehe <block ref="7f4c0735abc8ca21424ba9a35e46f582" category="inline-link-macro-rx"></block> Entsprechende Details.</block>
   <block id="6a18d1436322c8eb547ae030c0808970" category="section-title">Konfigurieren Sie den Ersatzschalter</block>
   <block id="698ca0582509f17e9a5c38bbac3ff5c5" category="inline-link-macro">Mellanox-Konfigurationsmanagement</block>
-  <block id="677e1977d242f09ac2153ac83f2ee5ca" category="paragraph">Führen Sie die Schritte zur Konfiguration des Ersatzschalters durch. Siehe <block ref="47d07e4817f2cf0a0b60826cd7739948" category="inline-link-macro-rx"></block> Entsprechende Details.</block>
   <block id="e8d9a35488e4e2c58ca75113b80ed61c" category="list-text">Wählen Sie eine der Optionen aus, die für Sie gilt:</block>
   <block id="c60b452281b931eedfbe5c66e518771b" category="cell">Aus DER BIN-Konfigurationsdatei</block>
   <block id="8e4a7e6a81a62d4f42e431a421fc80be" category="list-text">Holen Sie sich die BIN-Konfigurationsdatei, wie im folgenden Beispiel gezeigt:</block>
@@ -6007,15 +5995,12 @@
   <block id="1fde8564c11be0856ccf9a21a1d1430c" category="admonition">Der Standard für Ihren Management-Node ist möglicherweise LSI Logic SAS. Überprüfen Sie im Fenster *New Virtual Machine* die Konfiguration des Speicheradapters, indem Sie *Hardware anpassen* &gt; *Virtual Hardware* wählen. Ändern Sie bei Bedarf LSI Logic SAS in *LSI Logic Parallel*.</block>
   <block id="f894cbc944582e1f10fec4bf2a0639f0" category="section-title">Erstellen Sie den Management-Node-Administrator, und konfigurieren Sie das Netzwerk</block>
   <block id="26e6608a1d4408ec1913111c30b06508" category="admonition">Ab Element 12.3 werden die Teilschritte a bis (e) automatisch ausgeführt. Für Management-Node 12.3 fahren Sie mit fort <block ref="745b7d927b75ef73b131f4d1b2da0731" category="inline-xref-macro-rx"></block> Um die Konfiguration der Zeitsynchronisation abzuschließen.</block>
-  <block id="148f57c4f729acea3c3d95b35553a056" category="list-text">Fügen Sie für jeden Standardserver, den Sie hinzufügen möchten, eine neue Zeile hinzu. Die Standardzeitserver müssen die gleichen NTP-Server sein, die auf dem Speicher-Cluster verwendet werden, die Sie in A verwenden <block ref="1d132a4516f2aafec8e6c256f33f26a5" category="inline-link-macro-rx"></block>.</block>
   <block id="e7538fbaab3148e24ff8ae41d09df5ce" category="list-text">[[substep_f_install_config_time_Sync]]Zeitsynchronisierung mit Host über den Hypervisor deaktivieren (im Folgenden ein VMware-Beispiel):</block>
   <block id="2d80cb22364fea2daaca797ae1d938cb" category="inline-link-macro">Setup-Befehl</block>
-  <block id="a482c646f7f8199c69090c0d13cac33b" category="admonition">Bearbeiten Sie NTP nicht, nachdem Sie die Konfiguration zur Zeitsynchronisation abgeschlossen haben, da es sich auf das NTP beim Ausführen des auswirkt <block ref="418ec8b5cff4068b256dfd7e9fc5ded7" category="inline-link-macro-rx"></block> Auf dem Management-Node.</block>
   <block id="627bbdc5a7179606b85a5d6ccb6f65e1" category="section-title">Richten Sie den Management-Node ein</block>
   <block id="5a808c62f4f9557c4df556d6a230ba7c" category="list-text">Konfigurieren und Ausführen des Management-Node-Setup-Befehls:</block>
   <block id="fea104dd45bc0e75d821ddd5af2b02d0" category="admonition">Die gekürzte Form des Befehlsnamens ist in Klammern ( ) und kann durch den vollständigen Namen ersetzt werden.</block>
   <block id="3f124867257c579e7ba689baed3d4f45" category="list-text">*--mnode_admin_user (-mu) [username]*: Der Benutzername für das Administrator-Konto des Management-Node. Dies ist wahrscheinlich der Benutzername für das Benutzerkonto, mit dem Sie sich beim Management-Node anmelden.</block>
-  <block id="26857b6da47c6d418e7795fa65480fb4" category="list-text">*--Storage_mvip (-SM) [MVIP-Adresse]*: Die virtuelle Management-IP-Adresse (MVIP) des Speicherclusters, auf dem Element Software ausgeführt wird. Konfigurieren Sie den Management-Node mit demselben Storage-Cluster, das Sie während verwendet haben <block ref="5d58d27cc80ea9072f2b9ee8ac714542" category="inline-link-macro-rx"></block>.</block>
   <block id="4e1df484ad6625a5245817997c822b47" category="list-text">*--Storage_username (-su) [username]*: Der Benutzername des Speicherclusters für den vom angegebenen Cluster<block ref="391c26f574aa116627e9ffa00caca891" prefix=" " category="inline-code"></block> Parameter.</block>
   <block id="d71eed1c64f0531e1c1642b076495af1" category="list-text">*--Telemetrie_Active (-t) [true]*: Den Wert TRUE beibehalten, der die Datenerfassung zur Analyse durch Active IQ ermöglicht.</block>
   <block id="e4d37c44acea4cf6b1f090b66eb5cdb4" category="list-text">(Optional): Fügen Sie dem Befehl Active IQ-Endpunkt-Parameter hinzu:</block>
@@ -6497,7 +6482,6 @@
   <block id="6a1419cffec796a0cf9688c584b108e5" category="paragraph">Hier sind einige zusätzliche Aufgaben, die Sie möglicherweise durchführen müssen, wenn Ihr System die spezifischen Bedingungen hat, für die sie gelten:</block>
   <block id="6f2e0dd9461f023001b32f634a66ca39" category="list-text"><block ref="6f2e0dd9461f023001b32f634a66ca39" category="inline-link-macro-rx"></block></block>
   <block id="d5e0ed137993fa47f6c52eaba475f986" category="list-text"><block ref="96458e97c135f9cdca1845fd2743e79f" category="inline-xref-macro-rx"></block></block>
-  <block id="27e4d3a5ce33dd22d6512ac546804968" category="list-text"><block ref="d095c71c5d51f56f74c0c624a25acdfc" category="inline-xref-macro-rx"></block></block>
   <block id="fefc802a17eb78beb3791d194d57c778" category="section-title">Schritt 1: Bereiten Sie vor, den Compute-Node zu ersetzen</block>
   <block id="c5fe75a9a5a9f7b0e4279644ad5bba34" category="section-title">Schritt 2: Ersetzen Sie den Compute-Node im Chassis</block>
   <block id="527e6719cbc58f7527999477eaac0dd2" category="section-title">Schritt 3: Entfernen Sie die Compute-Node-Ressource in NetApp HCI 1.7 und höher</block>
@@ -6540,12 +6524,9 @@
   <block id="213686afc3803be7caa09348765467fe" category="sidebar">Wo Sie Hilfe erhalten</block>
   <block id="389672366ff11f72a82c5c495b9b5159" category="sidebar">NetApp HCI 1.8-Dokumentation</block>
   <block id="de9f9af3b709ace792d8704d5d9b105f" category="list-text"><block ref="de9f9af3b709ace792d8704d5d9b105f" category="inline-link-rx"></block></block>
-  <block id="68f63921fdce687db3c7510ea1f63df3" category="paragraph">Siehe<block ref="5fe7d084aafda4fb5c53715a85948ffe" category="inline-link-rx"></block>.</block>
   <block id="75f97cab9e9de14d25c05846e421361a" category="paragraph">Detaillierte Informationen zu den Funktionen der einzelnen Komponenten von NetApp HCI finden Sie im NetApp HCI<block ref="cf48105a0f3c2479f34bbdfad268bcc0" category="inline-link-rx"></block> .</block>
-  <block id="5824ec67f2e84250bfcd931d8f2d6a16" category="list-text">Weitere Informationen und andere unterstützte Konfigurationen finden Sie unter<block ref="be0a1633f05f833fc37598e3b5d7e95e" category="inline-link-rx"></block> und<block ref="a72ae021af8843b5883c31a3cf48fdbb" category="inline-link-rx"></block> .</block>
   <block id="8a91fe255efcffde80021047735fd330" category="list-text">Informationen zu NetApp HCI-Konfigurationen, die kleiner als vier Storage-Nodes sind, finden Sie unter<block ref="54d37355d9369a629af27e51f6998cd4" category="inline-link-rx"></block>.</block>
   <block id="1e4bf851d18462d626029f69f75339e4" category="list-text"><block ref="1e4bf851d18462d626029f69f75339e4" category="inline-link-rx"></block></block>
-  <block id="a5f38386dcceecb027de7fd15fcc6aa4" category="list-text"><block ref="a5f38386dcceecb027de7fd15fcc6aa4" category="inline-link-rx"></block></block>
   <block id="0287de700b52d79d64e09aca72f4850b" category="admonition">Wenn Sie ESXi für Compute-Nodes für einen<block ref="d6b7667dc675e8798d67d09fb8931bb2" category="inline-link-rx"></block> aktualisieren, aktualisieren Sie jeweils nur einen Compute-Node, sodass nur ein Witness-Node vorübergehend nicht verfügbar ist und das Cluster-Quorum beibehalten werden kann.</block>
   <block id="a2f9c1250a16a7514c9d6b0865b7bf42" category="list-text"><block ref="a2f9c1250a16a7514c9d6b0865b7bf42" category="inline-link-rx"></block></block>
   <block id="b691b91f1208379346de4d69f8c840f1" category="list-text"><block ref="b691b91f1208379346de4d69f8c840f1" category="inline-link-macro-rx"></block></block>
@@ -6580,4 +6561,23 @@
   <block id="5e447c4788a02133d94738f6ce42f213" category="list-text"><block ref="5e447c4788a02133d94738f6ce42f213" category="inline-link-macro-rx"></block></block>
   <block id="46e87a91de6f38f3b1344d05a59270dd" category="sidebar">NetApp HCI 1.9-Dokumentation</block>
   <block id="4fdd77772a3c8c75f3f83d76694106d1" category="sidebar">NetApp HCI 1.9-Dokumentation</block>
+  <block id="cd388508451a8326f25b9d7c5d9faa35" category="paragraph">Siehe <block ref="45dfeaa43e9f1dd00a21977e432c35a4" category="inline-link-rx"></block>.</block>
+  <block id="24507f673eef4a19fb23059cc58859ff" category="inline-link">Quellenseite</block>
+  <block id="92b06659e9792623f589d67c5ff768f4" category="list-text"><block ref="92b06659e9792623f589d67c5ff768f4" category="inline-link-rx"></block></block>
+  <block id="b2fc1a5e41c41b67c5bace9db877a759" category="list-text"><block ref="b2fc1a5e41c41b67c5bace9db877a759" category="inline-link-rx"></block></block>
+  <block id="f4474b9e29a9baacdc9fa61fae379682" category="paragraph">Siehe Informationen über <block ref="1d3de344b485dd9645e08283cd164260" category="inline-link-macro-rx"></block>.</block>
+  <block id="7cf2e19a356ede2034d8f64c67d696db" category="list-text">Bevor Sie mit diesem Vorgang beginnen, sollten Sie sich an NetApp Support gewandt und ein Ersatzteil erhalten haben. Der Support wird bei der Installation des Ersatzteils involviert sein. Falls Sie dies noch nicht getan haben, kontaktieren Sie <block ref="40d68d5ad5b72cd7b0aeb54dca582b44" category="inline-link-rx"></block>.</block>
+  <block id="d2976374b903151107a40ab7af908d9e" category="list-text">Weitere Informationen und andere unterstützte Konfigurationen finden Sie unter <block ref="f8d4acc3f9aaa36dce166227706d4559" category="inline-link-rx"></block> und der <block ref="a72ae021af8843b5883c31a3cf48fdbb" category="inline-link-rx"></block>.</block>
+  <block id="9dab290e89213456d980870059befb04" category="list-text"><block ref="9dab290e89213456d980870059befb04" category="inline-link-macro-rx"></block></block>
+  <block id="54a25b9525fa344cfd032b23a0a55785" category="section-title">[[erster Schritt]]Einen Speicherknoten verschieben</block>
+  <block id="4bc6740a60deefa0285a0c720b548842" category="paragraph">Die einzelnen Schritte sind unter <block ref="ec97764f469808b2dc22de3d7da48064" category="inline-xref-macro-rx"></block> aufgeführt.</block>
+  <block id="83e38c1e0a56daef5954e61f93fa7a9e" category="list-text"><block ref="83e38c1e0a56daef5954e61f93fa7a9e" category="inline-link-rx"></block></block>
+  <block id="bc46b1ab85f9c7954751a790c2bb6484" category="list-text">Wenn die Versionen nicht übereinstimmen, sollte das Betriebssystem aktualisiert werden. Siehe den Link:Siehe das <block ref="7f4c0735abc8ca21424ba9a35e46f582" category="inline-link-macro-rx"></block> für Details.</block>
+  <block id="6710010f48c45db9480d46a9237ca0d7" category="paragraph">Führen Sie die Schritte zur Konfiguration des Ersatzschalters durch. Siehe Link:Siehe <block ref="47d07e4817f2cf0a0b60826cd7739948" category="inline-link-macro-rx"></block> für Details.</block>
+  <block id="7077dbcc40e302fb098c9302c0c6269c" category="list-text">Fügen Sie für jeden Standardzeitserver, den Sie hinzufügen möchten, eine neue Zeile hinzu. Die Standardzeitserver müssen dieselben NTP-Server sein, die auf dem Speichercluster verwendet werden, das Sie in einer <block ref="0c2d9dcf26ca39b44a5e8852cef3f0e3" category="inline-link-macro-rx"></block> verwenden.</block>
+  <block id="976d818f45b3fe57b988f6fb568892d9" category="admonition">Bearbeiten Sie den NTP nicht, nachdem Sie die Zeitsynchronisierungskonfiguration abgeschlossen haben, da dies Auswirkungen auf den NTP hat, wenn Sie <block ref="cffa1335b86456e7f03dd817732877bf" category="inline-link-macro-rx"></block> auf dem Management-Node ausführen.</block>
+  <block id="0aeacc7be58cf29fd697c7be15f8be8a" category="list-text">*--storage_mvip (-sm) [MVIP-Adresse]*: Die Management Virtual IP-Adresse (MVIP) des Speicherclusters, auf dem die Element Software ausgeführt wird. Der Management-Node wird mit demselben Speichercluster konfiguriert, der während <block ref="8118d1db72d661fee875698000297a70" category="inline-link-macro-rx"></block> verwendet wurde.</block>
+  <block id="306dce65244454f104c560984a933a89" category="admonition">Bearbeiten Sie den NTP nicht, nachdem Sie die Zeitsynchronisierungskonfiguration abgeschlossen haben, da dies Auswirkungen auf den NTP hat, wenn Sie <block ref="d4cc54860504c9dd35fa60f279389412" category="inline-xref-macro-rx"></block> auf dem Management-Node ausführen.</block>
+  <block id="d6352877dcd2cf0801fbfb4ea843c259" category="list-text">[[Schritt 6]] Den Befehl „management node redeploy“ konfigurieren und ausführen, um eine Verbindung zu persistenten Volumes herzustellen, die auf dem Cluster gehostet werden, und Dienste mit den vorherigen Konfigurationsdaten des Management-Knotens zu starten:</block>
+  <block id="b3968e53b2372d33658d13c63d05d56b" category="list-text"><block ref="a3a21bb5101c6a20e1c58197e7443000" category="inline-link-macro-rx"></block> *<block ref="370b6a48ac72103f3329504653be50fe" category="inline-link-macro-rx"></block></block>
 </blocks>

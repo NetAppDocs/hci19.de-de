@@ -22,6 +22,7 @@ Nach der Implementierung provisionieren, managen und überwachen Sie über die R
 
 
 
+[[benefits-of-rancher-on-netapp-hci]]
 == Vorteile von Rancher bei NetApp HCI
 
 * Einfache Installation: Sie müssen nicht lernen, wie man Rancher installiert und konfiguriert. Sie können eine vorlagenbasierte Implementierung implementieren, die von NetApp HCI und Rancher gemeinsam entwickelt wurde.
@@ -30,6 +31,7 @@ Nach der Implementierung provisionieren, managen und überwachen Sie über die R
 
 
 
+[[what-you-can-do-with-rancher-on-netapp-hci]]
 == Was Sie mit Rancher auf NetApp HCI tun können
 
 Mit NetApp HCI-Ranglisten können Sie:
@@ -43,6 +45,7 @@ Mit NetApp HCI-Ranglisten können Sie:
 
 
 
+[[technical-support-option]]
 == Option für technischen Support
 
 Durch die Verwendung von Rancher auf der Open-Source-Software NetApp HCI und Kubernetes umfasst die kostenlose Implementierung und Nutzung. Lizenzschlüssel sind nicht erforderlich.
@@ -54,6 +57,7 @@ NOTE: Rancher Support ist nicht in Ihrer NetApp Support Edge Vereinbarung enthal
 
 
 
+[[rancher-on-netapp-hci-architecture-and-components]]
 == Rancher zu NetApp HCI Architektur und Komponenten
 
 Hier eine Übersicht der verschiedenen Komponenten von Rancher auf NetApp HCI:

@@ -56,6 +56,7 @@ Sie können eine neue OVA implementieren und ein Neuimplementierung-Skript ausf�
 
 
 
+[[download-iso-or-ova-and-deploy-the-vm]]
 == Laden Sie ISO oder OVA herunter, und implementieren Sie die VM
 
 . Laden Sie die OVA oder ISO für Ihre Installation im herunter https://mysupport.netapp.com/site/products/all/details/netapp-hci/downloads-tab["NetApp HCI"^] Auf der NetApp Support Site:
@@ -97,6 +98,7 @@ NOTE: Wenn Sie einen Management-Node mithilfe des Images installieren, kann dies
 
 
 
+[[configure-the-network]]
 == Konfigurieren des Netzwerks
 
 . Erstellen Sie über die Terminal User Interface (TUI) einen Management Node Admin User.
@@ -113,6 +115,7 @@ NOTE: Wenn Sie eine zusätzliche NIC benötigen, um den Speicherdatenverkehr zu 
 
 
 
+[[configure-time-sync]]
 == Konfigurieren Sie die Zeitsynchronisierung
 
 . Stellen Sie sicher, dass die Zeit zwischen dem Management-Node und dem Storage-Cluster mit NTP synchronisiert wird:
@@ -186,10 +189,11 @@ NOTE: Aktivieren Sie diese Option nicht, wenn Sie zukünftige Änderungen an der
 
 
 
-NOTE: Bearbeiten Sie NTP nicht, nachdem Sie die Konfiguration zur Zeitsynchronisation abgeschlossen haben, da es sich auf das NTP beim Ausführen des auswirkt <<step_6_recover_mnode_redeploy,Befehl „Neuimplementierung“>> Auf dem Management-Node.
+NOTE: Bearbeiten Sie den NTP nicht, nachdem Sie die Zeitsynchronisierungskonfiguration abgeschlossen haben, da dies Auswirkungen auf den NTP hat, wenn Sie <<step-6,Befehl „Neuimplementierung“>> auf dem Management-Node ausführen.
 
 
 
+[[configure-the-management-node]]
 == Konfigurieren Sie den Management-Node
 
 . Erstellen eines temporären Zielverzeichnisses für den Inhalt des Management Services-Pakets:
@@ -226,7 +230,7 @@ echo '{"trident": true, "mvip": "[mvip IP address]", "account_name": "[persisten
 
 
 
-. Konfigurieren und Ausführen des Befehls „Management Node Neuimplementierung“, um eine Verbindung zu persistenten Volumes zu herstellen, die im Cluster gehostet werden, und um Services mit früheren Management-Node-Konfigurationsdaten zu starten:
+. [[Schritt 6]] Den Befehl „management node redeploy“ konfigurieren und ausführen, um eine Verbindung zu persistenten Volumes herzustellen, die auf dem Cluster gehostet werden, und Dienste mit den vorherigen Konfigurationsdaten des Management-Knotens zu starten:
 +
 
 NOTE: Sie werden aufgefordert, Passwörter in einer sicheren Eingabeaufforderung einzugeben. Wenn sich Ihr Cluster hinter einem Proxy-Server befindet, müssen Sie die Proxy-Einstellungen konfigurieren, damit Sie ein öffentliches Netzwerk erreichen können.
@@ -253,6 +257,7 @@ IMPORTANT: SSH-Funktion, die bietet link:task_mnode_enable_remote_support_connec
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:concept_hci_volumes.html#persistent-volumes["Persistente Volumes"]

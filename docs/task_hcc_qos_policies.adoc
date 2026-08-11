@@ -30,6 +30,7 @@ Mithilfe von NetApp Hybrid Cloud Control lassen sich QoS-Richtlinien erstellen u
 
 
 
+[[create-a-qos-policy]]
 == Erstellen einer QoS-Richtlinie
 
 Sie können QoS-Richtlinien erstellen und auf Volumes anwenden, die eine vergleichbare Performance aufweisen sollten.
@@ -57,6 +58,7 @@ Für die Richtlinie wird eine System-ID generiert, und die Richtlinie wird auf d
 
 
 
+[[apply-a-qos-policy-to-a-volume]]
 == Wenden Sie eine QoS-Richtlinie auf ein Volume an
 
 Mithilfe von NetApp Hybrid Cloud Control kann einer vorhandenen QoS-Richtlinie ein Volume zugewiesen werden.
@@ -86,6 +88,7 @@ Das aktualisierte Volume mit der zugewiesenen QoS-Richtlinie wird auf der Übers
 
 
 
+[[change-the-qos-policy-assignment-of-a-volume]]
 == Ändern der QoS-Richtlinienzuweisung eines Volumes
 
 Sie können die Zuweisung einer QoS-Richtlinie aus einem Volume entfernen oder eine andere QoS-Richtlinie oder benutzerdefinierte QoS auswählen.
@@ -117,6 +120,7 @@ Das aktualisierte Volume wird auf der Seite Übersicht angezeigt.
 
 
 
+[[edit-a-qos-policy]]
 == Bearbeiten einer QoS-Richtlinie
 
 Sie können den Namen einer vorhandenen QoS-Richtlinie ändern oder die mit der Richtlinie verknüpften Werte bearbeiten. Das Ändern von Performance-Werten für die QoS-Richtlinie wirkt sich auf die QoS aller mit der Richtlinie verknüpften Volumes aus.
@@ -148,6 +152,7 @@ TIP: Klicken Sie auf den Link in der Spalte *aktive Volumes*, um eine Richtlinie
 
 
 
+[[delete-a-qos-policy]]
 == Löschen einer QoS-Richtlinie
 
 Die QoS-Richtlinie kann gelöscht werden, wenn sie nicht mehr benötigt wird. Wenn Sie eine QoS-Richtlinie löschen, erhalten alle mit der Richtlinie zugewiesenen Volumes die QoS-Werte, die zuvor von der Richtlinie definiert wurden, jedoch als individuelle Volume-QoS. Jede Zuordnung zur Richtlinie „Gelöschte QoS“ wird entfernt.

@@ -61,6 +61,7 @@ Wenn Sie beim Einschalten der Knoten mehr Zeit einplanen und überprüfen möcht
 ====
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen für NetApp HCI und Firmware-Versionen für NetApp HCI Storage Nodes"]

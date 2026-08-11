@@ -54,6 +54,7 @@ NOTE: Wenn Sie Ihre Managementservices, gefolgt vom Element Storage, nicht nache
 
 
 
+[[upgrade-a-management-node-to-version-12-3-x-from-12-2]]
 == Aktualisieren eines Management-Node auf Version 12.3.x von 12.2
 
 Sie können ein Upgrade des Management-Node von Version 12.2 auf Version 12.3.x durchführen, ohne eine neue Management Node Virtual Machine bereitstellen zu müssen.
@@ -147,6 +148,7 @@ IMPORTANT: Wenn Sie die SSH-Funktion zuvor auf dem Management-Node deaktiviert h
 
 
 
+[[upgrade-a-management-node-to-version-12-3-x-from-12-0]]
 == Aktualisieren eines Management-Node auf Version 12.3.x von 12.0
 
 Sie können ein Upgrade des Management-Node von Version 12.0 auf Version 12.3.x durchführen, ohne eine neue Management Node Virtual Machine bereitstellen zu müssen.
@@ -246,6 +248,7 @@ IMPORTANT: SSH-Funktion, die bietet link:task_mnode_enable_remote_support_connec
 
 
 
+[[upgrade-a-management-node-to-version-12-3-x-from-11-3-through-11-8]]
 == Aktualisieren eines Management-Node auf Version 12.3.x von 11.3 bis 11.8
 
 Sie können ein Upgrade des Management-Node von Version 11.3, 11.5, 11.7 oder 11.8 auf Version 12.3.x durchführen, ohne eine neue Management-Node-Virtual Machine bereitstellen zu müssen.
@@ -345,6 +348,7 @@ IMPORTANT: SSH-Funktion, die bietet link:task_mnode_enable_remote_support_connec
 
 
 
+[[upgrade-a-management-node-to-version-12-3-x-from-11-1-or-11-0]]
 == Aktualisieren eines Management-Node auf Version 12.3.x von 11.1 oder 11.0
 
 Sie können ein Upgrade des Management-Node von 11.0 oder 11.1 auf Version 12.3.x durchführen, ohne eine neue Management Node Virtual Machine bereitstellen zu müssen.
@@ -537,6 +541,7 @@ Die Installation verfügt über eine Basiskonfiguration, die während der Instal
 
 
 
+[[migrating-from-management-node-version-10-x-to-11-x]]
 == Migration von Management-Node-Version 10.x zu 11.x
 
 Wenn Sie einen Management-Node bei Version 10.x haben, können Sie kein Upgrade von 10.x auf 11.x durchführen Stattdessen können Sie dieses Migrationsverfahren verwenden, um die Konfiguration von 10.x auf einen neu implementierten 11.1 Management-Node zu kopieren. Wenn Ihr Management-Node derzeit 11.0 oder höher ist, sollten Sie dieses Verfahren überspringen. Sie benötigen Management-Node 11.0 oder 11.1 und den link:task_upgrade_element_latest_healthtools.html["Aktuelles HealthTools"] Aktualisierung der Element Software von 10.3 + bis 11.x
@@ -646,6 +651,7 @@ sudo systemctl restart sfcollector
 
 
 
+[[reconfigure-authentication-using-the-management-node-rest-api]]
 == Konfigurieren Sie die Authentifizierung mithilfe der REST-API des Management-Node neu
 
 Bei einem sequenziell aktualisierten Management-Service (1) und (2) Element Storage können bestehende Management-Node weiterhin verwendet werden. Wenn Sie eine andere Upgrade-Reihenfolge eingehalten haben, lesen Sie die Verfahren für Upgrades von vorhandenen Management-Nodes.
@@ -682,6 +688,7 @@ Der Antwortkörper zeigt an, dass die Neukonfiguration erfolgreich war.
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

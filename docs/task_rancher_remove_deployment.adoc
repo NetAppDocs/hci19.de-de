@@ -28,6 +28,7 @@ TIP: Sie möchten die Benutzer-Cluster möglicherweise beibehalten. Wenn Sie sie
 
 
 
+[[remove-rancher-on-netapp-hci-using-netapp-hybrid-cloud-control]]
 == Entfernen Sie Rancher auf NetApp HCI mit NetApp Hybrid Cloud Control
 
 Die Web-UI von NetApp Hybrid Cloud Control entfernt die drei während der Implementierung für das Hosting des Rancher Servers festgelegten Virtual Machines.
@@ -56,6 +57,7 @@ CAUTION: Durch Klicken auf *Löschen* wird das Rancher auf dem NetApp HCI Manage
 
 
 
+[[remove-rancher-on-netapp-hci-using-the-rest-api]]
 == Entfernen Sie Rancher auf NetApp HCI mit DER REST-API
 
 Mithilfe der NetApp Hybrid Cloud Control REST-API sind die drei Virtual Machines entfernt, die während der Implementierung zum Hosten des Rancher Servers eingerichtet wurden.
@@ -89,6 +91,7 @@ Nach einigen Minuten sollten die virtuellen Maschinen des Rancher-Servers nicht 
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Fehlerbehebung bei der Rancher-Implementierung"^]

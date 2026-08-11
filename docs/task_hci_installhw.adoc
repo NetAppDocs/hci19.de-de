@@ -32,6 +32,7 @@ TIP: Siehe link:../media/hseries-isi.pdf["Poster"^] Für eine visuelle Darstellu
 
 
 
+[[workflow-diagrams]]
 == Workflow-Diagramme
 
 Die Workflow-Diagramme hier bieten einen allgemeinen Überblick über die Installationsschritte. Die Schritte variieren je nach Modell der H-Serie leicht.
@@ -43,12 +44,14 @@ Die Workflow-Diagramme hier bieten einen allgemeinen Überblick über die Instal
 
 
 
+[[h410c-and-h410s]]
 === H410C und H410S
 
 image::workflow_h410c.PNG[Installations-Workflow für H410C und H410S]
 
 
 
+[[h610c-and-h615c]]
 === H610C und H615C
 
 
@@ -58,6 +61,7 @@ image::workflow_h610c.png[H610C und H615C Installations-Workflow]
 
 
 
+[[h610s]]
 === H610S
 
 
@@ -67,6 +71,7 @@ image::workflow_h610s.png[H610S Installations-Workflow]
 
 
 
+[[prepare-for-installation]]
 == Installation vorbereiten
 
 Überprüfen Sie vor der Installation die gelieferten Hardware und wenden Sie sich an den NetApp Support, wenn Teile fehlen.
@@ -103,6 +108,7 @@ CAUTION: Achten Sie beim Einbau der Hardware darauf, dass Sie das gesamte Verpac
 
 
 
+[[install-the-rails]]
 == Installieren Sie die Schienen
 
 Die Hardwarebestellung, die Ihnen zugestellt wurde, enthält eine Reihe von Gleitschienen. Sie benötigen einen Schraubendreher, um die Schieneninstallation abzuschließen. Die Installationsschritte variieren für jedes Node-Modell entsprechend.
@@ -117,6 +123,7 @@ TIP: Installieren Sie die Hardware von der Unterseite des Racks bis zur Oberseit
 
 
 
+[[h410c-and-h410s]]
 === H410C und H410S
 
 H410C und H410S Nodes sind in einem 2-HE-Chassis mit vier Nodes installiert. Das Chassis wird mit zwei Adaptersätzen ausgeliefert. Wenn Sie das Gehäuse in einem Rack mit runden Löchern einsetzen möchten, verwenden Sie die Adapter für ein Rack mit runden Löchern. Die Schienen für H410C und H410S Nodes passen ein Rack zwischen 29 Zoll und 33.5 Zoll Tiefe. Wenn die Schiene vollständig zusammengeschraubt ist, ist sie 28 Zoll lang, und die vorderen und hinteren Abschnitte der Schiene werden zusammen mit nur einer Schraube gehalten.
@@ -139,6 +146,7 @@ image::h410c_rail.gif[Schienenmontage für 2 HE]
 
 
 
+[[h610c]]
 === H610C
 
 Folgende Abbildung zeigt die Installation von Schienen für einen H61OC Computing-Node:
@@ -147,6 +155,7 @@ image::h610c_rail.png[Rail-Installation für H610C Computing-Node.]
 
 
 
+[[h610s-and-h615c]]
 === H610S und H615C
 
 Folgende Abbildung zeigt die Installation von Rails für einen H610S Storage-Node oder einen H615C Computing-Node:
@@ -158,6 +167,7 @@ TIP: Auf dem H610S und H615C gibt es linke und rechte Schienen. Positionieren Si
 
 
 
+[[install-the-nodechassis]]
 == Installieren Sie den Node/das Chassis
 
 Sie installieren den H410C Computing-Node und H410S Storage-Node in einem 2-HE-Chassis mit vier Nodes. Installieren Sie für H610C, H615C und H610S das Chassis/Node direkt auf den Schienen im Rack.
@@ -175,6 +185,7 @@ CAUTION: Entfernen Sie das gesamte Verpackungsmaterial und die Verpackung vom Ge
 
 
 
+[[h410c-and-h410s-nodes]]
 === H410C und H410S Nodes
 
 .Schritte
@@ -190,6 +201,7 @@ image::h410s_drives.png[Vorderansicht des H410S Storage-Node mit installierten L
 
 
 
+[[h610c-nodechassis]]
 === H610C Node/Chassis
 
 Beim H610C werden die Begriffe „Node“ und „Chassis“ austauschbar verwendet, da Node und Chassis keine separaten Komponenten sind, anders als beim 2-HE-Chassis mit vier Nodes.
@@ -200,6 +212,7 @@ image::h610c_chassis.png[Zeigt den H610C Node/Chassis, der im Rack installiert i
 
 
 
+[[h610s-and-h615c-nodechassis]]
 === H610S und H615C Node/Chassis
 
 Bei H615C und H610S werden die Begriffe „Node“ und „Chassis“ austauschbar verwendet, da Node und Chassis keine separaten Komponenten sind, anders als bei einem 2-HE-Chassis mit vier Nodes.
@@ -210,6 +223,7 @@ image::h610s_chassis.gif[Zeigt den H615C oder H610S Node/Chassis, der im Rack in
 
 
 
+[[install-the-switches]]
 == Installieren Sie die Schalter
 
 Wenn Sie Mellanox SN2010-, SN2100- und SN2700-Switches in Ihrer NetApp HCI-Installation verwenden möchten, befolgen Sie die hier angegebenen Anweisungen, um die Switches zu installieren und zu verkabeln:
@@ -220,6 +234,7 @@ Wenn Sie Mellanox SN2010-, SN2100- und SN2700-Switches in Ihrer NetApp HCI-Insta
 
 
 
+[[cable-the-nodes]]
 == Die Nodes verkabeln
 
 Wenn Sie einer vorhandenen NetApp HCI Installation Nodes hinzufügen, stellen Sie sicher, dass die Verkabelung und Netzwerkkonfiguration der fügen Nodes mit der vorhandenen Installation identisch sind.
@@ -235,6 +250,7 @@ CAUTION: Stellen Sie sicher, dass die Luftzirkulation an der Rückseite des Geh�
 
 
 
+[[h410c-compute-node-and-h410s-storage-node]]
 === H410C Computing-Node und H410S Storage-Node
 
 Sie haben zwei Optionen zur Verkabelung des Node H410C: Verwenden Sie zwei Kabel oder sechs Kabel.
@@ -273,6 +289,7 @@ Schließen Sie nach dem Kabel der Nodes die Netzkabel an die beiden Netzteile pr
 
 
 
+[[h610c-compute-node]]
 === H610C Computing-Node
 
 Hier ist die Verkabelung für den H610C-Knoten:
@@ -290,6 +307,7 @@ image:light blue circle.png["Hellblauer Punkt"] Schließen Sie beide Stromkabel 
 
 
 
+[[h615c-compute-node]]
 === H615C Computing-Node
 
 Hier ist die Verkabelung für den H615C Node:
@@ -307,6 +325,7 @@ image:light blue circle.png["Hellblauer Punkt"] Schließen Sie beide Stromkabel 
 
 
 
+[[h610s-storage-node]]
 === H610S Storage-Node
 
 Hier ist die Verkabelung für den H610S-Node:
@@ -323,6 +342,7 @@ image:light blue circle.png["Hellblauer Punkt"] Verbinden Sie die beiden Stromka
 
 
 
+[[power-on-the-nodes]]
 == Schalten Sie die Nodes ein
 
 Das Booten der Nodes dauert etwa sechs Minuten.
@@ -341,6 +361,7 @@ image::H600S_ISI_nodefront.png[Zeigt den ein/aus-Schalter am H610S/H615C Node/Ch
 
 
 
+[[configure-netapp-hci]]
 == Konfigurieren Sie NetApp HCI
 
 Wählen Sie eine der folgenden Optionen:
@@ -351,6 +372,7 @@ Wählen Sie eine der folgenden Optionen:
 
 
 
+[[new-netapp-hci-installation]]
 === Neue NetApp HCI Installation
 
 .Schritte
@@ -374,6 +396,7 @@ NOTE: Alle anderen NetApp HCI-Nodes werden automatisch erkannt.
 
 
 
+[[expand-an-existing-netapp-hci-installation]]
 === Erweiterung einer vorhandenen NetApp HCI Installation
 
 .Schritte
@@ -392,6 +415,7 @@ NOTE: Die neu installierten NetApp HCI Nodes im selben Netzwerk werden automatis
 
 
 
+[[perform-post-configuration-tasks]]
 == Ausführung von Aufgaben nach der Konfiguration
 
 Abhängig vom Typ Ihres Node müssen Sie möglicherweise nach der Installation der Hardware und der Konfiguration von NetApp HCI weitere Schritte durchführen.
@@ -402,12 +426,14 @@ Abhängig vom Typ Ihres Node müssen Sie möglicherweise nach der Installation d
 
 
 
+[[h610c-node]]
 === H610C Node
 
 Installieren Sie die GPU-Treiber in ESXi für jeden installierten H610C Node und validieren Sie deren Funktionalität.
 
 
 
+[[h615c-and-h610s-nodes]]
 === H615C und H610S Nodes
 
 .Schritte
@@ -420,9 +446,10 @@ Wenn Ihr H615C Node GPUs in ihm hat, installieren Sie GPU-Treiber in ESXi für j
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/pdf.html?item=/media/9413-tr4820pdf.pdf["_TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke_"^]
+* https://www.netapp.com/pdf.html?item=/media/9413-tr4820.pdf["_TR-4820: Quick Planning Guide für NetApp HCI-Netzwerke_"^]
 * https://mysupport.netapp.com/site/tools["NetApp Configuration Advisor"^] 5.8.1 oder höher zur Netzwerkvalidierung
 

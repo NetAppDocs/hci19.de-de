@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: docs/hcc_inventory.html 
+permalink: docs/task_hcc_inventory.html 
 summary: Im Hybrid Cloud Control können Sie den Bestand Ihres Systems anzeigen. 
 keywords: netapp, hci, hcc, on premise, inventory, hybrid cloud control 
 ---
@@ -18,6 +18,7 @@ Sie können den Bestand Ihres NetApp HCI Systems unter Hybrid Cloud Control anze
 
 
 
+[[steps]]
 == Schritte
 
 . Wechseln Sie zum https://fabric.netapp.io["NetApp Fabric Orchestrator"^] Anmeldeseite.
@@ -41,6 +42,6 @@ TIP: Wenn keine der aufgeführten Systeme angezeigt werden, stellen Sie sicher, 
 [discrete]
 == Weitere Informationen
 
-* https://cloud.netapp.com/home["NetApp Cloud Central"^]
+* https://www.netapp.com/google-cloud/netapp-volumes/["NetApp Cloud Central"^]
 * https://docs.netapp.com/us-en/cloud/["NetApp Cloud-Dokumentation"^]
 

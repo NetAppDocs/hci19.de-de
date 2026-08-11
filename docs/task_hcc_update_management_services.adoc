@@ -52,6 +52,7 @@ Die Managementservices können mit der NetApp Hybrid Cloud Control UI oder DER R
 
 
 
+[[update-management-services-using-hybrid-cloud-control]]
 == Aktualisieren von Managementservices mit Hybrid Cloud Control
 
 Sie können Ihre NetApp Managementservices mit NetApp Hybrid Cloud Control aktualisieren.
@@ -96,6 +97,7 @@ Nach Beginn des Upgrades sehen Sie den Aktualisierungsstatus auf dieser Seite. W
 
 
 
+[[update-management-services-using-the-management-node-api]]
 == Aktualisieren Sie Managementservices mit der Management-Node-API
 
 Benutzer sollten idealerweise Management-Services-Updates von NetApp Hybrid Cloud Control durchführen. Sie können jedoch ein Service Bundle-Update für Managementservices manuell über die REST-API hochladen, extrahieren und implementieren. Sie können jeden Befehl für den Management-Node von DER REST-API-UI ausführen.
@@ -146,6 +148,7 @@ Ein erfolgreiches Update liefert ein Ergebnis, das dem folgenden Beispiel ähnel
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

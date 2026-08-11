@@ -20,6 +20,7 @@ Das NetApp Element Plug-in für vCenter Server ermöglicht Ihnen das Erstellen, 
 
 
 
+[[persistent-volumes]]
 == Persistente Volumes
 
 Mithilfe persistenter Volumes können Management-Node-Konfigurationsdaten nicht lokal mit einer VM in einem bestimmten Storage-Cluster gespeichert werden, damit Daten auch bei Verlust oder Entfernung von Management-Nodes erhalten bleiben. Persistente Volumes sind eine optionale, jedoch empfohlene Management-Node-Konfiguration.
@@ -35,6 +36,7 @@ NOTE: Persistente Volumes, die mit Managementservices verbunden sind, werden bei
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:task_hcc_manage_vol_management.html["Volumes managen"]

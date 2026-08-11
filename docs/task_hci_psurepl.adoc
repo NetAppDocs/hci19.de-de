@@ -98,8 +98,8 @@ image::psu-install.gif[Zeigt das Netzteil, das im Chassis installiert wird.]
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
 

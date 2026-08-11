@@ -21,6 +21,7 @@ NetApp HCI bietet Storage- und Computing-Ressourcen und kombiniert diese zu eine
 
 
 
+[[discover-whats-new]]
 == Entdecken Sie die Neuigkeiten
 
 * link:rn_whatsnew.html["Neuerungen in NetApp HCI"]
@@ -31,6 +32,7 @@ NetApp HCI bietet Storage- und Computing-Ressourcen und kombiniert diese zu eine
 
 
 
+[[get-started-with-netapp-hci]]
 == Legen Sie los – mit NetApp HCI
 
 * link:task_hci_getstarted.html["Übersicht über die Installation und Implementierung von NetApp HCI"]
@@ -41,5 +43,4 @@ NetApp HCI bietet Storage- und Computing-Ressourcen und kombiniert diese zu eine
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 

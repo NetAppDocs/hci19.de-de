@@ -18,6 +18,7 @@ NetApp HCI kann mehrere verschiedene Netzwerkverkabelungen und VLAN-Konfiguratio
 
 
 
+[[configuration-option-b-six-cables-for-compute-nodes]]
 == Konfigurationsoption B: Sechs Kabel für Computing-Nodes
 
 Als sekundäre Netzwerkkonfigurationsoption unterstützen die H410C Computing-Nodes den Einsatz von sechs Netzwerkkabel für die Verbindung mit allen NetApp HCI-Netzwerken. Diese Konfiguration erfordert, dass der Storage, vMotion und alle Netzwerke virtueller Maschinen VLAN Tagging verwenden. Sie können diese Konfiguration mit vSphere Standard Switches oder vSphere Distributed Switches (wofür eine Lizenzierung von VMware vSphere Enterprise Plus erforderlich ist) verwenden.
@@ -31,6 +32,7 @@ image::HCI_ISI_compute_6cable.png[NetApp H410C Netzwerk-Ports für Computing-Nod
 
 
 
+[[vlan-configuration]]
 === VLAN-Konfiguration
 
 Wenn Sie Computing-Nodes mithilfe von sechs Kabeln und Storage-Nodes mithilfe von vier Kabeln implementieren. Als Best Practice sollten Sie die erforderlichen Netzwerksegmente für alle Switch-Ports, die die Nodes verwenden, konfigurieren. Beispiel:
@@ -56,6 +58,7 @@ image::hci_networking_config_scenario_2.png[Bild: HCI-Netzwerkkonfigurationsopti
 
 
 
+[[example-switch-commands]]
 === Beispiel für Switch-Befehle
 
 Mit den folgenden Beispielbefehlen können Sie alle Switch-Ports konfigurieren, die für NetApp HCI-Nodes verwendet werden. Diese Befehle basieren auf einer Cisco Konfiguration, erfordern jedoch möglicherweise nur kleine Änderungen für Mellanox Switches. In der Switch-Dokumentation finden Sie die spezifischen Befehle, die Sie zur Implementierung dieser Konfiguration benötigen. Ersetzen Sie den Schnittstellennamen, die Beschreibung und das VLAN durch die Werte für Ihre Umgebung.
@@ -73,6 +76,7 @@ NOTE: Einige Switches erfordern möglicherweise die Einbeziehung des nativen VLA
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

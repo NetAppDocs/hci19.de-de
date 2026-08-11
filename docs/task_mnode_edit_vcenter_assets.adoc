@@ -18,6 +18,7 @@ Sie können Informationen zu vorhandenen VMware vCenter Controllern in der Manag
 
 
 
+[[access-the-management-services-rest-api]]
 == Zugriff auf DIE REST-API für Managementservices
 
 .Schritte
@@ -39,6 +40,7 @@ https://<ManagementNodeIP>/vcenter/1/
 
 
 
+[[view-stored-information-about-existing-controllers]]
 == Anzeigen gespeicherter Informationen zu vorhandenen Controllern
 
 Sie können vorhandene vCenter Controller, die beim Management-Node registriert sind, auflisten und gespeicherte Informationen über sie mithilfe der REST-API anzeigen.
@@ -55,6 +57,7 @@ Die API gibt eine Liste aller bekannten vCenter-Controller sowie die IP-Adresse,
 
 
 
+[[view-the-status-of-an-existing-controller]]
 == Den Status eines vorhandenen Controllers anzeigen
 
 Sie können den Status aller vorhandenen vCenter Controller anzeigen, die beim Management-Node registriert sind. Die API gibt einen Status zurück, der angibt, ob NetApp Hybrid Cloud Control sich sowohl mit dem vCenter Controller verbinden kann als auch mit dem Grund für diesen Status.
@@ -71,6 +74,7 @@ Die API gibt einen Status dieses bestimmten vCenter-Controllers zurück, zusamme
 
 
 
+[[edit-the-stored-properties-of-a-controller]]
 == Bearbeiten Sie die gespeicherten Eigenschaften eines Controllers
 
 Sie können den gespeicherten Benutzernamen oder das gespeicherte Passwort für einen der vorhandenen vCenter Controller bearbeiten, die beim Management-Node registriert sind. Sie können die gespeicherte IP-Adresse eines vorhandenen vCenter-Controllers nicht bearbeiten.
@@ -98,6 +102,7 @@ Die API gibt aktualisierte Controller-Informationen zurück.
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:task_mnode_add_assets.html["Fügen Sie dem Management-Node Computing- und Controller-Ressourcen hinzu"]

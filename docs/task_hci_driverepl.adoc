@@ -21,6 +21,7 @@ Dieses Verfahren dient zum Austausch von Laufwerken in H410S und H610S Storage-N
 
 
 
+[[best-practices-for-handling-drives]]
 == Best Practices zur Handhabung von Laufwerken
 
 Für den Umgang mit Laufwerken sollten Sie folgende Best Practices beachten:
@@ -36,6 +37,7 @@ Für den Umgang mit Laufwerken sollten Sie folgende Best Practices beachten:
 
 
 
+[[best-practices-for-adding-and-removing-drives]]
 == Best Practices zum Hinzufügen und Entfernen von Laufwerken
 
 Beachten Sie folgende Best Practices, um Laufwerke zum Cluster hinzuzufügen und Laufwerke aus dem Cluster zu entfernen:
@@ -169,8 +171,8 @@ NOTE: Wenn Sie ein neues Laufwerk in einem bestehenden Knoten installieren, regi
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
 

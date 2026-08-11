@@ -33,24 +33,28 @@ NetApp empfiehlt, gemischte Elementversionen in einem Cluster auszuführen, auß
 
 
 
+[[netapp-hci-1-9p1]]
 == NetApp HCI 1.9P1
 
 NetApp HCI 1.9P1 bietet Verbesserungen bei Sicherheit und Stabilität.
 
 
 
+[[element-12-3-1]]
 == Element 12.3.1
 
 NetApp HCI 1.9P1 enthält Element 12.3.1 für Storage-Cluster.
 
 
 
+[[storage-firmware-bundle-2-99-2]]
 === Speicher-Firmware-Bundle 2.99.2
 
 Die Version von Element 12.3.1 enthält das Storage-Firmware-Bundle Version 2.99.2. Wenn sich Ihr Storage-Cluster bereits bei Element 12.3 befindet, haben Sie die Möglichkeit, einfach das neue Firmware-Bundle 2.99.2 zu installieren.
 
 
 
+[[netapp-bugs-online-contains-known-and-resolved-issues]]
 === NetApp Bugs Online enthält bekannte und gelöste Probleme
 
 Bekannte und gelöste Probleme sind im NetApp Bugs Online-Tool aufgeführt. Sie können diese Themen für Element und andere Produkte unter durchsuchen https://mysupport.netapp.com/site/products/all/details/element-software/bugsonline-tab["NetApp Bugs Online"^].
@@ -71,7 +75,6 @@ image:bol_filters.PNG["BOL Filter align=„Mitte“"]
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["Versionshinweise zu NetApp Hybrid Cloud Control and Management Services"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
 * link:firmware_driver_versions.html["Unterstützte Firmware- und ESXi-Treiberversionen für NetApp HCI und Firmware-Versionen für NetApp HCI Storage Nodes"]
 

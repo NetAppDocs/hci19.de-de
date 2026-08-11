@@ -51,6 +51,7 @@ Wählen Sie einen der folgenden Upgrade-Prozesse:
 
 
 
+[[use-netapp-hybrid-cloud-control-ui-to-upgrade-a-rancher-deployment]]
 == Verwenden Sie die UI von NetApp Hybrid Cloud Control, um eine Rancher-Implementierung aufzurüsten
 
 Über die NetApp Hybrid Cloud Control UI lassen sich alle dieser Komponenten in der Rancher-Implementierung aufrüsten:
@@ -92,6 +93,7 @@ Ein Banner zeigt an, dass die Aktualisierung der Komponente erfolgreich war. Es 
 
 
 
+[[use-netapp-hybrid-cloud-control-api-to-upgrade-a-rancher-deployment]]
 == Mit der NetApp Hybrid Cloud Control API können Sie eine Rancher-Implementierung aktualisieren
 
 Mit APIs können Sie jede dieser Komponenten in Ihrer Rancher-Implementierung aktualisieren:
@@ -115,6 +117,7 @@ NOTE: Bei Node OS werden täglich unbeaufsichtigte Upgrades für Sicherheitspatc
 
 
 
+[[upgrade-rancher-server]]
 === Upgrade Von Rancher Server
 
 .API-Befehle
@@ -184,6 +187,7 @@ Das Upgrade wurde erfolgreich abgeschlossen, wenn der abgeschlossen wurde `Perce
 
 
 
+[[upgrade-rke]]
 === RKE aktualisieren
 
 .API-Befehle
@@ -253,6 +257,7 @@ Das Upgrade wurde erfolgreich abgeschlossen, wenn der abgeschlossen wurde `Perce
 
 
 
+[[apply-node-os-security-updates]]
 === Wenden Sie Sicherheitsupdates des Node-Betriebssystems an
 
 .API-Befehle
@@ -331,6 +336,7 @@ Das Upgrade wurde erfolgreich abgeschlossen, wenn der abgeschlossen wurde `Perce
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

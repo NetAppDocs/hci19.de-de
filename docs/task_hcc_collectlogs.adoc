@@ -30,6 +30,7 @@ Wählen Sie eine der folgenden Optionen:
 
 
 
+[[use-netapp-hybrid-cloud-control-to-collect-logs]]
 == Verwenden Sie NetApp Hybrid Cloud Control zum Erfassen von Protokollen
 
 Der Protokolleinfassungsbereich ist über das NetApp Hybrid Cloud Control Dashboard zugänglich.
@@ -71,6 +72,7 @@ Das Protokollpaket befindet sich in einem komprimierten UNIX .tgz-Dateiformat.
 
 
 
+[[use-the-rest-api-to-collect-logs]]
 == VERWENDEN Sie die REST API zum Erfassen von Protokollen
 
 Sie können REST API verwenden, um NetApp HCI- oder Element-Protokolle zu erfassen.
@@ -168,6 +170,7 @@ Das Protokollpaket befindet sich in einem komprimierten UNIX .tgz-Dateiformat.
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

@@ -41,6 +41,7 @@ Hier finden Sie einen allgemeinen Überblick über die Schritte dieses Verfahren
 
 
 
+[[prepare-to-replace-the-storage-node]]
 == Bereiten Sie den Austausch des Storage-Nodes vor
 
 Sie sollten den fehlerhaften Storage-Node ordnungsgemäß aus dem Cluster entfernen, bevor Sie den Ersatz-Node installieren. Dies ist möglich, ohne dass es zu einer Serviceunterbrechung kommt. Sie sollten die Seriennummer des ausgefallenen Storage Node von der Element UI beziehen und diesen mit der Seriennummer auf dem Aufkleber auf der Rückseite des Node übereinstimmen.
@@ -81,6 +82,7 @@ Sie können den Knoten nun physisch aus dem Gehäuse entfernen.
 
 
 
+[[replace-the-storage-node-in-the-chassis]]
 == Ersetzen Sie den Storage-Node im Chassis
 
 Sie sollten den Ersatz-Node im selben Steckplatz im Chassis installieren, aus dem Sie den fehlerhaften Node entfernen. Sie sollten die Seriennummer, die Sie über die UI notiert haben, verwenden und sie der Seriennummer auf der Rückseite des Node entsprechen.
@@ -121,6 +123,7 @@ TIP: Stellen Sie sicher, dass der Ersatz-Node auf die gleiche Weise wie die ande
 
 
 
+[[add-the-storage-node-to-the-cluster]]
 == Fügen Sie den Storage-Node dem Cluster hinzu
 
 Sie sollten den Storage-Node wieder dem Cluster hinzufügen. Die Schritte hängen von der Version von NetApp HCI ab, die Sie ausführen.
@@ -144,6 +147,7 @@ TIP: Sorgen Sie dafür, dass die Storage-Kapazität gleichmäßig auf das gesamt
 
 
 
+[[netapp-hci-1-6p1-and-later]]
 === NetApp HCI 1.6P1 und höher
 
 Sie können NetApp Hybrid Cloud Control nur verwenden, wenn Ihre NetApp HCI Installation unter Version 1.6P1 oder höher ausgeführt wird.
@@ -191,6 +195,7 @@ NOTE: NetApp HCI nimmt möglicherweise eine Zeit in Anspruch, um die von Ihnen e
 
 
 
+[[netapp-hci-1-4-p2-1-4-and-1-3]]
 === NetApp HCI 1.4 P2, 1.4 und 1.3
 
 Wenn Ihre NetApp HCI-Installation Version 1.4P2, 1.4 oder 1.3 ausführt, können Sie den Node mit der NetApp Deployment Engine dem Cluster hinzufügen.
@@ -233,6 +238,7 @@ NOTE: Sie können sich nicht mit den Anmeldeinformationen für das Lightweight D
 
 
 
+[[netapp-hci-1-2-1-1-and-1-0]]
 === NetApp HCI 1.2, 1.1 und 1.0
 
 Bei der Installation des Knotens zeigt die Terminal-Benutzeroberfläche (TUI) die für die Konfiguration des Knotens erforderlichen Felder an. Sie müssen die erforderlichen Konfigurationsinformationen für den Node eingeben, bevor Sie mit dem Hinzufügen des Node zum Cluster fortfahren.
@@ -283,8 +289,8 @@ IMPORTANT: Das Hinzufügen der Laufwerke gleichzeitig kann zu Unterbrechungen f�
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * http://docs.netapp.com/sfe-122/index.jsp["SolidFire und Element Software Documentation Center"^]
 

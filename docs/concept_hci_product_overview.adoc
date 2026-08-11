@@ -25,6 +25,7 @@ Die disaggregierte Hybrid-Cloud-Infrastruktur von NetApp ermöglicht eine unabh�
 
 
 
+[[components-of-netapp-hci]]
 == Komponenten von NetApp HCI
 
 Hier eine Übersicht über die verschiedenen Komponenten der NetApp HCI Umgebung:
@@ -52,6 +53,7 @@ TIP: Weitere Informationen zu link:https://docs.netapp.com/us-en/solidfire-activ
 
 
 
+[[netapp-hci-urls]]
 == NetApp HCI-URLs
 
 Im Folgenden finden Sie die allgemeinen URLs, die Sie mit NetApp HCI verwenden:
@@ -85,5 +87,4 @@ Im Folgenden finden Sie die allgemeinen URLs, die Sie mit NetApp HCI verwenden:
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 

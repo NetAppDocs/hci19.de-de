@@ -31,6 +31,7 @@ Im Hybrid Cloud Control Dashboard werden nur Compute-Nodes angezeigt, die gemana
 
 
 
+[[access-the-netapp-hcc-dashboard]]
 == Zugriff auf das NetApp HCC Dashboard
 
 . Öffnen Sie die IP-Adresse des Management-Node in einem Webbrowser. Beispiel:
@@ -51,6 +52,7 @@ TIP: Je nach Ihrer Installation werden möglicherweise einige oder alle diese Te
 
 
 
+[[monitor-storage-resources]]
 == Monitoring von Storage-Ressourcen
 
 Nutzen Sie den Fensterbereich *Storage*, um Ihre gesamte Speicherumgebung anzuzeigen. Sie können die Anzahl der Storage-Cluster, Storage-Nodes und Volumes insgesamt überwachen.
@@ -67,6 +69,7 @@ TIP: Um die letzten Speichercluster-Daten anzuzeigen, verwenden Sie die Seite Sp
 
 
 
+[[monitor-compute-resources]]
 == Monitoring von Computing-Ressourcen
 
 Nutzen Sie die Fensterfläche *Computing*, um Ihre gesamte NetApp H-Series Computing-Umgebung anzuzeigen. Es lässt sich die Anzahl der Computing-Cluster und Computing-Nodes insgesamt überwachen.
@@ -81,6 +84,7 @@ NOTE: Zum Management eines Computing-Node in NetApp Hybrid Cloud Control sind ei
 
 
 
+[[monitor-storage-capacity]]
 == Monitoring der Storage-Kapazität
 
 Das Monitoring der Storage-Kapazität Ihrer Umgebung ist von entscheidender Bedeutung. Mit dem Teilfenster Storage-Kapazität können Sie die Effizienz Ihrer Storage-Kapazität bestimmen, wobei oder ohne aktivierte Komprimierung, Deduplizierung und Thin Provisioning-Funktionen die Effizienz erhöht wird.
@@ -125,6 +129,7 @@ Siehe link:concept_hcc_expandoverview.html["Übersicht über die Erweiterung"].
 
 
 
+[[monitor-storage-performance]]
 == Monitoring der Storage-Performance
 
 Sie können sich ansehen, wie viel IOPS oder Durchsatz Sie aus einem Cluster erhalten können, ohne die nützliche Performance dieser Ressource durch Verwendung des Teilfensters „Storage Performance“ zu überschreiten. Die Storage-Performance ist der Punkt, an dem die maximale Auslastung erreicht wird, bevor die Latenz zum Problem wird.
@@ -160,6 +165,7 @@ https://docs.netapp.com/us-en/vcp/vcp_task_reports_volume_performance.html["Perf
 
 
 
+[[monitor-compute-utilization]]
 == Monitoring der Computing-Auslastung
 
 Neben dem Monitoring der IOPS und des Durchsatzes Ihrer Storage-Ressourcen sollten auch die CPU- und Arbeitsspeicherauslastung der Computing-Ressourcen angezeigt werden. Die gesamten IOPS, die ein Node bereitstellen kann, basieren auf den physischen Merkmalen des Nodes, wie beispielsweise die Anzahl der CPUs, die CPU-Geschwindigkeit und die RAM-Größe.
@@ -183,6 +189,7 @@ image::hcc_dashboard_compute_util_cpu.png[Teilfenster zur Computing-Auslastung]
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

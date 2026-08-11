@@ -18,6 +18,7 @@ Nach der Bereitstellung von Rancher auf NetApp HCI können Sie Benutzer-Cluster 
 
 
 
+[[deploy-user-clusters]]
 == Implementieren Sie Benutzer-Cluster
 
 Nach der Implementierung können die Dev- und Ops-Teams ihre Kubernetes-Benutzer-Cluster, ähnlich wie bei allen Rancher-Implementierungen, implementieren, auf denen sie Applikationen implementieren können.
@@ -29,6 +30,7 @@ Nach der Implementierung können die Dev- und Ops-Teams ihre Kubernetes-Benutzer
 
 
 
+[[deploy-applications-on-user-clusters]]
 == Implementieren von Applikationen auf Benutzer-Clustern
 
 Wie bei jeder Rancher-Implementierung fügen Sie auch Applikationen auf Kubernetes-Clustern hinzu.

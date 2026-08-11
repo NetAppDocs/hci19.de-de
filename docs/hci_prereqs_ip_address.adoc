@@ -18,6 +18,7 @@ NetApp HCI verfügt über spezifische IP-Adressanforderungen, die von der Größ
 
 
 
+[[number-of-ip-addresses-needed-per-netapp-hci-deployment]]
 == Anzahl der pro NetApp HCI Implementierung benötigten IP-Adressen
 
 Das NetApp HCI-Storage-Netzwerk und das Management-Netzwerk sollten jeweils separate, zusammenhängende Bereiche der IP-Adressen verwenden. In der folgenden Tabelle können Sie ermitteln, wie viele IP-Adressen Sie für Ihre Implementierung benötigen:
@@ -45,6 +46,7 @@ Das NetApp HCI-Storage-Netzwerk und das Management-Netzwerk sollten jeweils sepa
 |===
 
 
+[[ip-addresses-reserved-by-netapp-hci]]
 == IP-Adressen, die von NetApp HCI reserviert werden
 
 NetApp HCI behält sich die folgenden IP-Adressbereiche für Systemkomponenten vor. Vermeiden Sie bei der Planung Ihres Netzwerks die Verwendung dieser IP-Adressen:
@@ -69,6 +71,7 @@ NetApp HCI behält sich die folgenden IP-Adressbereiche für Systemkomponenten v
 |===
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

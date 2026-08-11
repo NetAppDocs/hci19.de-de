@@ -20,9 +20,9 @@ Verwenden Sie die https://mysupport.netapp.com/matrix/#welcome["Interoperabilit√
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in f√ºr vCenter Server"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
 

@@ -24,6 +24,7 @@ Verwalten Sie die folgenden Kontoarten:
 
 
 
+[[enable-ldap]]
 == Aktivieren Sie LDAP
 
 Um LDAP für jedes Benutzerkonto verwenden zu können, müssen Sie zunächst LDAP aktivieren.
@@ -40,12 +41,14 @@ Um LDAP für jedes Benutzerkonto verwenden zu können, müssen Sie zunächst LDA
 
 
 
+[[manage-authoritative-cluster-accounts]]
 == Managen von autorisierenden Cluster-Konten
 
 link:concept_cg_hci_accounts.html#authoritative-user-accounts["Autoritäre Benutzerkonten"] Werden bei NetApp Hybrid Cloud Control über die Option „Benutzerverwaltung“ rechts oben gemanagt. Mithilfe dieser Kontoarten können Sie sich gegen alle Storage-Ressourcen authentifizieren, die mit einer NetApp Hybrid Cloud Control Instanz von Nodes und Clustern verbunden sind. Mit diesem Konto können Sie Volumes, Konten, Zugriffsgruppen und mehr über alle Cluster hinweg verwalten.
 
 
 
+[[create-an-authoritative-cluster-account]]
 === Erstellen Sie ein autorisierende Cluster-Konto
 
 Erstellen Sie ein Konto mit NetApp Hybrid Cloud Control.
@@ -82,6 +85,7 @@ TIP: Um sicherzustellen, dass alle untergeordneten Gruppen Berechtigungen erben,
 
 
 
+[[edit-an-authoritative-cluster-account]]
 === Bearbeiten Sie ein autorisierende Cluster-Konto
 
 Mit NetApp Hybrid Cloud Control können Sie die Berechtigungen oder das Passwort eines Benutzerkontos ändern.
@@ -107,6 +111,7 @@ NOTE: Die Benutzeroberfläche von NetApp Hybrid Cloud Control dauert möglicherw
 
 
 
+[[delete-an-authoritative-user-account]]
 === Löschen eines autorisierenden Benutzerkontos
 
 Sie können ein oder mehrere Konten löschen, wenn sie nicht mehr benötigt werden. Sie können ein LDAP-Benutzerkonto löschen.
@@ -122,6 +127,7 @@ Sie können das primäre Administratorbenutzerkonto für das autorisierende Clus
 
 
 
+[[manage-volume-accounts]]
 == Volume-Konten verwalten
 
 link:concept_cg_hci_accounts.html#volume-accounts["Volume-Konten"] Werden in der Tabelle NetApp Hybrid Cloud Control Volumes gemanagt. Diese Konten gelten nur für den Storage Cluster, auf dem sie erstellt wurden. Mit diesen Typen von Konten können Sie Berechtigungen für Volumes im gesamten Netzwerk festlegen, haben aber keine Auswirkungen außerhalb dieser Volumes.
@@ -130,6 +136,7 @@ Ein Volume-Konto enthält die CHAP-Authentifizierung, die für den Zugriff auf d
 
 
 
+[[create-a-volume-account]]
 === Erstellen eines Volume-Kontos
 
 Erstellen Sie ein für dieses Volume spezifisches Konto.
@@ -155,6 +162,7 @@ NOTE: Um ein Kennwort automatisch zu generieren, lassen Sie die Felder für Anme
 
 
 
+[[edit-a-volume-account]]
 === Bearbeiten eines Volume-Kontos
 
 Sie können die CHAP-Informationen ändern und ändern, ob ein Konto aktiv oder gesperrt ist.
@@ -173,6 +181,7 @@ IMPORTANT: Das Löschen oder Sperren eines Kontos im Zusammenhang mit dem Manage
 
 
 
+[[delete-a-volume-account]]
 === Löschen Sie ein Volume-Konto
 
 Löschen Sie ein Konto, das Sie nicht mehr benötigen.
@@ -195,6 +204,7 @@ NOTE: Persistente Volumes, die mit Managementservices verbunden sind, werden ein
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:concept_cg_hci_accounts.html["Informationen zu Accounts"]

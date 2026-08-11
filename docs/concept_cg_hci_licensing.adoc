@@ -18,6 +18,7 @@ Wenn Sie NetApp HCI verwenden, werden je nach verwendetem System möglicherweise
 
 
 
+[[netapp-hci-and-vmware-vsphere-licensing]]
 == NetApp HCI und VMware vSphere Lizenzierung
 
 Die VMware vSphere-Lizenzierung hängt von Ihrer Konfiguration ab:
@@ -37,6 +38,7 @@ Die VMware vSphere-Lizenzierung hängt von Ihrer Konfiguration ab:
 |===
 
 
+[[netapp-hci-and-ontap-select-licensing]]
 == NetApp HCI und ONTAP Select Lizenzierung
 
 Falls Sie eine Version von ONTAP Select zur Verwendung in Verbindung mit einem erworbenen NetApp HCI System bereitgestellt wurden, gelten die folgenden zusätzlichen Einschränkungen:
@@ -48,6 +50,7 @@ Falls Sie eine Version von ONTAP Select zur Verwendung in Verbindung mit einem e
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

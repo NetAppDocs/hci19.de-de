@@ -115,6 +115,7 @@ Sie können den Fortschritt überwachen, während NetApp HCI die Ressourcen hinz
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2856176["Installations- und Setup-Anleitung für NetApp HCI Computing- und Storage-Nodes"^]

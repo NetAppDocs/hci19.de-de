@@ -24,6 +24,7 @@ Für Cluster mit Element Softwareversion 11.3 oder höher können Sie eine von z
 
 
 
+[[access-the-management-node-per-node-ui]]
 == Greifen Sie über die UI auf den Management-Node zu
 
 Über die UI pro Node können Sie auf Netzwerk- und Cluster-Einstellungen zugreifen und Systemtests und Dienstprogramme verwenden.
@@ -43,6 +44,7 @@ image::mnode_per_node_442_ui.png[Management-Node pro Node UI]
 
 
 
+[[access-the-management-node-rest-api-ui]]
 == Greifen Sie auf DIE REST-API-UI für den Management-Node zu
 
 Über DIE REST-API-UI erhalten Sie den Zugriff auf ein Menü mit Service-bezogenen APIs, die Managementservices auf dem Management-Node steuern.
@@ -62,6 +64,7 @@ image::mnode_swagger_ui.png[REST-API-UI für den Management-Node]
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * link:task_mnode_enable_activeIQ.html["Active IQ- und NetApp HCI-Monitoring aktivieren"]

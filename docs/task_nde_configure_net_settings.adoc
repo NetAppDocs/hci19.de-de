@@ -65,6 +65,7 @@ Die Standard-Gateway-IP-Adresse stimmt entweder nicht mit dem angegebenen Subnet
 |===
 
 
+[[configure-dns-and-ntp-settings]]
 == Konfigurieren Sie DNS- und NTP-Einstellungen
 
 .Schritte
@@ -89,6 +90,7 @@ Die Standard-Gateway-IP-Adresse stimmt entweder nicht mit dem angegebenen Subnet
 
 
 
+[[assign-vlan-ids]]
 == Weisen Sie VLAN-IDs zu
 
 Auf der Seite *VLAN IDs* können Sie NetApp HCI-Netzwerken VLAN-IDs zuweisen. Sie können auch wählen, dass keine VLAN-IDs verwendet werden. Wenn Sie die Netzwerktopologie mit zwei Kabeln für Computing-Nodes ausgewählt haben, müssen Sie für vMotion und Storage-Netzwerke für alle Computing- und Storage-Nodes in der Implementierung VLAN-IDs verwenden (VLAN-IDs sind optional für die Management-Netzwerke).
@@ -122,6 +124,7 @@ Sowohl beim Computing-vMotion-Datenverkehr als auch beim iSCSI-Datenverkehr muss
 |===
 
 
+[[configure-the-management-network]]
 == Konfigurieren Sie das Managementnetzwerk
 
 Auf der Seite *Verwaltung* können Sie festlegen, dass NetApp HCI auf Basis einer Start-IP-Adresse automatisch IP-Adressbereiche für die Verwaltungsnetzwerke füllt. Sie können auch alle IP-Adressdaten manuell eingeben.
@@ -158,6 +161,7 @@ NetApp HCI füllt automatisch die endenden IP-Adressen für jeden Host oder jede
 |===
 
 
+[[configure-the-vmotion-network]]
 == VMotion Netzwerk konfigurieren
 
 Auf der Seite *vMotion* können Sie festlegen, dass NetApp HCI die IP-Adressbereiche für das vMotion-Netzwerk automatisch auf Grundlage einer Start-IP-Adresse füllt. Alternativ können Sie alle IP-Adressdaten manuell eingeben.
@@ -193,6 +197,7 @@ NetApp HCI füllt automatisch die endenden IP-Adressen für jeden Host oder jede
 |===
 
 
+[[configure-the-iscsi-network]]
 == Konfigurieren Sie das iSCSI-Netzwerk
 
 Auf der Seite *iSCSI* können Sie festlegen, dass NetApp HCI die IP-Adressbereiche für das iSCSI-Netzwerk auf Grundlage einer Start-IP-Adresse automatisch auffüllen lässt oder Sie können alle IP-Adressdaten manuell eingeben.
@@ -231,6 +236,7 @@ NetApp HCI füllt automatisch die endenden IP-Adressen für jeden Host oder jede
 |===
 
 
+[[assign-cluster-and-host-names]]
 == Weisen Sie Cluster- und Hostnamen zu
 
 Auf der Seite *Naming* können Sie festlegen, dass NetApp HCI den Cluster-Namen und die Namen der Nodes im Cluster automatisch auffüllen soll. Sie können aber auch festlegen, dass alle Namen des Clusters und der Nodes manuell eingegeben werden.
@@ -263,9 +269,9 @@ NetApp HCI füllt automatisch die Host-Namen je nach Node-Typ. Außerdem sind di
 |===
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 * https://docs.netapp.com/us-en/element-software/index.html["Dokumentation von SolidFire und Element Software"^]
 

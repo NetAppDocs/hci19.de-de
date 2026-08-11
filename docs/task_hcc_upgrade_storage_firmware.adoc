@@ -64,6 +64,7 @@ Wählen Sie eine der folgenden Upgrade-Optionen für die Speicher-Firmware:
 
 
 
+[[use-netapp-hybrid-cloud-control-ui-to-upgrade-storage-firmware]]
 == Verwenden Sie die NetApp Hybrid Cloud Control UI für ein Upgrade der Storage-Firmware
 
 Mit der NetApp Hybrid Cloud Control UI lässt sich die Firmware der Storage-Nodes in Ihrem Cluster aktualisieren.
@@ -122,6 +123,7 @@ Sie können Protokolle herunterladen, nachdem die Aktualisierung abgeschlossen i
 
 
 
+[[upgrade-status-changes]]
 === Statusänderungen des Upgrades
 
 Hier sind die verschiedenen Status, in denen die Spalte *Upgrade Status* in der UI vor, während und nach dem Upgrade-Prozess angezeigt wird:
@@ -153,6 +155,7 @@ Hier sind die verschiedenen Status, in denen die Spalte *Upgrade Status* in der 
 |===
 
 
+[[what-happens-if-an-upgrade-fails-using-netapp-hybrid-cloud-control]]
 == Was geschieht bei einem Upgrade mit NetApp Hybrid Cloud Control
 
 Wenn während eines Upgrades ein Laufwerk oder ein Node ausfällt, zeigt die Element-UI Clusterfehler an. Der Upgrade-Prozess setzt nicht auf den nächsten Node fort und wartet auf die Behebung der Cluster-Fehler. Die Fortschrittsleiste in der UI zeigt an, dass das Upgrade auf die Behebung der Cluster-Fehler wartet. In dieser Phase funktioniert die Auswahl von *Pause* in der Benutzeroberfläche nicht, da das Upgrade wartet, bis der Cluster wieder gesund ist. Sie müssen NetApp Support beauftragen, die Fehleruntersuchung zu unterstützen.
@@ -169,6 +172,7 @@ CAUTION: Wenn das Cluster-Upgrade abgebrochen wird, während ein Node aktualisie
 
 
 
+[[use-netapp-hybrid-cloud-control-api-to-upgrade-storage-firmware]]
 == Verwenden Sie die NetApp Hybrid Cloud Control API für ein Upgrade der Storage-Firmware
 
 Mit APIs können Storage-Nodes in einem Cluster auf die neueste Element Softwareversion aktualisiert werden. Sie können ein Automatisierungstool Ihrer Wahl zum Ausführen der APIs verwenden. Der hier dokumentierte API-Workflow nutzt die REST-API-UI, die am Management-Node verfügbar ist.
@@ -397,6 +401,7 @@ Das Upgrade wurde erfolgreich abgeschlossen, wenn der abgeschlossen wurde `perce
 
 
 
+[[find-more-information]]
 == Weitere Informationen
 
 https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]

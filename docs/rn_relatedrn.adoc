@@ -21,6 +21,7 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 
 
 
+[[netapp-hci]]
 == NetApp HCI
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2879274["Versionshinweise zu NetApp HCI 1.9P1"^]
@@ -32,6 +33,7 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 
 
 
+[[netapp-element-software]]
 == NetApp Element Software
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2881056["Versionshinweise zu NetApp Element Software 12.3.2"^]
@@ -49,6 +51,7 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 
 
 
+[[management-services]]
 == Management Services
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["Versionshinweise Für Management Services"^]
@@ -56,6 +59,7 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 
 
 
+[[netapp-element-plug-in-for-vcenter-server]]
 == NetApp Element Plug-in für vCenter Server
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP3316480["Versionshinweise zu vCenter Plug-in 5.3"^] _NEU_
@@ -74,6 +78,7 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 
 
 
+[[compute-firmware]]
 == Computing-Firmware
 
 * link:rn_compute_firmware_2.146.html["Versionshinweise Zum Computing-Firmware-Bundle 2.146"]
@@ -85,6 +90,7 @@ NOTE: Sie werden aufgefordert, sich mit Ihren Anmeldedaten für die NetApp Suppo
 
 
 
+[[storage-firmware]]
 == Storage-Firmware
 
 * link:rn_storage_firmware_2.146.html["Versionshinweise Zum Speicher-Firmware-Bundle 2.146"]
