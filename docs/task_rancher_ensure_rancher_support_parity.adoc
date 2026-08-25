@@ -21,10 +21,9 @@ Wenn Sie Rancher Support nur für einen Teil Ihrer NetApp HCI-Ressourcen erworbe
 [discrete]
 == Weitere Informationen
 
-* https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.avail.doc/GUID-E137A9F8-17E4-4DE7-B986-94A0999CF327.html["VSphere HA und DRS Affinitätsregeln"^]
-* https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.resmgmt.doc/GUID-FBE46165-065C-48C2-B775-7ADA87FF9A20.html["Anti-Affinitätsregeln für VMs erstellen"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.avail.doc/GUID-E137A9F8-17E4-4DE7-B986-94A0999CF327.html["VSphere HA und DRS Affinitätsregeln"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-FBE46165-065C-48C2-B775-7ADA87FF9A20.html["Anti-Affinitätsregeln für VMs erstellen"^]
 * https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
 * https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 

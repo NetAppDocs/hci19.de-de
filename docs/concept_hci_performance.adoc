@@ -110,5 +110,4 @@ NOTE: Der ausgewählte Cluster muss zur Verwendung von QoS-Richtlinien Element 1
 == Weitere Informationen
 
 * https://docs.netapp.com/us-en/vcp/index.html["NetApp Element Plug-in für vCenter Server"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Quellenseite"^]
 

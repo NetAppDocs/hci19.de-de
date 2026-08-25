@@ -27,5 +27,4 @@ Bei diesen Aspekten kann die Ausfallsicherheit Folgendes berücksichtigt werden:
 
 * https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
 * https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 

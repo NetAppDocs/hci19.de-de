@@ -164,5 +164,4 @@ Nach der Bereitstellung können Sie Folgendes tun:
 * https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_HCI_and_Rancher_troubleshooting["Fehlerbehebung bei der Rancher-Implementierung"^]
 * https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
 * https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 

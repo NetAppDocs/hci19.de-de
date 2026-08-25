@@ -25,5 +25,4 @@ L4 Load Balancing ist eine Technik, bei der eine virtuelle Maschine oder ein Con
 
 * https://rancher.com/docs/rancher/v2.x/en/overview/architecture/["Rancher Dokumentation über Architektur"^]
 * https://rancher.com/docs/rancher/v2.x/en/overview/concepts/["Kubernetes – Terminologie für Rancher"^]
-* https://www.netapp.com/us/documentation/hci.aspx["Ressourcen-Seite zu NetApp HCI"^]
 
